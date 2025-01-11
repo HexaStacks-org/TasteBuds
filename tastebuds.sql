@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2025 at 03:21 PM
+-- Generation Time: Jan 11, 2025 at 02:21 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bookmarks` (
   `bookmarkID` int(11) NOT NULL,
-  `userID` int(11) DEFAULT NULL,
+  `userID` int(11) NOT NULL,
   `recipeID` int(11) DEFAULT NULL,
   `postID` int(11) DEFAULT NULL,
-  `bookmarkedAt` datetime DEFAULT current_timestamp()
+  `bookmarkedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -43,9 +43,9 @@ CREATE TABLE `bookmarks` (
 
 CREATE TABLE `foodsubcategories` (
   `subcategoryID` int(11) NOT NULL,
-  `subcategoryName` varchar(100) DEFAULT NULL,
+  `subcategoryName` varchar(100) NOT NULL,
   `otherSubcategory` varchar(255) DEFAULT NULL,
-  `primaryCategoryID` int(11) DEFAULT NULL
+  `primaryCategoryID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -56,12 +56,12 @@ CREATE TABLE `foodsubcategories` (
 
 CREATE TABLE `galleryposts` (
   `postID` int(11) NOT NULL,
-  `caption` varchar(1000) DEFAULT NULL,
-  `userID` int(11) DEFAULT NULL,
-  `isApproved` tinyint(1) DEFAULT NULL,
-  `createdAt` datetime DEFAULT current_timestamp(),
+  `caption` varchar(1000) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `isApproved` tinyint(1) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
   `updatedAt` datetime DEFAULT current_timestamp(),
-  `primaryCategoryID` int(11) DEFAULT NULL,
+  `primaryCategoryID` int(11) NOT NULL,
   `subcategoryID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -73,7 +73,7 @@ CREATE TABLE `galleryposts` (
 
 CREATE TABLE `images` (
   `imageID` int(11) NOT NULL,
-  `imageURL` varchar(255) DEFAULT NULL,
+  `imageURL` varchar(255) NOT NULL,
   `recipeID` int(11) DEFAULT NULL,
   `postID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -86,10 +86,10 @@ CREATE TABLE `images` (
 
 CREATE TABLE `likes` (
   `likeID` int(11) NOT NULL,
-  `userID` int(11) DEFAULT NULL,
+  `userID` int(11) NOT NULL,
   `recipeID` int(11) DEFAULT NULL,
   `postID` int(11) DEFAULT NULL,
-  `likedAt` datetime DEFAULT current_timestamp()
+  `likedAt` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -100,7 +100,18 @@ CREATE TABLE `likes` (
 
 CREATE TABLE `primaryfoodcategories` (
   `primaryCategoryID` int(11) NOT NULL,
-  `primaryCategoryName` varchar(100) DEFAULT NULL
+  `primaryCategoryName` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reasons`
+--
+
+CREATE TABLE `reasons` (
+  `reasonID` int(11) NOT NULL,
+  `reason` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -111,27 +122,16 @@ CREATE TABLE `primaryfoodcategories` (
 
 CREATE TABLE `recipes` (
   `recipeID` int(11) NOT NULL,
-  `recipeTitle` varchar(150) DEFAULT NULL,
-  `description` varchar(1000) DEFAULT NULL,
-  `ingredients` varchar(1000) DEFAULT NULL,
-  `steps` varchar(1000) DEFAULT NULL,
-  `userID` int(11) DEFAULT NULL,
-  `isApproved` tinyint(1) DEFAULT NULL,
-  `createdAt` datetime DEFAULT current_timestamp(),
+  `recipeTitle` varchar(150) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `ingredients` varchar(1000) NOT NULL,
+  `steps` varchar(1000) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `isApproved` tinyint(1) NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
   `updatedAt` datetime DEFAULT current_timestamp(),
-  `primaryCategoryID` int(11) DEFAULT NULL,
+  `primaryCategoryID` int(11) NOT NULL,
   `subcategoryID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reportreasons`
---
-
-CREATE TABLE `reportreasons` (
-  `reasonID` int(11) NOT NULL,
-  `reason` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -142,13 +142,13 @@ CREATE TABLE `reportreasons` (
 
 CREATE TABLE `reports` (
   `reportID` int(11) NOT NULL,
-  `userID` int(11) DEFAULT NULL,
+  `userID` int(11) NOT NULL,
   `recipeID` int(11) DEFAULT NULL,
   `postID` int(11) DEFAULT NULL,
-  `reasonID` int(11) DEFAULT NULL,
+  `reasonID` int(11) NOT NULL,
   `otherReason` varchar(255) DEFAULT NULL,
-  `reportedAt` datetime DEFAULT current_timestamp(),
-  `status` varchar(50) DEFAULT NULL
+  `reportedAt` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -159,13 +159,13 @@ CREATE TABLE `reports` (
 
 CREATE TABLE `users` (
   `userID` int(11) NOT NULL,
-  `firstname` varchar(100) DEFAULT NULL,
-  `lastname` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `role` varchar(50) DEFAULT NULL,
-  `registeredAt` datetime DEFAULT current_timestamp(),
-  `isRestricted` tinyint(1) DEFAULT NULL
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` varchar(50) NOT NULL,
+  `registeredAt` datetime NOT NULL DEFAULT current_timestamp(),
+  `isRestricted` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -176,43 +176,31 @@ CREATE TABLE `users` (
 -- Indexes for table `bookmarks`
 --
 ALTER TABLE `bookmarks`
-  ADD PRIMARY KEY (`bookmarkID`),
-  ADD KEY `userID` (`userID`),
-  ADD KEY `recipeID` (`recipeID`),
-  ADD KEY `postID` (`postID`);
+  ADD PRIMARY KEY (`bookmarkID`);
 
 --
 -- Indexes for table `foodsubcategories`
 --
 ALTER TABLE `foodsubcategories`
-  ADD PRIMARY KEY (`subcategoryID`),
-  ADD KEY `foodsubcategories_ibfk_1` (`primaryCategoryID`);
+  ADD PRIMARY KEY (`subcategoryID`);
 
 --
 -- Indexes for table `galleryposts`
 --
 ALTER TABLE `galleryposts`
-  ADD PRIMARY KEY (`postID`),
-  ADD KEY `userID` (`userID`),
-  ADD KEY `primaryCategoryID` (`primaryCategoryID`),
-  ADD KEY `subcategoryID` (`subcategoryID`);
+  ADD PRIMARY KEY (`postID`);
 
 --
 -- Indexes for table `images`
 --
 ALTER TABLE `images`
-  ADD PRIMARY KEY (`imageID`),
-  ADD KEY `images_ibfk_1` (`recipeID`),
-  ADD KEY `postID` (`postID`);
+  ADD PRIMARY KEY (`imageID`);
 
 --
 -- Indexes for table `likes`
 --
 ALTER TABLE `likes`
-  ADD PRIMARY KEY (`likeID`),
-  ADD KEY `userID` (`userID`),
-  ADD KEY `recipeID` (`recipeID`),
-  ADD KEY `postID` (`postID`);
+  ADD PRIMARY KEY (`likeID`);
 
 --
 -- Indexes for table `primaryfoodcategories`
@@ -221,28 +209,22 @@ ALTER TABLE `primaryfoodcategories`
   ADD PRIMARY KEY (`primaryCategoryID`);
 
 --
+-- Indexes for table `reasons`
+--
+ALTER TABLE `reasons`
+  ADD PRIMARY KEY (`reasonID`);
+
+--
 -- Indexes for table `recipes`
 --
 ALTER TABLE `recipes`
-  ADD PRIMARY KEY (`recipeID`),
-  ADD KEY `recipes_ibfk_1` (`primaryCategoryID`),
-  ADD KEY `subcategoryID` (`subcategoryID`);
-
---
--- Indexes for table `reportreasons`
---
-ALTER TABLE `reportreasons`
-  ADD PRIMARY KEY (`reasonID`);
+  ADD PRIMARY KEY (`recipeID`);
 
 --
 -- Indexes for table `reports`
 --
 ALTER TABLE `reports`
-  ADD PRIMARY KEY (`reportID`),
-  ADD KEY `userID` (`userID`),
-  ADD KEY `recipeID` (`recipeID`),
-  ADD KEY `postID` (`postID`),
-  ADD KEY `reasonID` (`reasonID`);
+  ADD PRIMARY KEY (`reportID`);
 
 --
 -- Indexes for table `users`
@@ -291,16 +273,16 @@ ALTER TABLE `primaryfoodcategories`
   MODIFY `primaryCategoryID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `reasons`
+--
+ALTER TABLE `reasons`
+  MODIFY `reasonID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `recipes`
 --
 ALTER TABLE `recipes`
   MODIFY `recipeID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `reportreasons`
---
-ALTER TABLE `reportreasons`
-  MODIFY `reasonID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `reports`
@@ -313,63 +295,6 @@ ALTER TABLE `reports`
 --
 ALTER TABLE `users`
   MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `bookmarks`
---
-ALTER TABLE `bookmarks`
-  ADD CONSTRAINT `bookmarks_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `bookmarks_ibfk_2` FOREIGN KEY (`recipeID`) REFERENCES `recipes` (`recipeID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `bookmarks_ibfk_3` FOREIGN KEY (`postID`) REFERENCES `galleryposts` (`postID`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `foodsubcategories`
---
-ALTER TABLE `foodsubcategories`
-  ADD CONSTRAINT `foodsubcategories_ibfk_1` FOREIGN KEY (`primaryCategoryID`) REFERENCES `primaryfoodcategories` (`primaryCategoryID`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `galleryposts`
---
-ALTER TABLE `galleryposts`
-  ADD CONSTRAINT `galleryposts_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `galleryposts_ibfk_2` FOREIGN KEY (`primaryCategoryID`) REFERENCES `primaryfoodcategories` (`primaryCategoryID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `galleryposts_ibfk_3` FOREIGN KEY (`subcategoryID`) REFERENCES `foodsubcategories` (`subcategoryID`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `images`
---
-ALTER TABLE `images`
-  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`recipeID`) REFERENCES `recipes` (`recipeID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `images_ibfk_2` FOREIGN KEY (`postID`) REFERENCES `galleryposts` (`postID`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `likes`
---
-ALTER TABLE `likes`
-  ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`recipeID`) REFERENCES `recipes` (`recipeID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `likes_ibfk_3` FOREIGN KEY (`postID`) REFERENCES `galleryposts` (`postID`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `recipes`
---
-ALTER TABLE `recipes`
-  ADD CONSTRAINT `recipes_ibfk_1` FOREIGN KEY (`primaryCategoryID`) REFERENCES `primaryfoodcategories` (`primaryCategoryID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `recipes_ibfk_2` FOREIGN KEY (`subcategoryID`) REFERENCES `foodsubcategories` (`subcategoryID`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `reports`
---
-ALTER TABLE `reports`
-  ADD CONSTRAINT `reports_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `reports_ibfk_2` FOREIGN KEY (`recipeID`) REFERENCES `recipes` (`recipeID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `reports_ibfk_3` FOREIGN KEY (`postID`) REFERENCES `galleryposts` (`postID`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `reports_ibfk_4` FOREIGN KEY (`reasonID`) REFERENCES `reportreasons` (`reasonID`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
