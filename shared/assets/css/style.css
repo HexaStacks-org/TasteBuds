@@ -1,41 +1,40 @@
-
 /* global variable */
-:root{
-    --fs-header: 47.78px;
-    --fs-h2: 39.91px;
-    --fs-h3: 33.18px;
-    --fs-h4: 27.65px;
-    --fs-h5: 23.04px; 
-    --fs-h6: 19.2px;
-    --fs-paragraph: 16px; 
-    --fs-small: 13.33px;
+:root {
+  --fs-header: 47.78px;
+  --fs-h2: 39.91px;
+  --fs-h3: 33.18px;
+  --fs-h4: 27.65px;
+  --fs-h5: 23.04px;
+  --fs-h6: 19.2px;
+  --fs-paragraph: 16px;
+  --fs-small: 13.33px;
 
-    --fc-primary-orange: #F1950C;
-    --fc-dark-orange: #D4830B;
-    --fc-mid-orange: #FCD59A;
-    --fc-light-orange: #FFEBCD;
-    --fc-black: #222222;
+  --fc-primary-orange: #F1950C;
+  --fc-dark-orange: #D4830B;
+  --fc-mid-orange: #FCD59A;
+  --fc-light-orange: #FFEBCD;
+  --fc-black: #222222;
 
-    --clr-primary: #F1950C;
-    --clr-secondary: #D34746;
-    --clr-action: #328032;
+  --clr-primary: #F1950C;
+  --clr-secondary: #D34746;
+  --clr-action: #328032;
 
-    --clr-dark-orange: #BF7A13;
-    --clr-mid-orange: #FCD59A;
-    --clr-light-orange: #FFEBCD;
-    --clr-black: #222222;
-    --clr-grey: #7d7d7d;
+  --clr-dark-orange: #BF7A13;
+  --clr-mid-orange: #FCD59A;
+  --clr-light-orange: #FFEBCD;
+  --clr-black: #222222;
+  --clr-grey: #7d7d7d;
 
-    --ff-title: "Rammetto One", serif;
-    --ff-text: "Open Sans", serif;
+  --ff-title: "Rammetto One", serif;
+  --ff-text: "Open Sans", serif;
 }
 
 
 .rammetto-one {
-    font-family: "Rammetto One", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
+  font-family: "Rammetto One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 
 .open-sans-text {
@@ -47,14 +46,16 @@
 }
 
 /* Navbar css */
-body {
+.navBody {
   overflow: hidden;
 }
 
-img {
-  object-fit: contain;
+.navbar-brand.logo {
+  display: flex;
+  align-items: center;
+  padding-left: 32px;
+  width: fit-content;
   overflow: hidden;
-  margin-left: 31px;
 }
 
 .navTxtClr {
@@ -154,13 +155,11 @@ img {
   height: 160px;
   max-height: 160px !important;
   overflow: visible;
-  position: absolute;
 }
 
 .offcanvas-body {
   padding-top: 42px;
   overflow: visible;
-  position: absolute;
 }
 
 .search-input {
@@ -315,4 +314,149 @@ img {
   padding-top: 24px;
   padding-bottom: 24px;
   text-align: center;
+}
+
+/* signup css */
+
+.signUpBody {
+  background-color: var(--clr-light-orange);
+}
+
+.pic {
+  margin: 0px;
+  padding: 0px;
+  width: 710px;
+  height: 1024;
+  overflow: hidden;
+}
+
+.text-start.create {
+  font-family: var(--ff-text);
+  font-size: var(--fs-header);
+  margin-left: 16px;
+  font-weight: bolder;
+}
+
+.text-start.signUp {
+  font-family: var(--ff-text);
+  font-size: var(--fs-paragraph);
+  margin-left: 17px;
+  font-weight: bolder;
+}
+
+.signUpLogo {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  width: 460px !important;
+  height: 120px !important;
+}
+
+.form-control {
+  background-color: var(--clr-white);
+  width: 600px;
+  height: 60px;
+  margin-left: 16px;
+  margin-top: 3px;
+  border-radius: 40px;
+  border: 4px solid var(--clr-primary);
+  position: relative;
+}
+
+.form-control:focus {
+  background-color: var(--clr-white);
+  width: 600px;
+  height: 60px;
+  margin-left: 16px;
+  margin-top: 3px;
+  border-radius: 40px;
+  border: 4px solid var(--clr-primary);
+}
+
+.form-label {
+  font-family: var(--ff-text);
+  font-size: var(--fs-paragraph);
+  color: var(--fc-black);
+  margin-left: 20px;
+  margin-top: 16px;
+  font-weight: bolder;
+}
+
+.form-check-input {
+  border: 2px solid var(--clr-primary);
+}
+
+.form-check-label {
+  font-family: var(--ff-text);
+  font-weight: bolder;
+}
+
+.btn-signUp {
+  background-color: var(--clr-primary);
+  width: 600px !important;
+  height: 60px !important;
+  border-radius: 40px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-signUp p {
+  font-family: var(--ff-text);
+  font-weight: bolder;
+  font-size: var(--fs-h3);
+  color: var(--clr-light-orange);
+  padding: 0;
+  margin: 0;
+}
+
+.txtAccount {
+  font-size: var(--fs-small);
+  font-weight: bolder;
+  font-family: var(--ff-text);
+}
+
+.txtAccount a {
+  text-decoration: none;
+  color: var(--fc-primary-orange);
+}
+
+@media (max-width: 768px) {
+  .pic {
+    width: 100%;
+    height: auto;
+  }
+
+  .signUpLogo {
+    width: 100%;
+    height: auto;
+    margin-top: 16px;
+  }
+
+  .form-control {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .btn-signUp {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .text-start.create,
+  .text-start.signUp {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .txtAccount {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .pic {
+    display: none;
+  }
 }
