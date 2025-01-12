@@ -1,4 +1,4 @@
-.navBody {
+.nav-body {
     overflow: hidden;
 }
 
@@ -10,7 +10,7 @@
     overflow: hidden;
 }
 
-.navTxtClr {
+.nav-txt-clr {
     font-family: var(--ff-title);
     font-size: var(--fs-paragraph);
     color: var(--fc-dark-orange);
