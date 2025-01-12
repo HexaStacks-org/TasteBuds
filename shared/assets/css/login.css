@@ -1,0 +1,168 @@
+/* login.css */
+
+.loginBody {
+    background-color: var(--clr-light-orange);
+}
+
+.pic {
+    margin: 0px;
+    padding: 0px;
+    width: 710px;
+    height: 1024px;
+    overflow: hidden;
+}
+
+.text-start.login {
+    font-family: var(--ff-text);
+    font-size: var(--fs-header);
+    margin-left: 16px;
+    margin-top: 48px;
+    font-weight: bolder;
+}
+
+.text-start.loginText {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    margin-left: 17px;
+    font-weight: bolder;
+}
+
+.loginLogo {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    width: 460px !important;
+    height: 120px !important;
+}
+
+.form-control {
+    background-color: var(--clr-white);
+    width: 600px;
+    height: 60px;
+    margin-left: 16px;
+    margin-top: 3px;
+    border-radius: 40px;
+    border: 4px solid var(--clr-primary);
+    position: relative;
+}
+
+.form-control:focus {
+    background-color: var(--clr-white);
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--clr-primary);
+}
+
+.form-label {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    color: var(--fc-black);
+    margin-left: 20px;
+    margin-top: 16px;
+    font-weight: bolder;
+}
+
+.form-check {
+    margin-left: 16px;
+}
+.form-check-input {
+    border: 2px solid var(--clr-primary);
+}
+
+.form-check-label {
+    font-family: var(--ff-text);
+    font-weight: bolder;
+}
+
+.btn-login {
+    background-color: var(--clr-primary);
+    width: 600px !important;
+    height: 60px !important;
+    border-radius: 40px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-login:hover {
+    background-color: var(--clr-dark-orange);
+}
+
+.btn-login p {
+    font-family: var(--ff-text);
+    font-weight: bolder;
+    font-size: var(--fs-h3);
+    color: var(--clr-light-orange);
+    padding: 0;
+    margin: 0;
+}
+
+.forgot-password {
+    font-size: var(--fs-small);
+    font-weight: bolder;
+    font-family: var(--ff-text);
+    color: var(--fc-primary-orange);
+    text-decoration: none;
+    margin-left: 16px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.txtAccount {
+    font-size: var(--fs-small);
+    font-weight: bolder;
+    font-family: var(--ff-text);
+}
+
+.txtAccount a {
+    text-decoration: none;
+    color: var(--fc-primary-orange);
+}
+
+.loginLogo {
+    width: 280px !important;
+    height: 80px !important;
+    margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+    .pic {
+        width: 100%;
+        height: auto;
+    }
+
+    .form-control {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .btn-login {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .text-start.login,
+    .text-start.loginText {
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .txtAccount {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .pic {
+        display: none;
+    }
+}
