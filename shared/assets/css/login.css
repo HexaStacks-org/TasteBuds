@@ -1,6 +1,6 @@
 /* login.css */
 
-.loginBody {
+.login-body {
     background-color: var(--clr-light-orange);
 }
 
@@ -20,18 +20,19 @@
     font-weight: bolder;
 }
 
-.text-start.loginText {
+.text-start.login-text {
     font-family: var(--ff-text);
     font-size: var(--fs-paragraph);
     margin-left: 17px;
     font-weight: bolder;
 }
 
-.loginLogo {
-    margin-top: 8px;
+.login-logo {
     margin-bottom: 20px;
-    width: 460px !important;
-    height: 120px !important;
+    margin-left: 16px;
+    width: 280px !important;
+    height: 80px !important;
+    margin-top: 16px;
 }
 
 .form-control {
@@ -116,21 +117,15 @@
     text-decoration: underline;
 }
 
-.txtAccount {
+.txt-account {
     font-size: var(--fs-small);
     font-weight: bolder;
     font-family: var(--ff-text);
 }
 
-.txtAccount a {
+.txt-account a {
     text-decoration: none;
     color: var(--fc-primary-orange);
-}
-
-.loginLogo {
-    width: 280px !important;
-    height: 80px !important;
-    margin-top: 16px;
 }
 
 @media (max-width: 768px) {
@@ -150,13 +145,13 @@
     }
 
     .text-start.login,
-    .text-start.loginText {
+    .text-start.login-text {
         text-align: center;
         margin-left: 0;
         margin-right: 0;
     }
 
-    .txtAccount {
+    .txt-account {
         text-align: center;
     }
 }

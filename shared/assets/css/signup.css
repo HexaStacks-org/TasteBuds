@@ -15,6 +15,7 @@
 .text-start.create {
   font-family: var(--ff-text);
   font-size: var(--fs-header);
+  margin-top: 48px;
   margin-left: 16px;
   font-weight: bolder;
 }
@@ -27,10 +28,11 @@
 }
 
 .sign-up-logo {
-  margin-top: 8px;
+  margin-top: 16px;
   margin-bottom: 20px;
-  width: 460px !important;
-  height: 120px !important;
+  width: 280px !important;
+  height: 80px !important;
+  margin-left: 16px;
 }
 
 .form-control {
