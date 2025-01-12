@@ -1,0 +1,409 @@
+/* styles.css */
+@import url("https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("shared/assets/css/style.css");
+
+.navbar {
+  height: 79.1px;
+  /* Set the height of the navbar */
+}
+
+/*ANG NAGAMIT LANG NITO AY (PRIME, FL, SUB)*/
+.title {
+  font-family: var(--ff-title);
+  font-size: var(--fs-header);
+  color: var(--fc-primary-orange);
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  /* Center the text */
+  margin-top: 36px;
+  /* Optional: Adjust margin-top for spacing */
+}
+
+.description {
+  font-family: var(--ff-text);
+  font-size: var(--fs-h6);
+  color: var(--fc-primary-orange);
+  font-weight: bold;
+  text-align: center;
+  /* Center the text */
+  margin-top: 40px;
+  /* Optional: Adjust margin-top for spacing */
+}
+
+.container .explore {
+  font-family: var(--ff-text);
+  color: var(--clr-secondary);
+  font-size: var(--fs-h3);
+  font-weight: bold;
+  margin-top: 72px;
+}
+
+.container .custom-btn {
+  margin-left: 30px;
+  margin-top: 77px;
+}
+
+.custom-btn {
+  background-color: var(--clr-secondary);
+  /* Default background color */
+  color: #FFFFFF;
+  /* Text color */
+  font-family: var(--ff-text);
+  /* Font style */
+  height: 50px;
+  width: 120px;
+  font-size: var(--fs-paragraph);
+  /* Font size */
+  font-weight: bold;
+  border: none;
+  /* Remove default border */
+  border-radius: 42px;
+  /* Rounded corners */
+  cursor: pointer;
+  /* Pointer on hover */
+  transition: all 0.3s ease;
+  /* Smooth transition on hover */
+}
+
+.col-12-catbuttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  /* Adjust spacing between items */
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-btn:hover {
+  background-color: var(--clr-dark-orange);
+  /* Hover color */
+  transform: scale(1.05);
+  /* Slightly increase the size on hover */
+}
+
+.custom-btn:focus {
+  outline: none;
+  /* Remove the default focus outline */
+}
+
+.card {
+  width: 100%;
+  /* Make the card take up the full width of the column */
+  max-width: 780px;
+  /* Set the max width of the card */
+  min-height: 250px;
+  /* Set a minimum height for the card to make it taller */
+  height: auto;
+  /* Allow height to adjust based on content if needed */
+  margin: 0 auto;
+  /* Center the card */
+  border-radius: 15px !important;
+  /* Make the corners rounded */
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 50px;
+  /* Increase padding inside the card */
+  display: flex;
+  flex-direction: column;
+  /* Stack content vertically */
+  justify-content: center;
+  /* Center content vertically */
+}
+
+.card img {
+  width: 100%;
+  /* Ensure the image takes up the full available width in the card */
+  height: 100%;
+  /* Ensure the image height fills its column */
+  object-fit: fill;
+  /* Crop the image to fit its container */
+}
+
+.card-custom-btn {
+  background-color: var(--clr-secondary);
+  /* Default background color */
+  color: white;
+  /* Text color */
+  font-family: var(--ff-text);
+  /* Font style */
+  height: 40px;
+  /* Increase button height */
+  width: 80px;
+  /* Increase button width */
+  font-size: var(--fs-small);
+  /* Increase font size */
+  padding: 8px 10px;
+  /* Adjust padding for the button */
+  border: none;
+  /* Remove default border */
+  border-radius: 10px;
+  /* Rounded corners */
+  margin-bottom: 20px;
+  /* Add spacing below the button */
+}
+
+.card-custom-btn:hover {
+  background-color: var(--clr-dark-orange);
+  /* Button hover effect */
+}
+
+.card-title {
+  font-family: var(--ff-text);
+  font-size: var(--fs-h6);
+  /* Increase the title font size */
+  margin-bottom: 20px;
+  /* Add space below the title */
+  font-weight: bold;
+}
+
+.card-text {
+  font-family: var(--ff-text);
+  font-size: var(--fs-paragraph);
+  /* Increase text size for better readability */
+}
+
+/*ANG NAGAMIT LANG NITO AY (PRIME, FL)*/
+.content-bg {
+  background-color: var(--clr-secondary);
+}
+
+/*ANG NAGAMIT LANG NITO AY (RECIPE-VIEW)*/
+.recipe-title {
+  font-family: var(--ff-text);
+  /* Apply Open Sans font to description */
+  font-weight: bold;
+  margin-top: 40px;
+  /* Optional: Adjust margin-top for spacing */
+}
+
+.category-title {
+  font-family: var(--ff-text);
+  /* Apply Open Sans font to description */
+  color: var(--fc-primary-orange) !important;
+  /* Set text color to yellow */
+  font-size: var(--fs-h6);
+  margin-left: 10px;
+}
+
+.dish-title {
+  font-family: var(--ff-text);
+  /* Apply Open Sans font to description */
+  font-size: var(--fs-h4);
+  margin-left: 10px;
+}
+
+.recipe-description {
+  font-family: var(--ff-text);
+  /* Apply Open Sans font to description */
+  font-size: var(--fs-paragraph);
+  margin-left: 10px;
+}
+
+.custom-reaction-btn {
+  height: 25px;
+  width: 25px;
+  background-color: #D9D9D9 !important;
+  /* Set text color to yellow */
+  margin-left: 25px;
+  margin-bottom: 5px;
+  border: none;
+  /* Remove default border */
+  cursor: pointer;
+  /* Pointer on hover */
+}
+
+.custom-report-btn {
+  height: 25px;
+  width: 25px;
+  background-color: #D9D9D9 !important;
+  /* Set text color to yellow */
+  margin-left: 270px;
+  margin-bottom: 5px;
+  border: none;
+  /* Remove default border */
+  cursor: pointer;
+  /* Pointer on hover */
+}
+
+.recipe-card {
+  background-color: var(--clr-mid-orange) !important;
+  /* Replace with your desired color */
+  border-radius: 64px !important;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.recipe-card-img-top {
+  border-top-left-radius: 64px !important;
+  /* Round top-left corner */
+  border-top-right-radius: 64px !important;
+  /* Round top-right corner */
+  padding: 20px 20px 0 20px;
+  /* Top, right, bottom, left padding */
+}
+
+.custom-viewall-btn {
+  background-color: var(--clr-secondary);
+  /* Default background color */
+  color: #FFFFFF;
+  /* Text color */
+  font-family: var(--ff-text);
+  /* Font style */
+  font-weight: bold;
+  text-align: middle;
+  padding-top: 10px;
+  height: 50px;
+  /* Increase button height */
+  width: 350px;
+  /* Increase button width */
+  font-size: var(--fs-h5);
+  /* Increase font size */
+  border: none;
+  /* Remove default border */
+  border-radius: 40px;
+  /* Rounded corners */
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.dropdown .recipe-sortby {
+  background-color: var(--clr-primary);
+  border-radius: 40px;
+  font-family: var(--ff-text);
+  font-weight: bold;
+  font-size: var(--fs-h6);
+}
+
+.explore-recipe {
+  font-family: var(--ff-text);
+  font-size: var(--fs-h2);
+  font-weight: bold;
+}
+
+/*ANG NAGAMIT LANG NITO AY (RECIPE-VIEW2)*/
+.recipe-container {
+  margin-left: 3em;
+  /* Adjust this value to create space on the left */
+  margin-right: 3em;
+  /* Adjust this value to create space on the right */
+}
+
+.recipe-view-2 {
+  font-family: var(--ff-text);
+  /* Apply Open Sans font to description */
+  font-weight: bold;
+  margin-top: 52px;
+  /* Optional: Adjust margin-top for spacing */
+}
+
+.primary-category {
+  border: 2px solid var(--clr-secondary);
+  /* Use the desired color for the border */
+  background-color: transparent;
+  /* Remove background color */
+  color: var(--clr-secondary);
+  /* Text color matches the border */
+  border-radius: 50rem;
+  /* Makes it pill-shaped */
+  padding: 0.25em 0.75em;
+  /* Add some padding for better appearance */
+  display: inline-block;
+  /* Ensures proper inline display */
+  font-size: var(--fs-paragraph);
+  /* Optional: Adjust font size */
+  font-weight: bold;
+  /* Optional: Adjust font weight */
+  margin-top: 20px;
+}
+
+.sub-category {
+  border: 2px solid var(--clr-primary);
+  /* Use the desired color for the border */
+  background-color: transparent;
+  /* Remove background color */
+  color: var(--clr-primary);
+  /* Text color matches the border */
+  border-radius: 50rem;
+  /* Makes it pill-shaped */
+  padding: 0.25em 0.75em;
+  /* Add some padding for better appearance */
+  display: inline-block;
+  /* Ensures proper inline display */
+  font-size: var(--fs-paragraph);
+  /* Optional: Adjust font size */
+  font-weight: bold;
+  /* Optional: Adjust font weight */
+}
+
+.recipe-image {
+  width: 720px;
+  height: 400px;
+  margin-left: 3em;
+  /* Adjust this value to create space on the left */
+  margin-right: 3em;
+  /* Adjust this value to create space on the right */
+  display: block;
+  /* Ensures the image behaves like a block element */
+  margin-top: 0;
+  /* Optional: to control the top margin */
+  margin-bottom: 0;
+  /* Optional: to control the bottom margin */
+  margin-left: auto;
+  /* Centers the image horizontally */
+  margin-right: auto;
+  /* Centers the image horizontally */
+  margin-top: 24px;
+}
+
+.name-edit {
+  display: flex;
+  /* Enables Flexbox */
+  justify-content: space-between;
+  /* Places the name on the left and the button on the right */
+  align-items: center;
+  /* Vertically aligns the items */
+}
+
+.name {
+  font-family: var(--ff-text);
+  /* Apply the desired font */
+  font-size: var(--fs-h6);
+  /* Adjust font size */
+  font-weight: bold;
+}
+
+.edit {
+  font-family: var(--ff-text);
+  font-size: var(--fs-paragraph) !important;
+  font-weight: bold;
+  color: #FFFFFF !important;
+  background-color: var(--clr-secondary) !important;
+  border-radius: 42px !important;
+  width: 97px;
+  height: 26px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.recipe-btn-group {
+  display: flex;                 /* Enables Flexbox */
+  justify-content: space-between; /* Distributes buttons with space between them */
+  width: 100%;                   /* Full width container */
+  padding-top: 24px;             /* Adds padding from the top */
+}
+
+.btn-edit {
+  width: 40px;                    /* Set width to 40px */
+  height: 40px;                   /* Set height to 40px */
+  background-color: #BED6FF; /* Customize button color */
+  border: transparent;
+  border-radius: 5px;             /* Make the button circular */
+  margin-right: 20px;             /* Adds 20px spacing between each button */
+}

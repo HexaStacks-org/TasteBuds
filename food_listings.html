@@ -28,8 +28,10 @@
 
     <!-- Category Buttons -->
     <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-lg-12 d-flex flex-row">
+      <div class="row justify-content-center">
+        <div
+          class="col-12-catbuttons d-flex flex-wrap justify-content-center align-items-center"
+        >
           <div class="explore">EXPLORE</div>
           <button class="custom-btn" id="breakfast-btn">Breakfast</button>
           <button class="custom-btn" id="lunch-btn">Lunch</button>
@@ -45,7 +47,7 @@
       <!-- Default cards for Breakfast, Lunch, Dinner -->
       <div class="row" id="recipe-cards">
         <div class="col-md-6 pt-5 pb-4">
-          <div class="card mt-3">
+          <div class="card">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
@@ -59,8 +61,11 @@
                   <button class="card-custom-btn">Breakfast</button>
                   <h5 class="card-title pt-1">Title of the dish</h5>
                   <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Repellendus ab minima nihil? Facere, sint.
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. bawal po may mag isa na word.p>
                   </p>
                 </div>
               </div>
@@ -68,7 +73,7 @@
           </div>
         </div>
         <div class="col-md-6 pt-5 pb-4">
-          <div class="card mt-3">
+          <div class="card">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
@@ -82,8 +87,11 @@
                   <button class="card-custom-btn">Lunch</button>
                   <h5 class="card-title pt-1">Title of the dish</h5>
                   <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Repellendus ab minima nihil? Facere, sint.
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. bawal po may mag isa na word.p>
                   </p>
                 </div>
               </div>
@@ -91,7 +99,7 @@
           </div>
         </div>
         <div class="col-md-6 pt-5 pb-4">
-          <div class="card mt-3">
+          <div class="card">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
@@ -105,8 +113,11 @@
                   <button class="card-custom-btn">Dinner</button>
                   <h5 class="card-title pt-1">Title of the dish</h5>
                   <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Repellendus ab minima nihil? Facere, sint.
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. bawal po may mag isa na word.
                   </p>
                 </div>
               </div>
@@ -114,7 +125,7 @@
           </div>
         </div>
         <div class="col-md-6 pt-5 pb-4">
-          <div class="card mt-3">
+          <div class="card">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
@@ -128,8 +139,11 @@
                   <button class="card-custom-btn">Dessert</button>
                   <h5 class="card-title pt-1">Title of the dish</h5>
                   <p class="card-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Repellendus ab minima nihil? Facere, sint.
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. bawal po may mag isa na word.
                   </p>
                 </div>
               </div>
@@ -195,7 +209,7 @@
         // Replace the category buttons with the new ones
         document.querySelector(".explore").innerHTML = "EXPLORE ";
         document
-          .querySelector(".container .row .col-sm-6.col-lg-12")
+          .querySelector(".container .row .col-12-catbuttons")
           .appendChild(buttonsContainer);
       }
 
@@ -213,7 +227,11 @@
                   <div class="card-body">
                     <button class="card-custom-btn">${subcategory}</button>
                     <h5 class="card-title pt-1">Recipe for ${subcategory}</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus ab minima nihil? Facere, sint.</p>
+                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. bawal po may mag isa na word.p></p>
                   </div>
                 </div>
               </div>
