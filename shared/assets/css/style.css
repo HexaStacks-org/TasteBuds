@@ -45,6 +45,7 @@
 .custom-footer {
   background-color: var(--fc-light-orange);
   padding: 2rem 1rem;
+  overflow-x: hidden;
 }
 
 .footer-logo img {
@@ -62,6 +63,8 @@
 
 .footer-column {
   padding: 0 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .footer-column h5 {
@@ -92,8 +95,15 @@
   text-decoration: none;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .footer-column {
     margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .social-icons img {
+    max-width: 48px;
+    max-height: 48px;
   }
 }
