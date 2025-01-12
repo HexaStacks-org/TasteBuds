@@ -14,6 +14,7 @@
     --fc-dark-orange: #D4830B;
     --fc-mid-orange: #FCD59A;
     --fc-light-orange: #FFEBCD;
+    --fc-white: #FFF8EE;
     --fc-black: #222222;
 
     --clr-primary: #F1950C;
@@ -23,26 +24,25 @@
     --clr-dark-orange: #D4830B;
     --clr-mid-orange: #FCD59A;
     --clr-light-orange: #FFEBCD;
+    --clr-white: #FFF8EE;
     --clr-black: #222222;
 
-    --ff-title: "Rammetto One", serif;
-    --ff-text: "Open Sans", serif;
+    --ff-title: "Rammetto One", sans-serif;
+    --ff-text: "Open Sans", sans-serif;
 }
 
-
 .rammetto-one {
-    font-family: "Rammetto One", serif;
+    font-family: "Rammetto One", sans-serif;
     font-weight: 400;
     font-style: normal;
   }
 
 
 .open-sans-text {
-  font-family: "Open Sans", serif;
+  font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
 }
-
 
