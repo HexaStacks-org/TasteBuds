@@ -43,7 +43,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-12">
         <button type="button" class="btn random-generator-btn">GENERATE</button>
       </div>
     </div>
