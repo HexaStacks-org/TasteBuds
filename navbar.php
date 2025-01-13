@@ -48,7 +48,7 @@
                         </a>
                     </li>
                 </ul>
-                <div class="d-flex flex-wrap justify-content-end">
+                <div class="btn-nav d-flex flex-wrap justify-content-end">
                     <button class="btn btn-search" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasSearch" aria-controls="offcanvasSearch"><a>
                             Search</a>
@@ -75,10 +75,11 @@
         </div>
     </nav>
 
-    <div class="offcanvas offcanvas-top d-flex flex-reverse-wrap" tabindex="-1" id="offcanvasSearch"
+    <div class="offcanvas offcanvas-top d-flex" tabindex="-1" id="offcanvasSearch"
         aria-labelledby="offcanvasSearchLabel">
         <div class="offcanvas-body">
-            <div class="container-fluid d-flex justify-content-center">
+            <div class="container-fluid d-flex align-items-center justify-content-start flex-wrap"
+                style="--bs-gutter-x: 0;">
 
                 <input type="text" class="search-input" placeholder="Enter a keyword">
                 <a href="#" class="btn-enter-search">
@@ -95,7 +96,7 @@
                         <p>Gallery</p>
                     </label>
                 </div>
-                <div class="btn-group dropdown-center d-flex flex-wrap">
+                <div class="btn-group dropdown-center">
                     <button type="button" class="btn btn-category">
                         <p>CATEGORY</p>
                     </button>
@@ -199,6 +200,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+    <script src="shared/assets/js/navbar.js"></script>
 </body>
 
 </html>
