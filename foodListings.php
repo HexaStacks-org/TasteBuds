@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Food Listings</title>
-    <link rel="stylesheet" href="(FL)(CAT)(RECIPE).css" />
+    <link rel="stylesheet" href="foodListingsRecipe.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -45,7 +45,7 @@
     <!-- Dynamic Content Area -->
     <div class="container-fluid mt-5 content-bg" id="content-area">
       <!-- Default cards for Breakfast, Lunch, Dinner -->
-      <div class="row" id="recipe-cards">
+      <div class="row" id="recipe-card">
         <div class="col-md-6 pt-5 pb-4">
           <div class="card">
             <div class="row g-0">
@@ -58,7 +58,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <button class="card-custom-btn">Breakfast</button>
+                  <button class="card-sub-category">Breakfast</button>
                   <h5 class="card-title pt-1">Title of the dish</h5>
                   <p class="card-text">
                     Lorem Ipsum is simply dummy text of the printing and
@@ -84,7 +84,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <button class="card-custom-btn">Lunch</button>
+                  <button class="card-sub-category">Lunch</button>
                   <h5 class="card-title pt-1">Title of the dish</h5>
                   <p class="card-text">
                     Lorem Ipsum is simply dummy text of the printing and
@@ -110,7 +110,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <button class="card-custom-btn">Dinner</button>
+                  <button class="card-sub-category">Dinner</button>
                   <h5 class="card-title pt-1">Title of the dish</h5>
                   <p class="card-text">
                     Lorem Ipsum is simply dummy text of the printing and
@@ -136,7 +136,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <button class="card-custom-btn">Dessert</button>
+                  <button class="card-sub-category">Dessert</button>
                   <h5 class="card-title pt-1">Title of the dish</h5>
                   <p class="card-text">
                     Lorem Ipsum is simply dummy text of the printing and
@@ -157,9 +157,9 @@
     <script>
       // Function to change the category
       function changeCategory(category) {
-        const titleElement = document.querySelector(".title h1");
-        const descriptionElement = document.querySelector(".description h6");
-        const recipeCards = document.getElementById("recipe-cards");
+        const titleElement = document.querySelector(".title");
+        const descriptionElement = document.querySelector(".description");
+        const recipeCards = document.getElementById("recipe-card");
 
         if (category === "breakfast") {
           titleElement.innerText = "Breakfast Recipes";
@@ -215,7 +215,7 @@
 
       // Function to change recipes based on subcategory
       function changeRecipeCategory(subcategory) {
-        const recipeCards = document.getElementById("recipe-cards");
+        const recipeCards = document.getElementById("recipe-card");
         recipeCards.innerHTML = `  
           <div class="col-md-6 pt-5 pb-4">
             <div class="card mt-3">
@@ -225,7 +225,7 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <button class="card-custom-btn">${subcategory}</button>
+                    <button class="card-sub-category">${subcategory}</button>
                     <h5 class="card-title pt-1">Recipe for ${subcategory}</h5>
                     <p class="card-text">Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
