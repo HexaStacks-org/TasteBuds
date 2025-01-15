@@ -101,6 +101,11 @@
     color: var(--fc-light);
 }
 
+.form-check-input:checked {
+    background-color: var(--clr-primary);
+    border: none;
+}
+
 .offcanvas {
     background-color: var(--clr-light-orange);
     border-radius: 0 0 80px 80px;
