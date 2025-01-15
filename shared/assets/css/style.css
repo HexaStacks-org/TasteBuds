@@ -9,27 +9,27 @@
   --fs-paragraph: 16px;
   --fs-small: 13.33px;
 
-  --fc-primary-orange: #F1950C;
-  --fc-dark-orange: #D4830B;
-  --fc-mid-orange: #FCD59A;
-  --fc-light-orange: #FFEBCD;
+  --fc-primary-orange: #f1950c;
+  --fc-dark-orange: #d4830b;
+  --fc-mid-orange: #fcd59a;
+  --fc-light-orange: #ffebcd;
   --fc-black: #222222;
 
-  --clr-primary: #F1950C;
-  --clr-secondary: #D34746;
+  --clr-primary: #f1950c;
+  --clr-secondary: #d34746;
   --clr-action: #328032;
 
-  --clr-dark-orange: #BF7A13;
-  --clr-mid-orange: #FCD59A;
-  --clr-light-orange: #FFEBCD;
+  --clr-dark-orange: #d4830b;
+  --clr-mid-orange: #fcd59a;
+  --clr-light-orange: #ffebcd;
   --clr-black: #222222;
-  --clr-grey: #7d7d7d;
-  --clr-white: #FFF8EE;
+
+  --clr-red: #8E1D1C;
+  --clr-light-red: #F29B9A;
 
   --ff-title: "Rammetto One", serif;
   --ff-text: "Open Sans", serif;
 }
-
 
 .rammetto-one {
   font-family: "Rammetto One", serif;
@@ -37,11 +37,9 @@
   font-style: normal;
 }
 
-
 .open-sans-text {
   font-family: "Open Sans", serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings:
-    "width" 100;
+  font-variation-settings: "wdth" 100;
 }
