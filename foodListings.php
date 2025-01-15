@@ -51,7 +51,7 @@
             <div class="row g-0">
               <div class="col-md-4">
                 <img
-                  src="shared/assets/image/mockup-pic.png"
+                  src="shared/assets/image/test-pic.png"
                   class="img-fluid"
                   alt="..."
                 />
@@ -77,7 +77,7 @@
             <div class="row g-0">
               <div class="col-md-4">
                 <img
-                  src="shared/assets/image/mockup-pic.png"
+                  src="shared/assets/image/test-pic.png"
                   class="img-fluid"
                   alt="..."
                 />
@@ -103,7 +103,7 @@
             <div class="row g-0">
               <div class="col-md-4">
                 <img
-                  src="shared/assets/image/mockup-pic.png"
+                  src="shared/assets/image/test-pic.png"
                   class="img-fluid"
                   alt="..."
                 />
@@ -129,7 +129,7 @@
             <div class="row g-0">
               <div class="col-md-4">
                 <img
-                  src="shared/assets/image/mockup-pic.png"
+                  src="shared/assets/image/test-pic.png"
                   class="img-fluid"
                   alt="..."
                 />
@@ -221,7 +221,7 @@
             <div class="card mt-3">
               <div class="row g-0">
                 <div class="col-md-4">
-                  <img src="shared/assets/image/mockup-pic.png" class="img-fluid" alt="..." />
+                  <img src="shared/assets/image/test-pic.png" class="img-fluid" alt="..." />
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">

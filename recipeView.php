@@ -59,7 +59,7 @@
           <a href="recipeView2.html" class="card-link no-underline">
             <div class="card recipe-card">
               <img
-                src="shared/assets/image/mockup-pic.png"
+                src="shared/assets/image/test-pic.png"
                 class="recipe-card-img-top"
                 alt="..."
               />
@@ -88,7 +88,7 @@
           <a href="recipeView2.html" class="card-link no-underline">
             <div class="card recipe-card">
               <img
-                src="shared/assets/image/mockup-pic.png"
+                src="shared/assets/image/test-pic.png"
                 class="recipe-card-img-top"
                 alt="..."
               />
@@ -117,7 +117,7 @@
           <a href="recipeView2.html" class="card-link no-underline">
             <div class="card recipe-card">
               <img
-                src="shared/assets/image/mockup-pic.png"
+                src="shared/assets/image/test-pic.png"
                 class="recipe-card-img-top"
                 alt="..."
               />
@@ -146,7 +146,7 @@
           <a href="recipeView2.html" class="card-link no-underline">
             <div class="card recipe-card">
               <img
-                src="shared/assets/image/mockup-pic.png"
+                src="shared/assets/image/test-pic.png"
                 class="recipe-card-img-top"
                 alt="..."
               />

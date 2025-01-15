@@ -32,7 +32,7 @@
         <span class="primary-category rounded-pill">Breakfast</span>
         <span class="sub-category rounded-pill">Chicken</span>
         <img
-          src="shared/assets/image/mockup-pic.png"
+          src="shared/assets/image/test-pic.png"
           class="img-thumbnail recipe-image"
           alt="..."
         />
