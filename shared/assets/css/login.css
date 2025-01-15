@@ -82,7 +82,7 @@
 
 .btn-login {
     background-color: var(--clr-primary);
-    width: 600px !important;
+    width: 600px;
     height: 60px !important;
     border-radius: 40px;
     margin-left: 20px;
