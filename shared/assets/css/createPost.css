@@ -1,0 +1,141 @@
+body {
+    background-color: #fff8EE;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.logo {
+    width: 460px auto;
+    height: 120px;
+}
+
+.back-btn {
+    color: #fff8EE;
+    font-family: var(--ff-text);
+    font-size: var(--fs-h6);
+    font-weight: bolder;
+    background-color: var(--clr-secondary);
+    border-radius: 24px;
+    padding: 10px 20px;
+    width: 160px;
+    height: 50px;
+}
+
+.back-btn:hover {
+    background-color: var(--clr-secondary);
+    color: #fff8EE;
+}
+
+.post-form {
+    border-radius: 10px;
+}
+
+.post-form h1 {
+    font-size: var(--fs-header);
+    font-family: var(--ff-text);
+    font-weight: bolder;
+    margin-top: 16px;
+}
+
+.post-description {
+    font-family: var(--ff-text);
+    font-size: var(--fs-h6);
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-family: var(--ff-text);
+    font-weight: bold;
+    font-size: var(--fs-h6);
+}
+
+.form-control {
+    background-color: transparent;
+    border-radius: 40px;
+    border: 4px solid var(--clr-primary);
+    margin-bottom: 16px;
+    padding-left: 16px;
+}
+
+.form-control:focus {
+    background-color: transparent;
+    border: 4px solid var(--clr-primary);
+}
+
+.form-check-input {
+    border-radius: 8px;
+    border: 3px solid var(--clr-primary);
+}
+
+.form-check-input:focus {
+    background-color: var(--clr-primary);
+}
+
+.form-check-input:checked {
+    background-color: var(--clr-primary);
+    border: 3px solid var(--clr-primary);
+}
+
+.form-check-label {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    font-weight: 600;
+}
+
+.form-category {
+    font-family: var(--ff-text);
+    font-size: var(--fs-h6);
+    font-weight: bolder;
+    margin-bottom: 8px;
+}
+
+.btn-next:hover {
+    background-color: var(--clr-primary);
+    color: white;
+}
+
+.mockup-image {
+    height: auto;
+}
+
+.btn-create {
+    background-color: var(--clr-primary);
+    font-family: var(--ff-text);
+    font-size: var(--fs-h6);
+    color: #fff8EE;
+    width: 400px;
+    height: 60px;
+    border-radius: 40px;
+    font-weight: bolder;
+}
+
+.form-label::placeholder {
+    color: var(--fc-black);
+    font-family: var(--ff-text);
+    font-size: var(--fs-h4);
+}
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: auto;
+        height: 80px;
+    }
+
+    .back-btn {
+        width: auto;
+        font-size: 14px;
+    }
+
+    .mockup-image {
+        display: none;
+    }
+
+    .form-control,
+    .form-select,
+    .btn-primary {
+        width: 100%;
+    }
+
+    .post-form {
+        padding: 0 !important;
+    }
+}
