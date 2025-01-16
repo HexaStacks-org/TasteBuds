@@ -1,0 +1,112 @@
+
+html,body{
+    margin: 0px;
+    overflow-x: hidden;
+    background-color: var(--clr-white);
+}
+
+
+.random-generator-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.random-generator-header{
+    font-family: var(--ff-title);
+    font-size: var(--fs-header);
+    color: var(--fc-dark-orange);
+    margin-top: 40px;
+}
+
+.random-generator-subheader{
+    font-family: var(--ff-text);
+    font-size: var(--fs-h6);
+    color: var(--fc-primary-orange);
+    font-weight: bold; 
+}
+
+.random-generator-img-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.random-generator-card{
+    width: 800px;
+    height: 480px;
+    background-color: gainsboro;
+    border-radius: 80px;
+    margin-top: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.random-generator-img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.random-generator-btn{
+    width: 160px;
+    height: 64px;
+    background-color: var(--fc-primary-orange);
+    font-size: var(--fs-h6);
+    font-weight: bold;
+    font-family: var(--ff-text);
+    color: var(--fc-white);
+    border-radius: 40px;
+    margin-top: 40px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    
+}
+
+.random-generator-btn:hover{
+    color: var(--clr-white);
+    background-color: var(--clr-action);
+}
+
+@media only screen and (max-width: 1024px){
+    .random-generator-header{
+        font-family: var(--ff-title);
+        font-size: var(--fs-h3);
+        color: var(--fc-dark-orange);
+        margin-top: 40px;
+        margin-bottom: 16px;
+    }
+    
+    .random-generator-subheader{
+        font-family: var(--ff-text);
+        font-size: var(--fs-paragraph);
+        color: var(--fc-primary-orange);
+        font-weight: bold; 
+    }
+}
+
+@media only screen and (max-width: 412px){
+    .random-generator-header{
+        font-family: var(--ff-title);
+        font-size: var(--fs-h6);
+        color: var(--fc-dark-orange);
+        margin-top: 40px;
+        margin-bottom: 16px;
+    }
+    
+    .random-generator-subheader{
+        font-family: var(--ff-text);
+        font-size: var(--fs-small);
+        color: var(--fc-primary-orange);
+        font-weight: bold; 
+        max-width: 320px;
+        line-height: 20px;
+        text-align: start;
+    }
+
+}
