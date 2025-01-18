@@ -21,13 +21,13 @@
     <div class="container-fluid px-0">
         <div class="row g-0 align-items-start">
             <div class="col-md-6 col-12">
-                <div class="post-form mx-3 my-3 px-5">
+                <div class="post-form mx-3 mt-3 px-5">
                     <div class="row">
                         <div class="col d-flex justify-content-start">
                             <img src="shared/assets/image/Logo Combination 1.png"
                                 class="logo d-inline-block align-text-top" />
                         </div>
-                        <div class="col d-flex align-items-center justify-content-end">
+                        <div class="col d-flex align-items-center">
                             <button class="btn back-btn" id="back-btn">BACK</button>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                             <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
                         </div>
 
-                        <div class="mb-3 mx-5">
+                        <div class="mx-5 align-items-center">
                             <p class="form-category">
                                 Primary Category
                             </p>

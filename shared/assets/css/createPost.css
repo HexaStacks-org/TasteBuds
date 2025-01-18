@@ -102,10 +102,15 @@ body {
     font-family: var(--ff-text);
     font-size: var(--fs-h6);
     color: #fff8EE;
-    width: 400px;
-    height: 60px;
+    width: 380px;
+    height: 48px;
     border-radius: 40px;
     font-weight: bolder;
+}
+
+.btn-create:hover {
+    background-color: var(--clr-primary);
+    color: #fff8EE;
 }
 
 .form-label::placeholder {

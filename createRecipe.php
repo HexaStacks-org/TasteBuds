@@ -28,7 +28,7 @@
                                 <img src="shared/assets/image/Logo Combination 1.png"
                                     class="logo d-inline-block align-text-top" />
                             </div>
-                            <div class="col d-flex align-items-center justify-content-end">
+                            <div class="col d-flex align-items-center">
                                 <button class="btn back-btn" id="back-btn">BACK</button>
                             </div>
                         </div>
