@@ -1,0 +1,92 @@
+:root {
+    --clr-primary: #f1950c;
+    --clr-secondary: #d34746;
+    --clr-action: #328032;
+    --clr-text: #222222;
+    --fs-header: 2rem;
+    --fs-input: 1rem;
+    --border-radius: 20px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.edit-profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+.form-section {
+    flex: 1;
+    padding: 1.5rem;
+    max-width: 600px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-section h1 {
+    font-size: var(--fs-header);
+    margin-bottom: 0.01rem;
+    color: var(--clr-text);
+    font-weight: bold;
+}
+
+.form-section label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--clr-text);
+    margin-top: 1rem;
+}
+
+.form-section input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    font-size: var(--fs-input);
+    border: 2px solid var(--clr-primary);
+    border-radius: var(--border-radius);
+    outline: none;
+}
+
+.form-section input:focus {
+    border-color: var(--clr-action);
+}
+
+.btn-back {
+    background-color: var(--clr-secondary);
+    color: white;
+    border: none;
+    padding: 0.60rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    width: 160px;
+    height: 40px;
+}
+
+.btn-update {
+    background-color: var(--clr-action);
+    color: white;
+    border: none;
+    padding: 0.60rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    width: 100%;
+    margin-top: 1.0rem;
+}
+
+.image-section {
+    flex: 1;
+    display: flex;
+    background-size: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
