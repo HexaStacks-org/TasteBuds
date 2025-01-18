@@ -38,8 +38,10 @@
 }
 
 .open-sans-text {
-  font-family: "Open Sans", serif;
+  font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100;
 }
+
+

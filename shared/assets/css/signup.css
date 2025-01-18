@@ -2,6 +2,7 @@
 
 .sign-up-body {
   background-color: var(--clr-light-orange);
+  padding: 16px ;
 }
 
 .pic {
@@ -80,8 +81,8 @@
 
 .btn-sign-up {
   background-color: var(--clr-primary);
-  width: 600px;
-  height: 60px !important;
+  width: 500px;
+  height: 56px !important;
   border-radius: 40px;
   margin-left: 20px;
   display: flex;
@@ -91,8 +92,6 @@
 
 .btn-sign-up:hover {
   background-color: var(--clr-dark-orange);
-  width: 600px !important;
-  height: 60px !important;
   border-radius: 40px;
   margin-left: 20px;
   display: flex;
@@ -104,8 +103,8 @@
 .btn-sign-up p {
   font-family: var(--ff-text);
   font-weight: bolder;
-  font-size: var(--fs-h3);
-  color: var(--clr-light-orange);
+  font-size: var(--fs-h5);
+  color: var(--fc-light-orange);
   padding: 0;
   margin: 0;
 }
@@ -129,18 +128,19 @@
   }
 
   .sign-up-logo {
-    width: 100%;
+    width: auto;
     height: auto;
     margin-top: 16px;
   }
 
   .form-control {
-    width: 100%;
+    width: auto;
     margin-left: 0;
   }
 
   .btn-sign-up {
-    width: 100%;
+    width: auto;
+    height: 24px;
     margin-left: 0;
   }
 
