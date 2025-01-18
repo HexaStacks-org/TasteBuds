@@ -108,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="btn-lbsr d-flex my-5">
                         <button class="btn btn-like">Like</button>
                         <button class="btn btn-bookmark mx-1">Bookmark</button>
-                        <button class="btn btn-share mx-1">Share</button>
                     </div>
                     <div class="report-btn d-flex my-5 mx-5">
                         <button class="btn btn-report">Report</button>
