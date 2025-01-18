@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <?php include 'navbar.php'; ?>
+    <!-- <?php include 'navbar.php'; ?> -->
     <div class="container align-items-center justify-content-center">
         <div class="row card-row" id="card-container">
             <!-- cards here -->

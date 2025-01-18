@@ -27,7 +27,7 @@
                             <img src="shared/assets/image/Logo Combination 1.png"
                                 class="logo d-inline-block align-text-top" />
                         </div>
-                        <div class="col d-flex align-items-center">
+                        <div class="con-back col d-flex align-items-center">
                             <button class="btn back-btn" id="back-btn">BACK</button>
                         </div>
                     </div>
@@ -51,99 +51,76 @@
                             <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
                         </div>
 
-                        <div class="mx-5 align-items-center">
+                        <div class="categories mx-5 align-items-center">
                             <p class="form-category">
                                 Primary Category
                             </p>
-                            <div class="mx-5">
+                            <div class="form-check-container mx-5">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioPrimary"
                                         id="flexRadioDefault1">
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                        Breakfast
-                                    </label>
+                                    <label class="form-check-label" for="flexRadioDefault1">Breakfast</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioPrimary"
                                         id="flexRadioDefault2">
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        Lunch
-                                    </label>
+                                    <label class="form-check-label" for="flexRadioDefault2">Lunch</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioPrimary"
                                         id="flexRadioDefault3">
-                                    <label class="form-check-label" for="flexRadioDefault3">
-                                        Dinner
-                                    </label>
+                                    <label class="form-check-label" for="flexRadioDefault3">Dinner</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioPrimary"
                                         id="flexRadioDefault4">
-                                    <label class="form-check-label" for="flexRadioDefault4">
-                                        Snacks
-                                    </label>
+                                    <label class="form-check-label" for="flexRadioDefault4">Snacks</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioPrimary"
                                         id="flexRadioDefault5">
-                                    <label class="form-check-label" for="flexRadioDefault5">
-                                        Dessert
-                                    </label>
+                                    <label class="form-check-label" for="flexRadioDefault5">Dessert</label>
                                 </div>
                             </div>
-                            <div>
-                                <p class="form-category mt-3">
-                                    Sub Category
-                                </p>
-                                <div class="mx-5">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioSecondary"
-                                            id="flexRadioDefault6">
-                                        <label class="form-check-label" for="flexRadioDefault6">
-                                            Vegan
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioSecondary"
-                                            id="flexRadioDefault7">
-                                        <label class="form-check-label" for="flexRadioDefault7">
-                                            Pork
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioSecondary"
-                                            id="flexRadioDefault8">
-                                        <label class="form-check-label" for="flexRadioDefault8">
-                                            Chicken
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioSecondary"
-                                            id="flexRadioDefault9">
-                                        <label class="form-check-label" for="flexRadioDefault9">
-                                            Beef
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioSecondary"
-                                            id="flexRadioDefault10">
-                                        <label class="form-check-label" for="flexRadioDefault10">
-                                            Seafood
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioSecondary"
-                                            id="flexRadioDefault11">
-                                        <label class="form-check-label" for="flexRadioDefault11">
-                                            Others
-                                        </label>
-                                    </div>
-                                    <div class="d-flex justify-content-center">
-                                        <button type="submit" class="btn btn-create">CREATE POST</button>
-                                    </div>
+
+                            <p class="form-category mt-3">
+                                Sub Category
+                            </p>
+                            <div class="form-check-container mx-5">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioSecondary"
+                                        id="flexRadioDefault6">
+                                    <label class="form-check-label" for="flexRadioDefault6">Vegan</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioSecondary"
+                                        id="flexRadioDefault7">
+                                    <label class="form-check-label" for="flexRadioDefault7">Pork</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioSecondary"
+                                        id="flexRadioDefault8">
+                                    <label class="form-check-label" for="flexRadioDefault8">Chicken</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioSecondary"
+                                        id="flexRadioDefault9">
+                                    <label class="form-check-label" for="flexRadioDefault9">Beef</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioSecondary"
+                                        id="flexRadioDefault10">
+                                    <label class="form-check-label" for="flexRadioDefault10">Seafood</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioSecondary"
+                                        id="flexRadioDefault11">
+                                    <label class="form-check-label" for="flexRadioDefault11">Others</label>
                                 </div>
                             </div>
+                        </div>
+                        <div class="mx-5 my-4 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-create">CREATE POST</button>
                         </div>
                     </form>
                 </div>

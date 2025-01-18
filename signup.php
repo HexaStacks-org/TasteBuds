@@ -37,22 +37,22 @@
                         <input type="text" class="form-control" placeholder="Enter your first name here" id="firstName"
                             name="firstName" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="lastName" class="form-label">Last Name</label>
                         <input type="text" class="form-control" placeholder="Enter your last name here" id="lastName"
                             name="lastName" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" placeholder="Enter your email here" id="email"
                             name="email" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" placeholder="************" id="password"
                             name="password" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="keepSignedIn" required>
                             <label class="form-check-label" for="keepSignedIn">
@@ -71,7 +71,7 @@
                         <p>SIGN UP</p>
                     </button>
                 </form>
-                <p class="text-start txt-account mt-3">Already have an account? <a href="login.html">Login</a></p>
+                <p class="mx-4 text-start txt-account mt-3">Already have an account? <a href="login.html">Login</a></p>
             </div>
         </div>
     </div>
