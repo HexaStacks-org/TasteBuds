@@ -9,11 +9,14 @@
         crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Rammetto+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Rammetto+One&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="shared/assets/css/index.css">
+    <link rel="stylesheet" href="shared/assets/css/navbar.css"/>
 </head>
 
 <body>
+    <?php include 'navbar.php'; ?>
     <header class="hero-section text-center text-white">
         <img src="shared/assets/image/mockup-pic.png" alt="Delicious food background">
         <div class="position-absolute top-50 start-50 translate-middle">

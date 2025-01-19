@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="shared/assets/css/style.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
 <nav class="navbar navbar-expand-lg" style="background-color: #ffebcd">
     <div class="container-fluid">
         <a class="navbar-brand logo" href="#">
@@ -26,7 +29,7 @@
                     </a>
                 </li>
             </ul>
-            <div class="btn-nav d-flex flex-wrap justify-content-end">
+            <div class="btn-nav d-flex justify-content-end">
                 <button class="btn btn-search" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasSearch" aria-controls="offcanvasSearch"><a>
                         Search</a>
@@ -40,7 +43,7 @@
                         aria-expanded="false">
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu user-dropdown-menu">
+                    <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu">
                         <li><a class="dropdown-item" href="#">Edit Profile</a></li>
                         <li><a class="dropdown-item" href="#">Uploaded Contents</a></li>
                         <li><a class="dropdown-item" href="#">Likes</a></li>
@@ -74,97 +77,68 @@
                 </label>
             </div>
             <div class="btn-group dropdown-center">
-                <button type="button" class="btn btn-category">
-                    <p>CATEGORY</p>
-                </button>
-                <button type="button" class="btn btn-category-split dropdown-toggle dropdown-toggle-split "
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="visually-hidden">Toggle Dropdown</span>
+                <button type="button" class="btn btn-category dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="bi bi-filter"></i> | <i class="bi bi-funnel-fill"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-category">
                     <div>
-                        <p>
-                            Primary Food Category
-                        </p>
+                        <p>Primary Food Category</p>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioPrimary" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Breakfast
-                            </label>
+                            <label class="form-check-label" for="flexRadioDefault1">Breakfast</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioPrimary" id="flexRadioDefault2"
                                 checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Lunch
-                            </label>
+                            <label class="form-check-label" for="flexRadioDefault2">Lunch</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioPrimary" id="flexRadioDefault3"
                                 checked>
-                            <label class="form-check-label" for="flexRadioDefault3">
-                                Dinner
-                            </label>
+                            <label class="form-check-label" for="flexRadioDefault3">Dinner</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioPrimary" id="flexRadioDefault4"
                                 checked>
-                            <label class="form-check-label" for="flexRadioDefault4">
-                                Snacks
-                            </label>
+                            <label class="form-check-label" for="flexRadioDefault4">Snacks</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioPrimary" id="flexRadioDefault5"
                                 checked>
-                            <label class="form-check-label" for="flexRadioDefault5">
-                                Dessert
-                            </label>
+                            <label class="form-check-label" for="flexRadioDefault5">Dessert</label>
                         </div>
                         <div>
-                            <p>
-                                Sub Food Category
-                            </p>
+                            <p>Sub Food Category</p>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioSecondary"
                                     id="flexRadioDefault6">
-                                <label class="form-check-label" for="flexRadioDefault6">
-                                    Vegan
-                                </label>
+                                <label class="form-check-label" for="flexRadioDefault6">Vegan</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioSecondary"
                                     id="flexRadioDefault7" checked>
-                                <label class="form-check-label" for="flexRadioDefault7">
-                                    Pork
-                                </label>
+                                <label class="form-check-label" for="flexRadioDefault7">Pork</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioSecondary"
                                     id="flexRadioDefault8">
-                                <label class="form-check-label" for="flexRadioDefault8">
-                                    Chicken
-                                </label>
+                                <label class="form-check-label" for="flexRadioDefault8">Chicken</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioSecondary"
                                     id="flexRadioDefault9">
-                                <label class="form-check-label" for="flexRadioDefault9">
-                                    Beef
-                                </label>
+                                <label class="form-check-label" for="flexRadioDefault9">Beef</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioSecondary"
                                     id="flexRadioDefault10">
-                                <label class="form-check-label" for="flexRadioDefault10">
-                                    Seafood
-                                </label>
+                                <label class="form-check-label" for="flexRadioDefault10">Seafood</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioSecondary"
                                     id="flexRadioDefault11">
-                                <label class="form-check-label" for="flexRadioDefault11">
-                                    Others
-                                </label>
+                                <label class="form-check-label" for="flexRadioDefault11">Others</label>
                             </div>
                         </div>
                     </div>

@@ -17,6 +17,7 @@ include("shared/processes/login-process.php");
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="shared/assets/css/login.css" />
     <link rel="stylesheet" href="shared/assets/css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -55,9 +56,6 @@ include("shared/processes/login-process.php");
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" placeholder="************" id="password"
                             name="password" required>
-                        <span class="toggle-password" onclick="togglePasswordVisibility()">
-                            <i class="bi bi-eye" id="toggleIcon"></i>
-                        </span>
                     </div>
                     <div class="mb-3">
                         <div class="form-check">
@@ -78,22 +76,6 @@ include("shared/processes/login-process.php");
             </div>
         </div>
     </div>
-
-    <script>
-        function togglePasswordVisibility() {
-            const passwordInput = document.getElementById('password');
-            const toggleIcon = document.getElementById('toggleIcon');
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.classList.remove('bi-eye');
-                toggleIcon.classList.add('bi-eye-slash');
-            } else {
-                passwordInput.type = 'password';
-                toggleIcon.classList.remove('bi-eye-slash');
-                toggleIcon.classList.add('bi-eye');
-            }
-        }
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
