@@ -5,7 +5,7 @@
 .card {
     background-color: var(--clr-light-orange);
     width: 956px;
-    height: 752px;
+    height: 100% auto !important;
     border-radius: 80px;
     overflow: hidden;
     margin-bottom: 160px;
@@ -28,7 +28,7 @@
 
 .tags .primary,
 .tags .sub {
-    width: 88px;
+    width: 96px;
     height: 40px;
     border-radius: 40px;
     margin-top: 8px;
@@ -37,7 +37,7 @@
 
 .tags p {
     font-family: var(--ff-text);
-    color: var(--clr-white);
+    color: white;
     font-size: var(--fs-small);
     font-weight: bold;
     text-align: center;
@@ -77,6 +77,37 @@
 
 .next-btn, .next-btn:hover {
     background-color: var(--clr-primary);
+}
+
+.btn-like, .btn-bookmark, .btn-share {
+    background-color: var(--clr-primary);
+    width: 40px auto;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.btn-like:hover, .btn-bookmark:hover, .btn-share:hover {
+    border: 4px solid var(--clr-primary);
+}
+
+.btn-report {
+    background-color: var(--clr-secondary);
+    width: 40px auto;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.btn-report:hover {
+    border: 4px solid var(--clr-secondary);
+}
+
+.btn-like {
+    margin-left: 46px;
+}
+
+.btn-like, .btn-bookmark, .btn-share, .btn-report{
+    font-family: var(--ff-text);
+    font-size: x-small;
 }
 
 @media only screen and (max-width: 500px) {

@@ -16,6 +16,7 @@
     font-family: var(--ff-text);
     font-size: var(--fs-header);
     margin-left: 16px;
+    margin-top: 24px !important;
     font-weight: bolder;
 }
 
@@ -36,7 +37,7 @@
 
 .form-control {
     background-color: var(--clr-white);
-    width: 600px;
+    width: 50%;
     height: 60px;
     margin-left: 16px;
     margin-top: 3px;
@@ -81,7 +82,7 @@
 
 .btn-login {
     background-color: var(--clr-primary);
-    width: 600px;
+    width: 50%;
     height: 60px !important;
     border-radius: 40px;
     margin-left: 20px;
@@ -121,7 +122,7 @@
     }
 
     .form-control {
-        width: 100%;
+        width: auto;
         margin-left: 0;
     }
 
