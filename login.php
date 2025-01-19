@@ -56,7 +56,7 @@
                     </div>
                     <button type="submit" class="btn btn-login"><p>LOGIN</p></button>
                 </form>
-                <p class="text-center txt-account mt-3">Don't have an account? <a href="signup.html">Sign Up</a></p>
+                <p class="mx-4 txt-account mt-3">Don't have an account? <a href="signup.html">Sign Up</a></p>
             </div>
         </div>
     </div>
