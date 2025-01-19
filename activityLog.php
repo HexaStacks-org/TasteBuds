@@ -12,10 +12,10 @@
 
 <body>
     <div class="profile-page">
-    <header class="profile-header">
-        <img src="shared/assets/image/Logo.png" alt="TasteBuds Logo">
-        <h1>User Profile</h1>
-    </header>
+        <header class="profile-header">
+            <img src="shared/assets/image/Logo.png" alt="TasteBuds Logo">
+            <h1>User Profile</h1>
+        </header>
         <main>
             <!-- Uploaded Content Section -->
             <section class="content-section">
