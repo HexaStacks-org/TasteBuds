@@ -1,3 +1,8 @@
+<?php
+include("connect.php");
+include("shared/processes/login-process.php");
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -7,21 +12,30 @@
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="shared/assets/css/login.css" />
-        <link rel="stylesheet" href="shared/assets/css/style.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rammetto+One&display=swap"
-            rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="shared/assets/css/login.css" />
+    <link rel="stylesheet" href="shared/assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rammetto+One&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="login-body">
     <div class="container-fluid px-0">
         <div class="row g-0 align-items-start">
+
+            <?php if ($error == "NO USER") { ?>
+                <div class="alert alert-danger mb-3 d-flex text-align-center justify-content-center"
+                    style="background-color: var(--clr-secondary); font-family: var(--ff-text); font-weight: bolder; color: white; font-size: var(--fs-small)"
+                    role="alert">
+                    Invalid email or password
+                </div>
+            <?php } ?>
+
             <div class="col-md-6 d-none d-md-block">
                 <img src="shared/assets/image/mockup-pic.png" alt="pic" class="img-fluid pic">
             </div>
@@ -34,11 +48,13 @@
                 <form action="login.php" method="POST">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="Enter your email here" id="email" name="email" required>
+                        <input type="email" class="form-control" placeholder="Enter your email here" id="email"
+                            name="email" required>
                     </div>
                     <div class="mb-3 position-relative">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" placeholder="************" id="password" name="password" required>
+                        <input type="password" class="form-control" placeholder="************" id="password"
+                            name="password" required>
                         <span class="toggle-password" onclick="togglePasswordVisibility()">
                             <i class="bi bi-eye" id="toggleIcon"></i>
                         </span>
@@ -54,7 +70,9 @@
                     <div class="mb-3 text-start">
                         <a href="forgot-password.php" class="forgot-password">Forgot Password?</a>
                     </div>
-                    <button type="submit" class="btn btn-login"><p>LOGIN</p></button>
+                    <button type="submit" class="btn btn-login" name="btnLogin">
+                        <p>LOGIN</p>
+                    </button>
                 </form>
                 <p class="mx-4 txt-account mt-3">Don't have an account? <a href="signup.html">Sign Up</a></p>
             </div>

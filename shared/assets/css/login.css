@@ -71,6 +71,7 @@
 .form-check {
     margin-left: 16px;
 }
+
 .form-check-input {
     border: 2px solid var(--clr-primary);
 }
