@@ -1,0 +1,101 @@
+/* Floating Button Container */
+.floating-btn-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Main Floating Button */
+.floating-btn {
+  background-color: var(--clr-primary);
+  color: #fff;
+  font-size: var(--fs-h4);
+  font-family: var(--ff-title);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.floating-btn:hover {
+  background-color: var(--fc-dark-orange);
+  transform: scale(1.1);
+}
+
+/* Child Buttons */
+.child-btn {
+  position: absolute;
+  bottom: 80px; /* Adjust distance from the main button */
+  right: 0;
+  background-color: var(--clr-secondary);
+  color: #fff;
+  font-size: var(--fs-small);
+  font-family: var(--ff-text);
+  border: none;
+  border-radius: 50px;
+  width: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.child-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.child-btn:hover {
+  background-color: var(--clr-dark-orange);
+}
+
+/* Adjust Button Order */
+#recipe-btn {
+  bottom: 140px; /* Offset for the second child button */
+}
+
+#gallery-btn {
+  bottom: 80px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .floating-btn-container {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .floating-btn {
+    width: 50px;
+    height: 50px;
+    font-size: var(--fs-h5);
+  }
+
+  .child-btn {
+    width: 90px;
+    height: 35px;
+    font-size: var(--fs-paragraph);
+  }
+
+  #recipe-btn {
+    bottom: 120px;
+  }
+
+  #gallery-btn {
+    bottom: 70px;
+  }
+}

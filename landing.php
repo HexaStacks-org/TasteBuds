@@ -19,7 +19,7 @@
         <div class="position-absolute top-50 start-50 translate-middle">
             <h1>Welcome to Tastebuds!</h1>
             <p>Your Ultimate Buddy for Food Exploration and Choices.</p>
-            <button class="btn btn-warning py-2 px-4 fw-bold text-uppercase">Join Us</button>
+            <a href="login.php" class="btn btn-warning py-2 px-4 fw-bold text-uppercase">Join Us</a>
         </div>
     </header>
 
@@ -31,7 +31,7 @@
                     <h2>Check Out These Recipes</h2>
                     <p>Explore a variety of flavorful recipes for every meal—perfect for quick bites or indulgent
                         feasts.</p>
-                    <a href="#" class="btn text-white">Dig In and Discover!</a>
+                    <a href="" class="btn text-white">Dig In and Discover!</a>
                 </div>
             </div>
         </div>

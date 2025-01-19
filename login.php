@@ -32,10 +32,8 @@
                 <div class="text-start login">Login</div>
                 <p class="text-start login-text">Access your account to view and manage your recipes.</p>
                 <form action="login.php" method="POST">
-                    <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" placeholder="Enter your email here" id="email" name="email" required>
-                    </div>
                     <div class="mb-3 position-relative">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" placeholder="************" id="password" name="password" required>
@@ -50,9 +48,6 @@
                                 Keep me signed in
                             </label>
                         </div>
-                    </div>
-                    <div class="mb-3 text-start">
-                        <a href="forgot-password.php" class="forgot-password">Forgot Password?</a>
                     </div>
                     <button type="submit" class="btn btn-login"><p>LOGIN</p></button>
                 </form>
