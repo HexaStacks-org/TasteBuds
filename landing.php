@@ -11,9 +11,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Rammetto+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared/assets/css/index.css">
+    <link rel="stylesheet" href="shared/assets/css/navbar.css" />
 </head>
 
 <body>
+        <?php include 'navbar.php'; ?>
     <header class="hero-section text-center text-white">
         <img src="shared/assets/image/mockup-pic.png" alt="Delicious food background">
         <div class="position-absolute top-50 start-50 translate-middle">
@@ -43,7 +45,7 @@
             <div class="generator-content">
                 <h3 class="generator-title">Random Generator</h3>
                 <p class="generator-text">Get spontaneous food inspiration with random picks.</p>
-                <button class="generator-button">Find Out</button>
+                <a href="foodgenerator.php" class="generator-button">Find Out</a>
             </div>
         </div>
     </section>
@@ -55,7 +57,7 @@
                 <h3 class="gallery-title">Share Your Creations</h3>
                 <p class="gallery-text">Share your culinary creations in our gallery—upload food photos with a title and
                     caption to inspire others!</p>
-                <button class="gallery-button">Upload Now</button>
+                    <a href="gallery.php" class="gallery-button">Upload Now</a>
             </div>
         </div>
     </section>
@@ -113,6 +115,9 @@
             </div>
         </div>
     </section>
+
+    <?php include 'footer.php'; ?>
+    <?php include 'createContent.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>

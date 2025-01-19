@@ -33,9 +33,9 @@
 
                 <!-- Food Listings -->
                 <div class="col-12 col-md-3 my-5 pt-3 footer-column d-flex flex-column align-items-md-end">
-                    <h5>Food Listings</h5>
-                    <h5>Generator</h5>
-                    <h5>Community</h5>
+                    <a href="#"><h5>Food Listings</h5></a>
+                    <a href="foodgenerator.php"><h5>Generator</h5></a>
+                    <a href="gallery.php"><h5>Community</h5></a>
                 </div>
 
                 <!-- Generator -->

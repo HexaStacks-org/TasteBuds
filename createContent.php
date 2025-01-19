@@ -109,9 +109,9 @@
 
         <!-- Child Buttons -->
         <button class="child-btn open-sans-text" id="recipe-btn"
-            onclick="location.href='recipe-creation.html'">Recipe</button>
+            onclick="location.href='createRecipe.php'">Recipe</button>
         <button class="child-btn open-sans-text" id="gallery-btn"
-            onclick="location.href='gallery-creation.html'">Gallery</button>
+            onclick="location.href='createPost.php'">Gallery</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

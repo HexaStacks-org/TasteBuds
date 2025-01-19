@@ -95,6 +95,8 @@
             </section>
         </main>
     </div>
+            <?php include 'shared/components/footer.php'; ?>
+
 </body>
 
 </html>
