@@ -8,7 +8,7 @@
     margin: 0px;
     padding: 0px;
     width: 710px;
-    height: 1024px;
+    height: 607px;
     overflow: hidden;
 }
 
@@ -16,7 +16,6 @@
     font-family: var(--ff-text);
     font-size: var(--fs-header);
     margin-left: 16px;
-    margin-top: 48px;
     font-weight: bolder;
 }
 
@@ -28,10 +27,10 @@
 }
 
 .login-logo {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     margin-left: 16px;
     width: 280px !important;
-    height: 80px !important;
+    height: 60px !important;
     margin-top: 16px;
 }
 
@@ -102,19 +101,6 @@
     color: var(--clr-light-orange);
     padding: 0;
     margin: 0;
-}
-
-.forgot-password {
-    font-size: var(--fs-small);
-    font-weight: bolder;
-    font-family: var(--ff-text);
-    color: var(--fc-primary-orange);
-    text-decoration: none;
-    margin-left: 16px;
-}
-
-.forgot-password:hover {
-    text-decoration: underline;
 }
 
 .txt-account {
