@@ -1,4 +1,5 @@
 <?php
+include("connect.php");
 session_start();
 session_destroy();
 session_start();
@@ -24,9 +25,9 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
             $_SESSION['role'] = $user['role'];
 
             if ($user['role'] == "admin") {
-                header("Location: admin.php");
+                header("Location: gallery.php");
             } else {
-                header("Location: index.php");
+                header("Location: landing.php");
             }
         }
     } else {
@@ -60,9 +61,9 @@ if (isset($_POST['btnLogin'])) {
             }
 
             if ($user['role'] == "admin") {
-                header("Location: admin.php");
+                header("Location: gallery.php");
             } else {
-                header("Location: index.php");
+                header("Location: landing.php");
             }
         }
     } else {

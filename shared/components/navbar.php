@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="../css/style.css" />
-<link rel="stylesheet" href="../css/navbar.css" />
+<link rel="stylesheet" href="./shared/assets/css/style.css" />
+<link rel="stylesheet" href="./shared/assets/css/navbar.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 <nav class="navbar navbar-expand-lg" style="background-color: #ffebcd">
@@ -163,4 +163,4 @@
         </div>
     </div>
 </div>
-<script src="../js/navbar.js"></script>
+<script src="./shared/assets/js/navbar.js"></script>

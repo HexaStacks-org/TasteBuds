@@ -21,11 +21,9 @@ body {
     background-color: var(--clr-light-orange);
 }
 
-.pic {
+.login-pic {
     margin: 0px;
     padding: 0px;
-    width: 710px;
-    height: 607px;
     overflow: hidden;
 }
 
@@ -133,19 +131,27 @@ body {
 }
 
 @media (max-width: 768px) {
-    .pic {
+    .body {
+        overflow: visible;
+    }
+    
+    .login-pic {
         width: 100%;
         height: auto;
     }
 
+    .form-label {
+        margin-left: 24px;
+    }
+
     .form-control {
-        width: 100%;
-        margin-left: 0;
+        width: 70%;
+        margin-left: 24px;
     }
 
     .btn-login {
-        width: 100%;
-        margin-left: 0;
+        width: 70%;
+        margin-left: 48px;
     }
 
     .text-start.login,
@@ -161,7 +167,7 @@ body {
 }
 
 @media (max-width: 576px) {
-    .pic {
+    .login-pic {
         display: none;
     }
 }

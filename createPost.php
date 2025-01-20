@@ -13,6 +13,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rammetto+One&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="shared/assets/css/style.css" />
     <link rel="stylesheet" href="shared/assets/css/createPost.css" />
 </head>
 
@@ -34,15 +35,9 @@
                     <p class="post-description px-5">Share your new favorite and must-try post!</p>
                     <form action="create-post.php" method="POST" enctype="multipart/form-data">
                         <div class="mb-3 mx-5">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="title" name="title"
-                                placeholder="Enter title of the post" required>
-                        </div>
-
-                        <div class="mb-3 mx-5">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control py-3" id="description" name="description" rows="4"
-                                placeholder="Enter description of the post" required></textarea>
+                            <label for="caption" class="form-label">Caption</label>
+                            <input type="text" class="form-control" id="caption" name="caption"
+                                placeholder="Enter Caption of the post" required>
                         </div>
 
                         <div class="mb-3 mx-5">
@@ -126,7 +121,7 @@
             </div>
 
             <div class="col-md-6 d-none d-md-block">
-                <img src="shared/assets/image/mockup-pic.png" alt="mockup" class="img-fluid mockup-image">
+                <img src="shared/assets/image/mockup-pic2.png" alt="postPic" class="img-fluid mockup-image">
             </div>
         </div>
     </div>
