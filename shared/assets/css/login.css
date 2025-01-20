@@ -1,4 +1,21 @@
 /* login.css */
+html,
+body {
+    overflow: hidden;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+.row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .login-body {
     background-color: var(--clr-light-orange);
@@ -8,7 +25,7 @@
     margin: 0px;
     padding: 0px;
     width: 710px;
-    height: 1024px;
+    height: 607px;
     overflow: hidden;
 }
 
@@ -16,7 +33,7 @@
     font-family: var(--ff-text);
     font-size: var(--fs-header);
     margin-left: 16px;
-    margin-top: 24px !important;
+    margin-top: 48px;
     font-weight: bolder;
 }
 
@@ -28,16 +45,16 @@
 }
 
 .login-logo {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     margin-left: 16px;
     width: 280px !important;
-    height: 80px !important;
+    height: 60px !important;
     margin-top: 16px;
 }
 
 .form-control {
     background-color: var(--clr-white);
-    width: 50%;
+    width: 600px;
     height: 60px;
     margin-left: 16px;
     margin-top: 3px;
@@ -82,7 +99,7 @@
 
 .btn-login {
     background-color: var(--clr-primary);
-    width: 50%;
+    width: 600px;
     height: 60px !important;
     border-radius: 40px;
     margin-left: 20px;
@@ -104,19 +121,6 @@
     margin: 0;
 }
 
-.forgot-password {
-    font-size: var(--fs-small);
-    font-weight: bolder;
-    font-family: var(--ff-text);
-    color: var(--fc-primary-orange);
-    text-decoration: none;
-    margin-left: 16px;
-}
-
-.forgot-password:hover {
-    text-decoration: underline;
-}
-
 .txt-account {
     font-size: var(--fs-small);
     font-weight: bolder;
@@ -135,7 +139,7 @@
     }
 
     .form-control {
-        width: auto;
+        width: 100%;
         margin-left: 0;
     }
 

@@ -1,8 +1,3 @@
-<?php
-include("connect.php");
-include("shared/processes/login-process.php");
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -17,7 +12,6 @@ include("shared/processes/login-process.php");
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="shared/assets/css/login.css" />
     <link rel="stylesheet" href="shared/assets/css/style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -28,15 +22,6 @@ include("shared/processes/login-process.php");
 <body class="login-body">
     <div class="container-fluid px-0">
         <div class="row g-0 align-items-start">
-
-            <?php if ($error == "NO USER") { ?>
-                <div class="alert alert-danger mb-3 d-flex text-align-center justify-content-center"
-                    style="background-color: var(--clr-secondary); font-family: var(--ff-text); font-weight: bolder; color: white; font-size: var(--fs-small)"
-                    role="alert">
-                    Invalid email or password
-                </div>
-            <?php } ?>
-
             <div class="col-md-6 d-none d-md-block">
                 <img src="shared/assets/image/mockup-pic.png" alt="pic" class="img-fluid pic">
             </div>
@@ -47,15 +32,16 @@ include("shared/processes/login-process.php");
                 <div class="text-start login">Login</div>
                 <p class="text-start login-text">Access your account to view and manage your recipes.</p>
                 <form action="login.php" method="POST">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="Enter your email here" id="email"
-                            name="email" required>
-                    </div>
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="Enter your email here" id="email" name="email"
+                        required>
                     <div class="mb-3 position-relative">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" placeholder="************" id="password"
                             name="password" required>
+                        <span class="toggle-password" onclick="togglePasswordVisibility()">
+                            <i class="bi bi-eye" id="toggleIcon"></i>
+                        </span>
                     </div>
                     <div class="mb-3">
                         <div class="form-check">
@@ -65,17 +51,30 @@ include("shared/processes/login-process.php");
                             </label>
                         </div>
                     </div>
-                    <div class="mb-3 text-start">
-                        <a href="forgot-password.php" class="forgot-password">Forgot Password?</a>
-                    </div>
-                    <button type="submit" class="btn btn-login" name="btnLogin">
+                    <button type="submit" class="btn btn-login">
                         <p>LOGIN</p>
                     </button>
                 </form>
-                <p class="mx-4 txt-account mt-3">Don't have an account? <a href="signup.html">Sign Up</a></p>
+                <p class="mx-4 txt-account mt-3">Don't have an account? <a href="signup.php">Sign Up</a></p>
             </div>
         </div>
     </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('bi-eye');
+                toggleIcon.classList.add('bi-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('bi-eye-slash');
+                toggleIcon.classList.add('bi-eye');
+            }
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

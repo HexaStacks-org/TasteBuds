@@ -7,7 +7,8 @@ var cardData = [
             { type: "primary", label: "Lunch" },
             { type: "sub", label: "Chicken" }
         ],
-        caption: "Caption for post 1."
+        caption: "Caption for post 1.",
+        date: "2025-01-20 10:30:00"
     },
     {
         name: "Name Here 2",
@@ -16,7 +17,8 @@ var cardData = [
             { type: "primary", label: "Dinner" },
             { type: "sub", label: "Beef" }
         ],
-        caption: "Caption for post 2."
+        caption: "Caption for post 2.",
+        date: "2025-01-20 10:32:00"
     },
     {
         name: "Name Here 3",
@@ -25,7 +27,8 @@ var cardData = [
             { type: "primary", label: "Snack" },
             { type: "sub", label: "Vegetarian" }
         ],
-        caption: "Caption for post 3."
+        caption: "Caption for post 3.",
+        date: "2025-01-20 10:34:00"
     },
     {
         name: "Name Here 2",
@@ -34,7 +37,8 @@ var cardData = [
             { type: "primary", label: "Dinner" },
             { type: "sub", label: "Beef" }
         ],
-        caption: "Caption for post 2."
+        caption: "Caption for post 2.",
+        date: "2025-01-20 10:38:00"
     },
     {
         name: "Name Here 2",
@@ -43,7 +47,8 @@ var cardData = [
             { type: "primary", label: "Dinner" },
             { type: "sub", label: "Beef" }
         ],
-        caption: "Caption for post 2."
+        caption: "Caption for post 2.",
+        date: "2025-01-20 10:30:00"
     },
     {
         name: "Name Here 2",
@@ -52,7 +57,8 @@ var cardData = [
             { type: "primary", label: "Dinner" },
             { type: "sub", label: "Beef" }
         ],
-        caption: "Caption for post 2."
+        caption: "Caption for post 2.",
+        date: "2025-01-20 10:30:00"
     },
     {
         name: "Name Here 2",
@@ -61,7 +67,8 @@ var cardData = [
             { type: "primary", label: "Dinner" },
             { type: "sub", label: "Beef" }
         ],
-        caption: "Caption for post 2."
+        caption: "Caption for post 2.",
+        date: "2025-01-20 10:30:00"
     },
     {
         name: "Name Here 2",
@@ -70,7 +77,8 @@ var cardData = [
             { type: "primary", label: "Dinner" },
             { type: "sub", label: "Beef" }
         ],
-        caption: "Caption for post 2."
+        caption: "Caption for post 2.",
+        date: "2025-01-20 10:30:00"
     }
 ];
 var cardsPerPage = 5;
@@ -87,9 +95,14 @@ function renderCards() {
         var card = cardsToShow[i];
         var cardElement = document.createElement('div');
         cardElement.className = 'col-12 d-flex align-items-center justify-content-center mb-4';
+
         cardElement.innerHTML =
             '<div class="card shadow">' +
-            '<div class="name">' + card.name + '</div>' +
+            '<div class="d-flex justify-content-between align-items-center p-3">' +
+            '<div class="name fw-bold">' + card.name + '</div>' +
+            '<button class="btn btn-edit btn-secondary mx-4">Edit</button>' +
+            '</div>' +
+            '<div class="datetime d-flex justify-content-between align-items-center">' + formatDate(card.date) + '</div>' +
             '<div class="img-fluid img-post">' +
             '<img src="' + card.image + '" alt="' + card.name + '">' +
             '<div class="container mx-3 tags d-flex">' +
@@ -112,9 +125,16 @@ function renderCards() {
             '</div>';
         cardContainer.appendChild(cardElement);
     }
+
     backBtn.disabled = currentPage === 1;
     nextBtn.disabled = currentPage * cardsPerPage >= cardData.length;
 }
+
+function formatDate(dateString) {
+    var date = new Date(dateString);
+    return date.toLocaleString();
+}
+
 function updatePage(newPage) {
     currentPage = newPage;
     var url = new URL(window.location.href);
@@ -122,14 +142,17 @@ function updatePage(newPage) {
     history.pushState({}, '', url);
     renderCards();
 }
+
 backBtn.addEventListener('click', function () {
     if (currentPage > 1) {
         updatePage(currentPage - 1);
     }
 });
+
 nextBtn.addEventListener('click', function () {
     if (currentPage * cardsPerPage < cardData.length) {
         updatePage(currentPage + 1);
     }
 });
+
 renderCards();
