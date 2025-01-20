@@ -18,7 +18,7 @@
 
 <body>
     <div>
-        <?php include 'navbar.php'; ?>
+        <?php include 'shared/components/navbar.php'; ?>
     </div>
     <header class="hero-section text-center text-white">
         <img src="shared/assets/image/mockup-pic.png" alt="Delicious food background">
@@ -37,7 +37,7 @@
                     <h2>Check Out These Recipes</h2>
                     <p>Explore a variety of flavorful recipes for every meal—perfect for quick bites or indulgent
                         feasts.</p>
-                    <a href="foodlisting.php" class="btn generator-button">Dig In and Discover!</a>
+                    <a href="foodListings.php" class="btn generator-button">Dig In and Discover!</a>
                 </div>
             </div>
         </div>
@@ -121,7 +121,6 @@
     </section>
 
     <?php include 'shared/components/footer.php'; ?>
-    <?php include 'shared/components/createContent.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
