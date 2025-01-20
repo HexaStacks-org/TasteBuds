@@ -22,7 +22,7 @@
     font-family: var(--ff-text);
     font-size: var(--fs-small);
     font-weight: bolder;
-    padding-left: 76px;
+    padding-left: 64px;
     padding-bottom: 8px;
 }
 
@@ -66,7 +66,8 @@
     font-weight: bolder;
 }
 
-.back-btn, .next-btn {
+.back-btn,
+.next-btn {
     font-family: var(--ff-text);
     font-size: var(--fs-paragraph);
     color: var(--fc-black);
@@ -78,11 +79,13 @@
     justify-content: center;
 }
 
-.back-btn, .back-btn:hover {
+.back-btn,
+.back-btn:hover {
     background-color: var(--clr-secondary);
 }
 
-.next-btn, .next-btn:hover {
+.next-btn,
+.next-btn:hover {
     background-color: var(--clr-primary);
 }
 
@@ -99,14 +102,18 @@
     background-color: var(--clr-secondary);
 }
 
-.btn-like, .btn-bookmark, .btn-share {
+.btn-like,
+.btn-bookmark,
+.btn-share {
     background-color: var(--clr-primary);
     width: 40px;
     height: 40px;
     border-radius: 8px;
 }
 
-.btn-like:hover, .btn-bookmark:hover, .btn-share:hover {
+.btn-like:hover,
+.btn-bookmark:hover,
+.btn-share:hover {
     background-color: var(--clr-primary);
     border: 4px solid var(--clr-primary);
 }
@@ -127,12 +134,16 @@
     margin-left: 46px;
 }
 
-.btn-like, .btn-bookmark, .btn-share, .btn-report, .btn-edit{
+.btn-like,
+.btn-bookmark,
+.btn-share,
+.btn-report,
+.btn-edit {
     font-family: var(--ff-text);
     font-size: var(--fs-small);
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 850px) {
     .card {
         height: auto;
     }
@@ -140,7 +151,12 @@
     .name {
         font-size: var(--fs-paragraph);
         padding-top: 16px;
-        padding-bottom: 16px;
+        padding-bottom: 0px;
+        padding-left: 24px;
+    }
+
+    .datetime {
+        padding-left: 32px;
     }
 
     .tags p {
@@ -159,7 +175,8 @@
         margin-left: 8px;
     }
 
-    .back-btn, .next-btn {
+    .back-btn,
+    .next-btn {
         font-size: var(--fs-small);
         width: auto;
         height: auto;

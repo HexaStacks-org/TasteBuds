@@ -98,7 +98,7 @@ function renderCards() {
 
         cardElement.innerHTML =
             '<div class="card shadow">' +
-            '<div class="d-flex justify-content-between align-items-center p-3">' +
+            '<div class="d-flex justify-content-between align-items-center" style="padding-right: 16px">' +
             '<div class="name fw-bold">' + card.name + '</div>' +
             '<button class="btn btn-edit btn-secondary mx-4">Edit</button>' +
             '</div>' +

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Tastebuds</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous">
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Rammetto+One&display=swap"
@@ -17,7 +17,9 @@
 </head>
 
 <body>
-    <?php include 'navbar.php'; ?>
+    <div>
+        <?php include 'navbar.php'; ?>
+    </div>
     <header class="hero-section text-center text-white">
         <img src="shared/assets/image/mockup-pic.png" alt="Delicious food background">
         <div class="position-absolute top-50 start-50 translate-middle">
@@ -59,7 +61,7 @@
                 <h3 class="gallery-title">Share Your Creations</h3>
                 <p class="gallery-text">Share your culinary creations in our gallery—upload food photos with a title and
                     caption to inspire others!</p>
-                    <a href="gallery.php" class="btn gallery-button">Upload Now</a>
+                <a href="gallery.php" class="btn gallery-button">Upload Now</a>
             </div>
         </div>
     </section>
@@ -122,6 +124,7 @@
     <?php include 'shared/components/createContent.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </body>
 
