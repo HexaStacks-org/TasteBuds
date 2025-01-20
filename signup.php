@@ -32,8 +32,10 @@
                 <div class="create text-start">Create an account</div>
                 <p class="sign-up text-start">Sign up to save and review your favorite recipes.</p>
                 <form action="signup.php" method="POST">
-                    <label for="fullname" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" placeholder="Enter your full name" id="fullname" name="fullname" required>
+                    <label for="fullname" class="form-label">First Name</label>
+                    <input type="text" class="form-control" placeholder="Enter your first name" id="firstName" name="firstName" required>
+                    <label for="fullname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Enter your last name" id="lastName" name="lastName" required>
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" placeholder="Enter your email" id="email" name="email" required>
                     <label for="password" class="form-label">Password</label>
