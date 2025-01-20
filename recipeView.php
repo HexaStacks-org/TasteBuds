@@ -56,7 +56,7 @@
       <div class="row">
         <!-- Card -->
         <div class="col-md-6 pt-5 pb-4">
-          <a href="recipeView2.html" class="card-link no-underline">
+          <a href="recipeOverview.php" class="card-link no-underline">
             <div class="card recipe-card">
               <img
                 src="shared/assets/image/test-pic.png"
@@ -85,7 +85,7 @@
         </div>
         <!-- Card -->
         <div class="col-md-6 pt-5 pb-4">
-          <a href="recipeView2.html" class="card-link no-underline">
+          <a href="recipeOverview.php" class="card-link no-underline">
             <div class="card recipe-card">
               <img
                 src="shared/assets/image/test-pic.png"
@@ -114,7 +114,7 @@
         </div>
         <!-- Card -->
         <div class="col-md-6 pt-5 pb-4">
-          <a href="recipeView2.html" class="card-link no-underline">
+          <a href="recipeOverview.php" class="card-link no-underline">
             <div class="card recipe-card">
               <img
                 src="shared/assets/image/test-pic.png"
@@ -143,7 +143,7 @@
         </div>
         <!-- Card -->
         <div class="col-md-6 pt-5 pb-4">
-          <a href="recipeView2.html" class="card-link no-underline">
+          <a href="recipeOverview.php" class="card-link no-underline">
             <div class="card recipe-card">
               <img
                 src="shared/assets/image/test-pic.png"
