@@ -13,13 +13,14 @@
     <link rel="stylesheet" href="shared/assets/css/style.css" />
     <link rel="stylesheet" href="shared/assets/css/gallery.css" />
     <link rel="stylesheet" href="shared/assets/css/navbar.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rammetto+One&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
-    <!-- <?php include 'navbar.php'; ?> -->
+    <?php include 'navbar.php'; ?>
     <div class="container align-items-center justify-content-center">
         <div class="row card-row" id="card-container">
             <!-- cards here -->
@@ -30,11 +31,10 @@
         </div>
     </div>
 
+    <script src="shared/assets/js/gallery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="shared/assets/js/gallery.js"></script>
-
 </body>
 
 </html>
