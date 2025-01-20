@@ -41,14 +41,6 @@
                             <i class="bi bi-eye" id="toggleIcon"></i>
                         </span>
                     </div>
-                    <div class="mb-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="keepSignedIn">
-                            <label class="form-check-label" for="keepSignedIn">
-                                Keep me signed in
-                            </label>
-                        </div>
-                    </div>
                     <button type="submit" class="btn btn-login"><p>LOGIN</p></button>
                 </form>
                 <p class="mx-4 txt-account mt-3">Don't have an account? <a href="signup.php">Sign Up</a></p>
