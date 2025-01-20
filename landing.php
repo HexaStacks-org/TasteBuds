@@ -33,7 +33,7 @@
                     <h2>Check Out These Recipes</h2>
                     <p>Explore a variety of flavorful recipes for every meal—perfect for quick bites or indulgent
                         feasts.</p>
-                    <a href="" class="btn generator-button">Dig In and Discover!</a>
+                    <a href="foodlisting.php" class="btn generator-button">Dig In and Discover!</a>
                 </div>
             </div>
         </div>
