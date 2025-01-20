@@ -38,7 +38,6 @@
         />
         <div class="col name-edit">
           <h6 class="name">JOMARI CASTILLO</h6>
-          <button type="button" class="btn edit">Edit</button>
         </div>
         <div class="col recipe-btn-group">
           <button class="btn-edit"></button>
