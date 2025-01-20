@@ -20,12 +20,12 @@
 </head>
 
 <body>
-    <?php include 'navbar.php'; ?>
+    <?php include 'shared/components/navbar.php'; ?>
     <div class="container align-items-center justify-content-center">
         <div class="row card-row" id="card-container">
             <!-- cards here -->
         </div>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex my-5 d-flex align-items-center justify-content-between">
             <button class="btn back-btn btn-secondary" id="back-btn" disabled>Back</button>
             <button class="btn next-btn btn-primary" id="continue-btn">Continue</button>
         </div>
