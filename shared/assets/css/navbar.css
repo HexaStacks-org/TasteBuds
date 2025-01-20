@@ -1,0 +1,495 @@
+.navbar-brand.logo {
+    display: flex;
+    align-items: center;
+    padding-left: 32px;
+    width: auto;
+}
+
+.nav-txt-clr {
+    font-family: var(--ff-title);
+    font-size: var(--fs-paragraph);
+    color: var(--fc-dark-orange);
+    margin-top: 12px;
+}
+
+.navbar-nav {
+    margin-left: 31px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    gap: 30px;
+}
+
+.btn-search {
+    background-color: var(--clr-primary) !important;
+    color: var(--fc-light-orange);
+    text-align: center;
+    border-radius: 40px;
+    margin-left: 452px;
+    width: 120px;
+    height: 40px;
+}
+
+.btn-search a {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    color: var(--fc-light-orange);
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.btn-search:hover {
+    font-family: var(--ff-title);
+    font-size: var(--fs-paragraph);
+    color: var(--fc-dark-orange);
+    background-color: var(--clr-mid-orange);
+}
+
+.user-dropdown .user-btn {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    background-color: var(--clr-primary);
+    color: var(--fc-light);
+    border-radius: 40px 0px 0px 40px;
+    margin-left: 25px;
+    width: 99.5px;
+    height: 40px;
+}
+
+.user-dropdown .dropdown-toggle {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    color: var(--fc-light-orange);
+    background-color: var(--clr-dark-orange);
+    border-radius: 0px 40px 40px 0px;
+    padding-left: -4px;
+}
+
+.user-dropdown .user-dropdown-menu {
+    font-family: var(--ff-text);
+    font-size: var(--fs-small);
+    color: var(--fc-light-orange);
+    background-color: var(--clr-primary);
+    font-weight: bolder;
+    width: 224px;
+}
+
+.user-dropdown p {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    color: var(--fc-light-orange);
+    padding-top: 2px;
+    font-weight: bolder;
+}
+
+.user-dropdown a {
+    font-family: var(--ff-text);
+    font-size: var(--fs-small);
+    color: var(--fc-light-orange) !important;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.user-dropdown-menu a:hover {
+    background-color: var(--clr-dark-orange);
+    color: var(--fc-light);
+}
+
+.form-check-input:checked {
+    background-color: var(--clr-primary);
+    border: none;
+}
+
+.offcanvas {
+    background-color: var(--clr-light-orange);
+    border-radius: 0 0 80px 80px;
+    height: 108px !important;
+    overflow: visible;
+}
+
+.offcanvas-body {
+    padding-top: 42px;
+    overflow: visible;
+    height: 108px !important;
+}
+
+.search-input {
+    border-radius: 40px;
+    border: 4px solid var(--clr-primary);
+    background-color: transparent;
+    width: 100%;
+    max-width: 400px;
+    min-width: 40% !important;
+    height: 40px;
+    outline: none;
+    margin-left: 40px;
+    padding-left: 24px;
+    box-sizing: border-box;
+}
+
+.search-input::placeholder {
+    font-family: var(--ff-text);
+    color: var(--clr-black);
+    font-weight: bold;
+}
+
+.btn-enter-search {
+    color: var(--fc-light-orange);
+    background: var(--clr-primary);
+    display: flex;
+    justify-content: center;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    width: 124px;
+    min-width: 124px;
+    height: 40px;
+    margin-left: 16px;
+    text-decoration: none;
+}
+
+.btn-enter-search p {
+    font-family: var(--ff-title);
+    font-size: var(--fs-paragraph);
+    color: var(--fc-light-orange);
+    text-align: center;
+    padding-top: 8px;
+}
+
+.btn-recipe {
+    border: 4px solid var(--clr-primary);
+    background-color: var(--clr-primary);
+    border-radius: 40px 0px 0px 40px;
+    width: 124px ;
+    height: 40px;
+    margin-left: 64px;
+    text-decoration: none;
+}
+
+.btn-recipe:hover {
+    border: 4px solid var(--clr-primary);
+    background-color: var(--clr-light-orange);
+    color: var(--fc-dark-orange);
+    text-decoration: none;
+}
+
+.btn-recipe p {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    color: var(--fc-light-orange);
+    text-align: center;
+    text-decoration: none;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.btn-recipe:hover p {
+    color: var(--fc-dark-orange);
+    text-align: center;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.btn-gallery {
+    border: 4px solid var(--clr-primary);
+    background-color: var(--clr-light-orange);
+    border-radius: 0px 40px 40px 0px;
+    width: 124px ;
+    height: 40px;
+    margin-left: -4px;
+    text-decoration: none;
+}
+
+.btn-gallery:hover {
+    border: 4px solid var(--clr-primary);
+    background-color: var(--clr-primary);
+    border-radius: 0px 40px 40px 0px;
+    margin-left: -4px;
+    text-decoration: none;
+}
+
+.btn-gallery p {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    color: var(--fc-primary-orange);
+    text-align: center;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.btn-check:checked + .btn-recipe p {
+    color: var(--fc-dark-orange);
+}
+
+.btn-check:checked + .btn-gallery {
+    background-color: var(--clr-primary);
+}
+
+.btn-check:checked + .btn-gallery p {
+    color: var(--fc-light-orange);
+}
+
+
+.btn-group {
+    border: var();
+}
+
+.btn-group.btn-rect-gal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 40px;
+}
+
+.btn-category {
+    color: var(--fc-light-orange);
+    background-color: var(--clr-primary);
+    border: none;
+    border-radius: 40px;
+    width: 108px;
+    height: 40px;
+    margin-left: 40px;
+}
+
+.btn-category:hover {
+    color: var(--fc-light-orange);
+    background-color: var(--clr-primary);
+    border: none;
+    border-radius: 40px;
+    margin-left: 40px;
+}
+
+.btn-category-split {
+    background-color: var(--clr-dark-orange);
+    border-radius: 0px 40px 40px 0px;
+    width: 64px;
+    height: 40px;
+    margin-left: -4px;
+}
+
+.btn-category-split:hover {
+    font-size: var(--fs-paragraph);
+    color: var(--fc-dark-orange);
+    background-color: var(--clr-mid-orange);
+}
+
+.btn-category p {
+    font-family: var(--ff-text);
+    font-weight: bolder;
+    font-size: var(--fs-paragraph);
+    color: var(--fc-light-orange);
+    text-align: center;
+    padding-left: 4px;
+    padding-top: 4px;
+    
+}
+
+.dropdown-category {
+    overflow: hidden;
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    color: var(--fc-black);
+    background-color: var(--clr-light-orange);
+    width: 260px;
+    border: none;
+}
+
+.dropdown-category p {
+    font-weight: bolder;
+    margin-left: 8px;
+}
+
+.form-check {
+    font-family: var(--ff-text);
+    margin-left: 16px;
+}
+
+.form-check-label {
+    font-family: var(--ff-text);
+    font-size: var(--fs-small);
+    color: var(--fc-black);
+}
+
+.user-dropdown-menu a {
+    font-family: var(--ff-text);
+    color: var(--fc-black);
+    padding-top: 24px;
+    padding-bottom: 24px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .search-input {
+        margin-left: 16px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .navbar-nav {
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .btn-nav {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center !important;
+    }
+
+    .offcanvas {
+        height: 140px !important;
+    }
+
+    .user-dropdown .user-dropdown-menu {
+        width: auto;
+    }
+
+    .user-dropdown a {
+        font-size: small;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 200px;
+        min-width: 40% !important;
+        height: 24px;
+        font-size: 12px;
+        position: relative;
+    }
+
+    .btn-enter-search, .btn-enter-search p {
+        width: 38px;
+        max-width: 48px !important;
+        height: 24px !important;
+        font-size: small;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .btn-enter-search p {
+        padding-top: 6px;
+    }
+
+    .btn-recipe, .btn-gallery {
+        position: relative;
+        width: auto;
+        height: 24px !important;
+        padding: 0px;
+    }
+
+    .btn-recipe p, .btn-gallery p {
+        font-size: small;
+    }
+
+    .btn-group.btn-rec-gal {
+        display: flex;
+        align-items: stretch;
+        width: auto;
+        margin-top: 0px;
+    }
+
+    .btn-group.dropdown-center {
+        padding-top: 10px;
+    }
+
+    .btn-category, .btn-category p {
+        width: 56px;
+        height: 24px;
+        font-size: small;
+        text-align: center;
+    }
+
+    .btn-category p {
+        padding-top: 0px;
+    }
+
+    .btn-category-split {
+        width: 32px;
+        height: 24px;
+        font-size: small;
+        text-align: center;
+    }
+
+    .dropdown-category {
+        width: auto;
+        height: auto;
+        text-align: center;
+        border-radius: 0;
+    }
+
+    .form-check-label {
+        font-size: small;
+    }
+
+    .btn-group .btn {
+        font-size: 12px;
+    }
+
+    .btn-category {
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .navbar-nav {
+        display: flex !important;
+        flex-basis: auto;
+        text-align: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .btn-nav {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center !important;
+    }
+
+    .btn-search {
+        width: auto;
+        height: 40px;
+        margin-left: 0;
+        font-size: 14px;
+    }
+
+    .navbar-toggler {
+        margin-right: 8px;
+    }
+
+    .offcanvas-body {
+        padding-top: 12px;
+    }
+
+    .user-dropdown .user-btn {
+        width: auto;
+        font-size: 14px;
+    }
+
+    .user-dropdown .dropdown-toggle {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .btn-group.btn-rec-gal {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+        font-size: small;
+    }
+
+    .btn-recipe,
+    .btn-gallery,
+    .btn-category,
+    .dropdown-category {
+        width: auto;
+        max-width: 400px;
+        font-size: small;
+    }
+}

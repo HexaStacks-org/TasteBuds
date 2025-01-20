@@ -160,7 +160,7 @@
   background-color: var(--clr-secondary);
 }
 
-.img-fluid{
+.img-fluid {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -187,7 +187,6 @@
   text-decoration: none;
   /* Ensure no underline on hover or focus */
 }
-
 
 .recipe-title {
   font-family: var(--ff-text);
@@ -288,7 +287,7 @@
   margin-right: auto;
 }
 
-.recipe-view-2 {
+.recipe-title-view {
   font-family: var(--ff-text);
   font-weight: bold;
   margin-top: 52px;
@@ -360,19 +359,7 @@
   gap: 10px;
 }
 
-.recipe-btn-group {
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: flex-start;
-  max-width: 710px;
-  gap: 25px;
-  margin-top: 30px;
-}
-
 .btn-edit {
-  width: 40px;
-  height: 40px;
   background-color: #BED6FF;
   border: transparent;
   border-radius: 5px;
@@ -382,14 +369,12 @@
 }
 
 .btn-delete {
-  width: 40px;
-  height: 40px;
   background-color: #8E1D1C;
   border: transparent;
   border-radius: 5px;
   height: 48px;
   width: 48px;
-  margin-left: 380px;
+  /* margin-left: 380px; */
 }
 
 .table {
@@ -418,4 +403,25 @@
   padding: 8px;
   font-family: var(--ff-text);
   font-size: var(--fs-paragraph);
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  /* Optional: Add space between columns */
+}
+
+.col-6 {
+  display: flex;
+  gap: 10px;
+  /* Space between the buttons */
+  justify-content: flex-start;
+  /* Align buttons to the left initially */
+  width: 100%;
+  /* Ensures the column takes full width */
+}
+
+.col-6 .btn-delete {
+  margin-left: auto;
+  /* Pushes the delete button to the far right */
 }
