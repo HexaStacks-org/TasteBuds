@@ -1,4 +1,21 @@
 /* login.css */
+html,
+body {
+    overflow: hidden;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+.row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .login-body {
     background-color: var(--clr-light-orange);
@@ -71,6 +88,7 @@
 .form-check {
     margin-left: 16px;
 }
+
 .form-check-input {
     border: 2px solid var(--clr-primary);
 }

@@ -29,7 +29,7 @@
                                     class="logo d-inline-block align-text-top" />
                             </div>
                             <div class="con-back col d-flex align-items-center">
-                                <button class="btn back-btn" id="back-btn">BACK</button>
+                                <a href="landing.php" id="back-btn " class="btn back-btn">BACK</a>
                             </div>
                         </div>
                         <h1 class="px-5">Create a Recipe</h1>
@@ -125,9 +125,11 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 d-none d-md-block">
-                    <img src="shared/assets/image/mockup-pic2.png" alt="mockup" class="img-fluid mockup-image">
+            <div class="col-md-6 d-none d-md-block">
+                <div class="mockup-container h-100">
+                    <img src="shared/assets/image/mockup-pic.png" alt="mockup" class="mockup-image">
                 </div>
+            </div>
             </div>
         </div>
 
@@ -146,15 +148,11 @@
                                 <textarea class="form-control py-3" id="steps" name="steps" rows="6"
                                     placeholder="Enter ingredients of the recipe" required></textarea>
                             </div>
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex mx-5">
                                 <button type="submit" class="btn btn-create">CREATE RECIPE</button>
                             </div>
                         </form>
                     </div>
-                </div>
-
-                <div class="mx-5 col-md-6 d-none d-md-block">
-                    <img src="shared/assets/image/mockup-pic2.png" alt="mockup" class="img-fluid mockup-image">
                 </div>
             </div>
         </div>

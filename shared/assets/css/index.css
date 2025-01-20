@@ -160,16 +160,18 @@ header button:hover {
 .generator-button {
     font-family: var(--ff-text);
     background-color: var(--fc-primary-orange);
-    color: white;
+    color: black;
     border: none;
     padding: 6px 12px;
     border-radius: 4px;
     transition: background-color 0.3s ease;
     text-transform: capitalize;
+    width:fit-content;
 }
 
 .generator-button:hover {
     background-color: var(--fc-dark-orange);
+    color: white;
 }
 
 /* Gallery Section */
@@ -221,16 +223,18 @@ header button:hover {
 .gallery-button {
     font-family: var(--ff-text);
     background-color: var(--fc-primary-orange);
-    color: white;
+    color: black;
     border: none;
     padding: 6px 12px;
     border-radius: 4px;
     transition: background-color 0.3s ease;
     text-transform: capitalize;
+    width:fit-content;
 }
 
 .gallery-button:hover {
     background-color: var(--fc-dark-orange);
+    color: white;
 }
 
 @media (max-width: 768px) {

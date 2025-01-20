@@ -127,7 +127,7 @@
             </div>
 
             <div class="col-md-6 d-none d-md-block">
-                <img src="shared/assets/image/mockup-pic2.png" alt="mockup" class="img-fluid mockup-image">
+                <img src="shared/assets/image/mockup-pic.png" alt="mockup" class="img-fluid mockup-image">
             </div>
         </div>
     </div>
