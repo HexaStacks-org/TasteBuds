@@ -10,7 +10,8 @@
     rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
     crossorigin="anonymous" />
-  <link rel="stylesheet" href="shared/assets/css/foodListingsRecipe.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="shared/assets/css/recipeOverview.css" />
   <link rel="stylesheet" href="shared/assets/css/style.css" />
 </head>
 
@@ -29,10 +30,9 @@
       </div>
       <div class="row buttons">
         <div class="button-col-6">
-          <button class="btn-edit"></button>
-          <button class="btn-edit"></button>
-          <button class="btn-edit"></button>
-          <button class="btn-delete"></button>
+          <button class="btn-like"><i class="bi bi-hand-thumbs-up-fill" style="color: var(--clr-light-orange)"></i></button>
+          <button class="btn-bookmark"><i class="bi bi-bookmark-fill" style="color: var(--clr-light-orange)"></i></button>
+          <button class="btn-report"><i class="bi bi-flag-fill" style="color: var(--clr-light-orange)"></i></button>
         </div>
       </div>
       <div class="col recipe-table">
