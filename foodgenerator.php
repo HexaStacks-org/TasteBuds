@@ -1,3 +1,6 @@
+
+<?php include 'shared/components/createContent.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,6 +21,7 @@
     />
     <link rel="stylesheet" href="shared/assets/css/foodgenerator.css" />
     <link rel="stylesheet" href="shared/assets/css/style.css">
+    <link rel="stylesheet" href="shared/assets/css/footer.css">
   </head>
 
   <body>
@@ -44,18 +48,17 @@
         </div>
       </div>
       <div class="col-12">
-        <button type="button" class="btn random-generator-btn">GENERATE</button>
+        <button type="button" class="btn random-generator-btn mb-5">GENERATE</button>
       </div>
     </div>
+
+    <?php include 'shared/components/footer.php'; ?>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-
-    <?php include 'footer.php'; ?>    
-    <?php include 'createContent.php'; ?>
 
   </body>
 </html>

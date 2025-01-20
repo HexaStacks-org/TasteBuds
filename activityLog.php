@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared/assets/css/activityLog.css">
+    
 </head>
 
 <body>
@@ -95,7 +96,6 @@
             </section>
         </main>
     </div>
-            <?php include 'shared/components/footer.php'; ?>
 
 </body>
 
