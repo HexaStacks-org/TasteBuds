@@ -405,13 +405,13 @@
   font-size: var(--fs-paragraph);
 }
 
-.row {
+.buttons {
   display: flex;
   gap: 10px;
   /* Optional: Add space between columns */
 }
 
-.col-6 {
+.button-col-6 {
   display: flex;
   gap: 10px;
   /* Space between the buttons */
@@ -421,7 +421,7 @@
   /* Ensures the column takes full width */
 }
 
-.col-6 .btn-delete {
+.button-col-6 .btn-delete {
   margin-left: auto;
   /* Pushes the delete button to the far right */
 }

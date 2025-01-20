@@ -27,8 +27,8 @@
       <div class="col name-edit">
         <h6 class="name">JOMARI CASTILLO</h6>
       </div>
-      <div class="row">
-        <div class="col-6">
+      <div class="row buttons">
+        <div class="button-col-6">
           <button class="btn-edit"></button>
           <button class="btn-edit"></button>
           <button class="btn-edit"></button>
