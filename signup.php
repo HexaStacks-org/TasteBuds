@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create an account</title>
+    <title>Signup</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,59 +19,46 @@
         rel="stylesheet">
 </head>
 
-<body class="sign-up-body">
+<body class="signup-body">
     <div class="container-fluid px-0">
         <div class="row g-0 align-items-start">
             <div class="col-md-6 d-none d-md-block">
                 <img src="shared/assets/image/mockup-pic.png" alt="pic" class="img-fluid pic">
             </div>
             <div class="col-md-6 col-12">
-                <div class="sign-up-logo text-center">
+                <div class="signup-logo text-start">
                     <img src="shared/assets/image/Logo Combination 1.png" alt="logo" class="img-fluid">
                 </div>
-                <h1 class="text-start create">Create an account</h1>
-                <p class="text-start sign-up">Sign up to save and review your favorite recipes.</p>
+                <div class="text-start signup-header">Create an account</div>
+                <p class="text-start signup-text">Sign up to save and review your favorite recipes.</p>
                 <form action="signup.php" method="POST">
-                    <div class="mb-3">
-                        <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" placeholder="Enter your first name here" id="firstName"
-                            name="firstName" required>
+                    <label for="fullname" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" placeholder="Enter your full name" id="fullname" name="fullname" required>
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="Enter your email" id="email" name="email" required>
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="************" id="password" name="password" required>
+                    <label for="confirm_password" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" placeholder="************" id="confirm_password"
+                        name="confirm_password" required>
+
+                    <!-- New Checkbox Section -->
+                    <div class="form-check mt-4">
+                        <input class="form-check-input" type="checkbox" value="" id="legalAge" required>
+                        <label class="form-check-label" for="legalAge">
+                            I certify that I am over 18, I have read the 
+                            <a href="tastebudsOrg.php" target="_blank">Terms and Conditions</a> 
+                            and 
+                            <a href="tastebudsOrg.php" target="_blank">Privacy Notice</a>, 
+                            and I accept the use of my personal data in this content.
+                        </label>
                     </div>
-                    <div class="mb-2">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" placeholder="Enter your last name here" id="lastName"
-                            name="lastName" required>
-                    </div>
-                    <div class="mb-2">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="Enter your email here" id="email"
-                            name="email" required>
-                    </div>
-                    <div class="mb-2">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" placeholder="************" id="password"
-                            name="password" required>
-                    </div>
-                    <div class="mb-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="keepSignedIn" required>
-                            <label class="form-check-label" for="keepSignedIn">
-                                Keep me signed in
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="legalAge" required>
-                            <label class="form-check-label" for="legalAge">
-                                I certify that I am over 18, I have read the Terms and Conditions and Privacy Notice and
-                                I accepted the use of my personal data in this content.
-                            </label>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-sign-up">
+
+                    <button type="submit" class="btn btn-signup mt-4">
                         <p>SIGN UP</p>
                     </button>
                 </form>
-                <p class="mx-4 text-start txt-account mt-3">Already have an account? <a href="login.html">Login</a></p>
+                <p class="mx-4 txt-account mt-3">Already have an account? <a href="login.php">Login</a></p>
             </div>
         </div>
     </div>

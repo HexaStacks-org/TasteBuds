@@ -1,0 +1,376 @@
+/* styles.css */
+@import url("https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("shared/assets/css/style.css");
+
+.navbar {
+  height: 79.1px;
+  /* Set the height of the navbar */
+}
+
+/*ANG NAGAMIT LANG NITO AY (PRIME, FL, SUB)*/
+.title {
+  font-family: var(--ff-title);
+  font-size: var(--fs-header);
+  color: var(--fc-primary-orange);
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  margin-top: 36px;
+}
+
+.description {
+  font-family: var(--ff-text);
+  font-size: var(--fs-h6);
+  color: var(--fc-primary-orange);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.container .explore {
+  font-family: var(--ff-text);
+  color: var(--clr-secondary);
+  font-size: var(--fs-h3);
+  font-weight: bold;
+  margin-top: 72px;
+}
+
+.container .custom-btn {
+  margin-left: 30px;
+  margin-top: 77px;
+}
+
+.custom-btn {
+  background-color: var(--clr-secondary);
+  color: #FFFFFF;
+  font-family: var(--ff-text);
+  height: 50px;
+  width: 120px;
+  font-size: var(--fs-paragraph);
+  font-weight: bold;
+  border: none;
+  border-radius: 42px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.col-12-catbuttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-btn:hover {
+  background-color: var(--clr-dark-orange);
+  transform: scale(1.05);
+}
+
+.custom-btn:focus {
+  outline: none;
+}
+
+.card {
+  width: 100%;
+  max-width: 780px;
+  min-height: 250px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 15px !important;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card-body {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-sub-category {
+  border: 2px solid var(--clr-primary);
+  background-color: transparent;
+  color: var(--clr-primary);
+  border-radius: 50rem;
+  padding: 0.25em 0.75em;
+  display: inline-block;
+  font-size: var(--fs-paragraph);
+  font-weight: bold;
+  width: 120px;
+}
+
+.card-custom-btn:hover {
+  background-color: var(--clr-dark-orange);
+}
+
+.card-title {
+  font-family: var(--ff-text);
+  font-size: var(--fs-h6);
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.card-text {
+  font-family: var(--ff-text);
+  font-size: var(--fs-paragraph);
+}
+
+.content-bg {
+  background-color: var(--clr-secondary);
+}
+
+/*ANG NAGAMIT LANG NITO AY (RECIPE-VIEW)*/
+/* Remove underline from links */
+.no-underline {
+  text-decoration: none;
+}
+
+.no-underline:hover,
+.no-underline:focus {
+  text-decoration: none; /* Ensure no underline on hover or focus */
+}
+
+
+.recipe-title {
+  font-family: var(--ff-text);
+  font-weight: bold;
+  margin-top: 40px;
+  margin-left: auto;
+  max-width: 8500px;
+  margin-right: auto;
+}
+
+.category-title {
+  font-family: var(--ff-text);
+  color: var(--fc-primary-orange) !important;
+  font-size: var(--fs-h6);
+  margin-left: 10px;
+}
+
+.dish-title {
+  font-family: var(--ff-text);
+  font-size: var(--fs-h4);
+  margin-left: 10px;
+}
+
+.recipe-description {
+  font-family: var(--ff-text);
+  font-size: var(--fs-paragraph);
+  margin-left: 10px;
+}
+
+.custom-reaction-btn {
+  height: 25px;
+  width: 25px;
+  background-color: #D9D9D9 !important;
+  margin-left: 25px;
+  margin-bottom: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-report-btn {
+  height: 25px;
+  width: 25px;
+  background-color: #D9D9D9 !important;
+  margin-left: 270px;
+  margin-bottom: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.recipe-card {
+  background-color: var(--clr-mid-orange) !important;
+  border-radius: 64px !important;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.recipe-card-img-top {
+  border-top-left-radius: 64px !important;
+  border-top-right-radius: 64px !important;
+  padding: 20px 20px 0 20px;
+}
+
+.custom-viewall-btn {
+  background-color: var(--clr-secondary);
+  color: #FFFFFF;
+  font-family: var(--ff-text);
+  font-weight: bold;
+  text-align: middle;
+  padding-top: 10px;
+  height: 50px;
+  width: 350px;
+  font-size: var(--fs-h5);
+  border: none;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.dropdown .recipe-sortby {
+  background-color: var(--clr-primary);
+  border-radius: 40px;
+  font-family: var(--ff-text);
+  font-weight: bold;
+  font-size: var(--fs-h6);
+}
+
+.explore-recipe {
+  font-family: var(--ff-text);
+  font-size: var(--fs-h2);
+  font-weight: bold;
+}
+
+/*ANG NAGAMIT LANG NITO AY (RECIPE-VIEW2)*/
+.container-recipe {
+  margin-left: auto;
+  max-width: 710px;
+  margin-right: auto;
+}
+
+.recipe-view-2 {
+  font-family: var(--ff-text);
+  font-weight: bold;
+  margin-top: 52px;
+}
+
+.primary-category {
+  border: 2px solid var(--clr-secondary);
+  background-color: transparent;
+  color: var(--clr-secondary);
+  border-radius: 50rem;
+  padding: 0.25em 0.75em;
+  display: inline-block;
+  font-size: var(--fs-paragraph);
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.sub-category {
+  border: 2px solid var(--clr-primary);
+  background-color: transparent;
+  color: var(--clr-primary);
+  border-radius: 50rem;
+  padding: 0.25em 0.75em;
+  display: inline-block;
+  font-size: var(--fs-paragraph);
+  font-weight: bold;
+}
+
+.recipe-image {
+  width: 720px;
+  height: 400px;
+  margin-left: 3em;
+  margin-right: 3em;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+}
+
+.name {
+  font-family: var(--ff-text);
+  font-size: var(--fs-h6);
+  font-weight: bold;
+}
+
+.edit {
+  font-family: var(--ff-text);
+  font-size: var(--fs-paragraph) !important;
+  font-weight: bold;
+  color: #FFFFFF !important;
+  background-color: var(--clr-secondary) !important;
+  border-radius: 42px !important;
+  width: 97px;
+  height: 26px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.col.name-edit {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.recipe-btn-group {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: flex-start;
+  max-width: 710px;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.btn-edit {
+  width: 40px;
+  height: 40px;
+  background-color: #BED6FF;
+  border: transparent;
+  border-radius: 5px;
+  margin-right: 20px;
+  height: 48px;
+  width: 48px;
+}
+
+.btn-delete {
+  width: 40px;
+  height: 40px;
+  background-color: #8E1D1C;
+  border: transparent;
+  border-radius: 5px;
+  height: 48px;
+  width: 48px;
+  margin-left: 380px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  font-family: var(--ff-text);
+  font-size: var(--fs-paragraph);
+  background-color: #D9D9D9;
+}
+
+.table th {
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-weight: bold;
+  font-family: var(--ff-text);
+  font-size: var(--fs-paragraph);
+}
+
+.table td {
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-family: var(--ff-text);
+  font-size: var(--fs-paragraph);
+}

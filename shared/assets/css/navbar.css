@@ -1,13 +1,8 @@
-.nav-body {
-    overflow: hidden;
-}
-
 .navbar-brand.logo {
     display: flex;
     align-items: center;
     padding-left: 32px;
-    width: fit-content;
-    overflow: hidden;
+    width: auto;
 }
 
 .nav-txt-clr {
@@ -25,7 +20,7 @@
 }
 
 .btn-search {
-    background-color: var(--clr-primary);
+    background-color: var(--clr-primary) !important;
     color: var(--fc-light-orange);
     text-align: center;
     border-radius: 40px;
@@ -264,7 +259,6 @@
     background-color: var(--clr-primary);
     border: none;
     border-radius: 40px;
-    height: 40px;
     margin-left: 40px;
 }
 
@@ -321,11 +315,16 @@
 
 .user-dropdown-menu a {
     font-family: var(--ff-text);
-    font-size: var(--fs-paragraph);
     color: var(--fc-black);
     padding-top: 24px;
     padding-bottom: 24px;
     text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .search-input {
+        margin-left: 16px;
+    }
 }
 
 @media only screen and (max-width: 500px) {
