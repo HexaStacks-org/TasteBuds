@@ -17,7 +17,7 @@
     <div class="edit-profile-container">
         <!-- Form Section -->
         <div class="form-section">
-            <button class="btn-back mb-3">BACK</button>
+            <a href="landing.php"> <button class="btn-back mb-3" type="button">BACK</button></a>
             <h1>EDIT PROFILE</h1>
             <form action="updateUser.php" method="POST">
                 <label for="firstName">First Name</label>
@@ -26,11 +26,12 @@
                 <label for="lastName">Last Name</label>
                 <input type="text" id="lastName" name="lastName" placeholder="Enter your new last name">
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your new email">
-
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your new password">
+
+                <label for="confirmPassword">Confirm New Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword"
+                    placeholder="Confirm your new password">
 
                 <button type="submit" class="btn-update">UPDATE</button>
             </form>
