@@ -33,7 +33,7 @@ body {
     font-family: var(--ff-text);
     font-size: var(--fs-header);
     margin-left: 16px;
-    margin-top: 24px !important;
+    margin-top: 48px;
     font-weight: bolder;
 }
 
@@ -54,7 +54,7 @@ body {
 
 .form-control {
     background-color: var(--clr-white);
-    width: 50%;
+    width: 600px;
     height: 60px;
     margin-left: 16px;
     margin-top: 3px;
@@ -100,7 +100,7 @@ body {
 
 .btn-login {
     background-color: var(--clr-primary);
-    width: 50%;
+    width: 600px;
     height: 60px !important;
     border-radius: 40px;
     margin-left: 20px;
@@ -140,7 +140,7 @@ body {
     }
 
     .form-control {
-        width: auto;
+        width: 100%;
         margin-left: 0;
     }
 

@@ -33,6 +33,10 @@ body {
 .text-start.signup-header {
   font-family: var(--ff-text);
   font-size: var(--fs-header);
+<<<<<<< HEAD
+=======
+  margin-top: 48px;
+>>>>>>> 68a09fe23e927e53076574c66384973b8ac8325f
   margin-left: 16px;
   margin-top: 24px !important;
   font-weight: bolder;
@@ -55,7 +59,11 @@ body {
 
 .form-control {
   background-color: var(--clr-white);
+<<<<<<< HEAD
   width: 50%;
+=======
+  width: 600px;
+>>>>>>> 68a09fe23e927e53076574c66384973b8ac8325f
   height: 60px;
   margin-left: 16px;
   margin-top: 3px;
@@ -66,6 +74,15 @@ body {
 
 .form-control:focus {
   background-color: var(--clr-white);
+<<<<<<< HEAD
+=======
+  width: 600px;
+  height: 60px;
+  margin-left: 16px;
+  margin-top: 3px;
+  border-radius: 40px;
+  border: 4px solid var(--clr-primary);
+>>>>>>> 68a09fe23e927e53076574c66384973b8ac8325f
 }
 
 .form-label {
@@ -93,7 +110,11 @@ body {
 
 .btn-signup {
   background-color: var(--clr-primary);
+<<<<<<< HEAD
   width: 50%;
+=======
+  width: 600px;
+>>>>>>> 68a09fe23e927e53076574c66384973b8ac8325f
   height: 60px !important;
   border-radius: 40px;
   margin-left: 20px;
@@ -104,6 +125,16 @@ body {
 
 .btn-signup:hover {
   background-color: var(--clr-dark-orange);
+<<<<<<< HEAD
+=======
+  width: 600px !important;
+  height: 60px !important;
+  border-radius: 40px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+>>>>>>> 68a09fe23e927e53076574c66384973b8ac8325f
 }
 
 .btn-signup p {
@@ -119,6 +150,7 @@ body {
   font-size: var(--fs-small);
   font-weight: bolder;
   font-family: var(--ff-text);
+  margin-left: 24px;
 }
 
 .txt-account a {
@@ -132,8 +164,17 @@ body {
     height: auto;
   }
 
+<<<<<<< HEAD
+=======
+  .sign-up-logo {
+    width: 100%;
+    height: auto;
+    margin-top: 16px;
+  }
+
+>>>>>>> 68a09fe23e927e53076574c66384973b8ac8325f
   .form-control {
-    width: auto;
+    width: 100%;
     margin-left: 0;
   }
 
