@@ -1,6 +1,14 @@
-body {
+html, body {
+    overflow: hidden;
+    height: 100%;
     background-color: #fff8EE;
     font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    max-height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 60px;
 }
 
 .logo {
@@ -43,7 +51,7 @@ body {
 .post-description {
     font-family: var(--ff-text);
     font-size: var(--fs-h6);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .form-label {
@@ -110,16 +118,21 @@ body {
 }
 
 .mockup-image {
-    height: auto;
+    height: 140vh;
+    width: auto;
+    object-fit: cover;
+    overflow: hidden;
 }
 
 .btn-create {
+    position: absolute;
     background-color: var(--clr-primary);
     font-family: var(--ff-text);
     font-size: var(--fs-h6);
     color: #fff8EE;
     width: 380px;
     height: 48px;
+    transform: translateY(-40%);
     border-radius: 40px;
     font-weight: bolder;
 }
