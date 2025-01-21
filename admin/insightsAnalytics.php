@@ -8,9 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <?php
-    include("shared\components\fontEmbed.php");
+    include("shared/components/fontEmbed.php");
     ?>
-    <link rel="stylesheet" href="shared\assets\css\admin.css">
+    <link rel="stylesheet" href="shared/assets/css/admin.css">
 </head>
 
 <body>
@@ -19,13 +19,13 @@
         <div class="row">
             <!-- sidebar and offmenu canvas -->
             <?php
-            include("shared\components\sidebar.php");
+            include("shared/components/sidebar.php");
             ?>
 
             <div class="col-md-8 col-lg-10 p-0">
                 <!-- offcanvas menu -->
                 <?php
-                include("shared\components\offcanvas.php");
+                include("shared/components/offcanvas.php");
                 ?>
 
                 <!-- content -->
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
 
-                            <?php include('shared\process\donutCharts.php'); ?>
+                            <?php include('shared/process/donutCharts.php'); ?>
 
                             <!-- tables -->
 
@@ -82,11 +82,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="donutChart.js"></script>
-    <script src="sidebar.js"></script>
 
 </body>
 
