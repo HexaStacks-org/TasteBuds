@@ -1,4 +1,6 @@
 <?php
+include("components/connect.php");
+
 
 $primaryCategoryColors = [
     1 => '#FFD479', // Breakfast
