@@ -1,5 +1,5 @@
 <?php
-include("components/connect.php");
+include("shared/components/connect.php");
 
 
 $primaryCategoryColors = [
