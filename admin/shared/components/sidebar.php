@@ -2,7 +2,7 @@
     <div class="sidebar-inner">
 
         <div class="img-holder">
-            <img src="Logo Combination 2.png" alt="" />
+            <img src="shared/assets/logo/Logo Combination 2.png" alt="" />
         </div>
 
         <div class="sidebar-btn-holder" id="btnHolder"></div>
