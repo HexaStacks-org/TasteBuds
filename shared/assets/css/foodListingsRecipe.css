@@ -1,14 +1,55 @@
 /* styles.css */
 @import url("https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
-@import url("shared/assets/css/style.css");
+
+/* global variable */
+:root {
+  --fs-header: 47.78px;
+  --fs-h2: 39.91px;
+  --fs-h3: 33.18px;
+  --fs-h4: 27.65px;
+  --fs-h5: 23.04px;
+  --fs-h6: 19.2px;
+  --fs-paragraph: 16px;
+  --fs-small: 13.33px;
+
+  --fc-primary-orange: #F1950C;
+  --fc-dark-orange: #D4830B;
+  --fc-mid-orange: #FCD59A;
+  --fc-light-orange: #FFEBCD;
+  --fc-black: #222222;
+
+  --clr-primary: #F1950C;
+  --clr-secondary: #D34746;
+  --clr-action: #328032;
+
+  --clr-dark-orange: #D4830B;
+  --clr-mid-orange: #FCD59A;
+  --clr-light-orange: #FFEBCD;
+  --clr-black: #222222;
+
+  --ff-title: "Rammetto One", serif;
+  --ff-text: "Open Sans", serif;
+}
+
+.rammetto-one {
+  font-family: "Rammetto One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.open-sans-text {
+  font-family: "Open Sans", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
 
 .navbar {
   height: 79.1px;
   /* Set the height of the navbar */
 }
 
-/*ANG NAGAMIT LANG NITO AY (PRIME, FL, SUB)*/
 .title {
   font-family: var(--ff-title);
   font-size: var(--fs-header);
@@ -72,6 +113,12 @@
   outline: none;
 }
 
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
 .card {
   width: 100%;
   max-width: 780px;
@@ -81,6 +128,8 @@
   border-radius: 15px !important;
   overflow: hidden;
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: row;
 }
 
 .card:hover {
@@ -94,43 +143,43 @@
   justify-content: center;
 }
 
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-sub-category {
-  border: 2px solid var(--clr-primary);
-  background-color: transparent;
-  color: var(--clr-primary);
-  border-radius: 50rem;
-  padding: 0.25em 0.75em;
-  display: inline-block;
-  font-size: var(--fs-paragraph);
-  font-weight: bold;
-  width: 120px;
-}
-
-.card-custom-btn:hover {
-  background-color: var(--clr-dark-orange);
-}
-
 .card-title {
   font-family: var(--ff-text);
   font-size: var(--fs-h6);
   margin-bottom: 20px;
   font-weight: bold;
+  margin-top: 25px;
 }
 
 .card-text {
   font-family: var(--ff-text);
   font-size: var(--fs-paragraph);
+  margin-top: -15px;
 }
 
 .content-bg {
   background-color: var(--clr-secondary);
 }
+
+.img-fluid {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.category {
+  border: 2px solid var(--clr-secondary);
+  color: var(--clr-secondary);
+  border-radius: 50rem;
+  padding: 0.25em 0.75em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-paragraph);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
 
 /*ANG NAGAMIT LANG NITO AY (RECIPE-VIEW)*/
 /* Remove underline from links */
@@ -140,9 +189,9 @@
 
 .no-underline:hover,
 .no-underline:focus {
-  text-decoration: none; /* Ensure no underline on hover or focus */
+  text-decoration: none;
+  /* Ensure no underline on hover or focus */
 }
-
 
 .recipe-title {
   font-family: var(--ff-text);
@@ -172,29 +221,27 @@
   margin-left: 10px;
 }
 
-.custom-reaction-btn {
-  height: 25px;
-  width: 25px;
-  background-color: #D9D9D9 !important;
-  margin-left: 25px;
-  margin-bottom: 5px;
-  border: none;
-  cursor: pointer;
+.custom-like-btn,
+.custom-bookmark-btn {
+  background-color: var(--clr-primary);
+  border: transparent;
+  border-radius: 5px;
+  margin-right: 20px;
+  height: 40px;
+  width: 40px;
 }
 
 .custom-report-btn {
-  height: 25px;
-  width: 25px;
-  background-color: #D9D9D9 !important;
-  margin-left: 270px;
-  margin-bottom: 5px;
-  border: none;
-  cursor: pointer;
+  background-color: #8E1D1C;
+  border: transparent;
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
 }
 
 .recipe-card {
   background-color: var(--clr-mid-orange) !important;
-  border-radius: 64px !important;
+  border-radius: 45px !important;
   overflow: hidden;
   margin-top: 5px;
 }
@@ -203,6 +250,9 @@
   border-top-left-radius: 64px !important;
   border-top-right-radius: 64px !important;
   padding: 20px 20px 0 20px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .custom-viewall-btn {
@@ -236,141 +286,18 @@
   font-weight: bold;
 }
 
-/*ANG NAGAMIT LANG NITO AY (RECIPE-VIEW2)*/
-.container-recipe {
-  margin-left: auto;
-  max-width: 710px;
-  margin-right: auto;
-}
-
-.recipe-view-2 {
-  font-family: var(--ff-text);
-  font-weight: bold;
-  margin-top: 52px;
-}
-
-.primary-category {
-  border: 2px solid var(--clr-secondary);
-  background-color: transparent;
-  color: var(--clr-secondary);
-  border-radius: 50rem;
-  padding: 0.25em 0.75em;
-  display: inline-block;
-  font-size: var(--fs-paragraph);
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-.sub-category {
-  border: 2px solid var(--clr-primary);
-  background-color: transparent;
-  color: var(--clr-primary);
-  border-radius: 50rem;
-  padding: 0.25em 0.75em;
-  display: inline-block;
-  font-size: var(--fs-paragraph);
-  font-weight: bold;
-}
-
-.recipe-image {
-  width: 720px;
-  height: 400px;
-  margin-left: 3em;
-  margin-right: 3em;
-  display: block;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 24px;
-}
-
-.name {
-  font-family: var(--ff-text);
-  font-size: var(--fs-h6);
-  font-weight: bold;
-}
-
-.edit {
-  font-family: var(--ff-text);
-  font-size: var(--fs-paragraph) !important;
-  font-weight: bold;
-  color: #FFFFFF !important;
-  background-color: var(--clr-secondary) !important;
-  border-radius: 42px !important;
-  width: 97px;
-  height: 26px;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
-}
-
-.col.name-edit {
-  margin-top: 15px;
+.buttons {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
   gap: 10px;
 }
 
-.recipe-btn-group {
-  margin-left: auto;
-  margin-right: auto;
+.button-col-6 {
   display: flex;
+  gap: 10px;
   justify-content: flex-start;
-  max-width: 710px;
-  gap: 25px;
-  margin-top: 30px;
-}
-
-.btn-edit {
-  width: 40px;
-  height: 40px;
-  background-color: #BED6FF;
-  border: transparent;
-  border-radius: 5px;
-  margin-right: 20px;
-  height: 48px;
-  width: 48px;
-}
-
-.btn-delete {
-  width: 40px;
-  height: 40px;
-  background-color: #8E1D1C;
-  border: transparent;
-  border-radius: 5px;
-  height: 48px;
-  width: 48px;
-  margin-left: 380px;
-}
-
-.table {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 30px;
-  font-family: var(--ff-text);
-  font-size: var(--fs-paragraph);
-  background-color: #D9D9D9;
 }
 
-.table th {
-  text-align: center;
-  vertical-align: middle;
-  border: 1px solid #ddd;
-  padding: 8px;
-  font-weight: bold;
-  font-family: var(--ff-text);
-  font-size: var(--fs-paragraph);
-}
-
-.table td {
-  text-align: center;
-  vertical-align: middle;
-  border: 1px solid #ddd;
-  padding: 8px;
-  font-family: var(--ff-text);
-  font-size: var(--fs-paragraph);
+.button-col-6 .custom-report-btn {
+  margin-left: auto;
 }
