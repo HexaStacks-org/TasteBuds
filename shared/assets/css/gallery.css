@@ -103,8 +103,7 @@
 }
 
 .btn-like,
-.btn-bookmark,
-.btn-share {
+.btn-bookmark {
     background-color: var(--clr-primary);
     width: 40px;
     height: 40px;
@@ -112,8 +111,7 @@
 }
 
 .btn-like:hover,
-.btn-bookmark:hover,
-.btn-share:hover {
+.btn-bookmark:hover {
     background-color: var(--clr-primary);
     border: 4px solid var(--clr-primary);
 }
@@ -136,11 +134,42 @@
 
 .btn-like,
 .btn-bookmark,
-.btn-share,
 .btn-report,
 .btn-edit {
     font-family: var(--ff-text);
     font-size: var(--fs-small);
+}
+
+.modal-content {
+    background-color: var(--clr-light-orange);
+}
+
+.modal-title {
+    font-family: var(--ff-text);
+    font-weight: bolder;
+}
+
+.modal-body {
+    font-family: var(--ff-text);
+}
+
+.modal-body p {
+    font-size: var(--fs-small);
+    font-weight: bolder;
+}
+
+.btn-submit-report {
+    font-family: var(--ff-text);
+    font-weight: bold;
+    color: var(--clr-light-orange);
+    background-color: var(--clr-primary);
+}
+
+.btn-cancel-report {
+    font-family: var(--ff-text);
+    font-weight: bold;
+    color: var(--clr-light-orange);
+    background-color: var(--clr-secondary);
 }
 
 @media only screen and (max-width: 850px) {
