@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="shared/assets/css/signup.css" />
-    <link rel="stylesheet" href="shared/assets/css/style.css" />
+    <link rel="stylesheet" href="shared/assets/css/signup.css"/>
+    <link rel="stylesheet" href="shared/assets/css/style.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -23,17 +23,19 @@
     <div class="container-fluid px-0">
         <div class="row g-0 align-items-start">
             <div class="col-md-6 d-none d-md-block">
-                <img src="shared/assets/image/mockup-pic.png" alt="pic" class="img-fluid pic">
+                <img src="shared/assets/image/mockup-pic2.png" alt="pic" class="img-fluid pic">
             </div>
             <div class="col-md-6 col-12">
-                <div class="signup-logo text-start">
+                <div class="sign-up-logo text-start">
                     <img src="shared/assets/image/Logo Combination 1.png" alt="logo" class="img-fluid">
                 </div>
-                <div class="text-start signup-header">Create an account</div>
-                <p class="text-start signup-text">Sign up to save and review your favorite recipes.</p>
+                <div class="create text-start">Create an account</div>
+                <p class="sign-up text-start">Sign up to save and review your favorite recipes.</p>
                 <form action="signup.php" method="POST">
-                    <label for="fullname" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" placeholder="Enter your full name" id="fullname" name="fullname" required>
+                    <label for="fullname" class="form-label">First Name</label>
+                    <input type="text" class="form-control" placeholder="Enter your first name" id="firstName" name="firstName" required>
+                    <label for="fullname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Enter your last name" id="lastName" name="lastName" required>
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" placeholder="Enter your email" id="email" name="email" required>
                     <label for="password" class="form-label">Password</label>
@@ -47,14 +49,14 @@
                         <input class="form-check-input" type="checkbox" value="" id="legalAge" required>
                         <label class="form-check-label" for="legalAge">
                             I certify that I am over 18, I have read the 
-                            <a href="tastebudsOrg.php" target="_blank">Terms and Conditions</a> 
+                            <a href="tastebudsOrg.php">Terms and Conditions</a> 
                             and 
-                            <a href="tastebudsOrg.php" target="_blank">Privacy Notice</a>, 
+                            <a href="tastebudsOrg.php">Privacy Notice</a>, 
                             and I accept the use of my personal data in this content.
                         </label>
                     </div>
 
-                    <button type="submit" class="btn btn-signup mt-4">
+                    <button type="submit" class="btn btn-sign-up mt-4">
                         <p>SIGN UP</p>
                     </button>
                 </form>

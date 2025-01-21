@@ -125,11 +125,11 @@
                     </div>
                 </div>
 
-            <div class="col-md-6 d-none d-md-block">
-                <div class="mockup-container h-100">
-                    <img src="shared/assets/image/mockup-pic.png" alt="mockup" class="mockup-image">
+                <div class="col-md-6 d-flex d-md-block">
+                    <div class="mockup-container h-100">
+                        <img src="shared/assets/image/mockup-pic2.png" alt="mockup" class="mockup-image">
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
 
@@ -154,8 +154,14 @@
                         </form>
                     </div>
                 </div>
+                <div class="col-md-6 d-none d-md-block">
+                    <div class="mockup-container h-100">
+                        <img src="shared/assets/image/mockup-pic2.png" alt="mockup" class="mockup-image">
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
     </div>
 
     <script src="shared/assets/js/createRecipe.js"></script>

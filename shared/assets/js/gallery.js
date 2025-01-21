@@ -98,7 +98,7 @@ function renderCards() {
 
         cardElement.innerHTML =
             '<div class="card shadow">' +
-            '<div class="d-flex justify-content-between align-items-center p-3">' +
+            '<div class="d-flex justify-content-between align-items-center" style="padding-right: 16px">' +
             '<div class="name fw-bold">' + card.name + '</div>' +
             '<button class="btn btn-edit btn-secondary mx-4">Edit</button>' +
             '</div>' +
@@ -153,6 +153,28 @@ nextBtn.addEventListener('click', function () {
     if (currentPage * cardsPerPage < cardData.length) {
         updatePage(currentPage + 1);
     }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var reportButtons = document.querySelectorAll('.btn-report');
+
+    for (var i = 0; i < reportButtons.length; i++) {
+        reportButtons[i].addEventListener('click', function () {
+            var reportModal = new bootstrap.Modal(document.getElementById('reportModal'));
+            reportModal.show();
+        });
+    }
+
+    document.getElementById('submitReport').addEventListener('click', function () {
+        var selectedReason = document.querySelector('input[name="reportReason"]:checked');
+        if (selectedReason) {
+            alert('Report submitted for reason: ' + selectedReason.value);
+            var reportModal = bootstrap.Modal.getInstance(document.getElementById('reportModal'));
+            reportModal.hide();
+        } else {
+            alert('Please select a reason for reporting.');
+        }
+    });
 });
 
 renderCards();
