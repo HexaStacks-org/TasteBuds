@@ -32,6 +32,10 @@
   --ff-text: "Open Sans", serif;
 }
 
+body {
+  background-color: #FDF3E9;
+}
+
 .rammetto-one {
   font-family: "Rammetto One", serif;
   font-weight: 400;
@@ -167,7 +171,7 @@
   object-fit: cover;
 }
 
-.category {
+.primaryCategory {
   border: 2px solid var(--clr-secondary);
   color: var(--clr-secondary);
   border-radius: 50rem;
@@ -180,6 +184,18 @@
   white-space: nowrap;
 }
 
+.subcategory {
+  border: 2px solid var(--clr-dark-orange);
+  color: var(--clr-dark-orange);
+  border-radius: 50rem;
+  padding: 0.25em 0.75em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-paragraph);
+  font-weight: bold;
+  white-space: nowrap;
+}
 
 /*ANG NAGAMIT LANG NITO AY (RECIPE-VIEW)*/
 /* Remove underline from links */

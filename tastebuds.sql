@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2025 at 06:32 PM
+-- Generation Time: Jan 21, 2025 at 08:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tastebudstest`
+-- Database: `tastebuds`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `bookmarks` (
   `userID` int(5) NOT NULL,
   `recipeID` int(5) DEFAULT NULL,
   `postID` int(5) DEFAULT NULL,
-  `bookmarkedAt` datetime NOT NULL
+  `bookmarkedAt` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -169,25 +169,7 @@ INSERT INTO `bookmarks` (`bookmarkID`, `userID`, `recipeID`, `postID`, `bookmark
 (127, 3, 27, NULL, '2025-01-18 20:21:23'),
 (128, 36, 38, NULL, '2025-01-18 20:48:20'),
 (129, 18, NULL, 45, '2025-01-18 22:18:05'),
-(130, 11, NULL, 53, '2025-01-19 09:18:15'),
-(131, 3, NULL, 53, '2025-01-19 09:58:21'),
-(132, 27, NULL, 53, '2025-01-19 10:08:54'),
-(133, 3, 50, NULL, '2025-01-19 10:42:25'),
-(134, 5, 51, NULL, '2025-01-19 10:56:37'),
-(135, 27, 50, NULL, '2025-01-19 11:28:05'),
-(136, 37, 54, NULL, '2025-01-19 11:46:21'),
-(137, 9, 54, NULL, '2025-01-19 11:58:05'),
-(138, 28, 54, NULL, '2025-01-19 12:03:05'),
-(139, 37, 43, NULL, '2025-01-19 12:26:32'),
-(140, 18, 54, NULL, '2025-01-19 13:35:12'),
-(141, 19, NULL, 42, '2025-01-19 13:48:21'),
-(142, 24, NULL, 53, '2025-01-19 13:52:05'),
-(143, 7, NULL, 53, '2025-01-19 14:18:05'),
-(144, 6, 48, NULL, '2025-01-19 15:12:32'),
-(145, 18, NULL, 50, '2025-01-19 15:53:13'),
-(146, 21, 48, NULL, '2025-01-19 17:23:12'),
-(147, 22, NULL, 46, '2025-01-19 18:33:05'),
-(148, 33, 48, NULL, '2025-01-19 20:23:12');
+(130, 11, NULL, 53, '2025-01-19 09:18:15');
 
 -- --------------------------------------------------------
 
@@ -235,8 +217,8 @@ CREATE TABLE `galleryposts` (
 --
 
 INSERT INTO `galleryposts` (`postID`, `caption`, `userID`, `isApproved`, `createdAt`, `updatedAt`, `primaryCategoryID`, `subcategoryID`) VALUES
-(1, 'SINIGANGGG', 9, 'yes', '2025-01-03 10:15:24', '2025-01-19 16:20:28', 1, 2),
-(2, 'MANOKKKK', 2, 'yes', '2025-01-03 14:15:24', '2025-01-19 16:20:02', 2, 3),
+(1, 'Pork sinigang with lots of pork and vegetables.', 9, 'yes', '2025-01-03 10:15:24', NULL, 1, 2),
+(2, 'Rich, and savory calderetang manok', 2, 'yes', '2025-01-03 14:15:24', NULL, 2, 3),
 (3, 'Beef tapa, tender, flavorful, and perfectly seasoned for a hearty meal!', 5, 'yes', '2025-01-03 18:15:24', NULL, 1, 4),
 (4, 'Sinigang na Hipon, the OG', 29, 'yes', '2025-01-06 10:15:24', NULL, 3, 5),
 (5, 'Savory and sweet pie', 28, 'yes', '2025-01-06 14:15:24', NULL, 5, 7),
@@ -587,42 +569,7 @@ INSERT INTO `likes` (`likeID`, `userID`, `recipeID`, `postID`, `likedAt`) VALUES
 (127, 7, NULL, 30, '2025-01-15 22:49:59'),
 (128, 37, NULL, 30, '2025-01-16 10:08:02'),
 (129, 9, NULL, 30, '2025-01-16 10:23:24'),
-(130, 33, NULL, 27, '2025-01-16 10:43:26'),
-(131, 9, NULL, 41, '2025-01-16 12:32:56'),
-(132, 20, NULL, 39, '2025-01-16 12:12:12'),
-(133, 7, NULL, 41, '2025-01-16 15:23:01'),
-(134, 37, NULL, 41, '2025-01-16 15:45:57'),
-(135, 24, NULL, 39, '2025-01-16 15:46:22'),
-(136, 18, NULL, 39, '2025-01-16 17:02:24'),
-(137, 7, NULL, 39, '2025-01-16 17:51:30'),
-(138, 19, 44, NULL, '2025-01-16 19:00:42'),
-(139, 33, NULL, 27, '2025-01-16 19:23:26'),
-(140, 28, NULL, 36, '2025-01-16 19:40:23'),
-(141, 18, NULL, 33, '2025-01-16 19:51:13'),
-(142, 14, NULL, 36, '2025-01-16 20:45:12'),
-(143, 10, NULL, 31, '2025-01-16 23:55:59'),
-(144, 33, NULL, 33, '2025-01-17 17:20:32'),
-(145, 18, NULL, 36, '2025-01-17 17:23:42'),
-(146, 27, NULL, 36, '2025-01-17 17:42:12'),
-(147, 5, NULL, 36, '2025-01-17 22:30:15'),
-(148, 36, 44, NULL, '2025-01-17 23:45:17'),
-(149, 22, NULL, 46, '2025-01-18 12:06:52'),
-(150, 3, NULL, 46, '2025-01-18 13:46:13'),
-(151, 9, NULL, 42, '2025-01-18 14:34:02'),
-(152, 37, NULL, 40, '2025-01-18 15:46:02'),
-(153, 30, NULL, 46, '2025-01-18 16:23:08'),
-(154, 19, NULL, 46, '2025-01-18 17:12:30'),
-(155, 6, 48, NULL, '2025-01-18 17:30:42'),
-(156, 28, 49, NULL, '2025-01-18 17:45:10'),
-(157, 3, NULL, 49, '2025-01-18 18:30:45'),
-(158, 27, NULL, 50, '2025-01-18 19:49:30'),
-(159, 6, NULL, 49, '2025-01-18 22:46:52'),
-(160, 18, 52, NULL, '2025-01-18 23:09:46'),
-(161, 11, NULL, 53, '2025-01-19 12:06:14'),
-(162, 3, NULL, 53, '2025-01-19 13:23:56'),
-(163, 9, 54, NULL, '2025-01-19 13:46:33'),
-(164, 27, NULL, 53, '2025-01-19 14:43:11'),
-(165, 24, 52, NULL, '2025-01-19 16:12:22');
+(130, 33, NULL, 27, '2025-01-16 10:43:26');
 
 -- --------------------------------------------------------
 
@@ -698,7 +645,7 @@ INSERT INTO `recipes` (`recipeID`, `recipeTitle`, `description`, `ingredients`, 
 (2, 'Ginataang tulingan', 'This comforting dish strikes a perfect balance between savory and creamy, making it a must-try for those seeking authentic Filipino flavors.', '1 kg tulingan\r\n1 onion (chopped)\r\n3 cloves garlic (minced)\r\n2 medium tomatoes (chopped)\r\n1 can coconut milk\r\n1 thumb-sized ginger (sliced)\r\n1 long green chili (optional)\r\n1 cup water\r\nSalt and pepper to taste\r\n', '1. Thoroughly clean the fish under running water. Make a slit on both sides of each fish and generously rub salt over them. Let the fish sit for 10 to 15 minutes to absorb the salt.  \r\n2. In a cooking pot, layer the pork fat, kamias, fish, and ginger. Pour water into the pot, ensuring the ingredients are submerged. Cover the pot and bring it to a boil. Lower the heat to medium and cook for 40 minutes.  \r\n3. Add coconut milk to the pot, along with garlic, onion, and chili. Cover and continue to cook on low to medium heat for another 40 minutes, allowing the flavors to meld together.  \r\n4. Add the eggplant slices to the pot and cook for an additional 5 to 7 minutes, or until the eggplant becomes tender. Season the dish with patis and ground black pepper to taste.  \r\n5. Carefully transfer the cooked dish to a serving plate.  \r\n6. Serve warm and enjoy the hearty flavors of this traditional dish!\r\n', 1, 'yes', '2024-12-30 12:20:34', NULL, 2, 5),
 (3, 'Pizza\r\n\r\n', 'Pizza is a dough base topped with tomato sauce, cheese, and various toppings, baked to perfection.', 'Pizza dough\r\nTomato sauce\r\nMozzarella cheese\r\nPepperoni, vegetables, or other toppings of choice\r\nOlive oil\r\nSalt and pepper\r\n\r\n', '1. Preheat the oven to 475°F (245°C).\r\n2. Roll out the pizza dough on a floured surface.\r\n3. Spread tomato sauce over the dough, then sprinkle with mozzarella cheese.\r\n4. Add your choice of toppings.\r\n5. Bake for 10–15 minutes or until the crust is golden and the cheese is melted.\r\n\r\n', 1, 'yes', '2024-12-30 14:30:04', NULL, 4, 7),
 (4, 'Creamy mushroom chicken', 'Tender chicken simmered in a rich, creamy mushroom sauce, perfect for any occasion.', '4 chicken thighs or breasts\r\n2 cups mushrooms (sliced)\r\n1 cup heavy cream or all-purpose cream\r\n1/2 cup chicken broth\r\n1 onion (chopped)\r\n3 cloves garlic (minced)\r\n2 tablespoons butter or oil\r\n1 tablespoon flour (optional, for thickening)\r\nSalt, pepper, and parsley (for garnish)\r\n', '1. Season chicken with salt and pepper. Sear in butter or oil until golden brown on both sides. Remove and set aside.\r\n2. Saute garlic, onion, and mushrooms until soft and fragrant.\r\n3. Add flour (if using) and mix well. Pour in chicken broth and cream, stirring until smooth.\r\n4. Return the chicken to the pan and simmer for 10–15 minutes until fully cooked and the sauce thickens.\r\n5. Garnish with parsley and serve hot with rice, mashed potatoes, or pasta.\r\n\r\n', 1, 'yes', '2024-12-31 09:30:04', NULL, 3, 3),
-(5, 'Chocolate Ice cream\r\n\r\n', 'A creamy and frozen dessert made with rich chocolate flavor.\r\n\r\n', '2 cups heavy cream\r\n1 cup whole milk\r\n3/4 cup sugar\r\n1/2 cup unsweetened cocoa powder\r\n1 teaspoon vanilla extract\r\n1/2 cup chopped chocolate (optional)\r\n\r\n', '1. In a bowl, mix cocoa powder and sugar.\r\n2. In a saucepan, heat milk and cream until warm, then whisk in the cocoa mixture until smooth.\r\n3. Remove from heat and stir in vanilla extract. Let it cool completely.\r\n4. Pour the mixture into an ice cream maker and churn according to manufacturer’s instructions.\r\n5. Once thickened, mix in chopped chocolate (optional) and freeze for a few hours before serving.\r\n\r\n', 1, 'yes', '2024-12-31 12:33:33', NULL, 5, 7),
+(5, 'Chocolate Ice cream', 'whennnn\r\n', '2 cups heavy cream\r\n1 cup whole milk\r\n3/4 cup sugar\r\n1/2 cup unsweetened cocoa powder\r\n1 teaspoon vanilla extract\r\n1/2 cup chopped chocolate (optional)\r\n\r\n', '1. In a bowl, mix cocoa powder and sugar.\r\n2. In a saucepan, heat milk and cream until warm, then whisk in the cocoa mixture until smooth.\r\n3. Remove from heat and stir in vanilla extract. Let it cool completely.\r\n4. Pour the mixture into an ice cream maker and churn according to manufacturer’s instructions.\r\n5. Once thickened, mix in chopped chocolate (optional) and freeze for a few hours before serving.\r\n\r\n', 1, 'yes', '2024-12-31 12:33:33', '2025-01-20 12:34:00', 5, 7),
 (6, 'Breakfast burrito\r\n', 'A hearty and satisfying breakfast wrap filled with scrambled eggs, sausage, cheese, and veggies. It\'s the perfect grab-and-go meal.\r\n\r\n', '2 large eggs\r\n2 breakfast sausages, crumbled\r\n1/4 cup shredded cheese\r\n1/4 cup diced tomatoes\r\n1/4 cup diced bell peppers\r\n1 large flour tortilla\r\nSalt and pepper to taste\r\n', '1. Scramble the eggs in a pan, seasoning with salt and pepper.\r\n2. Cook the crumbled sausages in a separate pan.\r\n3. Add the bell peppers and tomatoes to the eggs and cook until tender.\r\n4. Lay the scrambled mixture onto a tortilla, top with cheese, and fold the sides over.\r\n5. Roll up the burrito and serve.\r\n\r\n\r\n\r\n', 1, 'yes', '2024-12-31 15:38:44', NULL, 1, 2),
 (7, 'Laing', 'Laing is a dish made with gabi leaves, coconut milk, and chili, delivering a rich, creamy, and spicy flavor.\r\n\r\n', '2 cups dried taro leaves (gabi)\r\n2 cups coconut milk\r\n1 cup coconut cream (optional for richer flavor)\r\n1 onion (chopped)\r\n3 cloves garlic (minced)\r\n1 thumb-sized ginger (sliced)\r\n2–3 red chilies (sliced, optional)\r\n1 tablespoon vegan bagoong (shrimp paste alternative) or soy sauce\r\nSalt and pepper to taste.\r\n', '1. Saute garlic, onion, and ginger in a pot. Add vegan bagoong or soy sauce and stir.\r\n2. Pour in coconut milk and bring to a gentle boil.\r\n3. Add the dried gabi leaves, ensuring they are fully soaked in the coconut milk. Simmer on low heat without stirring to avoid itchiness.\r\n4. Once the taro leaves are tender, add coconut cream for a richer texture and sliced chilies for spice. Simmer until the oil separates.\r\n5. Adjust salt and pepper to taste. Serve with steamed rice for a satisfying meal.\r\n\r\n', 5, 'yes', '2025-01-03 15:41:07', NULL, 3, 1),
 (8, 'Spaghetti\r\n\r\n', 'Spaghetti is a pasta dish served with tomato sauce, meatballs, or other toppings.\r\n\r\n', '200g spaghetti\r\n1 cup tomato sauce\r\n2 cloves garlic (minced)\r\n1/2 onion (chopped)\r\nOlive oil\r\nSalt and pepper\r\nParmesan cheese (optional)\r\n', '1. Cook the spaghetti according to the package instructions.\r\n2. Saute garlic and onion in olive oil until soft.\r\n3. Add tomato sauce, salt, and pepper. Simmer for 10 minutes.\r\n4. Serve the spaghetti with sauce and sprinkle with Parmesan cheese.\r\n', 9, 'yes', '2025-01-04 09:43:36', NULL, 4, 7),
@@ -772,8 +719,8 @@ CREATE TABLE `reports` (
 
 INSERT INTO `reports` (`reportID`, `userID`, `recipeID`, `postID`, `reasonID`, `otherReason`, `reportedAt`, `status`) VALUES
 (1, 16, 32, NULL, 4, NULL, '2025-01-20 01:19:16', 'pending'),
-(2, 23, NULL, 40, 3, NULL, '2025-01-20 01:22:18', 'pending'),
-(3, 31, 36, NULL, 2, NULL, '2025-01-20 01:22:18', 'pending'),
+(2, 23, NULL, 40, 6, 'Offensive Language or Imagery', '2025-01-20 01:22:18', 'pending'),
+(3, 31, 36, NULL, 6, 'Misleading Claims', '2025-01-20 01:22:18', 'pending'),
 (4, 4, NULL, 42, 2, NULL, '2025-01-20 01:22:18', 'pending');
 
 -- --------------------------------------------------------
