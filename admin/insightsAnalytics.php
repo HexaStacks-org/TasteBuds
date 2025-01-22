@@ -69,7 +69,7 @@
                             <?php include('shared/process/donutCharts.php'); ?>
 
                             <!-- tables -->
-
+                            <?php include('shared/process/insightsAnalyticsTable.php'); ?>
                             <!-- end of table -->
                         </div>
                     </div>
