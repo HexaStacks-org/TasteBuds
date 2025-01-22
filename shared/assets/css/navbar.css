@@ -100,6 +100,22 @@
     color: var(--fc-light);
 }
 
+.btn-logout {
+    background-color: var(--clr-primary);
+    border: none;
+    font-family: var(--ff-text);
+    font-size: var(--fs-small);
+    color: var(--fc-light-orange);
+    font-weight: bolder;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    width: 100%;
+}
+
+.btn-logout:hover {
+    background-color: var(--clr-dark-orange);
+}
+
 .form-check-input:checked {
     background-color: var(--clr-primary);
     border: none;
@@ -341,6 +357,11 @@
 
     .user-dropdown a {
         font-size: small;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .btn-logout {
         padding-top: 12px;
         padding-bottom: 12px;
     }

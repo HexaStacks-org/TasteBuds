@@ -1,3 +1,41 @@
+<?php
+include("connect.php");
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['userID'])) {
+  die("You must be logged in to view this recipe.");
+}
+
+// Get the logged-in user's ID from the session
+$userID = (int) $_SESSION['userID'];
+
+// Get the recipe ID from the query parameter
+$recipeID = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
+// Validate the recipe ID
+if ($recipeID <= 0) {
+  die("Invalid recipe ID.");
+}
+
+$queryRecipeOverview = "
+    SELECT recipes.*, 
+           users.firstName, 
+           users.lastName, 
+           images.imageURL, 
+           primaryfoodcategories.primaryCategoryName, 
+           foodSubcategories.subcategoryName
+    FROM recipes
+    LEFT JOIN users ON users.userID = recipes.userID
+    LEFT JOIN images ON images.recipeID = recipes.recipeID
+    LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = recipes.primaryCategoryID
+    LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = recipes.subcategoryID
+    WHERE recipes.recipeID = $recipeID AND recipes.userID = $userID
+";
+$resultRecipeOverview = executeQuery($queryRecipeOverview);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,122 +53,99 @@
 <body>
   <div class="container-recipe">
     <div class="col">
-      <h2 class="recipe-title-view">Roast Chicken with Avocado Salad</h2>
-      <span class="primary-category rounded-pill">Breakfast</span>
-      <span class="sub-category rounded-pill">Chicken</span>
-      <img src="shared/assets/image/test-pic.png" class="img-thumbnail recipe-image" alt="..." />
-      <div class="col name-edit">
-        <h6 class="name">JOMARI CASTILLO</h6>
-      </div>
-      <div class="row buttons">
-        <div class="button-col-6">
-          <button class="btn-like"><i class="bi bi-hand-thumbs-up-fill"
-              style="color: var(--clr-light-orange)"></i></button>
-          <button class="btn-bookmark"><i class="bi bi-bookmark-fill"
-              style="color: var(--clr-light-orange)"></i></button>
-          <button class="btn-report"><i class="bi bi-flag-fill" style="color: var(--clr-light-orange)"></i></button>
+      <?php
+      if (mysqli_num_rows($resultRecipeOverview) > 0) {
+        while ($recipeContent = mysqli_fetch_assoc($resultRecipeOverview)) {
+          ?>
+          <h2 class="recipe-title-view"><?= htmlspecialchars($recipeContent['title']); ?></h2>
+          <span class="primary-category rounded-pill"><?= htmlspecialchars($recipeContent['primaryCategoryName']); ?></span>
+          <span class="sub-category rounded-pill"><?= htmlspecialchars($recipeContent['subcategoryName']); ?></span>
+          <img src="shared/assets/image<?php echo $recipeContent['imageURL']; ?>" alt="Recipe Image">
+          <div class="col name-edit">
+            <h6 class="name"><?= htmlspecialchars($recipeContent['firstName'] . ' ' . $recipeContent['lastName']); ?></h6>
+          </div>
+          <div class="row buttons">
+            <div class="button-col-6">
+              <button class="btn-like"><i class="bi bi-hand-thumbs-up-fill"
+                  style="color: var(--clr-light-orange)"></i></button>
+              <button class="btn-bookmark"><i class="bi bi-bookmark-fill"
+                  style="color: var(--clr-light-orange)"></i></button>
+              <button class="btn-report"><i class="bi bi-flag-fill" style="color: var(--clr-light-orange)"></i></button>
+            </div>
+          </div>
+          <div class="col recipe-table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Description</th>
+                  <th scope="col">Ingredients</th>
+                  <th scope="col">Steps</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><?= nl2br(htmlspecialchars($recipe['description'])); ?></td>
+                  <td><?= nl2br(htmlspecialchars($recipe['ingredients'])); ?></td>
+                  <td><?= nl2br(htmlspecialchars($recipe['steps'])); ?></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      <div class="col recipe-table">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Description</th>
-              <th scope="col">Ingredients</th>
-              <th scope="col">Steps</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. bawal po may mag isa na word.p> Lorem Ipsum is
-                simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book.
-              </td>
-              <td>
-                Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. bawal po may mag isa na word.p> Lorem Ipsum is
-                simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book.
-              </td>
-              <td>
-                Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. bawal po may mag isa na word.p> Lorem Ipsum is
-                simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book.
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="reportModalLabel">Report Content</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="reportForm">
+                <p>Please select the reason for reporting this content:</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="reportReason" id="spam" value="Spam" required>
+                  <label class="form-check-label" for="spam">Spam</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="reportReason" id="wrongInfo" value="Wrong Information">
+                  <label class="form-check-label" for="wrongInfo">Wrong Information</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="reportReason" id="inappropriateContent"
+                    value="Inappropriate Content">
+                  <label class="form-check-label" for="inappropriateContent">Inappropriate Content</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="reportReason" id="copyrightInfringement"
+                    value="Copyright Infringement">
+                  <label class="form-check-label" for="copyrightInfringement">Copyright Infringement</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="reportReason" id="harassmentAbuse"
+                    value="Harassment or Abuse">
+                  <label class="form-check-label" for="harassmentAbuse">Harassment or Abuse</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="reportReason" id="other" value="Other">
+                  <label class="form-check-label" for="other">Other</label>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancel-report" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-submit-report" id="submitReport">Submit Report</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+      <?php
+        }
+      } else {
+        echo "<p>No recipe found or you do not have access to view this recipe.</p>";
+      }
+      ?>
 
-  <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="reportModalLabel">Report Content</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="reportForm">
-            <p>Please select the reason for reporting this content:</p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="reportReason" id="spam" value="Spam" required>
-              <label class="form-check-label" for="spam">Spam</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="reportReason" id="wrongInfo" value="Wrong Information">
-              <label class="form-check-label" for="wrongInfo">Wrong Information</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="reportReason" id="inappropriateContent"
-                value="Inappropriate Content">
-              <label class="form-check-label" for="inappropriateContent">Inappropriate Content</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="reportReason" id="copyrightInfringement"
-                value="Copyright Infringement">
-              <label class="form-check-label" for="copyrightInfringement">Copyright Infringement</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="reportReason" id="harassmentAbuse"
-                value="Harassment or Abuse">
-              <label class="form-check-label" for="harassmentAbuse">Harassment or Abuse</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="reportReason" id="other" value="Other">
-              <label class="form-check-label" for="other">Other</label>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-cancel-report" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-submit-report" id="submitReport">Submit Report</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
