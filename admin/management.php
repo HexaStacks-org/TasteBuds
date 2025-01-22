@@ -35,7 +35,9 @@
 
 
               <!-- tables -->
-
+              <?php
+              include("shared/process/managementTable.php");
+              ?>
               <!-- table end -->
             </div>
           </div>

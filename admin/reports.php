@@ -34,7 +34,9 @@
             <div class="col-12">
 
               <!-- tables-->
-
+              <?php
+              include("shared/process/reportsTable.php");
+              ?>
               <!-- table end -->
             </div>
           </div>

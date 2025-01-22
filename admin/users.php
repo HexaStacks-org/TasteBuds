@@ -29,7 +29,9 @@
         ?>
 
         <!-- tables-->
-
+        <?php
+        include("shared/process/usersProcess.php");
+        ?>
         <!-- table end -->
       </div>
     </div>
