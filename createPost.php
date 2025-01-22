@@ -25,7 +25,7 @@
                                 class="logo d-inline-block align-text-top" />
                         </div>
                         <div class="con-back col d-flex align-items-center">
-                            <button class="btn back-btn" id="back-btn">BACK</button>
+                            <button class="btn back-btn" id="back-btn" onclick="window.location.href='landing.php';">BACK</button>
                         </div>
                     </div>
                     <h1 class="px-5">Create a Post</h1>

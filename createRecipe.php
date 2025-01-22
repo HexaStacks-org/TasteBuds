@@ -26,7 +26,7 @@
                                     class="logo d-inline-block align-text-top" />
                             </div>
                             <div class="con-back col d-flex align-items-center">
-                                <a href="landing.php" id="back-btn " class="btn back-btn">BACK</a>
+                                <a href="landing.php" id="back-btn " class="btn back-btn" onclick="window.location.href='landing.php';">BACK</a>
                             </div>
                         </div>
                         <h1 class="px-5">Create a Recipe</h1>
