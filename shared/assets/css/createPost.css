@@ -1,5 +1,5 @@
 html, body {
-    height: 100%;
+    height: min-content;
     background-color: #fff8EE;
     font-family: 'Open Sans', sans-serif;
 }
@@ -119,8 +119,6 @@ html, body {
 .mockup-image {
     height: 1024px;
     width: 100vw;
-    object-fit: min-content;
-    overflow: hidden;
 }
 
 .btn-create {
@@ -180,17 +178,5 @@ html, body {
 
     .post-form {
         padding: 0 !important;
-    }
-}
-
-@media only screen and (max-height: 1024px) {
-    .html, body {
-        overflow: hidden;
-    }
-}
-
-@media only screen and (max-height: 799px) {
-    .html, body {
-        overflow: visible;
     }
 }

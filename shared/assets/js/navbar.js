@@ -13,10 +13,8 @@ var orderByCreation = document.getElementById("orderByCreation");
 var orderByUpdate = document.getElementById("orderByUpdate");
 
 function updateButtonState() {
-    var isTextEntered = searchInput.value.trim() !== "";
-
-    searchButton.style.pointerEvents = isTextEntered ? "auto" : "none";
-    searchButton.style.opacity = isTextEntered ? "1" : "0.5";
+    searchButton.style.pointerEvents = "auto";
+    searchButton.style.opacity = "1";
 }
 
 searchInput.addEventListener("input", updateButtonState);
