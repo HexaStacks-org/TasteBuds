@@ -1,5 +1,5 @@
 <?php
-include("shared/processes/signup-process.php");
+include("shared/processes/signupProcess.php");
 ?>
 
 <!doctype html>
@@ -11,16 +11,12 @@ include("shared/processes/signup-process.php");
     <title>Signup</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="shared/assets/css/signup.css"/>
-    <link rel="stylesheet" href="shared/assets/css/style.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rammetto+One&display=swap"
-        rel="stylesheet">
+    <?php
+    include("shared/components/fontEmbed.php");
+    ?>
+    <link rel="stylesheet" href="shared/assets/css/signup.css" />
+    <link rel="stylesheet" href="shared/assets/css/style.css" />
+
 </head>
 
 <body class="signup-body">
@@ -35,13 +31,15 @@ include("shared/processes/signup-process.php");
                 </div>
 
                 <?php if ($error == "PASSWORD UNMATCHED") { ?>
-                    <div class="alert alert-danger mb-3 d-flex align-items-center justify-content-center" role="alert" style="width: 450px">
+                    <div class="alert alert-danger mb-3 d-flex align-items-center justify-content-center" role="alert"
+                        style="width: 450px">
                         Passwords does not match
                     </div>
                 <?php } ?>
 
                 <?php if ($error == "USER_EXISTS") { ?>
-                    <div class="alert alert-warning d-flex align-items-center justify-content-center" role="alert" style="width: 450px">
+                    <div class="alert alert-warning d-flex align-items-center justify-content-center" role="alert"
+                        style="width: 450px">
                         Email already exists.
                     </div>
                 <?php } ?>
@@ -50,13 +48,17 @@ include("shared/processes/signup-process.php");
                 <p class="sign-up text-start">Sign up to save and review your favorite recipes.</p>
                 <form action="signup.php" method="POST">
                     <label for="fullname" class="form-label">First Name</label>
-                    <input type="text" class="form-control" placeholder="Enter your first name" id="firstName" name="firstName" required>
+                    <input type="text" class="form-control" placeholder="Enter your first name" id="firstName"
+                        name="firstName" required>
                     <label for="fullname" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" placeholder="Enter your last name" id="lastName" name="lastName" required>
+                    <input type="text" class="form-control" placeholder="Enter your last name" id="lastName"
+                        name="lastName" required>
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" placeholder="Enter your email" id="email" name="email" required>
+                    <input type="email" class="form-control" placeholder="Enter your email" id="email" name="email"
+                        required>
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" placeholder="************" id="password" name="password" required>
+                    <input type="password" class="form-control" placeholder="************" id="password" name="password"
+                        required>
                     <label for="confirm_password" class="form-label">Confirm Password</label>
                     <input type="password" class="form-control" placeholder="************" id="confirm_password"
                         name="confirm_password" required>
@@ -65,10 +67,10 @@ include("shared/processes/signup-process.php");
                     <div class="form-check mt-4">
                         <input class="form-check-input" type="checkbox" value="" id="legalAge" required>
                         <label class="form-check-label" for="legalAge">
-                            I certify that I am over 18, I have read the 
-                            <a href="tastebudsOrg.php">Terms and Conditions</a> 
-                            and 
-                            <a href="tastebudsOrg.php">Privacy Notice</a>, 
+                            I certify that I am over 18, I have read the
+                            <a href="tastebudsOrg.php">Terms and Conditions</a>
+                            and
+                            <a href="tastebudsOrg.php">Privacy Notice</a>,
                             and I accept the use of my personal data in this content.
                         </label>
                     </div>
