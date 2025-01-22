@@ -1,5 +1,4 @@
 html, body {
-    overflow: hidden;
     height: 100%;
     background-color: #fff8EE;
     font-family: 'Open Sans', sans-serif;
@@ -118,9 +117,9 @@ html, body {
 }
 
 .mockup-image {
-    height: 140vh;
-    width: auto;
-    object-fit: cover;
+    height: 1024px;
+    width: 100vw;
+    object-fit: min-content;
     overflow: hidden;
 }
 
@@ -149,6 +148,10 @@ html, body {
 }
 
 @media only screen and (max-width: 768px) {
+    .html, body {
+        overflow: visible !important;
+    }
+
     .logo {
         width: auto;
         height: 80px;
@@ -177,5 +180,17 @@ html, body {
 
     .post-form {
         padding: 0 !important;
+    }
+}
+
+@media only screen and (max-height: 1024px) {
+    .html, body {
+        overflow: hidden;
+    }
+}
+
+@media only screen and (max-height: 799px) {
+    .html, body {
+        overflow: visible;
     }
 }
