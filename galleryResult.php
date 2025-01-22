@@ -1,5 +1,5 @@
 <?php
-include("shared/processes/galleryResult.php")
+include("shared/processes/galleryResultProcess.php")
     ?>
 
 <!doctype html>

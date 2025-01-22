@@ -1,5 +1,5 @@
 <?php
-include("shared/processes/recipeResult.php")
+include("shared/processes/recipeResultProcess.php")
     ?>
 
 <!doctype html>
