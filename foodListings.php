@@ -5,22 +5,6 @@ $primaryCategoryFilter = isset($_GET['primaryCategoryName']) ? $_GET['primaryCat
 $subcategoryFilter = isset($_GET['subcategoryName']) ? $_GET['subcategoryName'] : '';
 
 // Query for Recipe Details
-$queryFourLatestRecipes = "
-    SELECT recipes.*, 
-           users.*, 
-           images.*, 
-           primaryfoodcategories.*,
-           foodSubcategories.*, 
-           (SELECT COUNT(likeID) FROM likes WHERE likes.recipeID = recipes.recipeID) AS likesCount,
-          (SELECT COUNT(bookmarkID) FROM bookmarks WHERE bookmarks.recipeID = recipes.recipeID) AS bookmarksCount
-    FROM recipes
-    LEFT JOIN users ON users.userID = recipes.userID
-    LEFT JOIN images ON images.recipeID = recipes.recipeID
-    LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = recipes.primaryCategoryID
-    LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = recipes.subcategoryID
-    ORDER BY recipes.createdAt DESC LIMIT 4
-";
-
 $queryRecipes = "
     SELECT recipes.*, 
            users.*, 
@@ -35,6 +19,8 @@ $queryRecipes = "
     LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = recipes.primaryCategoryID
     LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = recipes.subcategoryID
 ";
+
+$queryFourLatestRecipes = $queryRecipes . "ORDER BY recipes.createdAt DESC LIMIT 4";
 
 // Query for counting the total number of filtered recipes
 $queryCount = "
@@ -195,117 +181,126 @@ $subcategoryResults = executeQuery($subcategoryQuery);
 
   <!-- THIS DISPLAYS THE 4 LATEST RECIPES -->
   <?php if ($primaryCategoryFilter == '' && $subcategoryFilter == '') { ?>
-  <!-- Recipe Display -->
-  <div class="container-fluid mt-5 content-bg">
-    <div class="row">
+    <!-- Recipe Display -->
+    <div class="container-fluid mt-5 content-bg">
+      <div class="row">
 
-    <!--  The total count for results-->
-    <div class="row mt-5 mb-3">
-        <div class="col text-center" style="color:white;">
-        <h4>CHECK OUT THESE LATEST RECIPES!</h4>
+        <!--  The total count for results-->
+        <div class="row mt-5 mb-5">
+          <div class="col text-center" style="color:white;">
+            <h4>CHECK OUT THESE LATEST RECIPES</h4>
+          </div>
         </div>
-      </div>
 
-      <?php if (mysqli_num_rows($resultFourLatestRecipes) > 0) {
-        while ($rowFourLatestRecipes = mysqli_fetch_assoc($resultFourLatestRecipes)) { ?>
-          <div class="col-md-6 mt-5 mb-5">
-            <div class="card">
-              <div class="row" style="height: 300px;">
-                <div class="col-md-5" style="height: 300px;">
-                  <img src="shared/assets/image/content-image/<?php echo $rowFourLatestRecipes['imageURL']; ?>"
-                    alt="<?php echo $rowFourLatestRecipes['recipeTitle']; ?>" class="img-fluid"
-                    style="height: 100%; object-fit: cover;">
-                </div>
-                <div class="col-md-7">
-                  <div class="card-body"
-                    style="padding: 20px 10px; height: 100%; overflow: hidden; text-overflow: ellipsis;">
-                    <span class="category"><?php echo $rowFourLatestRecipes["primaryCategoryName"]; ?></span>
-                    <h5 class="card-title"><?php echo $rowFourLatestRecipes["recipeTitle"]; ?></h5>
-                    <p class="card-text"
-                      style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
-                      <?php echo $rowFourLatestRecipes["description"]; ?>
-                    </p>
+        <?php if (mysqli_num_rows($resultFourLatestRecipes) > 0) {
+          while ($rowFourLatestRecipes = mysqli_fetch_assoc($resultFourLatestRecipes)) { ?>
+            <div class="col-md-6 mb-5">
+              <div class="card">
+                <div class="row" style="height: 300px;">
+                  <div class="col-md-5" style="height: 300px;">
+                    <img src="shared/assets/image/content-image/<?php echo $rowFourLatestRecipes['imageURL']; ?>"
+                      alt="<?php echo $rowFourLatestRecipes['recipeTitle']; ?>" class="img-fluid"
+                      style="height: 100%; object-fit: cover;">
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body"
+                      style="padding: 20px 10px; height: 100%; overflow: hidden; text-overflow: ellipsis;">
+                      <div class="col" style=" flex: 0;">
+                        <span class="primaryCategory"><?php echo $rowFourLatestRecipes["primaryCategoryName"]; ?></span>
+                        <span class="subcategory"><?php echo $rowFourLatestRecipes["subcategoryName"]; ?></span>
+                      </div>
+                      <h5 class="card-title"><?php echo $rowFourLatestRecipes["recipeTitle"]; ?></h5>
+                      <p class="card-text"
+                        style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
+                        <?php echo $rowFourLatestRecipes["description"]; ?>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
 
-        <?php }
-      } else { ?>
-        <div class="container">
-          <div class="row">
-            <div class="col d-flex justify-content-center" style="width: 100%;">
-              <img src="shared/assets/image/no-results-found.png"
-                style="max-width: 50%; height: auto; margin: 20px 0 40px 0" class="img-fluid">
+          <?php }
+        } else { ?>
+          <div class="container">
+            <div class="row">
+              <div class="col d-flex justify-content-center" style="width: 100%;">
+                <img src="shared/assets/image/no-results-found.png"
+                  style="max-width: 50%; height: auto; margin: 20px 0 40px 0" class="img-fluid">
+              </div>
             </div>
           </div>
-        </div>
-      <?php } ?>
+        <?php } ?>
+      </div>
     </div>
-  </div>
   <?php } ?>
 
   <!-- THIS DISPLAYS ALL OTHER RECIPES -->
   <?php if ($primaryCategoryFilter != '' || $subcategoryFilter != '') { ?>
-  <!-- Recipe Display -->
-  <div class="container-fluid mt-5 content-bg">
-    <div class="row">
+    <!-- Recipe Display -->
+    <div class="container-fluid mt-5 content-bg">
+      <div class="row">
 
-      <!--  The total count for results-->
-      <div class="row mt-5 mb-3">
-        <div class="col text-center" style="color:white;">
-          <?php
-          if (mysqli_num_rows($countResult) > 0) {
-            while ($countResultRow = mysqli_fetch_assoc($countResult)) {
-              ?>
-              <h4>TOTAL RESULTS: <?php echo $countResultRow['totalCount'] ?></h4>
-              <?php
-            }
-          } ?>
+        <!--  The total count for results-->
+        <div class="row mt-5 mb-5">
+          <div class="col text-center" style="color:white;">
+            <?php
+            if (mysqli_num_rows($countResult) > 0) {
+              while ($countResultRow = mysqli_fetch_assoc($countResult)) {
+                ?>
+                <h4>TOTAL RESULTS: <?php echo $countResultRow['totalCount'] ?></h4>
+                <?php
+              }
+            } ?>
+          </div>
         </div>
-      </div>
 
-      <?php if (mysqli_num_rows($resultRecipes) > 0) {
-        while ($recipesRow = mysqli_fetch_assoc($resultRecipes)) { ?>
-          <div class="col-md-6 mt-5 mb-5">
-            <div class="card">
-              <div class="row" style="height: 300px;">
-                <div class="col-md-5" style="height: 300px;">
-                  <img src="shared/assets/image/content-image/<?php echo $recipesRow['imageURL']; ?>"
-                    alt="<?php echo $recipesRow['recipeTitle']; ?>" class="img-fluid"
-                    style="height: 100%; object-fit: cover;">
-                </div>
-                <div class="col-md-7">
-                  <div class="card-body"
-                    style="padding: 20px 10px; height: 100%; overflow: hidden; text-overflow: ellipsis;">
-                    <span class="category"><?php echo $recipesRow["primaryCategoryName"]; ?></span>
-                    <h5 class="card-title"><?php echo $recipesRow["recipeTitle"]; ?></h5>
-                    <p class="card-text"
-                      style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
-                      <?php echo $recipesRow["description"]; ?>
-                    </p>
+        <?php if (mysqli_num_rows($resultRecipes) > 0) {
+          while ($recipesRow = mysqli_fetch_assoc($resultRecipes)) { ?>
+            <div class="col-md-6 mb-5">
+              <div class="card">
+                <div class="row" style="height: 300px;">
+                  <div class="col-md-5" style="height: 300px;">
+                    <img src="shared/assets/image/content-image/<?php echo $recipesRow['imageURL']; ?>"
+                      alt="<?php echo $recipesRow['recipeTitle']; ?>" class="img-fluid"
+                      style="height: 100%; object-fit: cover;">
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body"
+                      style="padding: 20px 10px; height: 100%; overflow: hidden; text-overflow: ellipsis;">
+                      
+                      <div class="col" style=" flex: 0;">
+                        <span class="primaryCategory"><?php echo $recipesRow["primaryCategoryName"]; ?></span>
+                        <span class="subcategory"><?php echo $recipesRow["subcategoryName"]; ?></span>
+                      </div>
+
+
+                      <h5 class="card-title"><?php echo $recipesRow["recipeTitle"]; ?></h5>
+                      <p class="card-text"
+                        style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
+                        <?php echo $recipesRow["description"]; ?>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
 
-        <?php }
-      } else { ?>
-        <div class="container">
-          <div class="row">
-            <div class="col d-flex justify-content-center" style="width: 100%;">
-              <img src="shared/assets/image/no-results-found.png"
-                style="max-width: 50%; height: auto; margin: 20px 0 40px 0" class="img-fluid">
+          <?php }
+        } else { ?>
+          <div class="container">
+            <div class="row">
+              <div class="col d-flex justify-content-center" style="width: 100%;">
+                <img src="shared/assets/image/no-results-found.png"
+                  style="max-width: 50%; height: auto; margin: 20px 0 40px 0" class="img-fluid">
+              </div>
             </div>
           </div>
-        </div>
-      <?php } ?>
+        <?php } ?>
+      </div>
     </div>
-  </div>
   <?php } ?>
 
   <script>
