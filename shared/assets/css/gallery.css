@@ -27,7 +27,8 @@
 }
 
 .img-post img {
-    width: 100%;
+    width: auto;
+    height: 500px !important;
     padding: 0px;
     margin: 0px;
     object-fit: cover;

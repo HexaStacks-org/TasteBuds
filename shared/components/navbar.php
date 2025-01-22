@@ -12,6 +12,7 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -30,6 +31,7 @@
                     </a>
                 </li>
             </ul>
+
             <div class="btn-nav d-flex justify-content-end">
                 <button class="btn btn-search" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasSearch" aria-controls="offcanvasSearch"><a>
@@ -49,7 +51,11 @@
                         <li><a class="dropdown-item" href="">Uploaded Contents</a></li>
                         <li><a class="dropdown-item" href="">Likes</a></li>
                         <li><a class="dropdown-item" href="">Bookmarks</a></li>
-                        <li><a class="dropdown-item" href="">Logout</a></li>
+                        <li>
+                            <form class="d-flex justify-content-center align-items-center" action="login.php" method="POST">
+                                <button class="btn-logout" type="submit" name="logout">Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -63,9 +69,10 @@
             style="--bs-gutter-x: 0;">
 
             <input type="text" class="search-input" placeholder="Enter a keyword" id="keyword">
-            <a href="#" class="btn-enter-search">
+            <button class="btn-enter-search">
                 <p>Search</p>
-            </a>
+            </button>
+
             <div class="btn-group btn-rec-gal" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
                 <label class="btn btn-recipe" for="btnradio1">
@@ -77,6 +84,7 @@
                     <p>Gallery</p>
                 </label>
             </div>
+
             <div class="btn-group dropdown-center">
                 <button type="button" class="btn btn-category dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -137,25 +145,32 @@
                                 id="flexRadioDefault11">
                             <label class="form-check-label" for="flexRadioDefault11">Others</label>
                         </div>
-
                         <hr>
                         <li class="divider"></li>
-                        <p>Sort By</p>
+                        <p>Order By</p>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="sortOption" id="sortAlphaAsc">
-                            <label class="form-check-label" for="sortAlphaAsc">A-Z</label>
+                            <input class="form-check-input" type="checkbox" name="orderByOption" id="orderByAlphaAsc">
+                            <label class="form-check-label" for="orderByAlphaAsc">A-Z</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="sortOption" id="sortAlphaDesc">
-                            <label class="form-check-label" for="sortAlphaDesc">Z-A</label>
+                            <input class="form-check-input" type="checkbox" name="orderByOption" id="orderByAlphaDesc">
+                            <label class="form-check-label" for="orderByAlphaDesc">Z-A</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="sortOption" id="sortLikes">
-                            <label class="form-check-label" for="sortLikes">Number of Likes</label>
+                            <input class="form-check-input" type="checkbox" name="orderByOption" id="orderByLikes">
+                            <label class="form-check-label" for="orderByLikes">Number of Likes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="orderByOption" id="orderByBookmarks">
+                            <label class="form-check-label" for="orderByBookmarks">Number of Bookmarks</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="orderOption" id="orderByCreation">
+                            <label class="form-check-label" for="orderByCreation">Creation</label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" name="sortOption" id="sortBookmarks">
-                            <label class="form-check-label" for="sortBookmarks">Number of Bookmarks</label>
+                            <input class="form-check-input" type="checkbox" name="orderOption" id="orderByUpdate">
+                            <label class="form-check-label" for="orderByUpdate">Update</label>
                         </div>
                     </div>
                 </ul>

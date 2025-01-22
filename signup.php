@@ -1,3 +1,7 @@
+<?php
+include("shared/processes/signup-process.php");
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -29,6 +33,19 @@
                 <div class="sign-up-logo text-start">
                     <img src="shared/assets/image/Logo Combination 1.png" alt="logo" class="img-fluid">
                 </div>
+
+                <?php if ($error == "PASSWORD UNMATCHED") { ?>
+                    <div class="alert alert-danger mb-3 d-flex align-items-center justify-content-center" role="alert" style="width: 450px">
+                        Passwords does not match
+                    </div>
+                <?php } ?>
+
+                <?php if ($error == "USER_EXISTS") { ?>
+                    <div class="alert alert-warning d-flex align-items-center justify-content-center" role="alert" style="width: 450px">
+                        Email already exists.
+                    </div>
+                <?php } ?>
+
                 <div class="create text-start">Create an account</div>
                 <p class="sign-up text-start">Sign up to save and review your favorite recipes.</p>
                 <form action="signup.php" method="POST">
@@ -56,7 +73,7 @@
                         </label>
                     </div>
 
-                    <button type="submit" class="btn btn-sign-up mt-4">
+                    <button type="submit" name="btnSignUp" class="btn btnSignUp mt-4">
                         <p>SIGN UP</p>
                     </button>
                 </form>

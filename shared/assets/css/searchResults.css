@@ -9,9 +9,12 @@
     background-color: #FFF8EE;
     font-family: var(--ff-text);
     border-radius: 16px;
+    height: auto;
 }
 
-.recipe-img {
+
+.recipe-img .img-fluid {
+    height: 100%;
     border-radius: 16px 0px 0px 16px;
 }
 
@@ -45,12 +48,68 @@
     border-radius: 40px;
 }
 
+.btn-like, .btn-bookmark {
+    background-color: var(--clr-primary);
+    width: 40px;
+    height: 40px;
+}
+
+.btn-report {
+    background-color: var(--clr-secondary);
+    width: 40px;
+    height: 40px;
+}
+
+.btn-like:hover, .btn-bookmark:hover {
+    background-color: var(--clr-primary);
+    width: 40px;
+    height: 40px;
+}
+
+.btn-report:hover    {
+    background-color: var(--clr-secondary);
+    width: 40px;
+    height: 40px;
+}
+
+.modal-content {
+    background-color: var(--clr-light-orange);
+}
+
+.modal-title {
+    font-family: var(--ff-text);
+    font-weight: bolder;
+}
+
+.modal-body {
+    font-family: var(--ff-text);
+}
+
+.modal-body p {
+    font-size: var(--fs-small);
+    font-weight: bolder;
+}
+
+.btn-submit-report {
+    font-family: var(--ff-text);
+    font-weight: bold;
+    color: var(--clr-light-orange);
+    background-color: var(--clr-primary);
+}
+
+.btn-cancel-report {
+    font-family: var(--ff-text);
+    font-weight: bold;
+    color: var(--clr-light-orange);
+    background-color: var(--clr-secondary);
+}
+
 @media only screen and (max-width: 780px) {
     .card {
         border-radius: 16px 16px 0px 0px;
     }
 
-    .recipe-img {
+    .recipe-img .img-fluid{
         border-radius: 16px 16px 0px 0px;
     }
 

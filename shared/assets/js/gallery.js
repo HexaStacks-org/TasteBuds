@@ -1,7 +1,10 @@
 var cardData = [
     {
         name: "Name Here 1",
-        image: "shared/assets/image/mockup-pic.png",
+        images: [
+            "shared/assets/image/mockup-pic1.png",
+            "shared/assets/image/mockup-pic2.png"
+        ],
         tags: [
             { type: "primary", label: "Breakfast" },
             { type: "primary", label: "Lunch" },
@@ -12,7 +15,9 @@ var cardData = [
     },
     {
         name: "Name Here 2",
-        image: "shared/assets/image/mockup-pic.png",
+        images: [
+            "shared/assets/image/mockup-pic.png"
+        ],
         tags: [
             { type: "primary", label: "Dinner" },
             { type: "sub", label: "Beef" }
@@ -21,65 +26,31 @@ var cardData = [
         date: "2025-01-20 10:32:00"
     },
     {
-        name: "Name Here 3",
-        image: "shared/assets/image/mockup-pic.png",
-        tags: [
-            { type: "primary", label: "Snack" },
-            { type: "sub", label: "Vegetarian" }
+        name: "Name Here 1",
+        images: [
+            "shared/assets/image/mockup-pic1.png",
+            "shared/assets/image/mockup-pic2.png"
         ],
-        caption: "Caption for post 3.",
-        date: "2025-01-20 10:34:00"
-    },
-    {
-        name: "Name Here 2",
-        image: "shared/assets/image/mockup-pic.png",
         tags: [
-            { type: "primary", label: "Dinner" },
-            { type: "sub", label: "Beef" }
+            { type: "primary", label: "Breakfast" },
+            { type: "primary", label: "Lunch" },
+            { type: "sub", label: "Chicken" }
         ],
-        caption: "Caption for post 2.",
-        date: "2025-01-20 10:38:00"
-    },
-    {
-        name: "Name Here 2",
-        image: "shared/assets/image/mockup-pic.png",
-        tags: [
-            { type: "primary", label: "Dinner" },
-            { type: "sub", label: "Beef" }
-        ],
-        caption: "Caption for post 2.",
+        caption: "Caption for post 1.",
         date: "2025-01-20 10:30:00"
     },
     {
         name: "Name Here 2",
-        image: "shared/assets/image/mockup-pic.png",
+        images: [
+            "shared/assets/image/mockup-pic.png"
+        ],
         tags: [
             { type: "primary", label: "Dinner" },
             { type: "sub", label: "Beef" }
         ],
         caption: "Caption for post 2.",
-        date: "2025-01-20 10:30:00"
+        date: "2025-01-20 10:32:00"
     },
-    {
-        name: "Name Here 2",
-        image: "shared/assets/image/mockup-pic.png",
-        tags: [
-            { type: "primary", label: "Dinner" },
-            { type: "sub", label: "Beef" }
-        ],
-        caption: "Caption for post 2.",
-        date: "2025-01-20 10:30:00"
-    },
-    {
-        name: "Name Here 2",
-        image: "shared/assets/image/mockup-pic.png",
-        tags: [
-            { type: "primary", label: "Dinner" },
-            { type: "sub", label: "Beef" }
-        ],
-        caption: "Caption for post 2.",
-        date: "2025-01-20 10:30:00"
-    }
 ];
 var cardsPerPage = 5;
 var currentPage = parseInt(new URLSearchParams(window.location.search).get('page')) || 1;
@@ -91,10 +62,43 @@ function renderCards() {
     var endIndex = startIndex + cardsPerPage;
     var cardsToShow = cardData.slice(startIndex, endIndex);
     cardContainer.innerHTML = '';
+
     for (var i = 0; i < cardsToShow.length; i++) {
         var card = cardsToShow[i];
         var cardElement = document.createElement('div');
         cardElement.className = 'col-12 d-flex align-items-center justify-content-center mb-4';
+
+        var imageContent = '';
+        if (card.images.length > 1) {
+            var carouselId = 'carousel-' + i;
+            imageContent += '<div id="' + carouselId + '" class="carousel slide" data-bs-ride="carousel">';
+            imageContent += '<div class="carousel-inner">';
+            for (var j = 0; j < card.images.length; j++) {
+                imageContent += '<div class="carousel-item ' + (j === 0 ? 'active' : '') + '">';
+                imageContent += '<img src="' + card.images[j] + '" class="d-block w-100" alt="Image ' + (j + 1) + '">';
+                imageContent += '</div>';
+            }
+            imageContent += '</div>';
+            imageContent += '<button class="carousel-control-prev" type="button" data-bs-target="#' + carouselId + '" data-bs-slide="prev">';
+            imageContent += '<span class="carousel-control-prev-icon" aria-hidden="true"></span>';
+            imageContent += '<span class="visually-hidden">Previous</span>';
+            imageContent += '</button>';
+            imageContent += '<button class="carousel-control-next" type="button" data-bs-target="#' + carouselId + '" data-bs-slide="next">';
+            imageContent += '<span class="carousel-control-next-icon" aria-hidden="true"></span>';
+            imageContent += '<span class="visually-hidden">Next</span>';
+            imageContent += '</button>';
+            imageContent += '</div>';
+        } else {
+            imageContent += '<img src="' + card.images[0] + '" class="img-fluid" alt="' + card.name + '">';
+        }
+
+        var tagsContent = '';
+        for (var k = 0; k < card.tags.length; k++) {
+            var tag = card.tags[k];
+            tagsContent += '<div class="' + (tag.type === 'primary' ? 'primary' : 'sub') + ' mx-1">';
+            tagsContent += '<p>' + tag.label + '</p>';
+            tagsContent += '</div>';
+        }
 
         cardElement.innerHTML =
             '<div class="card shadow">' +
@@ -103,16 +107,9 @@ function renderCards() {
             '<button class="btn btn-edit btn-secondary mx-4">Edit</button>' +
             '</div>' +
             '<div class="datetime d-flex justify-content-between align-items-center">' + formatDate(card.date) + '</div>' +
-            '<div class="img-fluid img-post">' +
-            '<img src="' + card.image + '" alt="' + card.name + '">' +
-            '<div class="container mx-3 tags d-flex">' +
-            card.tags.map(function (tag) {
-                var tagClass = tag.type === "primary" ? "primary" : "sub";
-                return '<div class="' + tagClass + ' mx-1"><p>' + tag.label + '</p></div>';
-            }).join('') +
-            '</div>' +
+            '<div class="img-fluid img-post">' + imageContent + '</div>' +
+            '<div class="container mx-3 tags d-flex">' + tagsContent + '</div>' +
             '<div class="caption mx-5 my-2"><p>' + card.caption + '</p></div>' +
-            '</div>' +
             '<div class="d-flex justify-content-between w-100">' +
             '<div class="btn-lbsr d-flex my-5">' +
             '<button class="btn btn-like"><i class="bi bi-hand-thumbs-up-fill" style="color: var(--clr-light-orange)"></i></button>' +
