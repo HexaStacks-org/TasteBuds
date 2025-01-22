@@ -47,10 +47,10 @@
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu">
-                        <li><a class="dropdown-item" href="">Edit Profile</a></li>
-                        <li><a class="dropdown-item" href="">Uploaded Contents</a></li>
-                        <li><a class="dropdown-item" href="">Likes</a></li>
-                        <li><a class="dropdown-item" href="">Bookmarks</a></li>
+                        <li><a class="dropdown-item" href="updateUser.php">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="userContent.php">Uploaded Contents</a></li>
+                        <li><a class="dropdown-item" href="userLike.php">Likes</a></li>
+                        <li><a class="dropdown-item" href="userBookmark.php">Bookmarks</a></li>
                         <li>
                             <form class="d-flex justify-content-center align-items-center" action="login.php" method="POST">
                                 <button class="btn-logout" type="submit" name="logout">Logout</button>
