@@ -92,7 +92,7 @@ foreach ($postsData as $data) {
     <title>Gallery</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <?php include ("shared/components/fontEmbed.php"); ?>
+    <?php include ("../shared/components/fontEmbed.php"); ?>
     <link rel="stylesheet" href="../shared/assets/css/style.css" />
     <link rel="stylesheet" href="../shared/assets/css/gallery.css" />
     <link rel="stylesheet" href="../shared/assets/css/navbar.css" />
@@ -100,7 +100,7 @@ foreach ($postsData as $data) {
 </head>
 
 <body>
-    <?php include 'shared/components/navbar.php'; ?>
+    <?php include '../shared/components/navbar.php'; ?>
     <div class="container align-items-center justify-content-center">
         <div class="row card-row" id="card-container">
             <?php
@@ -111,7 +111,7 @@ foreach ($postsData as $data) {
             ?>
         </div>
 
-        <?php include('shared/components/reportModal.php'); ?>
+        <?php include('../shared/components/reportModal.php'); ?>
 
         <div class="row card-row">
             <div class="d-flex my-5 align-items-center justify-content-between">
