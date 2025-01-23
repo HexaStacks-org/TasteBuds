@@ -174,3 +174,33 @@
     color: var(--clr-light-orange);
     background-color: var(--clr-secondary);
 }
+
+/* Added Style For Menu Tabs */
+.tab-container {
+  margin-top: 20px;
+}
+
+.tab-links {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tablink {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.tablink.active {
+  background-color: #f7941d;
+  color: #fff;
+}
+
+.tab-content {
+  border: 1px solid #ddd;
+  padding: 15px;
+  background-color: #fff;
+  margin-bottom: 20px; 
+}
