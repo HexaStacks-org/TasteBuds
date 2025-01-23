@@ -1,5 +1,5 @@
 <?php
-include("shared/processes/loginProcess.php");
+include("shared/processes/loginQuery.php");
 ?>
 
 <!doctype html>

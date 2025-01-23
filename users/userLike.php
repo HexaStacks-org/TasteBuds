@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+include("../connect.php");
 
 // INDIVIDUAL LIST OF LIKES PER USER
 // USER - Query for User Liked Records (RECIPES)
@@ -38,13 +38,13 @@ $resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
     <title>User Profile - TasteBuds</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="shared/assets/css/activityLog.css">
+    <link rel="stylesheet" href="../shared/assets/css/activityLog.css">
 </head>
 
 <body>
     <div class="profile-page">
         <header class="profile-header">
-            <img src="shared/assets/image/Logo.png" alt="TasteBuds Logo">
+            <img src="../shared/assets/image/Logo.png" alt="TasteBuds Logo">
             <h1>User Profile</h1>
         </header>
         <!-- Liked Content Section -->

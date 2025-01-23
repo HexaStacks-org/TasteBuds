@@ -1,6 +1,6 @@
-<?php 
-include ("shared/components/notLoggedInNavbar.php");
-include("connect.php");
+<?php
+include("../shared/components/navbar.php");
+include("../connect.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +17,10 @@ include("connect.php");
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rammetto+One&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="shared/assets/css/foodgenerator.css" />
-  <link rel="stylesheet" href="shared/assets/css/style.css">
-  <link rel="stylesheet" href="shared/assets/css/footer.css">
-  <link rel="stylesheet" href="shared/assets/css/navbar.css" />
+  <link rel="stylesheet" href="../shared/assets/css/foodgenerator.css" />
+  <link rel="stylesheet" href="../shared/assets/css/style.css">
+  <link rel="stylesheet" href="../shared/assets/css/footer.css">
+  <link rel="stylesheet" href="../shared/assets/css/navbar.css" />
   <style>
     .random-generator-card {
       position: relative;
@@ -42,7 +42,8 @@ include("connect.php");
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%; /* Makes the background cover the entire card */
+      height: 100%;
+      /* Makes the background cover the entire card */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -82,7 +83,7 @@ include("connect.php");
     <div class="row">
       <div class="col-12">
         <div class="random-generator-card">
-          <img id="randomImage" class="random-generator-img" src="shared/assets/image/test-pic.png" alt="Random Food" />
+          <img id="randomImage" class="random-generator-img" src="../shared/assets/image/test-pic.png" alt="Random Food" />
           <div id="recipeTitle" class="recipe-title"></div>
         </div>
       </div>
@@ -92,7 +93,7 @@ include("connect.php");
     </div>
   </div>
 
-  <?php include 'shared/components/notLoggedInFooter.php'; ?>
+  <?php include '../shared/components/footer.php'; ?>
 
   <script>
     function generateRandomRecipe() {
@@ -103,10 +104,10 @@ include("connect.php");
             // Update the image in the existing random-generator-card
             const randomImage = document.getElementById('randomImage');
             const recipeTitle = document.getElementById('recipeTitle');
-            
-            randomImage.src = `shared/assets/image/content-image/${data.recipe.imageURL}`;
+
+            randomImage.src = `../shared/assets/image/content-image/${data.recipe.imageURL}`;
             randomImage.alt = data.recipe.recipeTitle;
-            
+
             // Set the title text that will appear on hover
             recipeTitle.textContent = data.recipe.recipeTitle;
           } else {

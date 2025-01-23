@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+include("../connect.php");
 session_start();
 date_default_timezone_set('Asia/Manila');
 
@@ -71,7 +71,7 @@ if (isset($_POST['btnUpdate'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Rammetto+One&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="shared/assets/css/updateUser.css">
+    <link rel="stylesheet" href="../shared/assets/css/updateUser.css">
 
 </head>
 
@@ -79,7 +79,7 @@ if (isset($_POST['btnUpdate'])) {
     <div class="edit-profile-container">
         <!-- Form Section -->
         <div class="form-section">
-            <a href="landing.php"> <button class="btn-back mb-3" type="button">BACK</button></a>
+            <a href="index.php"> <button class="btn-back mb-3" type="button">BACK</button></a>
             <h1>EDIT PROFILE</h1>
             <?php if (isset($errorMessage)) { ?>
                 <div class="alert alert-danger"><?php echo $errorMessage; ?></div>
@@ -106,7 +106,7 @@ if (isset($_POST['btnUpdate'])) {
 
         <!-- Image Section -->
         <div class="image-section">
-            <img src="shared/assets/image/mockup-pic.png" alt="Profile Mockup" class="image-section">
+            <img src="../shared/assets/image/mockup-pic.png" alt="Profile Mockup" class="image-section">
         </div>
     </div>
 

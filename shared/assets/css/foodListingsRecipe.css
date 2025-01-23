@@ -49,11 +49,6 @@ body {
   font-variation-settings: "wdth" 100;
 }
 
-.navbar {
-  height: 79.1px;
-  /* Set the height of the navbar */
-}
-
 .title {
   font-family: var(--ff-title);
   font-size: var(--fs-header);

@@ -1,5 +1,5 @@
 <?php
-include("shared/processes/galleryResultQuery.php")
+include("../shared/processes/galleryResultQuery.php")
 ?>
 
 <!doctype html>
@@ -12,15 +12,15 @@ include("shared/processes/galleryResultQuery.php")
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <?php
-    include("shared/components/fontEmbed.php");
+    include("../shared/components/fontEmbed.php");
     ?>
-    <link rel="stylesheet" href="shared/assets/css/style.css" />
-    <link rel="stylesheet" href="shared/assets/css/navbar.css" />
-    <link rel="stylesheet" href="shared/assets/css/searchResults.css" />
+    <link rel="stylesheet" href="../shared/assets/css/style.css" />
+    <link rel="stylesheet" href="../shared/assets/css/navbar.css" />
+    <link rel="stylesheet" href="../shared/assets/css/searchResults.css" />
 </head>
 
 <body>
-    <?php include 'shared/components/noUserNavbar.php'; ?>
+    <?php include '../shared/components/navbar.php'; ?>
 
     <div class="container-fluid content-bg mt-5">
         <h2 class="col result mt-5 mx-5">Search Results | Gallery</h2>
@@ -34,7 +34,7 @@ include("shared/processes/galleryResultQuery.php")
                         <div class="card mx-5">
                             <div class="row g-0">
                                 <div class="col-md-4 recipe-img">
-                                    <img src="shared/assets/image/test-pic.png" class="img-fluid d-block"
+                                    <img src="../shared/assets/image/content-image/<?php echo $postsRow['imageURL']; ?>" class="img-fluid d-block"
                                         style="object-fit: cover;" />
                                 </div>
                                 <div class="col-md-8">
@@ -74,9 +74,9 @@ include("shared/processes/galleryResultQuery.php")
         </div>
     </div>
 
-    <?php include("shared/components/reportModal.php"); ?>
+    <?php include("../shared/components/reportModal.php"); ?>
 
-    <script src="shared/assets/js/galleryResult.js"></script>
+    <script src="../shared/assets/js/galleryResult.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
