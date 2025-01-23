@@ -36,12 +36,20 @@ $resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile - TasteBuds</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Rammetto+One&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../shared/assets/css/activityLog.css">
+    <link rel="stylesheet" href="../shared/assets/css/navbar.css" />
+    <link rel="stylesheet" href="../shared/assets/css/footer.css">
 </head>
 
 <body>
+    <?php include("../shared/components/navbar.php") ?>
+
     <div class="profile-page">
         <header class="profile-header">
             <img src="../shared/assets/image/Logo.png" alt="TasteBuds Logo">
@@ -102,6 +110,7 @@ $resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
 
         </main>
     </div>
+    <?php include '../shared/components/footer.php'; ?>
 
 </body>
 
