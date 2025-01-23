@@ -2,9 +2,23 @@
 include("connect.php");
 include("classes.php");
 
-
+// Initialize gallery posts array
 $galleryPosts = [];
 
+// Pagination variables
+$postsPerPage = 5;
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1; // Default to page 1
+$startIndex = ($page - 1) * $postsPerPage;
+
+// Query to fetch total number of posts
+$queryTotalPosts = "SELECT COUNT(DISTINCT galleryposts.postID) as total FROM galleryposts";
+$resultTotalPosts = executeQuery($queryTotalPosts);
+$totalPosts = mysqli_fetch_assoc($resultTotalPosts)['total'];
+
+// Calculate total pages
+$totalPages = ceil($totalPosts / $postsPerPage);
+
+// Query to fetch paginated gallery posts
 $queryGallery = "
     SELECT 
         galleryposts.*,
@@ -20,11 +34,14 @@ $queryGallery = "
     LEFT JOIN images ON images.postID = galleryposts.postID
     LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = galleryposts.primaryCategoryID
     LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = galleryposts.subcategoryID
-    ORDER BY galleryposts.postID, images.imageID";
+    WHERE galleryposts.isApproved = 'yes'
+    GROUP BY galleryposts.postID
+    ORDER BY galleryposts.postID DESC
+    LIMIT $startIndex, $postsPerPage";
 
 $resultGallery = executeQuery($queryGallery);
 
-// Organize data into gallery posts
+// Process the fetched data into gallery posts
 $postsData = [];
 while ($rowGalleryData = mysqli_fetch_assoc($resultGallery)) {
     $postID = $rowGalleryData['postID'];
@@ -75,10 +92,7 @@ foreach ($postsData as $data) {
     <title>Gallery</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <?php
-    include("shared/components/fontEmbed.php");
-    ?>
+    <?php include("shared/components/fontEmbed.php"); ?>
     <link rel="stylesheet" href="shared/assets/css/style.css" />
     <link rel="stylesheet" href="shared/assets/css/gallery.css" />
     <link rel="stylesheet" href="shared/assets/css/navbar.css" />
@@ -86,26 +100,44 @@ foreach ($postsData as $data) {
 </head>
 
 <body>
-    <?php include 'shared/components/navbar.php'; ?>
+    <?php include 'shared/components/notLoggedInNavbar.php'; ?>
     <div class="container align-items-center justify-content-center">
         <div class="row card-row" id="card-container">
             <?php
-            // Loop through the galleryPosts array and display each post using the buildGalleryCard method
+            // Display paginated gallery posts
             foreach ($galleryPosts as $post) {
                 echo $post->buildGalleryCard();
             }
             ?>
         </div>
+
         <?php include('shared/components/reportModal.php'); ?>
 
         <div class="row card-row">
-            <div class="d-flex my-5 d-flex align-items-center justify-content-between">
-                <button class="btn back-btn btn-secondary" id="back-btn" disabled>Back</button>
-                <button class="btn next-btn btn-primary" id="continue-btn">Continue</button>
+            <div class="d-flex my-5 align-items-center justify-content-between">
+                <!-- Back Button -->
+                <?php
+                if ($page > 1) {
+                    echo '<button class="btn back-btn btn-secondary" id="back-btn" 
+                onclick="window.location.href=\'gallery.php?page=' . ($page - 1) . '\'">
+                Back
+            </button>';
+                } else {
+                    // Placeholder for Back Button to maintain alignment
+                    echo '<div style="width: 100px;"></div>';
+                }
+                ?>
+
+                <!-- Continue Button -->
+                <button class="btn next-btn btn-primary" id="continue-btn" <?= $page >= $totalPages ? 'disabled' : ''; ?>
+                    onclick="window.location.href='gallery.php?page=<?= $page + 1; ?>'">
+                    Continue
+                </button>
             </div>
         </div>
-    </div>
 
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
