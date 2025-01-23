@@ -115,21 +115,18 @@ $resultTopRecipes = executeQuery($queryTopRecipes);
                     while ($topRecipesRow = mysqli_fetch_assoc($resultTopRecipes)) {
                         ?>
 
-                        <!-- Remove comment when recipe overview is finished -->
-                        <!-- <a href="recipeOverview?recipeID=<?= $topRecipesRow['recipeID'] ?>"> -->
-                            
-                        <a href="recipeOverview.php">
-                        <div class="recipe-card" style="height: 300px;">
-                            <div class="col" style="height: 100%; padding: 0;">
-                                <img src="shared/assets/image/content-image/<?= $topRecipesRow['imageURL'] ?>"
-                                    alt="Recipe Image" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
+                        <a href="recipeOverview.php?recipeID=<?php echo $topRecipesRow['recipeID']; ?>">
+                            <div class="recipe-card" style="height: 300px;">
+                                <div class="col" style="height: 100%; padding: 0;">
+                                    <img src="shared/assets/image/content-image/<?= $topRecipesRow['imageURL'] ?>"
+                                        alt="Recipe Image" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
 
-                            <div class="overlay">
-                                <span class="badge"><?php echo $topRecipesRow['primaryCategoryName'] ?></span>
-                                <h3 class="recipe-title"><?php echo $topRecipesRow['recipeTitle'] ?></h3>
+                                <div class="overlay">
+                                    <span class="badge"><?php echo $topRecipesRow['primaryCategoryName'] ?></span>
+                                    <h3 class="recipe-title"><?php echo $topRecipesRow['recipeTitle'] ?></h3>
+                                </div>
                             </div>
-                        </div>
                         </a>
                         <?php
                     }

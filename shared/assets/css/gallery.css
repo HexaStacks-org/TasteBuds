@@ -8,7 +8,6 @@
     height: 100% auto !important;
     border-radius: 80px;
     overflow: hidden;
-    margin-bottom: 160px;
 }
 
 .name {
@@ -34,31 +33,34 @@
     object-fit: cover;
 }
 
-.tags .primary,
-.tags .sub {
-    width: 96px;
-    height: 40px;
-    border-radius: 40px;
-    margin-top: 8px;
-    margin-left: 4px;
-}
 
-.tags p {
-    font-family: var(--ff-text);
-    color: white;
-    font-size: var(--fs-small);
+/* UPDATED TAGS DESIGN FROM  FOOD LISTINGS */
+.primaryCategory {
+    border: 2px solid var(--clr-secondary);
+    color: var(--clr-secondary);
+    border-radius: 50rem;
+    padding: 0.25em 0.75em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-paragraph);
     font-weight: bold;
-    text-align: center;
-    margin-top: 8px;
-}
+    white-space: nowrap;
+  }
+  
+  .subcategory {
+    border: 2px solid var(--clr-dark-orange);
+    color: var(--clr-dark-orange);
+    border-radius: 50rem;
+    padding: 0.25em 0.75em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-paragraph);
+    font-weight: bold;
+    white-space: nowrap;
+  }
 
-.tags .primary {
-    background-color: var(--clr-secondary);
-}
-
-.tags .sub {
-    background-color: var(--clr-primary);
-}
 
 .caption p {
     font-family: var(--ff-text);
@@ -88,19 +90,6 @@
 .next-btn,
 .next-btn:hover {
     background-color: var(--clr-primary);
-}
-
-.btn-edit {
-    background-color: var(--clr-secondary);
-    font-weight: bolder;
-    width: auto;
-    height: 40px;
-    border-radius: 8px;
-    margin-top: 32px;
-}
-
-.btn-edit:hover {
-    background-color: var(--clr-secondary);
 }
 
 .btn-like,
@@ -135,8 +124,7 @@
 
 .btn-like,
 .btn-bookmark,
-.btn-report,
-.btn-edit {
+.btn-report {
     font-family: var(--ff-text);
     font-size: var(--fs-small);
 }
