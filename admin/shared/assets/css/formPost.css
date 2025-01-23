@@ -1,0 +1,527 @@
+/* global variable */
+:root {
+    --fs-header: 47.78px;
+    --fs-h2: 39.91px;
+    --fs-h3: 33.18px;
+    --fs-h4: 27.65px;
+    --fs-h5: 23.04px;
+    --fs-h6: 19.2px;
+    --fs-paragraph: 16px;
+    --fs-small: 13.33px;
+  
+    --fc-primary-orange: #f1950c;
+    --fc-dark-orange: #d4830b;
+    --fc-mid-orange: #fcd59a;
+    --fc-light-orange: #ffebcd;
+    --fc-black: #222222;
+  
+    --clr-primary: #f1950c;
+    --clr-secondary: #d34746;
+    --clr-action: #328032;
+  
+    --clr-dark-orange: #d4830b;
+    --clr-mid-orange: #fcd59a;
+    --clr-light-orange: #ffebcd;
+    --clr-black: #222222;
+  
+    --clr-red: #8e1d1c;
+    --clr-light-red: #f29b9a;
+  
+    --ff-title: "Rammetto One", serif;
+    --ff-text: "Open Sans", serif;
+  }
+  
+  .rammetto-one {
+    font-family: "Rammetto One", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .open-sans-text {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+  
+  /* layout styling */
+  html,
+  body {
+    margin: 0;
+    overflow-x: clip;
+  }
+  
+  .container-fluid {
+  background-color: var(--clr-light-red);
+  min-height: 105vh;
+}
+
+.sidebar {
+  background-color: var(--clr-red);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  box-shadow: 6px 0px 10px 0px rgba(110, 48, 48, 0.44);
+  -webkit-box-shadow: 6px 0px 10px 0px rgba(110, 48, 48, 0.44);
+  -moz-box-shadow: 6px 0px 10px 0px rgba(110, 48, 48, 0.44);
+}
+  
+  .img-holder {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  
+  img {
+    width: 140px;
+    height: auto;
+  }
+  
+  .sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100vh;
+  }
+  
+  .sidebar-btn-holder {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .button {
+    width: 100%;
+    text-align: left;
+    font-size: var(--fs-paragraph);
+    font-family: var(--ff-title);
+    border: none;
+    background-color: transparent;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  .button.active {
+    background-color: var(--clr-primary);
+    color: white;
+  }
+  
+  .container.logout-holder {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    height: 100%;
+  }
+  
+  .btn-logout {
+    width: 160px;
+    text-align: left;
+    font-size: var(--fs-small);
+    font-family: var(--ff-title);
+    border-color: var(--clr-light-red);
+    color: var(--clr-red);
+    padding: 12px;
+    border-radius: 32px;
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  .btn-logout svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .list-unstyled {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    font-weight: bold;
+    color: var(--clr-dark-orange);
+  }
+  
+  .list-unstyled li {
+    margin-top: 24px;
+  }
+  
+  .list-unstyled li a {
+    color: var(--clr-light-orange);
+    text-decoration: none;
+  }
+  
+  .off-canvas {
+    background-color: var(--clr-red);
+  }
+  
+  .offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: var(--clr-red);
+  }
+  
+  .off-logout {
+    color: var(--clr-dark-orange);
+    text-decoration: none;
+    font-family: var(--ff-title);
+    font-size: var(--fs-paragraph);
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #dee2e6;
+  }
+  
+  .off-btn {
+    margin-top: auto;
+    display: flex;
+    justify-content: left;
+    padding-top: 16px;
+  }
+  
+  .hey-admin-header {
+    font-family: var(--ff-title);
+    font-size: var(--fs-h5);
+    color: var(--fc-black);
+    margin-top: 24px;
+    margin-bottom: 40px;
+    margin-left: 32px;
+  }
+  
+  .card.subheader {
+    font-family: var(--ff-text);
+    font-weight: bold;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 16px;
+    text-align: center;
+    background-color: var(--clr-light-orange);
+    border-radius: 32px;
+  }
+  
+  .card {
+    margin: 24px;
+    border-radius: 40px;
+    box-shadow: 1px 8px 12px 0px rgba(110, 48, 48, 0.44);
+    -webkit-box-shadow: 1px 8px 12px 0px rgba(110, 48, 48, 0.44);
+    -moz-box-shadow: 1px 8px 12px 0px rgba(110, 48, 48, 0.44);
+  }
+  
+  .card.donut {
+    height: 400px;
+    width: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 8px 12px 0px rgba(110, 48, 48, 0.44);
+    -webkit-box-shadow: 1px 8px 12px 0px rgba(110, 48, 48, 0.44);
+    -moz-box-shadow: 1px 8px 12px 0px rgba(110, 48, 48, 0.44);
+  }
+  
+  .container.donut-holder {
+    margin-bottom: 80px;
+  }
+  
+  #primaryCategory,
+  #secondaryCategory {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .canvas {
+    border-radius: 40px;
+  }
+  
+  /* hover*/
+  
+  .sidebar-btn:hover,
+  .sidebar-logout:hover {
+    cursor: pointer;
+  }
+
+  /* media queries */
+@media (max-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+  
+    .offcanvas-button {
+      display: block;
+    }
+  
+    .off-canvas {
+      display: block !important;
+    }
+  
+    .canvas {
+      height: 240px;
+      width: auto;
+    }
+  
+    .hey-admin-header {
+      font-family: var(--ff-title);
+      font-weight: bold;
+      font-size: var(--fs-h6);
+      color: var(--fc-black);
+      margin-top: 24px;
+      margin-bottom: 40px;
+      margin-left: 32px;
+    }
+  }
+  
+  @media only screen and (width: 1024px) {
+    img {
+      width: 120px;
+      height: auto;
+    }
+  
+    .button {
+      text-align: start;
+      font-family: var(--ff-title);
+      font-size: 11.11px;
+      border: none;
+      background-color: transparent;
+      color: white;
+      padding: 8px;
+    }
+  
+    .btn-logout {
+      text-align: start;
+      font-family: var(--ff-title);
+      font-size: 11.11px;
+      border-color: var(--clr-light-red);
+      color: var(--clr-red);
+      padding: 8px;
+      border-radius: 32px;
+      text-align: center;
+      margin-top: auto;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .offcanvas-button {
+      display: none;
+    }
+  
+    .off-canvas {
+      display: none !important;
+    }
+  }
+
+
+/* neil */
+body {
+    background-color: #fff8EE;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .logo {
+    width: 460px auto;
+    height: 120px;
+  }
+  
+  .con-back {
+    justify-content: end;
+  }
+  
+  .back-btn {
+    color: #fff8EE;
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    font-weight: bold;
+    background-color: var(--clr-secondary);
+    border-radius: 24px;
+    padding: 8px 20px;
+    width: auto;
+    height: 40px auto;
+  }
+  
+  .back-btn:hover {
+    background-color: var(--clr-secondary);
+    color: #fff8EE;
+  }
+  
+  .recipe-form {
+    border-radius: 10px;
+  }
+  
+  .recipe-form h1 {
+    font-size: var(--fs-header);
+    font-family: var(--ff-text);
+    font-weight: bolder;
+    margin-top: 16px;
+  }
+  
+  .recipe-description {
+    font-family: var(--ff-text);
+    font-size: var(--fs-h6);
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-family: var(--ff-text);
+    font-weight: bold;
+    font-size: var(--fs-h6);
+  }
+  
+  .form-control {
+    background-color: transparent;
+    border-radius: 40px;
+    border: 4px solid var(--clr-primary);
+    margin-bottom: 16px;
+    padding-left: 16px;
+    width: 80%;
+  }
+  
+  .form-control:focus {
+    background-color: transparent;
+    border: 4px solid var(--clr-primary);
+  }
+  
+  .form-check-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 16px;
+  }
+  
+  .form-check {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-check-input {
+    border-radius: 8px;
+    border: 3px solid var(--clr-primary);
+  }
+  
+  .form-check-input:focus {
+    background-color: var(--clr-primary);
+  }
+  
+  .form-check-input:checked {
+    background-color: var(--clr-primary);
+    border: 3px solid var(--clr-primary);
+  }
+  
+  .form-check-label {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    font-weight: 600;
+  }
+  
+  .form-category {
+    font-family: var(--ff-text);
+    font-size: var(--fs-h6);
+    font-weight: bolder;
+    margin-bottom: 8px;
+  }
+  
+  .mockup-container {
+    overflow: hidden;
+  }
+  
+  .mockup-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+  
+  .btn-create {
+    background-color: var(--clr-primary);
+    font-family: var(--ff-text);
+    font-size: var(--fs-h6);
+    color: #fff8EE;
+    width: 350px;
+    height: 48px;
+    border-radius: 40px;
+    font-weight: bolder;
+  }
+  
+  .d-flex.justify-content-center {
+    display: flex;
+    align-items: center;
+    /* Vertically aligns the button */
+    justify-content: center;
+    /* Horizontally aligns the button */
+    height: 100%;
+    /* Ensures it takes up the full placeholder space */
+  }
+  
+  s .btn-create:hover {
+    background-color: var(--clr-primary);
+    color: #fff8EE;
+  }
+  
+  .form-label::placeholder {
+    color: var(--fc-black);
+    font-family: var(--ff-text);
+    font-size: var(--fs-h4);
+  }
+  
+  .mockup-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    overflow: hidden;
+  }
+  
+  .mockup-image {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .logo {
+        width: auto;
+        height: 80px;
+        padding-top: 16px;
+    }
+  
+    .con-back {
+        justify-content: start;
+        padding-top: 16px;
+    }
+  
+    .back-btn {
+        width: auto;
+        font-size: 14px;
+    }
+  
+    .mockup-image {
+        display: none;
+    }
+  
+    .form-control,
+    .form-select,
+    .btn-primary {
+        width: 100%;
+    }
+  
+    .recipe-form {
+        padding: 0 !important;
+    }
+  }
+  
+  .form-label {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Ensure input fields take full width */
+  .form-control {
+    width: 100%;
+  }
+  
+  form{
+    background-color: var(--clr-light-orange);
+    padding: 20px;
+    border-radius: 40px;
+  }
+  /* endofstyle */
