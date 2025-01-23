@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioPrimary"
-                                            id="flexRadioDefault2" value="2">
+                                            id="flexRadiDefault2" value="2">
                                         <label class="form-check-label" for="flexRadioDefault2">Lunch</label>
                                     </div>
                                     <div class="form-check">
@@ -78,7 +78,7 @@
                                 </div>
 
                                 <p class="form-category mt-3">Sub Category</p>
-                                <div class="form-check-container mx-5">
+                                <div class="form-check-container mx-5" id="subcategory-container">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioSecondary"
                                             id="flexRadioDefault6" value="1">
@@ -112,6 +112,7 @@
                                 </div>
                             </div>
 
+
                             <div class="mx-5 my-5 btn-submit d-flex justify-content-center">
                                 <button type="submit" name="postSubmit" class="btn btn-create"
                                     style="margin-left: -100px;">CREATE POST</button>
@@ -130,10 +131,11 @@
         </div>
     </div>
 
-    <script src="shared/assets/js/createPost.js"></script>
+    <script src="../shared/assets/js/createPost.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script></script>
 </body>
 
 </html>
