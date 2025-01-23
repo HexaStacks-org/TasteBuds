@@ -116,9 +116,23 @@ html, body {
     color: white;
 }
 
-.mockup-image {
+/* .mockup-image {
     height: 1024px;
     width: 100vw;
+} */
+.mockup-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    overflow: hidden;
+}
+
+.mockup-image {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
 }
 
 .btn-create {

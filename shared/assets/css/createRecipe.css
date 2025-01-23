@@ -146,6 +146,21 @@ s .btn-create:hover {
     font-size: var(--fs-h4);
 }
 
+.mockup-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    overflow: hidden;
+}
+
+.mockup-image {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+}
+
 @media only screen and (max-width: 768px) {
     .logo {
         width: auto;
