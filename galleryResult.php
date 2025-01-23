@@ -1,5 +1,5 @@
 <?php
-include("shared/processes/galleryResultQuery.php")
+include("shared/processes/loggedOut/galleryResultQuery.php")
 ?>
 
 <!doctype html>
@@ -20,7 +20,7 @@ include("shared/processes/galleryResultQuery.php")
 </head>
 
 <body>
-    <?php include 'shared/components/noUserNavbar.php'; ?>
+    <?php include 'shared/components/notLoggedInNavbar.php'; ?>
 
     <div class="container-fluid content-bg mt-5">
         <h2 class="col result mt-5 mx-5">Search Results | Gallery</h2>
