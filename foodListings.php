@@ -194,30 +194,37 @@ $subcategoryResults = executeQuery($subcategoryQuery);
 
         <?php if (mysqli_num_rows($resultFourLatestRecipes) > 0) {
           while ($rowFourLatestRecipes = mysqli_fetch_assoc($resultFourLatestRecipes)) { ?>
+
             <div class="col-md-6 mb-5">
-              <div class="card">
-                <div class="row" style="height: 300px;">
-                  <div class="col-md-5" style="height: 300px;">
-                    <img src="shared/assets/image/content-image/<?php echo $rowFourLatestRecipes['imageURL']; ?>"
-                      alt="<?php echo $rowFourLatestRecipes['recipeTitle']; ?>" class="img-fluid"
-                      style="height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="col-md-7">
-                    <div class="card-body"
-                      style="padding: 20px 10px; height: 100%; overflow: hidden; text-overflow: ellipsis;">
-                      <div class="col" style=" flex: 0;">
-                        <span class="primaryCategory"><?php echo $rowFourLatestRecipes["primaryCategoryName"]; ?></span>
-                        <span class="subcategory"><?php echo $rowFourLatestRecipes["subcategoryName"]; ?></span>
+
+              <!-- Remove comment when recipe overview is finished -->
+              <!-- <a href="recipeOverview?recipeID=<?= $rowFourLatestRecipes['recipeID'] ?>"> -->
+
+              <a href="recipeOverview.php" style="text-decoration: none; color: inherit;">
+                <div class="card">
+                  <div class="row" style="height: 300px;">
+                    <div class="col-md-5" style="height: 300px;">
+                      <img src="shared/assets/image/content-image/<?php echo $rowFourLatestRecipes['imageURL']; ?>"
+                        alt="<?php echo $rowFourLatestRecipes['recipeTitle']; ?>" class="img-fluid"
+                        style="height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="col-md-7">
+                      <div class="card-body"
+                        style="padding: 20px 10px; height: 100%; overflow: hidden; text-overflow: ellipsis;">
+                        <div class="col" style=" flex: 0;">
+                          <span class="primaryCategory"><?php echo $rowFourLatestRecipes["primaryCategoryName"]; ?></span>
+                          <span class="subcategory"><?php echo $rowFourLatestRecipes["subcategoryName"]; ?></span>
+                        </div>
+                        <h5 class="card-title"><?php echo $rowFourLatestRecipes["recipeTitle"]; ?></h5>
+                        <p class="card-text"
+                          style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
+                          <?php echo $rowFourLatestRecipes["description"]; ?>
+                        </p>
                       </div>
-                      <h5 class="card-title"><?php echo $rowFourLatestRecipes["recipeTitle"]; ?></h5>
-                      <p class="card-text"
-                        style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
-                        <?php echo $rowFourLatestRecipes["description"]; ?>
-                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
 
@@ -259,32 +266,38 @@ $subcategoryResults = executeQuery($subcategoryQuery);
         <?php if (mysqli_num_rows($resultRecipes) > 0) {
           while ($recipesRow = mysqli_fetch_assoc($resultRecipes)) { ?>
             <div class="col-md-6 mb-5">
-              <div class="card">
-                <div class="row" style="height: 300px;">
-                  <div class="col-md-5" style="height: 300px;">
-                    <img src="shared/assets/image/content-image/<?php echo $recipesRow['imageURL']; ?>"
-                      alt="<?php echo $recipesRow['recipeTitle']; ?>" class="img-fluid"
-                      style="height: 100%; object-fit: cover;">
-                  </div>
-                  <div class="col-md-7">
-                    <div class="card-body"
-                      style="padding: 20px 10px; height: 100%; overflow: hidden; text-overflow: ellipsis;">
-                      
-                      <div class="col" style=" flex: 0;">
-                        <span class="primaryCategory"><?php echo $recipesRow["primaryCategoryName"]; ?></span>
-                        <span class="subcategory"><?php echo $recipesRow["subcategoryName"]; ?></span>
+
+              <!-- Remove comment when recipe overview is finished -->
+              <!-- <a href="recipeOverview?recipeID=<?= $rowFourLatestRecipes['recipeID'] ?>"> -->
+
+              <a href="recipeOverview.php" style="text-decoration: none; color: inherit;">
+                <div class="card">
+                  <div class="row" style="height: 300px;">
+                    <div class="col-md-5" style="height: 300px;">
+                      <img src="shared/assets/image/content-image/<?php echo $recipesRow['imageURL']; ?>"
+                        alt="<?php echo $recipesRow['recipeTitle']; ?>" class="img-fluid"
+                        style="height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="col-md-7">
+                      <div class="card-body"
+                        style="padding: 20px 10px; height: 100%; overflow: hidden; text-overflow: ellipsis;">
+
+                        <div class="col" style=" flex: 0;">
+                          <span class="primaryCategory"><?php echo $recipesRow["primaryCategoryName"]; ?></span>
+                          <span class="subcategory"><?php echo $recipesRow["subcategoryName"]; ?></span>
+                        </div>
+
+
+                        <h5 class="card-title"><?php echo $recipesRow["recipeTitle"]; ?></h5>
+                        <p class="card-text"
+                          style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
+                          <?php echo $recipesRow["description"]; ?>
+                        </p>
                       </div>
-
-
-                      <h5 class="card-title"><?php echo $recipesRow["recipeTitle"]; ?></h5>
-                      <p class="card-text"
-                        style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">
-                        <?php echo $recipesRow["description"]; ?>
-                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
 

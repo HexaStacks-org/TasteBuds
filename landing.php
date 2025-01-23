@@ -114,6 +114,11 @@ $resultTopRecipes = executeQuery($queryTopRecipes);
                 if (mysqli_num_rows($resultTopRecipes) > 0) {
                     while ($topRecipesRow = mysqli_fetch_assoc($resultTopRecipes)) {
                         ?>
+
+                        <!-- Remove comment when recipe overview is finished -->
+                        <!-- <a href="recipeOverview?recipeID=<?= $topRecipesRow['recipeID'] ?>"> -->
+                            
+                        <a href="recipeOverview.php">
                         <div class="recipe-card" style="height: 300px;">
                             <div class="col" style="height: 100%; padding: 0;">
                                 <img src="shared/assets/image/content-image/<?= $topRecipesRow['imageURL'] ?>"
@@ -125,6 +130,7 @@ $resultTopRecipes = executeQuery($queryTopRecipes);
                                 <h3 class="recipe-title"><?php echo $topRecipesRow['recipeTitle'] ?></h3>
                             </div>
                         </div>
+                        </a>
                         <?php
                     }
                 }
