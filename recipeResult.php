@@ -1,5 +1,5 @@
 <?php
-include("shared/processes/recipeResultQuery.php")
+include("shared/processes/loggedOut/recipeResultQuery.php")
     ?>
 
 <!doctype html>
@@ -20,7 +20,7 @@ include("shared/processes/recipeResultQuery.php")
 </head>
 
 <body>
-    <?php include 'shared/components/noUserNavbar.php'; ?>
+    <?php include 'shared/components/notLoggedInNavbar.php'; ?>
 
     <div class="container-fluid content-bg mt-5">
         <h2 class="col result mt-5 mx-5">Search Results | Recipe</h2>
