@@ -7,7 +7,7 @@ session_start();
 $error = "";
 
 if (!empty($_SESSION['userID'])) {
-    header("Location: landing.php");
+    header("Location: users/index.php");
 }
 
 if (isset($_POST['btnLogin'])) {
@@ -30,7 +30,7 @@ if (isset($_POST['btnLogin'])) {
             if ($user['role'] == "admin") {
                 header("Location: admin/dashboard.php");
             } else {
-                header("Location: landing.php");
+                header("Location: users/index.php");
             }
         }
     } else {
@@ -57,7 +57,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
             if ($user['role'] == "admin") {
                 header("Location: admin/dashboard.php");
             } else {
-                header("Location: landing.php");
+                header("Location: users/index.php");
             }
         }
     } else {

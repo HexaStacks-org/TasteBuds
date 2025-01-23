@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+include("../connect.php");
 include("classes.php");
 
 
@@ -77,16 +77,16 @@ foreach ($postsData as $data) {
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <?php
-    include("shared/components/fontEmbed.php");
+    include("../shared/components/fontEmbed.php");
     ?>
-    <link rel="stylesheet" href="shared/assets/css/style.css" />
-    <link rel="stylesheet" href="shared/assets/css/gallery.css" />
-    <link rel="stylesheet" href="shared/assets/css/navbar.css" />
+    <link rel="stylesheet" href="../shared/assets/css/style.css" />
+    <link rel="stylesheet" href="../shared/assets/css/gallery.css" />
+    <link rel="stylesheet" href="../shared/assets/css/navbar.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
-<body style="background-color: #faf9f6">
-    <?php include 'shared/components/notLoggedInNavbar.php'; ?>
+<body>
+    <?php include '../shared/components/navbar.php'; ?>
     <div class="container align-items-center justify-content-center">
         <div class="row card-row" id="card-container">
             <?php
@@ -96,7 +96,7 @@ foreach ($postsData as $data) {
             }
             ?>
         </div>
-        <?php include('shared/components/reportModal.php'); ?>
+        <?php include('../shared/components/reportModal.php'); ?>
 
         <div class="row card-row">
             <div class="d-flex my-5 d-flex align-items-center justify-content-between">
@@ -106,7 +106,6 @@ foreach ($postsData as $data) {
         </div>
     </div>
 
-    <!-- <script src="shared/assets/js/gallery.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

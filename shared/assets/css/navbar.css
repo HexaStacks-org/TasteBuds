@@ -3,6 +3,7 @@
     align-items: center;
     padding-left: 32px;
     width: auto;
+    justify-content: left !important;
 }
 
 .nav-txt-clr {
@@ -13,7 +14,6 @@
 }
 
 .navbar-nav {
-    margin-left: 31px;
     padding-top: 16px;
     padding-bottom: 16px;
     gap: 30px;

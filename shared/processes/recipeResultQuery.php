@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+include("../connect.php");
 
 $searchText = "";
 $primaryCategory = "";
@@ -36,8 +36,7 @@ $query = "
         LEFT JOIN images ON images.recipeID = recipes.recipeID
         LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = recipes.primaryCategoryID
         LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = recipes.subcategoryID
-        WHERE 1
-    ";
+        WHERE 1=1";
 
 if ($searchText != '') {
     $query .= " AND (recipeTitle LIKE '$searchText%')";

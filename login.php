@@ -1,5 +1,5 @@
 <?php
-include("shared/processes/loginProcess.php");
+include("shared/processes/loginQuery.php");
 ?>
 
 <!doctype html>
@@ -55,9 +55,6 @@ include("shared/processes/loginProcess.php");
                                 Keep me signed in
                             </label>
                         </div>
-                    </div>
-                    <div class="mb-3 px-3 text-start">
-                        <a href="forgot-password.php" class="forgot-password">Forgot Password?</a>
                     </div>
                     <button type="submit" class="btn btn-login px-5" name="btnLogin">
                         <p>LOGIN</p>

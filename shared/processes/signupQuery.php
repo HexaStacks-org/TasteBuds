@@ -36,7 +36,7 @@ if (isset($_POST['btnSignUp'])) {
         $_SESSION['lastName'] = $lastName;
         $_SESSION['role'] = "user";
 
-        header("Location: landing.php");
+        header("Location: users/index.php");
     } else {
         $error = "PASSWORD UNMATCHED";
     }
