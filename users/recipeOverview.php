@@ -39,6 +39,8 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
 </head>
 
 <body>
+  <?php include("../shared/components/navbar.php") ?>
+
   <div class="container-recipe">
     <?php
     if (mysqli_num_rows($resultOverviewRecipe) > 0) {
@@ -62,7 +64,8 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
                   style="color: var(--clr-light-orange)"></i></button>
               <button class="btn-bookmark"><i class="bi bi-bookmark-fill"
                   style="color: var(--clr-light-orange)"></i></button>
-                  <button class="btn-report"  data-bs-toggle="modal" data-bs-target="#reportModal" data-recipe-id="<?php echo htmlspecialchars($recipeOverview['recipeID']); ?>">
+              <button class="btn-report" data-bs-toggle="modal" data-bs-target="#reportModal"
+                data-recipe-id="<?php echo htmlspecialchars($recipeOverview['recipeID']); ?>">
                 <i class="bi bi-flag-fill" style="color: var(--clr-light-orange)"></i>
               </button>
             </div>
@@ -97,7 +100,7 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
     <?php
     }
     ?>
-  
+
   </div>
   <?php include("../shared/components/reportModal.php"); ?>
 
@@ -106,6 +109,7 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
 
   <script src="../shared/assets/js/recipeOverview.js"></script>
 
+  <?php include '../shared/components/footer.php'; ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

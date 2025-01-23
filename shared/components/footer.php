@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../shared/assets/css/footer.css">
+
 <footer class="custom-footer">
     <div class="container">
         <div class="row">
