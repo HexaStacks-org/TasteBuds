@@ -111,8 +111,8 @@
                                 <textarea class="form-control py-3" id="steps" name="steps" rows="6" placeholder="Enter steps of the recipe" required></textarea>
                             </div>
 
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" name="btnSubmit" class="btn btn-create">CREATE RECIPE</button>
+                            <div class="mx-5 my-5 d-flex justify-content-center">
+                                <button type="submit" name="btnSubmit" class="btn btn-create" style="margin-left: -100px;">CREATE RECIPE</button>
                             </div>
                         </form>
                     </div>
@@ -125,10 +125,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div class="mx-5 col-md-6 d-none d-md-block">
-            <img src="shared/assets/image/mockup-pic2.png" alt="mockup" class="img-fluid mockup-image">
-        </div> -->
     </div>
 
     <script src="shared/assets/js/createRecipe.js"></script>
