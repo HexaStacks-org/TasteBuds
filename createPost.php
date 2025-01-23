@@ -113,7 +113,7 @@
                             </div>
 
                             <div class="mx-5 my-5 btn-submit d-flex justify-content-center">
-                                <button type="submit" name="postSubmit" class="btn btn-create" style="margin-left: -100px;">CREATE RECIPE</button>
+                                <button type="submit" name="postSubmit" class="btn btn-create" style="margin-left: -100px;">CREATE POST</button>
                             </div>
                         </form>
                     </div>
