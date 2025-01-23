@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="../shared/assets/css/style.css" />
 <link rel="stylesheet" href="../shared/assets/css/navbar.css" />
+<link rel="stylesheet" href="../shared/assets/css/createContent.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 <nav class="navbar navbar-expand-lg" style="background-color: #ffebcd">
@@ -52,13 +53,34 @@
                         <li><a class="dropdown-item" href="userLike.php">Likes</a></li>
                         <li><a class="dropdown-item" href="userBookmark.php">Bookmarks</a></li>
                         <li>
-                            <form class="d-flex justify-content-center align-items-center" action="../login.php" method="POST">
+                            <form class="d-flex justify-content-center align-items-center" action="../login.php"
+                                method="POST">
                                 <button class="btn-logout" type="submit" name="logout">Logout</button>
                             </form>
                         </li>
                     </ul>
                 </div>
             </div>
+
+            <div class="floating-btn-container">
+                <button class="floating-btn rammetto-one" id="fab-main-btn">+</button>
+
+                <button class="child-btn open-sans-text" id="fab-recipe-btn"
+                    onclick="location.href='createRecipe.php'">Recipe</button>
+                <button class="child-btn open-sans-text" id="fab-gallery-btn"
+                    onclick="location.href='createPost.php'">Gallery</button>
+            </div>
+            
+            <script>
+                const fabMainBtn = document.getElementById('fab-main-btn');
+                const fabRecipeBtn = document.getElementById('fab-recipe-btn');
+                const fabGalleryBtn = document.getElementById('fab-gallery-btn');
+
+                fabMainBtn.addEventListener('click', () => {
+                    fabRecipeBtn.classList.toggle('show');
+                    fabGalleryBtn.classList.toggle('show');
+                });
+            </script>
         </div>
     </div>
 </nav>

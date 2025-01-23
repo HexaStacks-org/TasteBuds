@@ -1,0 +1,63 @@
+.floating-btn-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.floating-btn {
+    background-color: var(--fc-primary-orange);
+    color: var(--fc-light-orange);
+    font-family: var(--ff-title);
+    font-size: var(--fs-h6);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.child-btn {
+    background-color: var(--fc-dark-orange);
+    color: var(--fc-light-orange);
+    font-family: var(--ff-text);
+    font-size: var(--fs-small);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.child-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.child-btn#fab-recipe-btn.show {
+    transform: translate(-70px, -10px);
+}
+
+.child-btn#fab-gallery-btn.show {
+    transform: translate(-140px, -20px);
+}
