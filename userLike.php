@@ -61,9 +61,12 @@ $resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
                             <div class="item-list mb-3" id="liked-recipes">
                                 <a href="recipeOverview.php?recipeID=<?php echo $userLikesRowIndividualRc['recipeID']; ?>"
                                     class="item">
-                                    <span>
+                                    <span
+                                        style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
                                         <?php echo "<i>" . $userLikesRowIndividualRc['likedAt'] . "</i> | " . $userLikesRowIndividualRc['recipeTitle']; ?>
                                     </span>
+
+
                                 </a>
                             </div>
                             <?php
@@ -79,10 +82,11 @@ $resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
                         while ($userLikesRowIndividualGp = mysqli_fetch_assoc($resultUserLikesGpIndividual)) {
                             ?>
                             <div class="item-list mb-3" id="liked-gallery">
-                                <!-- Change the href "recipeOverview" to Gallery Post View with postID -->
-                                <a href="recipeOverview.php?postID=<?php echo $userLikesRowIndividualGp['postID']; ?>"
+                                <!-- Change the href "postOverview" to Gallery Post View with postID -->
+                                <a href="postOverview.php?postID=<?php echo $userLikesRowIndividualGp['postID']; ?>"
                                     class="item">
-                                    <span>
+                                    <span
+                                        style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
                                         <?php echo "<i>" . $userLikesRowIndividualGp['likedAt'] . "</i> | " . $userLikesRowIndividualGp['caption']; ?>
                                     </span>
                                 </a>

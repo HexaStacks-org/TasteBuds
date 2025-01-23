@@ -63,7 +63,8 @@ $resultUserBookmarksGpIndividual = executeQuery($queryUserBookmarksGpIndividual)
                                 <div class="item-list mb-3" id="bookmarked-recipes">
                                     <a href="recipeOverview.php?recipeID=<?php echo $userBookmarksRcIndividualRow['recipeID']; ?>"
                                         class="item">
-                                        <span>
+                                        <span
+                                            style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
                                             <?php echo "<i>" . $userBookmarksRcIndividualRow['bookmarkedAt'] . "</i> | " . $userBookmarksRcIndividualRow['recipeTitle']; ?>
                                         </span>
                                     </a>
@@ -81,10 +82,11 @@ $resultUserBookmarksGpIndividual = executeQuery($queryUserBookmarksGpIndividual)
                             while ($userBookmarksGpIndividualRow = mysqli_fetch_assoc($resultUserBookmarksGpIndividual)) {
                                 ?>
                                 <div class="item-list mb-3" id="bookmarked-gallery">
-                                    <!-- Change the href "recipeOverview" to Gallery Post View with postID -->
-                                    <a href="recipeOverview.php?postID=<?php echo $userBookmarksGpIndividualRow['postID']; ?>"
+                                    <!-- Change the href "postOverview" to Gallery Post View with postID -->
+                                    <a href="postOverview.php?postID=<?php echo $userBookmarksGpIndividualRow['postID']; ?>"
                                         class="item">
-                                        <span>
+                                        <span
+                                            style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
                                             <?php echo "<i>" . $userBookmarksGpIndividualRow['bookmarkedAt'] . "</i> | " . $userBookmarksGpIndividualRow['caption']; ?>
                                         </span>
                                     </a>
