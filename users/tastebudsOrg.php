@@ -65,14 +65,18 @@
                 </p>
             </div>
 
-            <h1 class="text-center my-5 rammetto-one" style="color: var(--fc-primary-orange);">Community Guidelines</h1>
-            <div class="mt-4">
-                <h2 class="h4 rammetto-one" style="color: var(--clr-dark-orange);">Age Policy</h2>
-                <p class="open-sans-text" style="color: var(--fc-black);">
-                    TasteBuds is intended for users 18 years and older. Users found to misrepresent their age may have
-                    their accounts terminated.
-                </p>
-            </div>
+            <section class="community-guidelines" id="community-guidelines">
+                <h1 class="text-center my-5 rammetto-one" style="color: var(--fc-primary-orange);">Community Guidelines
+                </h1>
+                <div class="mt-4">
+                    <h2 class="h4 rammetto-one" style="color: var(--clr-dark-orange);">Age Policy</h2>
+                    <p class="open-sans-text" style="color: var(--fc-black);">
+                        TasteBuds is intended for users 18 years and older. Users found to misrepresent their age may
+                        have
+                        their accounts terminated.
+                    </p>
+                </div>
+            </section>
 
             <div class="mt-4">
                 <h2 class="h4 rammetto-one" style="color: var(--clr-dark-orange);">Share Relevant Content</h2>
@@ -107,15 +111,21 @@
                 </p>
             </div>
 
-            <h1 class="text-center my-5 rammetto-one" style="color: var(--fc-primary-orange);">Privacy Policy</h1>
-            <div class="mt-4">
-                <p class="open-sans-text" style="color: var(--fc-black);">
-                    At TasteBuds, we are committed to protecting your privacy. We collect personal information, including
-                    your full name, email address, and inferred data like your interests and preferences. This helps us
-                    provide personalized experiences and improve our services. If you have questions, please contact us
-                    at <a href="mailto:tastebuds@gmail.com" style="color: var(--clr-primary); text-decoration: none;">tastebuds@gmail.com</a>.
-                </p>
-            </div>
+            <section class="privacy-policy" id="privacy-policy">
+                <h1 class="text-center my-5 rammetto-one" style="color: var(--fc-primary-orange);">Privacy Policy</h1>
+                <div class="mt-4 privacy-policy">
+                    <p class="open-sans-text" style="color: var(--fc-black);">
+                        At TasteBuds, we are committed to protecting your privacy. We collect personal information,
+                        including
+                        your full name, email address, and inferred data like your interests and preferences. This helps
+                        us
+                        provide personalized experiences and improve our services. If you have questions, please contact
+                        us
+                        at <a href="mailto:tastebuds@gmail.com"
+                            style="color: var(--clr-primary); text-decoration: none;">tastebuds@gmail.com</a>.
+                    </p>
+                </div>
+            </section>
         </div>
     </section>
 

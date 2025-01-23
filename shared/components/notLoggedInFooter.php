@@ -35,9 +35,9 @@
 
             <!-- Community -->
             <div class="col-12 col-md-3 my-5 pt-3 footer-column d-flex flex-column align-items-md-end">
-                <a href="tastebudsOrg.php">Community Guidelines</a>
+                <a href="#community-guidelines">Community Guidelines</a>
                 <a href="tastebudsOrg.php">Terms and Conditions</a>
-                <a href="tastebudsOrg.php">Privacy and Policy</a>
+                <a href="#privacy-policy">Privacy and Policy</a>
             </div>
         </div>
     </div>
