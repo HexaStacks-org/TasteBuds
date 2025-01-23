@@ -15,40 +15,42 @@ if (isset($_POST['postSubmit'])) {
         if (!$conn->query($insertGalleryQuery)) {
             die("Error inserting gallery post: " . $conn->error);
         }
+        $postID = $conn->insert_id; // Get the inserted postID
     }
 
-    // Handle file upload
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $fileName = $_FILES['image']['name'];
-        $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+    // Handle file uploads
+    if (isset($_FILES['images'])) {
+        $uploadDir = "../../shared/assets/image/content-image/";
         $allowedExts = ['jpg', 'jpeg', 'png', 'gif'];
 
-        if (in_array($fileExt, $allowedExts)) {
-            $newFileName = date("YMdHisu") . "." . $fileExt;
-            $uploadDir = "../../shared/assets/image/content-image/";
+        foreach ($_FILES['images']['tmp_name'] as $key => $tmpName) {
+            if ($_FILES['images']['error'][$key] === UPLOAD_ERR_OK) {
+                $fileName = $_FILES['images']['name'][$key];
+                $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-            if (is_writable($uploadDir) && move_uploaded_file($_FILES['image']['tmp_name'], $uploadDir . $newFileName)) {
-                $insertImageQuery = "
-                    INSERT INTO images (postID, imageURL)
-                    VALUES (
-                        (SELECT postID FROM galleryposts 
-                         WHERE primaryCategoryID = '$primaryCategoryID' AND subcategoryID = '$subcategoryID' LIMIT 1), 
-                        '$newFileName'
-                    )
-                ";
-                if (!$conn->query($insertImageQuery)) {
-                    die("Error inserting image: " . $conn->error);
+                if (in_array($fileExt, $allowedExts)) {
+                    $newFileName = date("YMdHisu") . "_$key." . $fileExt;
+
+                    if (is_writable($uploadDir) && move_uploaded_file($tmpName, $uploadDir . $newFileName)) {
+                        $insertImageQuery = "
+                            INSERT INTO images (postID, imageURL)
+                            VALUES ('$postID', '$newFileName')
+                        ";
+                        if (!$conn->query($insertImageQuery)) {
+                            die("Error inserting image: " . $conn->error);
+                        }
+                    } else {
+                        die("Error moving the file or directory is not writable.");
+                    }
+                } else {
+                    die("Invalid file type for file: $fileName");
                 }
-            } else {
-                die("Error moving the file or directory is not writable.");
             }
-        } else {
-            die("Invalid file type.");
         }
     }
 
     // Redirect after success
-    header("Location: ../../recipeView.php");
+    header("Location: ../../gallery.php");
     exit();
 }
 
@@ -56,7 +58,7 @@ if (isset($_POST['postSubmit'])) {
 $query = "
     SELECT galleryposts.caption, images.imageURL
     FROM galleryposts
-    LEFT JOIN images ON galleryposts.primaryCategoryID = images.postID
+    LEFT JOIN images ON galleryposts.postID = images.postID
 ";
 $result = $conn->query($query);
 

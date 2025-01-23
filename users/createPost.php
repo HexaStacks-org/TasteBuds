@@ -42,9 +42,9 @@
                             </div>
 
                             <div class="mb-3 mx-5">
-                                <label for="image" class="form-label">Upload Image</label>
-                                <input type="file" class="form-control" id="image" name="image" accept="image/*"
-                                    required>
+                                <label for="image" class="form-label">Upload Images</label>
+                                <input type="file" class="form-control" id="image" name="images[]" accept="image/*"
+                                    multiple required>
                             </div>
 
                             <div class="categories mx-5 align-items-center">
@@ -113,7 +113,8 @@
                             </div>
 
                             <div class="mx-5 my-5 btn-submit d-flex justify-content-center">
-                                <button type="submit" name="postSubmit" class="btn btn-create" style="margin-left: -100px;">CREATE POST</button>
+                                <button type="submit" name="postSubmit" class="btn btn-create"
+                                    style="margin-left: -100px;">CREATE POST</button>
                             </div>
                         </form>
                     </div>

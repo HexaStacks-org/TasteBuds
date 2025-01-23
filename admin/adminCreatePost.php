@@ -176,10 +176,10 @@
                                                     placeholder="Enter description of the recipe" required></textarea>
                                             </div>
 
-                                            <div class="mb-3">
-                                                <label for="image" class="form-label">Upload Image</label>
-                                                <input type="file" class="form-control" id="image" name="image"
-                                                    accept="image/*" required>
+                                            <div class="mb-3 mx-5">
+                                                <label for="image" class="form-label">Upload Images</label>
+                                                <input type="file" class="form-control" id="image" name="images[]"
+                                                    accept="image/*" multiple required>
                                             </div>
 
                                             <div class="categories align-items-center">
