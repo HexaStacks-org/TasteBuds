@@ -85,8 +85,8 @@ foreach ($postsData as $data) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
-<body style="background-color: #faf9f6">
-    <?php include 'shared/components/notLoggedInNavbar.php'; ?>
+<body>
+    <?php include 'shared/components/navbar.php'; ?>
     <div class="container align-items-center justify-content-center">
         <div class="row card-row" id="card-container">
             <?php
@@ -106,7 +106,7 @@ foreach ($postsData as $data) {
         </div>
     </div>
 
-    <!-- <script src="shared/assets/js/gallery.js"></script> -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
