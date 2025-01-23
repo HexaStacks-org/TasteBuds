@@ -14,6 +14,20 @@ if (isset($_GET['id'])) {
     $firstName = $_GET['firstName'];
 }
 
+// Query for Top 5 Recipes
+$queryTopRecipes = "
+SELECT recipes.*, 
+           images.*, 
+           primaryfoodcategories.*, 
+           (SELECT COUNT(likeID) FROM likes WHERE likes.recipeID = recipes.recipeID) AS likesCount
+FROM recipes
+LEFT JOIN images ON images.recipeID = recipes.recipeID
+LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = recipes.primaryCategoryID
+ORDER BY likesCount DESC
+LIMIT 5;
+";
+
+$resultTopRecipes = executeQuery($queryTopRecipes);
 ?>
 
 <!DOCTYPE html>
@@ -84,6 +98,7 @@ if (isset($_GET['id'])) {
         </div>
     </section>
 
+    <!-- Top 5 Recipes -->
     <section class="top-recipes-section">
         <div class="container">
             <div class="recipes-grid">
@@ -95,50 +110,33 @@ if (isset($_GET['id'])) {
                 </div>
 
                 <!-- Duplicate as needed for additional cards -->
-                <div class="recipe-card">
-                    <img src="shared/assets/image/mockup-pic.png" alt="Recipe Image" class="recipe-image">
-                    <div class="overlay">
-                        <span class="badge">Dinner</span>
-                        <h3 class="recipe-title">Title of the Dish</h3>
-                    </div>
-                </div>
+                <?php
+                if (mysqli_num_rows($resultTopRecipes) > 0) {
+                    while ($topRecipesRow = mysqli_fetch_assoc($resultTopRecipes)) {
+                        ?>
 
-                <div class="recipe-card">
-                    <img src="shared/assets/image/mockup-pic.png" alt="Recipe Image" class="recipe-image">
-                    <div class="overlay">
-                        <span class="badge">Dinner</span>
-                        <h3 class="recipe-title">Title of the Dish</h3>
-                    </div>
-                </div>
+                        <a href="recipeOverview.php?recipeID=<?php echo $userLikesRowIndividualRc['recipeID']; ?>">
+                            <div class="recipe-card" style="height: 300px;">
+                                <div class="col" style="height: 100%; padding: 0;">
+                                    <img src="shared/assets/image/content-image/<?= $topRecipesRow['imageURL'] ?>"
+                                        alt="Recipe Image" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
 
-                <div class="recipe-card">
-                    <img src="shared/assets/image/mockup-pic.png" alt="Recipe Image" class="recipe-image">
-                    <div class="overlay">
-                        <span class="badge">Dinner</span>
-                        <h3 class="recipe-title">Title of the Dish</h3>
-                    </div>
-                </div>
-
-                <div class="recipe-card">
-                    <img src="shared/assets/image/mockup-pic.png" alt="Recipe Image" class="recipe-image">
-                    <div class="overlay">
-                        <span class="badge">Dinner</span>
-                        <h3 class="recipe-title">Title of the Dish</h3>
-                    </div>
-                </div>
-
-                <div class="recipe-card">
-                    <img src="shared/assets/image/mockup-pic.png" alt="Recipe Image" class="recipe-image">
-                    <div class="overlay">
-                        <span class="badge">Dinner</span>
-                        <h3 class="recipe-title">Title of the Dish</h3>
-                    </div>
-                </div>
+                                <div class="overlay">
+                                    <span class="badge"><?php echo $topRecipesRow['primaryCategoryName'] ?></span>
+                                    <h3 class="recipe-title"><?php echo $topRecipesRow['recipeTitle'] ?></h3>
+                                </div>
+                            </div>
+                        </a>
+                        <?php
+                    }
+                }
+                ?>
             </div>
         </div>
     </section>
 
-    <?php include 'shared/components/footer.php';?>
+    <?php include 'shared/components/footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

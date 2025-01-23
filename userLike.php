@@ -1,3 +1,34 @@
+<?php
+include("connect.php");
+
+// INDIVIDUAL LIST OF LIKES PER USER
+// USER - Query for User Liked Records (RECIPES)
+// Change the likes.userID = 14 value using SESSION
+
+$queryUserLikesRcIndividual = "
+SELECT likes.*, users.userID AS userLikerID, users.firstName, users.lastName, recipes.*
+FROM likes
+LEFT JOIN users ON users.userID = likes.userID 
+LEFT JOIN recipes ON recipes.recipeID = likes.recipeID
+WHERE likes.recipeID >= 1 AND likes.userID = 14;
+";
+
+$resultUserLikesRcIndividual = executeQuery($queryUserLikesRcIndividual);
+
+// USER - Query for User Liked Records (GALLERY POSTS)
+// Change the likes.userID = 9 value using SESSION
+
+$queryUserLikesGpIndividual = "
+SELECT likes.*, users.userID AS userLikerID, users.firstName, users.lastName, galleryposts.*
+FROM likes
+LEFT JOIN users ON users.userID = likes.userID 
+LEFT JOIN galleryposts ON galleryposts.postID = likes.postID
+WHERE likes.postID >= 1 AND likes.userID = 9;
+";
+
+$resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,28 +47,54 @@
             <img src="shared/assets/image/Logo.png" alt="TasteBuds Logo">
             <h1>User Profile</h1>
         </header>
-            <!-- Liked Content Section -->
-            <section class="content-section">
-                <h2>Liked Content</h2>
-                <div class="content-container">
-                    <div class="category">
-                        <h3>Recipes</h3>
-                        <div class="item-list" id="liked-recipes">
-                            <a href="post_detail.html?id=5" class="item">
-                                <span>Liked Recipe 1</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="category">
-                        <h3>Gallery</h3>
-                        <div class="item-list" id="liked-gallery">
-                            <a href="post_detail.html?id=6" class="item">
-                                <span>Liked Gallery Image 1</span>
-                            </a>
-                        </div>
-                    </div>
+        <!-- Liked Content Section -->
+        <section class="content-section">
+            <h2>Liked Content</h2>
+            <div class="content-container">
+
+                <div class="category">
+                    <h3>Recipes</h3>
+                    <?php
+                    if (mysqli_num_rows($resultUserLikesRcIndividual) > 0) {
+                        while ($userLikesRowIndividualRc = mysqli_fetch_assoc($resultUserLikesRcIndividual)) {
+                            ?>
+                            <div class="item-list mb-3" id="liked-recipes">
+                                <a href="recipeOverview.php?recipeID=<?php echo $userLikesRowIndividualRc['recipeID']; ?>"
+                                    class="item">
+                                    <span>
+                                        <?php echo "<i>" . $userLikesRowIndividualRc['likedAt'] . "</i> | " . $userLikesRowIndividualRc['recipeTitle']; ?>
+                                    </span>
+                                </a>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
                 </div>
-            </section>
+
+                <div class="category">
+                    <h3>Gallery</h3>
+                    <?php
+                    if (mysqli_num_rows($resultUserLikesGpIndividual) > 0) {
+                        while ($userLikesRowIndividualGp = mysqli_fetch_assoc($resultUserLikesGpIndividual)) {
+                            ?>
+                            <div class="item-list mb-3" id="liked-gallery">
+                                <!-- Change the href "recipeOverview" to Gallery Post View with postID -->
+                                <a href="recipeOverview.php?postID=<?php echo $userLikesRowIndividualGp['postID']; ?>"
+                                    class="item">
+                                    <span>
+                                        <?php echo "<i>" . $userLikesRowIndividualGp['likedAt'] . "</i> | " . $userLikesRowIndividualGp['caption']; ?>
+                                    </span>
+                                </a>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
+                </div>
+
+            </div>
+        </section>
 
         </main>
     </div>
