@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+include("../connect.php");
 date_default_timezone_set('Asia/Manila');
 
 // Get the recipeID from the query string
@@ -34,8 +34,8 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <link rel="stylesheet" href="shared/assets/css/recipeOverview.css" />
-  <link rel="stylesheet" href="shared/assets/css/style.css" />
+  <link rel="stylesheet" href="../shared/assets/css/recipeOverview.css" />
+  <link rel="stylesheet" href="../shared/assets/css/style.css" />
 </head>
 
 <body>
@@ -49,7 +49,7 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
           <span
             class="primary-category rounded-pill"><?php echo htmlspecialchars($recipeOverview['primaryCategoryName']); ?></span>
           <span class="sub-category rounded-pill"><?php echo htmlspecialchars($recipeOverview['subcategoryName']); ?></span>
-          <img src="shared/assets/image/content-image/<?php echo $recipeOverview['imageURL']; ?>"
+          <img src="../shared/assets/image/content-image/<?php echo $recipeOverview['imageURL']; ?>"
             class="img-thumbnail recipe-image" alt="Recipe Image" />
           <div class="col name-edit">
             <h6 class="name">
@@ -99,12 +99,12 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
     ?>
   
   </div>
-  <?php include("shared/components/reportModal.php"); ?>
+  <?php include("../shared/components/reportModal.php"); ?>
 
 
   </div>
 
-  <script src="shared/assets/js/recipeOverview.js"></script>
+  <script src="../shared/assets/js/recipeOverview.js"></script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

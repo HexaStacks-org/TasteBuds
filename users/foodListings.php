@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+include("../connect.php");
 
 $primaryCategoryFilter = isset($_GET['primaryCategoryName']) ? $_GET['primaryCategoryName'] : '';
 $subcategoryFilter = isset($_GET['subcategoryName']) ? $_GET['subcategoryName'] : '';
@@ -78,12 +78,12 @@ $subcategoryResults = executeQuery($subcategoryQuery);
   <title>Food Listings</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-  <link rel="stylesheet" href="shared/assets/css/foodListingsRecipe.css" />
-  <link rel="stylesheet" href="shared/assets/css/style.css">
+  <link rel="stylesheet" href="../shared/assets/css/foodListingsRecipe.css" />
+  <link rel="stylesheet" href="../shared/assets/css/style.css">
 </head>
 
 <body>
-  <?php include("shared/components/notLoggedInNavbar.php")?>
+  <?php include("../shared/components/navbar.php") ?>
 
   <!-- Title Section -->
   <div class="container">
@@ -197,11 +197,12 @@ $subcategoryResults = executeQuery($subcategoryQuery);
 
             <div class="col-md-6 mb-5">
 
-            <a href="recipeOverview.php?recipeID=<?php echo $rowFourLatestRecipes['recipeID']; ?>" style="text-decoration: none; color: inherit;">
+              <a href="recipeOverview.php?recipeID=<?php echo $rowFourLatestRecipes['recipeID']; ?>"
+                style="text-decoration: none; color: inherit;">
                 <div class="card">
                   <div class="row" style="height: 300px;">
                     <div class="col-md-5" style="height: 300px;">
-                      <img src="shared/assets/image/content-image/<?php echo $rowFourLatestRecipes['imageURL']; ?>"
+                      <img src="../shared/assets/image/content-image/<?php echo $rowFourLatestRecipes['imageURL']; ?>"
                         alt="<?php echo $rowFourLatestRecipes['recipeTitle']; ?>" class="img-fluid"
                         style="height: 100%; object-fit: cover;">
                     </div>
@@ -230,7 +231,7 @@ $subcategoryResults = executeQuery($subcategoryQuery);
           <div class="container">
             <div class="row">
               <div class="col d-flex justify-content-center" style="width: 100%;">
-                <img src="shared/assets/image/no-results-found.png"
+                <img src="../shared/assets/image/no-results-found.png"
                   style="max-width: 50%; height: auto; margin: 20px 0 40px 0" class="img-fluid">
               </div>
             </div>
@@ -264,11 +265,12 @@ $subcategoryResults = executeQuery($subcategoryQuery);
           while ($recipesRow = mysqli_fetch_assoc($resultRecipes)) { ?>
             <div class="col-md-6 mb-5">
 
-            <a href="recipeOverview.php?recipeID=<?php echo $recipesRow['recipeID']; ?>" style="text-decoration: none; color: inherit;">
+              <a href="recipeOverview.php?recipeID=<?php echo $recipesRow['recipeID']; ?>"
+                style="text-decoration: none; color: inherit;">
                 <div class="card">
                   <div class="row" style="height: 300px;">
                     <div class="col-md-5" style="height: 300px;">
-                      <img src="shared/assets/image/content-image/<?php echo $recipesRow['imageURL']; ?>"
+                      <img src="../shared/assets/image/content-image/<?php echo $recipesRow['imageURL']; ?>"
                         alt="<?php echo $recipesRow['recipeTitle']; ?>" class="img-fluid"
                         style="height: 100%; object-fit: cover;">
                     </div>
@@ -300,7 +302,7 @@ $subcategoryResults = executeQuery($subcategoryQuery);
           <div class="container">
             <div class="row">
               <div class="col d-flex justify-content-center" style="width: 100%;">
-                <img src="shared/assets/image/no-results-found.png"
+                <img src="../shared/assets/image/no-results-found.png"
                   style="max-width: 50%; height: auto; margin: 20px 0 40px 0" class="img-fluid">
               </div>
             </div>

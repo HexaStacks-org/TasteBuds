@@ -1,5 +1,5 @@
 <?php
-include("shared/processes/recipeResultQuery.php")
+include("../shared/processes/recipeResultQuery.php")
     ?>
 
 <!doctype html>
@@ -12,15 +12,15 @@ include("shared/processes/recipeResultQuery.php")
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <?php
-    include("shared/components/fontEmbed.php");
+    include("../shared/components/fontEmbed.php");
     ?>
-    <link rel="stylesheet" href="shared/assets/css/style.css" />
-    <link rel="stylesheet" href="shared/assets/css/navbar.css" />
-    <link rel="stylesheet" href="shared/assets/css/searchResults.css" />
+    <link rel="stylesheet" href="../shared/assets/css/style.css" />
+    <link rel="stylesheet" href="../shared/assets/css/navbar.css" />
+    <link rel="stylesheet" href="../shared/assets/css/searchResults.css" />
 </head>
 
 <body>
-    <?php include 'shared/components/noUserNavbar.php'; ?>
+    <?php include '../shared/components/navbar.php'; ?>
 
     <div class="container-fluid content-bg mt-5">
         <h2 class="col result mt-5 mx-5">Search Results | Recipe</h2>
@@ -34,7 +34,7 @@ include("shared/processes/recipeResultQuery.php")
                         <div class="card mx-5">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="shared/assets/image/content-image/<?php echo $recipesRow['imageURL'] ?>" class="img-fluid recipe-img h-100"
+                                    <img src="../shared/assets/image/content-image/<?php echo $recipesRow['imageURL'] ?>" class="img-fluid recipe-img h-100"
                                         style="object-fit: fill;" />
                                 </div>
                                 <div class="col-md-8">

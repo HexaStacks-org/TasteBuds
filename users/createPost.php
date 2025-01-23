@@ -13,8 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rammetto+One&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="shared/assets/css/style.css" />
-    <link rel="stylesheet" href="shared/assets/css/createRecipe.css" />
+    <link rel="stylesheet" href="../shared/assets/css/style.css" />
+    <link rel="stylesheet" href="../shared/assets/css/createRecipe.css" />
 </head>
 
 <body>
@@ -25,16 +25,16 @@
                     <div class="recipe-form mx-3 my-3 px-5">
                         <div class="row">
                             <div class="col d-flex justify-content-start">
-                                <img src="shared/assets/image/Logo Combination 1.png"
+                                <img src="../shared/assets/image/Logo Combination 1.png"
                                     class="logo d-inline-block align-text-top" />
                             </div>
                             <div class="con-back col d-flex align-items-center">
-                                <a href="landing.php" id="back-btn" class="btn back-btn">BACK</a>
+                                <a href="index.php" id="back-btn" class="btn back-btn">BACK</a>
                             </div>
                         </div>
                         <h1 class="px-5">Create a Post</h1>
                         <p class="recipe-description px-5">Share your new favorite and must-try recipe!</p>
-                        <form action="shared/processes/create-post.php" method="POST" enctype="multipart/form-data">
+                        <form action="../shared/processes/create-post.php" method="POST" enctype="multipart/form-data">
                             <div class="mb-3 mx-5">
                                 <label for="description" class="form-label">Caption</label>
                                 <textarea class="form-control py-3" id="caption" name="caption" rows="4"
@@ -121,7 +121,7 @@
 
                 <div class="col-md-6 d-none d-md-block">
                     <div class="mockup-container">
-                        <img src="shared/assets/image/mockup-pic.png" alt="mockup" class="mockup-image">
+                        <img src="../shared/assets/image/mockup-pic.png" alt="mockup" class="mockup-image">
                     </div>
                 </div>
 

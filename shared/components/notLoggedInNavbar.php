@@ -1,11 +1,11 @@
-<link rel="stylesheet" href="../shared/assets/css/style.css" />
-<link rel="stylesheet" href="../shared/assets/css/navbar.css" />
+<link rel="stylesheet" href="shared/assets/css/style.css" />
+<link rel="stylesheet" href="shared/assets/css/navbar.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 <nav class="navbar navbar-expand-lg" style="background-color: #ffebcd">
-    <div class="container-fluid d-flex">
+    <div class="container-fluid">
         <a class="navbar-brand logo" href="index.php">
-            <img src="../shared/assets/image/Logo Combination 2.png" alt="Logo" width="120" height="48"
+            <img src="shared/assets/image/Logo Combination 2.png" alt="Logo" width="120" height="48"
                 class="d-inline-block align-text-top" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -13,7 +13,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse d-flex" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="foodListings.php">
@@ -32,32 +32,11 @@
                 </li>
             </ul>
 
-            <div class="btn-nav d-flex justify-content-end">
+            <div class="btn-nav d-flex justify-content-end align-items-end">
                 <button class="btn btn-search" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasSearch" aria-controls="offcanvasSearch"><a>
                         Search</a>
                 </button>
-
-                <div class="btn-group user-dropdown d-flex justify-content-end">
-                    <button class="btn user-btn" type="button" id="userButton">
-                        <p>User</p>
-                    </button>
-                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
-                        aria-expanded="false" aria-label="Toggle Dropdown">
-                        <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu">
-                        <li><a class="dropdown-item" href="updateUser.php">Edit Profile</a></li>
-                        <li><a class="dropdown-item" href="userContent.php">Uploaded Contents</a></li>
-                        <li><a class="dropdown-item" href="userLike.php">Likes</a></li>
-                        <li><a class="dropdown-item" href="userBookmark.php">Bookmarks</a></li>
-                        <li>
-                            <form class="d-flex justify-content-center align-items-center" action="../login.php" method="POST">
-                                <button class="btn-logout" type="submit" name="logout">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
@@ -178,4 +157,4 @@
         </div>
     </div>
 </div>
-<script src="../shared/assets/js/navbar.js"></script>
+<script src="shared/assets/js/navbar.js"></script>

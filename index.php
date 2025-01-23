@@ -49,9 +49,7 @@ $resultTopRecipes = executeQuery($queryTopRecipes);
 </head>
 
 <body>
-    <div>
-        <?php include 'shared/components/navbar.php'; ?>
-    </div>
+    <?php include 'shared/components/notLoggedInNavbar.php';?>
     <header class="hero-section text-center text-white">
         <img src="shared/assets/image/mockup-pic.png" alt="Delicious food background">
         <div class="position-absolute top-50 start-50 translate-middle">
@@ -136,7 +134,7 @@ $resultTopRecipes = executeQuery($queryTopRecipes);
         </div>
     </section>
 
-    <?php include 'shared/components/footer.php'; ?>
+    <?php include 'shared/components/notLoggedInFooter.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
