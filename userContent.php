@@ -25,6 +25,33 @@ WHERE users.userID = 9
 
 $resultUserUpContentGpIndividual = executeQuery($queryUserUpContentGpIndividual);
 
+if (isset($_POST['btnDeleteGallery'])) {
+    $galleryID = $_POST['galleryID'];
+
+    // Use prepared statements for security
+    $deleteGalleryQuery = "DELETE FROM galleryposts WHERE postID = ?";
+    $stmt = $conn->prepare($deleteGalleryQuery);
+    $stmt->bind_param("i", $galleryID);
+    if ($stmt->execute()) {
+        // Refresh the page
+        header("Location: userContent.php");
+        exit;
+    }
+}
+
+if (isset($_POST['btnDeleteRecipe'])) {
+    $recipeID = $_POST['recipeID'];
+
+    // Use prepared statements for security
+    $deleteRecipeQuery = "DELETE FROM recipes WHERE recipeID = ?";
+    $stmt = $conn->prepare($deleteRecipeQuery);
+    $stmt->bind_param("i", $recipeID);
+    if ($stmt->execute()) {
+        // Refresh the page
+        header("Location: userContent.php");
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +99,8 @@ $resultUserUpContentGpIndividual = executeQuery($queryUserUpContentGpIndividual)
                                         </div>
 
                                         <div class="col-1 d-flex align-items-center justify-content-center">
-                                            <a href="edit_gallery.html?id=3" class="btn btn-link p-0 me-2" title="Edit">
+                                            <a href="edit_recipe.php?recipeID=<?php echo $rowUserUpContentRcIndividual['recipeID']; ?>"
+                                                class="btn btn-link p-0 me-2" title="Edit">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                                                     <path
@@ -82,19 +110,18 @@ $resultUserUpContentGpIndividual = executeQuery($queryUserUpContentGpIndividual)
                                         </div>
 
                                         <div class="col-1 d-flex align-items-center justify-content-center">
-                                            <form method="post" class="mt-2">
-                                                <input type="hidden" name="galleryID" value="3">
-                                                <button type="submit" name="btnDeleteGallery"
-                                                    class="btn btn-link p-0 text-danger mb-1 " title="Delete">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                                                        <path
-                                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-                                                    </svg>
-                                                </button>
-                                            </form>
+                                            <button class="btn btn-link p-0 text-danger mb-1" data-bs-toggle="modal"
+                                                data-bs-target="#deleteRecipeModal"
+                                                data-recipeid="<?php echo $rowUserUpContentRcIndividual['recipeID']; ?>"
+                                                title="Delete">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                                                    <path
+                                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                                                </svg>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -137,19 +164,18 @@ $resultUserUpContentGpIndividual = executeQuery($queryUserUpContentGpIndividual)
                                         </div>
 
                                         <div class="col-1 d-flex align-items-center justify-content-center">
-                                            <form method="post" class="mt-2">
-                                                <input type="hidden" name="galleryID" value="3">
-                                                <button type="submit" name="btnDeleteGallery"
-                                                    class="btn btn-link p-0 text-danger mb-1 " title="Delete">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                                                        <path
-                                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-                                                    </svg>
-                                                </button>
-                                            </form>
+                                            <button class="btn btn-link p-0 text-danger mb-1" data-bs-toggle="modal"
+                                                data-bs-target="#deleteGalleryModal"
+                                                data-galleryid="<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
+                                                title="Delete">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                                                    <path
+                                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                                                </svg>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -162,6 +188,55 @@ $resultUserUpContentGpIndividual = executeQuery($queryUserUpContentGpIndividual)
             </section>
         </main>
     </div>
+
+    <!-- Modal for Deleting Gallery -->
+    <div class="modal fade" id="deleteGalleryModal" tabindex="-1" aria-labelledby="deleteGalleryModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteGalleryModalLabel">Delete Gallery Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this gallery post?</p>
+                </div>
+                <div class="modal-footer">
+                    <form method="POST">
+                        <input type="hidden" name="galleryID" id="galleryID">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" name="btnDeleteGallery" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Deleting Recipe -->
+    <div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteRecipeModalLabel">Delete Recipe</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this recipe?</p>
+                </div>
+                <div class="modal-footer">
+                    <form method="POST">
+                        <input type="hidden" name="recipeID" id="recipeID">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" name="btnDeleteRecipe" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="shared/assets/js/userContent.js"></script>
 </body>
 
 </html>
