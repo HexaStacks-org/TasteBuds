@@ -1,5 +1,5 @@
 <?php
-include("../galleryButtons.php");
+include("galleryButtons.php");
 
 class GalleryPost
 {
@@ -73,7 +73,6 @@ class GalleryPost
             </div>
         ";
 
-        // Build the tags content (you can expand it if needed)
 
         $tagsContent = "
             <div class='col mt-3 mb-3' style='d-flex:0;'>
@@ -81,6 +80,8 @@ class GalleryPost
                 <span class='subcategory'><span>{$this->subcategoryName}</span>
             </div>  
         ";
+
+        $userID = $_SESSION['userID'];
 
         $cardContent = "
             <div class='col-12 d-flex align-items-center justify-content-center mt-5 mb-5'>
@@ -100,11 +101,11 @@ class GalleryPost
                     </div>
                     <div class='d-flex justify-content-between w-100'>
                         <div class='btn-lbsr d-flex mt-3 mb-5'>
-                            " . buildLikeButton($this->postID) . "
-                            " . buildBookmarkButton($this->postID) . "
+                            " . buildLikeButton($this->postID, $userID) . "
+                            " . buildBookmarkButton($this->postID, $userID) . "
                         </div>
                         <button class='btn btn-report report-btn d-flex mt-3 mx-5' data-bs-toggle='modal' data-bs-target='#reportModal'>
-                            <i class='bi bi-flag-fill' style='color: var(--clr-light-orange)'></i>
+                            <i class='bi bi-flag' style='color: var(--clr-light-orange)'></i>
                         </button>
                     </div>
                 </div>

@@ -34,8 +34,7 @@ include("shared/processes/loggedOut/recipeResultQuery.php")
                         <div class="card mx-5">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="shared/assets/image/content-image/<?php echo $recipesRow['imageURL'] ?>" class="img-fluid recipe-img h-100"
-                                        style="object-fit: fill;" />
+                                    <img src="shared/assets/image/content-image/<?php echo $recipesRow['imageURL'] ?>" class="img-fluid recipe-img"/>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">

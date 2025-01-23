@@ -1,6 +1,6 @@
 <?php
 include("shared/processes/loggedOut/galleryResultQuery.php")
-?>
+    ?>
 
 <!doctype html>
 <html lang="en">
@@ -33,9 +33,9 @@ include("shared/processes/loggedOut/galleryResultQuery.php")
                     <div class="col-md-6 mt-5 mb-4">
                         <div class="card mx-5">
                             <div class="row g-0">
-                                <div class="col-md-4 recipe-img">
-                                    <img src="shared/assets/image/test-pic.png" class="img-fluid d-block"
-                                        style="object-fit: cover;" />
+                                <div class="col-md-4">
+                                    <img src="shared/assets/image/content-image/<?php echo $postsRow['imageURL'] ?>"
+                                        class="img-fluid recipe-img"/>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body ps-5">
