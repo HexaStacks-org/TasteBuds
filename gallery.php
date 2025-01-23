@@ -1,3 +1,71 @@
+<?php
+include("connect.php");
+include("classes.php");
+
+
+$galleryPosts = [];
+
+$queryGallery = "
+    SELECT 
+        galleryposts.*,
+        users.firstName,
+        users.lastName,
+        primaryfoodcategories.primaryCategoryName,
+        foodSubcategories.subcategoryName,
+        images.imageURL,
+        (SELECT COUNT(*) FROM likes WHERE postID = galleryposts.postID) AS likeCount,
+        (SELECT COUNT(*) FROM bookmarks WHERE postID = galleryposts.postID) AS bookmarkCount
+    FROM galleryposts
+    LEFT JOIN users ON users.userID = galleryposts.userID
+    LEFT JOIN images ON images.postID = galleryposts.postID
+    LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = galleryposts.primaryCategoryID
+    LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = galleryposts.subcategoryID
+    ORDER BY galleryposts.postID, images.imageID";
+
+$resultGallery = executeQuery($queryGallery);
+
+// Organize data into gallery posts
+$postsData = [];
+while ($rowGalleryData = mysqli_fetch_assoc($resultGallery)) {
+    $postID = $rowGalleryData['postID'];
+    if (!isset($postsData[$postID])) {
+        $postsData[$postID] = [
+            'postID' => $rowGalleryData['postID'],
+            'caption' => $rowGalleryData['caption'],
+            'firstName' => $rowGalleryData['firstName'],
+            'lastName' => $rowGalleryData['lastName'],
+            'isApproved' => $rowGalleryData['isApproved'],
+            'createdAt' => $rowGalleryData['createdAt'],
+            'updatedAt' => $rowGalleryData['updatedAt'],
+            'primaryCategoryName' => $rowGalleryData['primaryCategoryName'],
+            'subcategoryName' => $rowGalleryData['subcategoryName'],
+            'images' => [],
+            'likeCount' => $rowGalleryData['likeCount'],
+            'bookmarkCount' => $rowGalleryData['bookmarkCount'],
+        ];
+    }
+    $postsData[$postID]['images'][] = $rowGalleryData['imageURL'];
+}
+
+// Create GalleryPost objects
+foreach ($postsData as $data) {
+    $galleryPosts[] = new GalleryPost(
+        $data['postID'],
+        $data['caption'],
+        $data['firstName'],
+        $data['lastName'],
+        $data['isApproved'],
+        $data['createdAt'],
+        $data['updatedAt'],
+        $data['primaryCategoryName'],
+        $data['subcategoryName'],
+        $data['images'],
+        $data['likeCount'],
+        $data['bookmarkCount']
+    );
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -7,6 +75,7 @@
     <title>Gallery</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <?php
     include("shared/components/fontEmbed.php");
     ?>
@@ -20,64 +89,24 @@
     <?php include 'shared/components/navbar.php'; ?>
     <div class="container align-items-center justify-content-center">
         <div class="row card-row" id="card-container">
-            <!-- cards here -->
+            <?php
+            // Loop through the galleryPosts array and display each post using the buildGalleryCard method
+            foreach ($galleryPosts as $post) {
+                echo $post->buildGalleryCard();
+            }
+            ?>
         </div>
-        <div class="d-flex my-5 d-flex align-items-center justify-content-between">
-            <button class="btn back-btn btn-secondary" id="back-btn" disabled>Back</button>
-            <button class="btn next-btn btn-primary" id="continue-btn">Continue</button>
-        </div>
-    </div>
+        <?php include('shared/components/reportModal.php'); ?>
 
-    <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="reportModalLabel">Report Content</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="reportForm">
-                        <p>Please select the reason for reporting this content:</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="reportReason" id="spam" value="Spam"
-                                required>
-                            <label class="form-check-label" for="spam">Spam</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="reportReason" id="wrongInfo"
-                                value="Wrong Information">
-                            <label class="form-check-label" for="wrongInfo">Wrong Information</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="reportReason" id="inappropriateContent"
-                                value="Inappropriate Content">
-                            <label class="form-check-label" for="inappropriateContent">Inappropriate Content</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="reportReason" id="copyrightInfringement"
-                                value="Copyright Infringement">
-                            <label class="form-check-label" for="copyrightInfringement">Copyright Infringement</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="reportReason" id="harassmentAbuse"
-                                value="Harassment or Abuse">
-                            <label class="form-check-label" for="harassmentAbuse">Harassment or Abuse</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="reportReason" id="other" value="Other">
-                            <label class="form-check-label" for="other">Other</label>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-cancel-report" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-submit-report" id="submitReport">Submit Report</button>
-                </div>
+        <div class="row card-row">
+            <div class="d-flex my-5 d-flex align-items-center justify-content-between">
+                <button class="btn back-btn btn-secondary" id="back-btn" disabled>Back</button>
+                <button class="btn next-btn btn-primary" id="continue-btn">Continue</button>
             </div>
         </div>
     </div>
 
-    <script src="shared/assets/js/gallery.js"></script>
+    <!-- <script src="shared/assets/js/gallery.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
