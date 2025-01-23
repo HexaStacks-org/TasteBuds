@@ -197,10 +197,7 @@ $subcategoryResults = executeQuery($subcategoryQuery);
 
             <div class="col-md-6 mb-5">
 
-              <!-- Remove comment when recipe overview is finished -->
-              <!-- <a href="recipeOverview?recipeID=<?= $rowFourLatestRecipes['recipeID'] ?>"> -->
-
-              <a href="recipeOverview.php" style="text-decoration: none; color: inherit;">
+            <a href="recipeOverview.php?recipeID=<?php echo $rowFourLatestRecipes['recipeID']; ?>" style="text-decoration: none; color: inherit;">
                 <div class="card">
                   <div class="row" style="height: 300px;">
                     <div class="col-md-5" style="height: 300px;">
@@ -267,7 +264,7 @@ $subcategoryResults = executeQuery($subcategoryQuery);
           while ($recipesRow = mysqli_fetch_assoc($resultRecipes)) { ?>
             <div class="col-md-6 mb-5">
 
-            <a href="recipeOverview.php?recipeID=<?php echo $userLikesRowIndividualRc['recipeID']; ?>" style="text-decoration: none; color: inherit;">
+            <a href="recipeOverview.php?recipeID=<?php echo $recipesRow['recipeID']; ?>" style="text-decoration: none; color: inherit;">
                 <div class="card">
                   <div class="row" style="height: 300px;">
                     <div class="col-md-5" style="height: 300px;">

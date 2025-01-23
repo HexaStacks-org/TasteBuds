@@ -62,97 +62,50 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
                   style="color: var(--clr-light-orange)"></i></button>
               <button class="btn-bookmark"><i class="bi bi-bookmark-fill"
                   style="color: var(--clr-light-orange)"></i></button>
-              <button class="btn-report" data-recipe-id="<?php echo htmlspecialchars($recipeOverview['recipeID']); ?>">
+                  <button class="btn-report"  data-bs-toggle="modal" data-bs-target="#reportModal" data-recipe-id="<?php echo htmlspecialchars($recipeOverview['recipeID']); ?>">
                 <i class="bi bi-flag-fill" style="color: var(--clr-light-orange)"></i>
               </button>
             </div>
           </div>
-          <div class="col recipe-table">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Description</th>
-                  <th scope="col">Ingredients</th>
-                  <th scope="col">Steps</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><?php echo htmlspecialchars($recipeOverview['description']); ?></td>
-                  <td><?php echo htmlspecialchars($recipeOverview['ingredients']); ?></td>
-                  <td><?php echo htmlspecialchars($recipeOverview['steps']); ?></td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="tab-container">
+            <div class="tab-links">
+              <button class="tablink" onclick="openTab(event, 'Description')">Description</button>
+              <button class="tablink" onclick="openTab(event, 'Ingredients')">Ingredients</button>
+              <button class="tablink" onclick="openTab(event, 'Steps')">Steps</button>
+            </div>
+
+            <div id="Description" class="tab-content">
+              <p><?php echo htmlspecialchars($recipeOverview['description']); ?></p>
+            </div>
+
+            <div id="Ingredients" class="tab-content" style="display: none;">
+              <p><?php echo htmlspecialchars($recipeOverview['ingredients']); ?></p>
+            </div>
+
+            <div id="Steps" class="tab-content" style="display: none;">
+              <p><?php echo htmlspecialchars($recipeOverview['steps']); ?></p>
+            </div>
           </div>
+
         </div>
-        <?php
+      </div>
+      <?php
       }
     } else {
       ?>
-      <p>No recipes found.</p>
-      <?php
+    <p>No recipes found.</p>
+    <?php
     }
     ?>
+  
+  </div>
+  <?php include("shared/components/reportModal.php"); ?>
 
-    <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="reportModalLabel">Report Content</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="reportForm">
-              <p>Please select the reason for reporting this content:</p>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="reportReason" id="spam" value="Spam" required>
-                <label class="form-check-label" for="spam">Spam</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="reportReason" id="wrongInfo"
-                  value="Wrong Information">
-                <label class="form-check-label" for="wrongInfo">Wrong Information</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="reportReason" id="inappropriateContent"
-                  value="Inappropriate Content">
-                <label class="form-check-label" for="inappropriateContent">Inappropriate Content</label>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-danger" id="submitReport">Submit Report</button>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
 
+  <script src="./shared/assets/js/recipeOverview.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const reportButtons = document.querySelectorAll('.btn-report');
-
-      reportButtons.forEach(button => {
-        button.addEventListener('click', function () {
-          const recipeId = this.getAttribute('data-recipe-id');
-          const reportModal = new bootstrap.Modal(document.getElementById('reportModal'));
-          reportModal.show();
-          document.getElementById('submitReport').addEventListener('click', function () {
-            const reason = document.querySelector('input[name="reportReason"]:checked');
-            if (reason) {
-              alert(`Recipe #${recipeId} reported for: ${reason.value}`);
-              reportModal.hide();
-            } else {
-              alert('Please select a reason.');
-            }
-          });
-        });
-      });
-    });
-  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
