@@ -115,7 +115,7 @@ $resultTopRecipes = executeQuery($queryTopRecipes);
                     while ($topRecipesRow = mysqli_fetch_assoc($resultTopRecipes)) {
                         ?>
 
-                        <a href="recipeOverview.php?recipeID=<?php echo $userLikesRowIndividualRc['recipeID']; ?>">
+                        <a href="recipeOverview.php?recipeID=<?php echo $topRecipesRow['recipeID']; ?>">
                             <div class="recipe-card" style="height: 300px;">
                                 <div class="col" style="height: 100%; padding: 0;">
                                     <img src="shared/assets/image/content-image/<?= $topRecipesRow['imageURL'] ?>"
