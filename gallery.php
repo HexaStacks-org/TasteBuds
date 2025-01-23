@@ -26,7 +26,8 @@ $queryGallery = "
         users.lastName,
         primaryfoodcategories.primaryCategoryName,
         foodSubcategories.subcategoryName,
-        images.imageURL,
+        GROUP_CONCAT(images.imageURL ORDER BY images.imageID) AS imageURLs,  -- Concatenate image URLs ordered by imageID
+        GROUP_CONCAT(images.imageID ORDER BY images.imageID) AS imageIDs,  -- Concatenate image IDs ordered by imageID
         (SELECT COUNT(*) FROM likes WHERE postID = galleryposts.postID) AS likeCount,
         (SELECT COUNT(*) FROM bookmarks WHERE postID = galleryposts.postID) AS bookmarkCount
     FROM galleryposts
@@ -36,7 +37,7 @@ $queryGallery = "
     LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = galleryposts.subcategoryID
     WHERE galleryposts.isApproved = 'yes'
     GROUP BY galleryposts.postID
-    ORDER BY galleryposts.postID DESC
+    ORDER BY galleryposts.postID
     LIMIT $startIndex, $postsPerPage";
 
 $resultGallery = executeQuery($queryGallery);
@@ -56,12 +57,12 @@ while ($rowGalleryData = mysqli_fetch_assoc($resultGallery)) {
             'updatedAt' => $rowGalleryData['updatedAt'],
             'primaryCategoryName' => $rowGalleryData['primaryCategoryName'],
             'subcategoryName' => $rowGalleryData['subcategoryName'],
-            'images' => [],
+            'images' => explode(',', $rowGalleryData['imageURLs']),  // Convert the concatenated image URLs into an array
+            'imageIDs' => explode(',', $rowGalleryData['imageIDs']), // Convert the concatenated image IDs into an array
             'likeCount' => $rowGalleryData['likeCount'],
             'bookmarkCount' => $rowGalleryData['bookmarkCount'],
         ];
     }
-    $postsData[$postID]['images'][] = $rowGalleryData['imageURL'];
 }
 
 // Create GalleryPost objects
@@ -81,7 +82,6 @@ foreach ($postsData as $data) {
         $data['bookmarkCount']
     );
 }
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -92,7 +92,7 @@ foreach ($postsData as $data) {
     <title>Gallery</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <?php include("shared/components/fontEmbed.php"); ?>
+    <?php include ("shared/components/fontEmbed.php"); ?>
     <link rel="stylesheet" href="shared/assets/css/style.css" />
     <link rel="stylesheet" href="shared/assets/css/gallery.css" />
     <link rel="stylesheet" href="shared/assets/css/navbar.css" />
@@ -135,8 +135,6 @@ foreach ($postsData as $data) {
                 </button>
             </div>
         </div>
-
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
