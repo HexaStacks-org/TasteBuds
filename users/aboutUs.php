@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../shared/assets/css/style.css" />
     <link rel="stylesheet" href="../shared/assets/css/footer.css" />
     <link rel="icon" type="image" href="../shared/assets/image/TasteBuds_Icon.png">
+
     <style>
         .about-container {
             background-color: var(--fc-light-orange);
@@ -45,28 +46,33 @@
             padding: 2rem;
             text-align: center;
             transition: transform 0.3s;
-        }
-
-        .profile-card:hover {
-            transform: scale(1.05);
+            height: 100%;
         }
 
         .profile-card h5 {
             font-size: var(--fs-h4);
             color: var(--fc-primary-orange);
+            margin-top: 10px;
+            font-family: var(--ff-text);
         }
 
         .profile-card p {
+            font-family: var(--ff-text);
             font-size: var(--fs-paragraph);
             color: var(--fc-black);
+            font-weight: bold;
+        }
+
+        .img-fluid{
+            height: 200px;
+            object-fit: cover;
         }
     </style>
 </head>
 
-<body>
     <section class="about-container">
         <div class="container">
-            <h1 class="about-header rammetto-one" style="color: var(--fc-primary-orange);">About the Website</h1>
+            <h1 class="about-header rammetto-one" style="color: var(--fc-primary-orange);">About TasteBuds</h1>
             <div class="about-content">
                 <p>
                     TasteBuds is an interactive and user-friendly website designed to transform the way users make food
@@ -80,159 +86,96 @@
         </div>
     </section>
 
-<section class="profile-section" id = #team>
-    <div class="container">
-        <h1 class="text-center rammetto-one mb-5" style="color: var(--fc-primary-orange);">About Us</h1>
-        <div class="row justify-content-center">
-            <!-- Developer Card -->
-            <div class="col-md-4">
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <!-- Placeholder for the developer's image -->
-                        <img src="../shared/assets/image/mockup-pic.png" alt="Jomari Castillo" class="img-fluid">
+    <section class="profile-section" id=#team>
+        <div class="container">
+            <h1 class="text-center rammetto-one mb-5" style="color: var(--fc-primary-orange);">Meet the Team</h1>
+            <div class="row justify-content-center">
+                <!-- Developer Card -->
+                <div class="col-md-4">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <!-- Placeholder for the developer's image -->
+                            <img src="../shared/assets/image/team-image/castillo.jpg" alt="Jomari Castillo" class="img-fluid">
+                        </div>
+                        <h5>Jomari Castillo</h5>
+                        <p>Project Manager</p>
+                        <p>Frontend Developer</p>
+                        <p>UI/UX Designer</p>
                     </div>
-                    <h5>Jomari Castillo</h5>
-                    <p>☆ Project Manager</p>
-                    <p>☆ Frontend Developer</p>
-                    <p>☆ UI/UX Designer</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="profile-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <!-- Developer Card -->
-            <div class="col-md-4">
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <!-- Placeholder for the developer's image -->
-                        <img src="../shared/assets/image/mockup-pic.png" alt="Jomari Castillo" class="img-fluid">
+    <section class="profile-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- First Row -->
+                <div class="col-md-4 mb-4">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="../shared/assets/image/team-image/gamana.jpg" alt="Jomari Castillo" class="img-fluid">
+                        </div>
+                        <h5>Kaye Gamana</h5>
+                        <p>Proponent</p>
+                        <p>Fullstack Developer</p>
                     </div>
-                    <h5>Jomari Castillo</h5>
-                    <p>☆ Project Manager</p>
-                    <p>☆ Fullstack Developer</p>
-                    <p>☆ UI/UX Designer</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="../shared/assets/image/team-image/marajas.jpg" alt="Jomari Castillo" class="img-fluid">
+                        </div>
+                        <h5>Loreen Marajas</h5>
+                        <p>UI/UX Designer</p>
+                        <p>Fullstack Developer</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="../shared/assets/image/team-image/uriarte.jpg" alt="Jomari Castillo" class="img-fluid">
+                        </div>
+                        <h5>Anyl Feboe Uriarte</h5>
+                        <p>UI/UX Designer</p>
+                        <p>Fullstack Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <!-- Second Row -->
+                <div class="col-md-4 mb-4">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="../shared/assets/image/team-image/ortiz.jpg" alt="Jomari Castillo" class="img-fluid">
+                        </div>
+                        <h5>David Ortiz</h5>
+                        <p>Fullstack Developer</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="../shared/assets/image/team-image/vergara.jpg" alt="Jomari Castillo" class="img-fluid">
+                        </div>
+                        <h5>Neil Vergara</h5>
+                        <p>Backend Developer</p>
+                        <p>Database Administrator</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="../shared/assets/image/team-image/angeles.jpg" alt="Jomari Castillo" class="img-fluid">
+                        </div>
+                        <h5>Vincent Angeles</h5>
+                        <p>Fullstack Developer</p>
+                        <p>Database Administrator</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-<section class="profile-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <!-- Developer Card -->
-            <div class="col-md-4">
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <!-- Placeholder for the developer's image -->
-                        <img src="../shared/assets/image/mockup-pic.png" alt="Jomari Castillo" class="img-fluid">
-                    </div>
-                    <h5>☆ Kaye Gamana</h5>
-                    <p>☆ Proponent</p>
-                    <p>☆ Fullstack Developer</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="profile-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <!-- Developer Card -->
-            <div class="col-md-4">
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <!-- Placeholder for the developer's image -->
-                        <img src="../shared/assets/image/mockup-pic.png" alt="Jomari Castillo" class="img-fluid">
-                    </div>
-                    <h5>☆ Loreen Marajas</h5>
-                    <p>☆ UI/UX Designer</p>
-                    <p>☆ Fullstack Developer</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="profile-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <!-- Developer Card -->
-            <div class="col-md-4">
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <!-- Placeholder for the developer's image -->
-                        <img src="../shared/assets/image/mockup-pic.png" alt="Jomari Castillo" class="img-fluid">
-                    </div>
-                    <h5>☆ Anyl Feboe Uriarte</h5>
-                    <p>☆ UI/UX Designer</p>
-                    <p>☆ Fullstack Developer</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="profile-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <!-- Developer Card -->
-            <div class="col-md-4">
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <!-- Placeholder for the developer's image -->
-                        <img src="../shared/assets/image/mockup-pic.png" alt="Jomari Castillo" class="img-fluid">
-                    </div>
-                    <h5>☆ David Ortiz</h5>
-                    <p>☆ Fullstack Developer</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="profile-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <!-- Developer Card -->
-            <div class="col-md-4">
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <!-- Placeholder for the developer's image -->
-                        <img src="../shared/assets/image/mockup-pic.png" alt="Jomari Castillo" class="img-fluid">
-                    </div>
-                    <h5>☆ Neil Vergara</h5>
-                    <p>☆ Backend Developer</p>
-                    <p>☆ Database Administrator</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="profile-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <!-- Developer Card -->
-            <div class="col-md-4">
-                <div class="profile-card">
-                    <div class="profile-image">
-                        <!-- Placeholder for the developer's image -->
-                        <img src="../shared/assets/image/mockup-pic.png" alt="Jomari Castillo" class="img-fluid">
-                    </div>
-                    <h5>☆ Vincent Angeles</h5>
-                    <p>☆ Fullstack Developer</p>
-                    <p>☆ Database Administrator</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <?php include '../shared/components/footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
