@@ -38,51 +38,62 @@ function handlePost($pdo, $input)
 {
   $sql = "INSERT INTO recipes (recipeID, recipeTitle, description, ingredients, steps, primaryCategoryID, subcategoryID, userID) VALUES (:recipeID, :recipeTitle, :description, :ingredients, :steps, :primaryCategoryID, :subcategoryID, :userID)";
   $stmt = $pdo->prepare($sql);
-  foreach ($input as $user) {
+  foreach ($input as $recipes) {
     $stmt->execute([
-      'recipeID' => $user['recipeID'],
-      'recipeTitle' => $user['recipeTitle'],
-      'description' => $user['description'],
-      'ingredients' => $user['ingredients'],
-      'steps' => $user['steps'],
-      'primaryCategoryID' => $user['primaryCategoryID'],
-      'subcategoryID' => $user['subcategoryID'],
-      'userID' => $user['userID'],
+      'recipeID' => $recipes['recipeID'],
+      'recipeTitle' => $recipes['recipeTitle'],
+      'description' => $recipes['description'],
+      'ingredients' => $recipes['ingredients'],
+      'steps' => $recipes['steps'],
+      'primaryCategoryID' => $recipes['primaryCategoryID'],
+      'subcategoryID' => $recipes['subcategoryID'],
+      'userID' => $recipes['userID'],
     ]);
   }
 
   echo json_encode(['message' => 'User created successfully']);
 }
 
+
+
+
 function handlePut($pdo, $input)
 {
   $sql = "UPDATE recipes SET
-  recipeTitle = :recipeTitle,
-  description = :description,
-  ingredients = :ingredients,
-  steps = :steps,
-  primaryCategoryID = :primaryCategoryID,
-  subcategoryID = :subcategoryID
-  WHERE recipeID = :recipeID";
+          recipeTitle = :recipeTitle,
+          description = :description,
+          ingredients = :ingredients,
+          steps = :steps,
+          primaryCategoryID = :primaryCategoryID,
+          subcategoryID = :subcategoryID
+          WHERE recipeID = :recipeID";
 
   $stmt = $pdo->prepare($sql);
+
+  foreach ($input as $recipe) {
     $stmt->execute([
-      'recipeID' => $input['recipeID'],
-      'recipeTitle' => $input['recipeTitle'],
-      'description' => $input['description'],
-      'ingredients' => $input['ingredients'],
-      'steps' => $input['steps'],
-      'primaryCategoryID' => $input['primaryCategoryID'],
-      'subcategoryID' => $input['subcategoryID'],
+      'recipeID' => $recipe['recipeID'],
+      'recipeTitle' => $recipe['recipeTitle'],
+      'description' => $recipe['description'],
+      'ingredients' => $recipe['ingredients'],
+      'steps' => $recipe['steps'],
+      'primaryCategoryID' => $recipe['primaryCategoryID'],
+      'subcategoryID' => $recipe['subcategoryID'],
     ]);
-  echo json_encode(['message' => 'User updated successfully']);
+  }
+
+  echo json_encode(['message' => 'Recipes updated successfully']);
 }
 
 function handleDelete($pdo, $input)
 {
   $sql = "DELETE FROM recipes WHERE recipeID = :recipeID";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute(['recipeID' => $input['recipeID']]);
-  echo json_encode(['message' => 'User deleted successfully']);
+
+  foreach ($input as $recipeID) {
+    $stmt->execute(['recipeID' => $recipeID]);
+  }
+
+  echo json_encode(['message' => 'Recipes deleted successfully']);
 }
 ?>
