@@ -5,9 +5,9 @@ include("classes.php");
 // Initialize gallery posts array
 $galleryPosts = [];
 
-// Check if an 'id' is passed via URL
-if (isset($_GET['id'])) {
-    $postID = $_GET['id'];
+// Check if an 'postID' is passed via URL
+if (isset($_GET['postID'])) {
+    $postID = $_GET['postID'];
     // Query to fetch specific gallery post based on the passed postID
     $queryGallery = "
         SELECT 

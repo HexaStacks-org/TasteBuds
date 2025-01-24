@@ -172,9 +172,11 @@ if (isset($_POST['btnDeleteRecipe'])) {
                                     <div class="item">
                                         <div class="col-10">
                                             <!-- Change the href "postOverview" to Gallery Post View with postID -->
-                                            <a href="galleryOverview.php?id=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
-                                                style="text-decoration: none; color: inherit;">
-                                            <!-- <a href="postOverview.php?postID=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
+                                            <a href="galleryOverview.php?postID=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
+                                                style="text-decoration: none; color: inherit;"></a>
+                                            <!-- <a href="galleryOverview.php?id=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
+                                                style="text-decoration: none; color: inherit;"> -->
+                                                <!-- <a href="postOverview.php?postID=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
                                                 style="text-decoration: none; color: inherit;"> -->
                                                 <span
                                                     style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
@@ -184,7 +186,9 @@ if (isset($_POST['btnDeleteRecipe'])) {
                                         </div>
 
                                         <div class="col-1 d-flex align-items-center justify-content-center">
-                                            <a href="edit_gallery.html?id=3" class="btn btn-link p-0 me-2" title="Edit">
+                                            <a href="editContentGallery.php?postID=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
+                                                class="btn btn-link p-0 me-2" title="Edit">
+                                                <!-- <a href="edit_gallery.html?id=3" class="btn btn-link p-0 me-2" title="Edit"> -->
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                                                     <path
