@@ -9,9 +9,17 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="shared/assets/css/style.css" />
     <link rel="stylesheet" href="shared/assets/css/footer.css" />
+    <?php include("shared/components/fontEmbed.php"); ?>
 </head>
 
+<style>
+    p {
+        font-family: var(--ff-text);
+    }
+</style>
+
 <body>
+    <?php include("shared/components/notLoggedInNavbar.php"); ?>
     <section class="terms-container py-5">
         <div class="container">
             <h1 class="text-center mb-4 rammetto-one" style="color: var(--fc-primary-orange);">Terms and Conditions</h1>
