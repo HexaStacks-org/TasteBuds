@@ -74,7 +74,7 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
               </form>
 
               <!-- Bookmark Button -->
-              <form action="recipeButtonsHandler.php" method="POST" style="display: inline;">
+              <form action="recipeButtonHandler.php" method="POST" style="display: inline;">
                 <input type="hidden" name="recipeID" value="<?php echo $recipeOverview['recipeID']; ?>">
                 <input type="hidden" name="action" value="bookmark">
                 <button type="submit" class="btn-bookmark">
