@@ -41,6 +41,8 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
 </head>
 
 <body>
+  <?php include("shared/components/notLoggedInNavbar.php") ?>
+
   <div class="container-recipe">
     <?php
     if (mysqli_num_rows($resultOverviewRecipe) > 0) {
@@ -64,7 +66,8 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
                   style="color: var(--clr-light-orange)"></i></button>
               <button class="btn-bookmark"><i class="bi bi-bookmark-fill"
                   style="color: var(--clr-light-orange)"></i></button>
-                  <button class="btn-report"  data-bs-toggle="modal" data-bs-target="#reportModal" data-recipe-id="<?php echo htmlspecialchars($recipeOverview['recipeID']); ?>">
+              <button class="btn-report" data-bs-toggle="modal" data-bs-target="#reportModal"
+                data-recipe-id="<?php echo htmlspecialchars($recipeOverview['recipeID']); ?>">
                 <i class="bi bi-flag-fill" style="color: var(--clr-light-orange)"></i>
               </button>
             </div>
@@ -104,20 +107,15 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
 
     <body style="margin: 0; background-color:rgb(254, 212, 145);"> <!-- Light Orange Background -->
 
-      <div class="container-fluid" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+      <div class="container-fluid" style="height: 80vh; display: flex; justify-content: center; align-items: center;">
         <img src="shared/assets/image/no-results-found.png" class="img-fluid"
-          style="max-width: 100%; max-height: 100vh; object-fit: contain;">
+          style="max-width: 80%; max-height: 80%; object-fit: contain;">
       </div>
-
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
     </body>
-
     <?php
     }
     ?>
-  
+
   </div>
   <?php include("shared/components/reportModal.php"); ?>
 
