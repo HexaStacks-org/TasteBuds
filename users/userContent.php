@@ -1,30 +1,42 @@
 <?php
-include("../shared/processes/session.php");
+include("../connect.php");
+session_start();
 
-// INDIVIDUAL LIST OF UPLOADED CONTENT PER USER
-// Change the users.userID = 7 value using SESSION
+if (isset($_SESSION['userID'])) {
+    $userID = $_SESSION['userID'];
 
-$queryUserUpContentRcIndividual = "
-SELECT recipes.*, users.userID AS userCreatorID, users.firstName, users.lastName
-FROM recipes
-LEFT JOIN users ON users.userID = recipes.userID
-WHERE users.userID = 9;
-";
+    // SQL query to get user information (first name, last name)
+    $queryUserIndividual = "
+    SELECT DISTINCT users.userID, users.firstName, users.lastName
+    FROM recipes
+    LEFT JOIN users ON users.userID = recipes.userID
+    WHERE recipes.userID = $userID;
+    ";
 
-$resultUserUpContentRcIndividual = executeQuery($queryUserUpContentRcIndividual);
+    $resultUserIndividual = executeQuery($queryUserIndividual);
 
-// Query for User UPLOADED CONTENT Records (GALLERY POSTS)
-// Change the users.userID = 7 value using SESSION
+    // SQL query to get recipes for the logged-in user
+    $queryUserUpContentRcIndividual = "
+    SELECT recipes.*, users.userID AS userCreatorID, users.firstName, users.lastName
+    FROM recipes
+    LEFT JOIN users ON users.userID = recipes.userID
+    WHERE recipes.userID = $userID;
+    ";
 
-$queryUserUpContentGpIndividual = "
-SELECT galleryposts.*, users.userID AS userCreatorID, users.firstName, users.lastName
-FROM galleryposts
-LEFT JOIN users ON users.userID = galleryposts.userID
-WHERE users.userID = 9
-";
+    $resultUserUpContentRcIndividual = executeQuery($queryUserUpContentRcIndividual);
 
-$resultUserUpContentGpIndividual = executeQuery($queryUserUpContentGpIndividual);
+    // SQL query for User UPLOADED CONTENT Records (Gallery Posts)
+    $queryUserUpContentGpIndividual = "
+    SELECT galleryposts.*, users.userID AS userCreatorID, users.firstName, users.lastName
+    FROM galleryposts
+    LEFT JOIN users ON users.userID = galleryposts.userID
+    WHERE galleryposts.userID = $userID;
+    ";
 
+    $resultUserUpContentGpIndividual = executeQuery($queryUserUpContentGpIndividual);
+}
+
+// Delete gallery post
 if (isset($_POST['btnDeleteGallery'])) {
     $galleryID = $_POST['galleryID'];
 
@@ -39,6 +51,7 @@ if (isset($_POST['btnDeleteGallery'])) {
     }
 }
 
+// Delete recipe
 if (isset($_POST['btnDeleteRecipe'])) {
     $recipeID = $_POST['recipeID'];
 
@@ -78,7 +91,14 @@ if (isset($_POST['btnDeleteRecipe'])) {
     <div class="profile-page">
         <header class="profile-header">
             <img src="../shared/assets/image/Logo.png" alt="TasteBuds Logo">
-            <h1>User Profile</h1>
+            <?php
+            if (mysqli_num_rows($resultUserIndividual) > 0) {
+                while ($rowUserIndividual = mysqli_fetch_assoc($resultUserIndividual)) {
+                    // Display the user's full name
+                    echo '<h1>' . $rowUserIndividual['firstName'] . ' ' . $rowUserIndividual['lastName'] . '</h1>';
+                }
+            }
+            ?>
         </header>
         <main>
             <!-- Uploaded Content Section -->
@@ -99,7 +119,7 @@ if (isset($_POST['btnDeleteRecipe'])) {
                                         <div class="col-10">
                                             <a href="recipeOverview.php?recipeID=<?php echo $rowUserUpContentRcIndividual['recipeID']; ?>"
                                                 style="text-decoration: none; color: inherit;">
-                                                <span
+                                                <span s
                                                     style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
                                                     <?php echo "<i>" . $rowUserUpContentRcIndividual['createdAt'] . "</i> | " . $rowUserUpContentRcIndividual['recipeTitle']; ?>
                                                 </span>
@@ -107,7 +127,7 @@ if (isset($_POST['btnDeleteRecipe'])) {
                                         </div>
 
                                         <div class="col-1 d-flex align-items-center justify-content-center">
-                                            <a href="edit_recipe.php?recipeID=<?php echo $rowUserUpContentRcIndividual['recipeID']; ?>"
+                                            <a href="editContentRecipe.php?recipeID=<?php echo $rowUserUpContentRcIndividual['recipeID']; ?>"
                                                 class="btn btn-link p-0 me-2" title="Edit">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
