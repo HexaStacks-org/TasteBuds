@@ -133,7 +133,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="profile-card">
                         <div class="profile-image">
-                            <img src="shared/assets/image/team-image/castillo.jpg" alt="Jomari Castillo" class="img-fluid">
+                            <img src="shared/assets/image/team-image/uriarte.jpg" alt="Jomari Castillo" class="img-fluid">
                         </div>
                         <h5>Anyl Feboe Uriarte</h5>
                         <p>UI/UX Designer</p>

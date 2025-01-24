@@ -1,5 +1,5 @@
 <?php
-include("admin/shared/components/connect.php");
+include("shared/components/connect.php");
 
 // LIKE & BOOKMARK OF GALLERY
 $galleryQuery = "SELECT galleryposts.*, users.*, images.*, primaryfoodcategories.*, foodSubcategories.*, 
@@ -37,10 +37,6 @@ if ($sort != '') {
     if ($order != '') {
         $galleryQuery = $galleryQuery . " $order";
     }
-}
-
-if (isset($_GET['btnReset'])) {
-    header('Location: shared/process/insightsAnalyticsTable.php');
 }
 
 $galleryResult = executeQuery($galleryQuery);
@@ -88,10 +84,6 @@ if ($sort != '') {
     if ($order != '') {
         $recipeQuery = $recipeQuery . " $order";
     }
-}
-
-if (isset($_GET['btnReset'])) {
-    header('Location: shared/process/insightsAnalyticsTable.php');
 }
 
 $recipeResult = executeQuery($recipeQuery);

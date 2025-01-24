@@ -1,3 +1,7 @@
+<?php
+include("shared/process/insightsAnalyticsProcess.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

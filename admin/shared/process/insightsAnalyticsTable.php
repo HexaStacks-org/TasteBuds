@@ -90,7 +90,6 @@
                         </div>
                         <div class="text-center">
                             <button class="btn btn-primary">Submit</button>
-                            <button class="btn btn-danger" name="btnReset">Reset</button>
                         </div>
                     </div>
                 </form>

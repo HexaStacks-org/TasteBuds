@@ -1,10 +1,11 @@
 <?php
-  session_start();
-  
-  $role = $_SESSION['role'];
-  
-  if (isset($_SESSION['role']) || $_SESSION[$role == 'user']) {
-      header("Location: ../landing.php");
-      exit();
-  }
+session_start();
+
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header("Location: ../users/index.php");
+}
+
+if (isset($_GET['role'])) {
+    $requestedUserRole = $_GET['role'];
+}
 ?>

@@ -82,33 +82,35 @@ class GalleryPost
         ";
 
         $cardContent = "
-            <div class='col-12 d-flex align-items-center justify-content-center mt-5 mb-5'>
-                <div class='card shadow'>
-                    <div class='d-flex justify-content-between align-items-center' style='padding-right: 16px'>
-                        <div class='name fw-bold'>{$this->firstName} {$this->lastName}</div>
+    <div class='col-12 d-flex align-items-center justify-content-center mt-5 mb-5'>
+        <div class='card shadow'>
+            <div class='d-flex justify-content-between align-items-center' style='padding-right: 16px'>
+                <div class='name fw-bold'>{$this->firstName} {$this->lastName}</div>
+            </div>
+            <div class='datetime d-flex justify-content-between align-items-center mb-3'>{$this->createdAt}</div>
+            <div class='img-fluid img-post'>
+                {$imageContent}
+            </div>
+            <div class='container mx-3 tags d-flex'>
+                {$tagsContent}
+            </div>
+            <div class='caption mx-5 my-2'>
+                <p>{$this->caption}</p>
+            </div>
+            <div class='container mt-3 mb-5'>
+                <div class='row btn-holder d-flex flex-row justify-content-between'>
+                    <div class='col'>
+                        " . buildLikeButton($this->postID) . "
+                        " . buildBookmarkButton($this->postID) . "
                     </div>
-                    <div class='datetime d-flex justify-content-between align-items-center mb-3'>{$this->createdAt}</div>
-                    <div class='img-fluid img-post'>
-                        {$imageContent}
-                    </div>
-                    <div class='container mx-3 tags d-flex'>
-                        {$tagsContent}
-                    </div>
-                    <div class='caption mx-5 my-2'>
-                        <p>{$this->caption}</p>
-                    </div>
-                    <div class='d-flex justify-content-between w-100'>
-                        <div class='btn-lbsr d-flex mt-3 mb-5'>
-                            " . buildLikeButton($this->postID) . "
-                            " . buildBookmarkButton($this->postID) . "
-                        </div>
-                        <button class='btn btn-report report-btn d-flex mt-3 mx-5' data-bs-toggle='modal' data-bs-target='#reportModal'>
-                            <i class='bi bi-flag' style='color: var(--clr-light-orange)'></i>
-                        </button>
+                    <div class='col text-end' style='margin-right: 30px;'> 
+                        " . buildReportButton($this->postID) . "
                     </div>
                 </div>
             </div>
-        ";
+        </div>
+    </div>
+";
 
         echo $cardContent;
     }

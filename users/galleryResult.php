@@ -31,39 +31,29 @@ include("../shared/processes/galleryResultQuery.php")
                 while ($postsRow = mysqli_fetch_assoc($resultPosts)) {
                     ?>
                     <div class="col-md-6 mt-5 mb-4">
-                        <div class="card mx-5">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="../shared/assets/image/content-image/<?php echo $postsRow['imageURL']; ?>"
-                                        class="img-fluid recipe-img" />
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body ps-5">
-                                        <p class="card-primary-category">
-                                            <?php echo $postsRow['primaryCategoryName']; ?>
-                                        </p>
-                                        <p class="card-sub-category">
-                                            <?php echo $postsRow['subcategoryName']; ?>
-                                        </p>
-                                        <p class="card-text" style="font-weight: 700">
-                                            <?php echo substr($postsRow['caption'], 0, 150) . '...'; ?>
-                                        </p>
+                        <a href="galleryOverview.php?postID=<?php echo $postsRow['postID']; ?>"
+                            style="text-decoration: none; color: inherit;">
+                            <div class="card mx-5">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="../shared/assets/image/content-image/<?php echo $postsRow['imageURL'] ?>"
+                                            class="img-fluid recipe-img" />
                                     </div>
-                                    <div class="d-flex mt-5 mb-2 ps-5 w-100">
-                                        <div>
-                                            <button class="btn btn-like"><i class="bi bi-hand-thumbs-up-fill"
-                                                    style="color: var(--clr-light-orange)"></i></button>
-                                            <button class="btn btn-bookmark mx-1"><i class="bi bi-bookmark-fill"
-                                                    style="color: var(--clr-light-orange)"></i></button>
-                                        </div>
-                                        <div class="report-btn d-flex justify-content-end ms-5">
-                                            <button class="btn btn-report"><i class="bi bi-flag-fill"
-                                                    style="color: var(--clr-light-orange)"></i></button>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <p class="card-primary-category">
+                                                <?php echo $postsRow['primaryCategoryName']; ?>
+                                            </p>
+                                            <p class="card-sub-category">
+                                                <?php echo $postsRow['subcategoryName']; ?>
+                                            </p>
+                                            <h5 class="card-title pt-1"><?php echo $postsRow['caption']; ?></h5>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <?php
                 }

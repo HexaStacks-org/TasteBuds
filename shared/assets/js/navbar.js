@@ -28,12 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var primaryCategories = document.getElementsByName("flexRadioPrimary");
     var secondaryCategories = document.getElementsByName("flexRadioSecondary");
 
-    var orderByAlphaAsc = document.getElementById("orderByAlphaAsc");
-    var orderByAlphaDesc = document.getElementById("orderByAlphaDesc");
-    var orderByLikes = document.getElementById("orderByLikes");
-    var orderByBookmarks = document.getElementById("orderByBookmarks");
-    var orderByCreation = document.getElementById("orderByCreation");
-    var orderByUpdate = document.getElementById("orderByUpdate");
+    var orderByOptions = document.getElementsByName("orderByOption");
 
     function updateButtonState() {
         searchButton.style.pointerEvents = "auto";
@@ -54,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
         updateButtonState();
     });
 
-    [orderByAlphaAsc, orderByAlphaDesc, orderByLikes, orderByBookmarks, orderByCreation, orderByUpdate].forEach(function (checkbox) {
-        checkbox.addEventListener("change", updateButtonState);
+    orderByOptions.forEach(function (radio) {
+        radio.addEventListener("change", updateButtonState);
     });
 
     searchButton.addEventListener("click", function (e) {
@@ -74,20 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
         var selectedMode = recipeRadio?.checked ? "Recipe" : (galleryRadio?.checked ? "Gallery" : "");
 
         var selectedOrderBy = "";
-        if (orderByAlphaAsc?.checked) {
-            selectedOrderBy = "A-Z";
-        } else if (orderByAlphaDesc?.checked) {
-            selectedOrderBy = "Z-A";
-        } else if (orderByLikes?.checked) {
-            selectedOrderBy = "Number of Likes";
-        } else if (orderByBookmarks?.checked) {
-            selectedOrderBy = "Number of Bookmarks";
-        } else if (orderByCreation?.checked) {
-            selectedOrderBy = "Creation";
-        } else if (orderByUpdate?.checked) {
-            selectedOrderBy = "Update";
-        } else {
-            selectedOrderBy = "";
+        var selectedOrderByRadio = Array.from(orderByOptions).find(radio => radio.checked);
+        if (selectedOrderByRadio) {
+            selectedOrderBy = selectedOrderByRadio.value;
         }
 
         var query = new URLSearchParams({

@@ -101,7 +101,7 @@
             </button>
 
             <div class="btn-group btn-rec-gal" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
                 <label class="btn btn-recipe" for="btnradio1">
                     <p>Recipe</p>
                 </label>
@@ -176,28 +176,34 @@
                         <li class="divider"></li>
                         <p>Order By</p>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="orderByOption" id="orderByAlphaAsc">
+                            <input class="form-check-input" type="radio" name="orderByOption" id="orderByAlphaAsc"
+                                value="alphaAsc">
                             <label class="form-check-label" for="orderByAlphaAsc">A-Z</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="orderByOption" id="orderByAlphaDesc">
+                            <input class="form-check-input" type="radio" name="orderByOption" id="orderByAlphaDesc"
+                                value="alphaDesc">
                             <label class="form-check-label" for="orderByAlphaDesc">Z-A</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="orderByOption" id="orderByLikes">
-                            <label class="form-check-label" for="orderByLikes">Number of Likes</label>
+                            <input class="form-check-input" type="radio" name="orderByOption" id="orderByLikes"
+                                value="likes">
+                            <label class="form-check-label" for="orderByLikes">Most Liked</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="orderByOption" id="orderByBookmarks">
-                            <label class="form-check-label" for="orderByBookmarks">Number of Bookmarks</label>
+                            <input class="form-check-input" type="radio" name="orderByOption" id="orderByBookmarks"
+                                value="bookmarks">
+                            <label class="form-check-label" for="orderByBookmarks">Most Bookmarked</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="orderOption" id="orderByCreation">
-                            <label class="form-check-label" for="orderByCreation">Creation</label>
+                            <input class="form-check-input" type="radio" name="orderByOption" id="orderByCreation"
+                                value="creation">
+                            <label class="form-check-label" for="orderByCreation">Latest Content</label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" name="orderOption" id="orderByUpdate">
-                            <label class="form-check-label" for="orderByUpdate">Update</label>
+                            <input class="form-check-input" type="radio" name="orderByOption" id="orderByUpdate"
+                                value="update">
+                            <label class="form-check-label" for="orderByUpdate">Latest Updated Content</label>
                         </div>
                     </div>
                 </ul>
