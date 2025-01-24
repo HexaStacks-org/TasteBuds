@@ -10,7 +10,7 @@
     background-color: #FFF8EE;
     font-family: var(--ff-text);
     border-radius: 16px;
-    height: 230px;
+    height: auto;
     margin-bottom: 1rem;
 }
 
