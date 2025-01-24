@@ -1,12 +1,20 @@
 <?php
-include("../connect.php");
+
 session_start();
 
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../login.php");
+$userID = $_SESSION['userID'];
+
+if ($userID == "") {
+  header("Location: ../users/index.php");
 }
 
-if (isset($_GET['role'])) {
-    $requestedUserRole = $_GET['role'];
+if (isset($_SESSION['role'])) {
+  $role = $_SESSION['role'];
+
+
+  if ($role == 'user') {
+    header("Location: ../users/index.php");
+    exit();
+  }
 }
 ?>

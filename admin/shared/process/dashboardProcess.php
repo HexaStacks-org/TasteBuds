@@ -1,6 +1,7 @@
 <?php
 include("shared/components/connect.php");
 
+
 $userCountPerDay = "
     SELECT DAYNAME(registeredAt) AS dayName, COUNT(userID) AS userPerDay
     FROM users
