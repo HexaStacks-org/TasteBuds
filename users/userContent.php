@@ -1,5 +1,5 @@
 <?php
-include("../connect.php");
+include("../shared/processes/session.php");
 session_start();
 
 if (isset($_SESSION['userID'])) {

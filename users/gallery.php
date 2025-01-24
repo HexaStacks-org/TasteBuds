@@ -1,5 +1,5 @@
 <?php
-include("../connect.php");
+include("../shared/processes/session.php");
 include("classes.php");
 
 // Initialize gallery posts array

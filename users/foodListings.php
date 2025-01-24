@@ -1,5 +1,5 @@
 <?php
-include("../connect.php");
+include("../shared/processes/session.php");
 
 $primaryCategoryFilter = isset($_GET['primaryCategoryName']) ? $_GET['primaryCategoryName'] : '';
 $subcategoryFilter = isset($_GET['subcategoryName']) ? $_GET['subcategoryName'] : '';
