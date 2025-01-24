@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+include("shared/components/connect.php");
 
 // Fetch non-restricted and restricted users
 $getFullNameQuery = "SELECT * FROM users WHERE isRestricted = 'no'";

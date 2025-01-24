@@ -25,13 +25,13 @@ if (isset($_GET['orderBy'])) {
 
 $query = "
         SELECT galleryposts.postID, 
-            galleryposts.*, 
-            users.*, 
-            images.*, 
-            primaryfoodcategories.*, 
-            foodSubcategories.*, 
-            COUNT(likes.likeID) AS likesCount,
-            COUNT(bookmarks.bookmarkID) AS bookmarksCount
+               galleryposts.*, 
+               users.*, 
+               images.*, 
+               primaryfoodcategories.*,
+               foodSubcategories.*, 
+               (SELECT COUNT(likeID) FROM likes WHERE likes.postID = galleryposts.postID) AS likesCount,
+               (SELECT COUNT(bookmarkID) FROM bookmarks WHERE bookmarks.postID = galleryposts.postID) AS bookmarksCount
      FROM galleryposts
      LEFT JOIN users ON users.userID = galleryposts.userID
      LEFT JOIN images ON images.postID = galleryposts.postID

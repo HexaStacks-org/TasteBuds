@@ -63,7 +63,7 @@ if (isset($_SESSION['userID'])) {
 
     <div class="profile-page">
         <header class="profile-header">
-            <img src="../shared/assets/image/Logo.png" alt="TasteBuds Logo">
+            <img src="../shared/assets/image/userLogo.png" alt="TasteBuds Logo">
             <h1>
                 <?php
                 if ($user) {

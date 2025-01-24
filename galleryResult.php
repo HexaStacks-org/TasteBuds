@@ -31,26 +31,29 @@ include("shared/processes/loggedOut/galleryResultQuery.php")
                 while ($postsRow = mysqli_fetch_assoc($resultPosts)) {
                     ?>
                     <div class="col-md-6 mt-5 mb-4">
-                        <div class="card mx-5">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="shared/assets/image/content-image/<?php echo $postsRow['imageURL'] ?>"
-                                        class="img-fluid recipe-img"/>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <p class="card-primary-category">
-                                            <?php echo $postsRow['primaryCategoryName']; ?>
-                                        </p>
-                                        <p class="card-sub-category">
-                                            <?php echo $postsRow['subcategoryName']; ?>
-                                        </p>
-                                        <h5 class="card-title pt-1"><?php echo $postsRow['caption']; ?></h5>
-                                        
+                        <a href="galleryOverview.php?postID=<?php echo $postsRow['postID']; ?>"
+                            style="text-decoration: none; color: inherit;">
+                            <div class="card mx-5">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="shared/assets/image/content-image/<?php echo $postsRow['imageURL'] ?>"
+                                            class="img-fluid recipe-img" />
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <p class="card-primary-category">
+                                                <?php echo $postsRow['primaryCategoryName']; ?>
+                                            </p>
+                                            <p class="card-sub-category">
+                                                <?php echo $postsRow['subcategoryName']; ?>
+                                            </p>
+                                            <h5 class="card-title pt-1"><?php echo $postsRow['caption']; ?></h5>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <?php
                 }
