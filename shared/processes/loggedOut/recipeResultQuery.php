@@ -24,19 +24,22 @@ if (isset($_GET['orderBy'])) {
 }
 
 $query = "
-        SELECT recipes.*, 
+    SELECT recipes.recipeID, 
+    recipes.*,
             users.*, 
             images.*, 
             primaryfoodcategories.*, 
             foodSubcategories.*, 
-            (SELECT COUNT(likeID) FROM likes WHERE likes.recipeID = recipes.recipeID) AS likesCount,
-            (SELECT COUNT(bookmarkID) FROM bookmarks WHERE bookmarks.recipeID = recipes.recipeID) AS bookmarksCount
-        FROM recipes
-        LEFT JOIN users ON users.userID = recipes.userID
-        LEFT JOIN images ON images.recipeID = recipes.recipeID
-        LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = recipes.primaryCategoryID
-        LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = recipes.subcategoryID
-        WHERE 1=1";
+            COUNT(likes.likeID) AS likesCount,
+            COUNT(bookmarks.bookmarkID) AS bookmarksCount
+     FROM recipes
+     LEFT JOIN users ON users.userID = recipes.userID
+     LEFT JOIN images ON images.postID = recipes.postID
+     LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = recipes.primaryCategoryID
+     LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = recipes.subcategoryID
+     LEFT JOIN likes ON likes.recipeID = recipes.recipeID
+     LEFT JOIN bookmarks ON bookmarks.recipeID = recipes.recipeID
+     GROUP BY recipes.recipeID";
 
 if ($searchText != '') {
     $query .= " AND (recipeTitle LIKE '$searchText%')";
