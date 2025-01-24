@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+include("shared/components/connect.php");
 
 // LIKE & BOOKMARK OF GALLERY
 $galleryQuery = "SELECT galleryposts.*, users.*, images.*, primaryfoodcategories.*, foodSubcategories.*, 

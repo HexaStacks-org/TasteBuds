@@ -1,10 +1,20 @@
 <?php
-  session_start();
-  
+
+session_start();
+
+$userID = $_SESSION['userID'];
+
+if ($userID == "") {
+  header("Location: ../users/index.php");
+}
+
+if (isset($_SESSION['role'])) {
   $role = $_SESSION['role'];
-  
-  if (isset($_SESSION['role']) || $_SESSION[$role == 'user']) {
-      header("Location: ../landing.php");
-      exit();
+
+
+  if ($role == 'user') {
+    header("Location: ../users/index.php");
+    exit();
   }
+}
 ?>
