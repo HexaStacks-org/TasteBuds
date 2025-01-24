@@ -11,13 +11,13 @@ $primaryCategoryColors = [
 ];
 
 $subcategoryColors = [
-    1 => '#E96B6B',  // Coral Red
-    2 => '#F4A261',  // Warm Orange
-    3 => '#8D6A9F',  // Muted Purple
-    4 => '#3FA7D6',  // Sky Blue
-    5 => '#66C18C',  // Green
-    6 => '#FFC857',  // Bright Yellow
-    7 => '#BCC3C7',  // Neutral Gray
+    1 => '#66C18C',  // Vegan
+    2 => '#F4A261',  // Pork
+    3 => '#FFC857',  // Chicken
+    4 => '#E96B6B',  // Beef
+    5 => '#8D6A9F',  // Seafood
+    6 => '#BCC3C7',  // Others
+    7 => '#9E9E9E',  // None
 ];
 
 

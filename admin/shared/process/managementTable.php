@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+include("shared/components/connect.php");
 
 $moderationGallery = " SELECT *
 FROM galleryposts
