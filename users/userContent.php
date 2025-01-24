@@ -177,10 +177,10 @@ if (isset($_POST['btnDeleteRecipe'])) {
                                             <!-- Change the href "postOverview" to Gallery Post View with postID -->
                                             <a href="galleryOverview.php?postID=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
                                                 style="text-decoration: none; color: inherit;"></a>
-                                            <!-- <a href="galleryOverview.php?id=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
-                                                style="text-decoration: none; color: inherit;"> -->
-                                            <!-- <a href="postOverview.php?postID=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
-                                                style="text-decoration: none; color: inherit;"> -->
+                                            <a href="galleryOverview.php?id=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
+                                                style="text-decoration: none; color: inherit;">
+                                            <a href="galleryOverview.php?postID=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
+                                                style="text-decoration: none; color: inherit;">
                                             <span
                                                 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
                                                 <?php echo "<i>" . $rowUserUpContentGpIndividual['createdAt'] . "</i> | " . $rowUserUpContentGpIndividual['caption']; ?>
