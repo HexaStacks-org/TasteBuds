@@ -1,5 +1,5 @@
 <?php
-include("../connect.php");
+include("../shared/processes/session.php");
 
 // INDIVIDUAL LIST OF UPLOADED CONTENT PER USER
 // Change the users.userID = 7 value using SESSION

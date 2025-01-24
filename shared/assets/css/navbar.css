@@ -82,8 +82,27 @@
 }
 
 .btn-search:hover {
-    font-family: var(--ff-title);
+    font-family: var(--ff-text);
     font-size: var(--fs-paragraph);
+    color: var(--fc-dark-orange);
+    background-color: var(--clr-mid-orange);
+}
+
+.btn-login {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    background-color: var(--clr-primary) !important;
+    color: var(--fc-light-orange);
+    text-align: center;
+    text-decoration: none;
+    font-weight: bolder;
+    border-radius: 40px;
+    margin-left: 16px;
+    width: 120px;
+    height: 40px;
+}
+
+.btn-login:hover {
     color: var(--fc-dark-orange);
     background-color: var(--clr-mid-orange);
 }
