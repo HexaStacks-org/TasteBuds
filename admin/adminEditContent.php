@@ -71,7 +71,7 @@ include("shared/process/editContentProcess.php");
 
                                                             <div class="item">
                                                                 <div class="col-10">
-                                                                    <a href="recipeOverview.php?recipeID=<?php echo $rowUserUpContentRcIndividual['recipeID']; ?>"
+                                                                    <a href="shared/components/recipeAdminOverview.php?recipeID=<?php echo $rowUserUpContentRcIndividual['recipeID']; ?>"
                                                                         style="text-decoration: none; color: inherit;">
                                                                         <span s
                                                                             style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
@@ -127,12 +127,11 @@ include("shared/process/editContentProcess.php");
                                                     while ($rowUserUpContentGpIndividual = mysqli_fetch_assoc($resultUserUpContentGpIndividual)) {
                                                         ?>
                                                         <div class="item-list mb-3" id="uploaded-gallery">
-
                                                             <div class="item">
                                                                 <div class="col-10">
-                                                                    <a href="galleryOverview.php?postID=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
-                                                                        style="text-decoration: none; color: inherit;"></a>
-                                                                    <span
+                                                                    <a href="shared/components/galleryAdminOverview.php?postID=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
+                                                                        style="text-decoration: none; color: inherit;">
+                                                                    <span 
                                                                         style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
                                                                         <?php echo "<i>" . $rowUserUpContentGpIndividual['createdAt'] . "</i> | " . $rowUserUpContentGpIndividual['caption']; ?>
                                                                     </span>
