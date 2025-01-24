@@ -34,7 +34,7 @@ $query = "
             COUNT(bookmarks.bookmarkID) AS bookmarksCount
      FROM recipes
      LEFT JOIN users ON users.userID = recipes.userID
-     LEFT JOIN images ON images.postID = recipes.postID
+     LEFT JOIN images ON images.recipeID = recipes.recipeID
      LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = recipes.primaryCategoryID
      LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = recipes.subcategoryID
      LEFT JOIN likes ON likes.recipeID = recipes.recipeID
