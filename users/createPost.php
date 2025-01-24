@@ -15,6 +15,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../shared/assets/css/style.css" />
     <link rel="stylesheet" href="../shared/assets/css/createRecipe.css" />
+    <link rel="icon" type="image" href="../shared/assets/image/TasteBuds_Icon.png">
 </head>
 
 <body>
@@ -34,7 +35,7 @@
                         </div>
                         <h1 class="px-5">Create a Post</h1>
                         <p class="recipe-description px-5">Share your new favorite and must-try recipe!</p>
-                        <form action="../shared/processes/create-post.php" method="POST" enctype="multipart/form-data">
+                        <form action="../shared/processes/createPostQuery.php" method="POST" enctype="multipart/form-data">
                             <div class="mb-3 mx-5">
                                 <label for="description" class="form-label">Caption</label>
                                 <textarea class="form-control py-3" id="caption" name="caption" rows="4"

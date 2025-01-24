@@ -16,6 +16,7 @@ include("shared/processes/signupQuery.php");
     ?>
     <link rel="stylesheet" href="shared/assets/css/signup.css" />
     <link rel="stylesheet" href="shared/assets/css/style.css" />
+    <link rel="icon" type="image" href="shared/assets/image/TasteBuds_Icon.png">
 
 </head>
 

@@ -17,6 +17,7 @@ include("shared/processes/loggedOut/galleryResultQuery.php")
     <link rel="stylesheet" href="shared/assets/css/style.css" />
     <link rel="stylesheet" href="shared/assets/css/navbar.css" />
     <link rel="stylesheet" href="shared/assets/css/searchResults.css" />
+    <link rel="icon" type="image" href="shared/assets/image/TasteBuds_Icon.png">
 </head>
 
 <body>
@@ -58,7 +59,16 @@ include("shared/processes/loggedOut/galleryResultQuery.php")
                     <?php
                 }
             } else {
-                echo '<p class="text-center" style="color:red; font-weight: 900;">No Recipes Found</p>';
+                ?>
+                <body style="margin: 0; background-color:rgb(254, 212, 145);"> <!-- Light Orange Background -->
+
+                    <div class="container-fluid"
+                        style="height: 80vh; display: flex; justify-content: center; align-items: center;">
+                        <img src="shared/assets/image/no-results-found.png" class="img-fluid"
+                            style="max-width: 80%; max-height: 80%; object-fit: contain;">
+                    </div>
+                </body>
+                <?php
             }
             ?>
         </div>

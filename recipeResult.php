@@ -17,6 +17,7 @@ include("shared/processes/loggedOut/recipeResultQuery.php")
     <link rel="stylesheet" href="shared/assets/css/style.css" />
     <link rel="stylesheet" href="shared/assets/css/navbar.css" />
     <link rel="stylesheet" href="shared/assets/css/searchResults.css" />
+    <link rel="icon" type="image" href="shared/assets/image/TasteBuds_Icon.png">
 </head>
 
 <body>
@@ -31,7 +32,8 @@ include("shared/processes/loggedOut/recipeResultQuery.php")
                 while ($recipesRow = mysqli_fetch_assoc($resultRecipes)) {
                     ?>
                     <div class="col-md-6 mt-5 mb-4">
-                        <a href="recipeOverview.php?recipeID=<?php echo $recipesRow['recipeID']; ?>" style="text-decoration: none; color: inherit;">
+                        <a href="recipeOverview.php?recipeID=<?php echo $recipesRow['recipeID']; ?>"
+                            style="text-decoration: none; color: inherit;">
                             <div class="card mx-5">
                                 <div class="row g-0">
                                     <div class="col-md-4">
@@ -59,7 +61,15 @@ include("shared/processes/loggedOut/recipeResultQuery.php")
                     <?php
                 }
             } else {
-                echo '<p class="text-center" style="color:red; font-weight: 900;">No Recipes Found</p>';
+                ?>
+                <body style="margin: 0; background-color:rgb(254, 212, 145);"> <!-- Light Orange Background -->
+                    <div class="container-fluid"
+                        style="height: 80vh; display: flex; justify-content: center; align-items: center;">
+                        <img src="../shared/assets/image/no-results-found.png" class="img-fluid"
+                            style="max-width: 80%; max-height: 80%; object-fit: contain;">
+                    </div>
+                </body>
+                <?php
             }
             ?>
         </div>

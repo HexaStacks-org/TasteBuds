@@ -72,6 +72,7 @@ if (isset($_POST['btnUpdate'])) {
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=Rammetto+One&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../shared/assets/css/updateUser.css">
+    <link rel="icon" type="image" href="../shared/assets/image/TasteBuds_Icon.png">
 
 </head>
 

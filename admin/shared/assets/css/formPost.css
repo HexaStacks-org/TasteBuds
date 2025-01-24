@@ -191,16 +191,17 @@
     margin-left: 32px;
   }
   
-  .card.subheader {
+  .row.subheader {
     font-family: var(--ff-text);
     font-weight: bold;
+    font-size: var(--fs-h2);
     margin: 0 auto;
     width: fit-content;
     padding: 16px;
     text-align: center;
-    background-color: var(--clr-light-orange);
-    border-radius: 32px;
+    text-transform: uppercase;
   }
+  
   
   .card {
     margin: 24px;
@@ -470,7 +471,7 @@ body {
     width: 50%;
     overflow: hidden;
   }
-  
+
   .mockup-image {
     height: 100%;
     width: auto;
