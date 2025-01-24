@@ -24,22 +24,19 @@ if (isset($_GET['orderBy'])) {
 }
 
 $query = "
-        SELECT galleryposts.postID, 
-            galleryposts.*, 
+        SELECT galleryposts.*, 
             users.*, 
             images.*, 
-            primaryfoodcategories.*, 
+            primaryfoodcategories.*,
             foodSubcategories.*, 
-            COUNT(likes.likeID) AS likesCount,
-            COUNT(bookmarks.bookmarkID) AS bookmarksCount
+            (SELECT COUNT(likeID) FROM likes WHERE likes.postID = galleryposts.postID) AS likesCount,
+            (SELECT COUNT(bookmarkID) FROM bookmarks WHERE bookmarks.postID = galleryposts.postID) AS bookmarksCount
      FROM galleryposts
      LEFT JOIN users ON users.userID = galleryposts.userID
      LEFT JOIN images ON images.postID = galleryposts.postID
      LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = galleryposts.primaryCategoryID
      LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = galleryposts.subcategoryID
-     LEFT JOIN likes ON likes.postID = galleryposts.postID
-     LEFT JOIN bookmarks ON bookmarks.postID = galleryposts.postID
-     GROUP BY galleryposts.postID";
+     WHERE 1=1";
 
 if ($searchText != '') {
     $query .= " AND (caption LIKE '$searchText%')";
