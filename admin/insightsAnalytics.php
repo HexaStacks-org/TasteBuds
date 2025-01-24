@@ -1,5 +1,5 @@
 <?php
-include("shared/process/insightsAnalyticsProcess.php");
+include("shared/process/session.php");
 ?>
 
 <!DOCTYPE html>

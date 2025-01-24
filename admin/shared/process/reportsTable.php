@@ -8,64 +8,64 @@ $queryRecipeReports = "SELECT * FROM reports LEFT JOIN reasons ON reasons.reason
 $resultRecipeReports = executeQuery($queryRecipeReports);
 
 if (isset($_GET['deletePostID'])) {
-  $postID = intval($_GET['deletePostID']); // Ensure the post ID is sanitized as an integer
+    $postID = intval($_GET['deletePostID']); // Ensure the post ID is sanitized as an integer
 
-  // Query to delete the post from the database
-  $deleteQuery = "DELETE FROM reports WHERE postID = ?";
+    // Query to delete the post from the database
+    $deleteQuery = "DELETE FROM reports WHERE postID = ?";
 
-  // Prepare the statement to prevent SQL injection
-  if ($stmt = mysqli_prepare($conn, $deleteQuery)) {
-    mysqli_stmt_bind_param($stmt, 'i', $postID); // Bind the post ID as an integer
-    if (mysqli_stmt_execute($stmt)) {
-      // Redirect to refresh the page after the post is deleted
-      header("Location: reports.php");
-      exit(); // Ensure no further code is executed after redirect
-    } else {
-      echo "Error deleting post.";
+    // Prepare the statement to prevent SQL injection
+    if ($stmt = mysqli_prepare($conn, $deleteQuery)) {
+        mysqli_stmt_bind_param($stmt, 'i', $postID); // Bind the post ID as an integer
+        if (mysqli_stmt_execute($stmt)) {
+            // Redirect to refresh the page after the post is deleted
+            header("Location: reports.php");
+            exit(); // Ensure no further code is executed after redirect
+        } else {
+            echo "Error deleting post.";
+        }
+        mysqli_stmt_close($stmt);
     }
-    mysqli_stmt_close($stmt);
-  }
 }
 
 if (isset($_GET['deleteRecipeID'])) {
-  $postID = intval($_GET['deleteRecipeID']); // Ensure the post ID is sanitized as an integer
+    $postID = intval($_GET['deleteRecipeID']); // Ensure the post ID is sanitized as an integer
 
-  // Query to delete the post from the database
-  $deleteQuery = "DELETE FROM reports WHERE recipeID = ?";
+    // Query to delete the post from the database
+    $deleteQuery = "DELETE FROM reports WHERE recipeID = ?";
 
-  // Prepare the statement to prevent SQL injection
-  if ($stmt = mysqli_prepare($conn, $deleteQuery)) {
-    mysqli_stmt_bind_param($stmt, 'i', $postID); // Bind the post ID as an integer
-    if (mysqli_stmt_execute($stmt)) {
-      // Redirect to refresh the page after the post is deleted
-      header("Location: reports.php");
-      exit(); // Ensure no further code is executed after redirect
-    } else {
-      echo "Error deleting post.";
+    // Prepare the statement to prevent SQL injection
+    if ($stmt = mysqli_prepare($conn, $deleteQuery)) {
+        mysqli_stmt_bind_param($stmt, 'i', $postID); // Bind the post ID as an integer
+        if (mysqli_stmt_execute($stmt)) {
+            // Redirect to refresh the page after the post is deleted
+            header("Location: reports.php");
+            exit(); // Ensure no further code is executed after redirect
+        } else {
+            echo "Error deleting post.";
+        }
+        mysqli_stmt_close($stmt);
     }
-    mysqli_stmt_close($stmt);
-  }
 }
 
 // Check if a report needs to be deleted
 if (isset($_GET['deleteReportID'])) {
-  $reportID = intval($_GET['deleteReportID']); // Sanitize input to ensure it's an integer
+    $reportID = intval($_GET['deleteReportID']); // Sanitize input to ensure it's an integer
 
-  // Query to delete the report from the reports table
-  $deleteReportQuery = "DELETE FROM reports WHERE reportID = ?";
+    // Query to delete the report from the reports table
+    $deleteReportQuery = "DELETE FROM reports WHERE reportID = ?";
 
-  // Prepare the statement to prevent SQL injection
-  if ($stmt = mysqli_prepare($conn, $deleteReportQuery)) {
-    mysqli_stmt_bind_param($stmt, 'i', $reportID); // Bind the report ID as an integer
-    if (mysqli_stmt_execute($stmt)) {
-      // Redirect to refresh the page after the report is deleted
-      header("Location: reports.php");
-      exit(); // Ensure no further code is executed after redirect
-    } else {
-      echo "Error deleting report.";
+    // Prepare the statement to prevent SQL injection
+    if ($stmt = mysqli_prepare($conn, $deleteReportQuery)) {
+        mysqli_stmt_bind_param($stmt, 'i', $reportID); // Bind the report ID as an integer
+        if (mysqli_stmt_execute($stmt)) {
+            // Redirect to refresh the page after the report is deleted
+            header("Location: reports.php");
+            exit(); // Ensure no further code is executed after redirect
+        } else {
+            echo "Error deleting report.";
+        }
+        mysqli_stmt_close($stmt);
     }
-    mysqli_stmt_close($stmt);
-  }
 }
 ?>
 
