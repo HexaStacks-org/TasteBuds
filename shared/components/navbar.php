@@ -134,7 +134,7 @@
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioPrimary" id="flexRadioDefault4">
-                            <label class="form-check-label" for="flexRadioDefault4">Snacks</label>
+                            <label class="form-check-label" for="flexRadioDefault4">Snack</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioPrimary" id="flexRadioDefault5">
