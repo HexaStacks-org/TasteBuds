@@ -42,7 +42,7 @@ $resultTopRecipes = executeQuery($queryTopRecipes);
         <div class="position-absolute top-50 start-50 translate-middle">
             <h1>Welcome to Tastebuds!</h1>
             <p>Your Ultimate Buddy for Food Exploration and Choices.</p>
-            <a href="login.php" class="btn generator-button py-2 px-4 fw-bold text-uppercase">Join Us</a>
+            <a href="signup.php" class="btn generator-button py-2 px-4 fw-bold text-uppercase">Join Us</a>
         </div>
     </header>
 
