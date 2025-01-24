@@ -38,28 +38,15 @@ include("shared/processes/loggedOut/galleryResultQuery.php")
                                         class="img-fluid recipe-img"/>
                                 </div>
                                 <div class="col-md-8">
-                                    <div class="card-body ps-5">
+                                    <div class="card-body">
                                         <p class="card-primary-category d-flex align-items-center justify-content-center">
                                             <?php echo $postsRow['primaryCategoryName']; ?>
                                         </p>
                                         <p class="card-sub-category d-flex align-items-center justify-content-center">
                                             <?php echo $postsRow['subcategoryName']; ?>
                                         </p>
-                                        <p class="card-text" style="font-weight: 700">
-                                            <?php echo substr($postsRow['caption'], 0, 150) . '...'; ?>
-                                        </p>
-                                    </div>
-                                    <div class="d-flex justify-content-between mb-2 ps-5 w-100">
-                                        <div>
-                                            <button class="btn btn-like"><i class="bi bi-hand-thumbs-up-fill"
-                                                    style="color: var(--clr-light-orange)"></i></button>
-                                            <button class="btn btn-bookmark mx-1"><i class="bi bi-bookmark-fill"
-                                                    style="color: var(--clr-light-orange)"></i></button>
-                                        </div>
-                                        <div class="report-btn d-flex mx-5">
-                                            <button class="btn btn-report"><i class="bi bi-flag-fill"
-                                                    style="color: var(--clr-light-orange)"></i></button>
-                                        </div>
+                                        <h5 class="card-title pt-1"><?php echo $postsRow['caption']; ?></h5>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -74,9 +61,7 @@ include("shared/processes/loggedOut/galleryResultQuery.php")
         </div>
     </div>
 
-    <?php include("shared/components/reportModal.php"); ?>
-
-    <script src="shared/assets/js/galleryResult.js"></script>
+    <!-- <script src="shared/assets/js/galleryResult.js"></script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
