@@ -96,10 +96,16 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
       }
     } else {
       ?>
-    <p>No recipes found.</p>
-    <?php
-    }
-    ?>
+      <body style="margin: 0; background-color:rgb(254, 212, 145);"> <!-- Light Orange Background -->
+          <div class="container-fluid"
+              style="height: 80vh; display: flex; justify-content: center; align-items: center;">
+              <img src="../shared/assets/image/no-results-found.png" class="img-fluid"
+                  style="max-width: 80%; max-height: 80%; object-fit: contain;">
+          </div>
+      </body>
+      <?php
+  }
+  ?>
 
   </div>
   <?php include("../shared/components/reportModal.php"); ?>
