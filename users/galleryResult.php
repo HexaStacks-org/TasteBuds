@@ -49,14 +49,14 @@ include("../shared/processes/galleryResultQuery.php")
                                             <?php echo substr($postsRow['caption'], 0, 150) . '...'; ?>
                                         </p>
                                     </div>
-                                    <div class="d-flex justify-content-between mt-5 mb-2 ps-5 w-100">
+                                    <div class="d-flex mt-5 mb-2 ps-5 w-100">
                                         <div>
                                             <button class="btn btn-like"><i class="bi bi-hand-thumbs-up-fill"
                                                     style="color: var(--clr-light-orange)"></i></button>
                                             <button class="btn btn-bookmark mx-1"><i class="bi bi-bookmark-fill"
                                                     style="color: var(--clr-light-orange)"></i></button>
                                         </div>
-                                        <div class="report-btn d-flex mx-5">
+                                        <div class="report-btn d-flex justify-content-end ms-5">
                                             <button class="btn btn-report"><i class="bi bi-flag-fill"
                                                     style="color: var(--clr-light-orange)"></i></button>
                                         </div>

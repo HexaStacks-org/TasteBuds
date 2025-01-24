@@ -39,10 +39,10 @@ include("shared/processes/loggedOut/galleryResultQuery.php")
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <p class="card-primary-category d-flex align-items-center justify-content-center">
+                                        <p class="card-primary-category">
                                             <?php echo $postsRow['primaryCategoryName']; ?>
                                         </p>
-                                        <p class="card-sub-category d-flex align-items-center justify-content-center">
+                                        <p class="card-sub-category">
                                             <?php echo $postsRow['subcategoryName']; ?>
                                         </p>
                                         <h5 class="card-title pt-1"><?php echo $postsRow['caption']; ?></h5>

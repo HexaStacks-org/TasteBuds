@@ -38,7 +38,6 @@ $query = "
      LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = galleryposts.primaryCategoryID
      LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = galleryposts.subcategoryID
      WHERE 1=1";
-     WHERE 1=1";
 
 if ($searchText != '') {
     $query .= " AND (caption LIKE '$searchText%')";
