@@ -98,7 +98,7 @@
     font-weight: bolder;
     border-radius: 40px;
     margin-left: 16px;
-    width: 120px;
+    width: 100px;
     height: 40px;
 }
 
@@ -243,7 +243,7 @@
 
 .btn-recipe {
     border: 4px solid var(--clr-primary);
-    background-color: var(--clr-primary);
+    background-color: var(--clr-light-orange);
     border-radius: 40px 0px 0px 40px;
     width: 124px;
     height: 40px;
@@ -261,7 +261,7 @@
 .btn-recipe p {
     font-family: var(--ff-text);
     font-size: var(--fs-paragraph);
-    color: var(--fc-light-orange);
+    color: var(--fc-primary-orange);
     text-align: center;
     text-decoration: none;
     font-weight: bolder;
@@ -303,10 +303,10 @@
 }
 
 .btn-check:checked+.btn-recipe p {
-    color: var(--fc-dark-orange);
+    color: var(--fc-light-orange);
 }
 
-.btn-check:checked+.btn-gallery {
+.btn-check:checked+.btn-gallery, .btn-check:checked+.btn-recipe {
     background-color: var(--clr-primary);
 }
 

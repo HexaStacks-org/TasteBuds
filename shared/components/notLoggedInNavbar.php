@@ -13,8 +13,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse d-flex" id="navbarNav">
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.php">
+                        <p class="nav-txt-clr">Home</p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="foodListings.php">
                         <p class="nav-txt-clr">Food Listings</p>
@@ -32,18 +37,18 @@
                 </li>
             </ul>
 
-            <div class="btn-nav d-flex justify-content-end align-items-end">
+            <div class="btn-nav d-flex justify-content-end ">
                 <button class="btn btn-search" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasSearch" aria-controls="offcanvasSearch"><a>
                         Search</a>
                 </button>
-            </div>
-            <div class="btn-nav d-flex justify-content-end align-items-end">
-                <a href="login.php">
-                    <button class="btn btn-login" type="button">
-                        Login
-                    </button>
-                </a>
+                <div class="btn-nav d-flex justify-content-end">
+                    <a href="login.php">
+                        <button class="btn btn-login" type="button">
+                            Login
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

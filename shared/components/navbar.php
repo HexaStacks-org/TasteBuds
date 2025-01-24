@@ -17,6 +17,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.php">
+                        <p class="nav-txt-clr">Home</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="foodListings.php">
                         <p class="nav-txt-clr">Food Listings</p>
                     </a>
@@ -43,11 +48,11 @@
                     <button class="btn user-btn" type="button" id="userButton">
                         <p>User</p>
                     </button>
-                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split " data-bs-toggle="dropdown"
                         aria-expanded="false" aria-label="Toggle Dropdown">
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu">
+                    <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu ">
                         <li><a class="dropdown-item" href="updateUser.php">Edit Profile</a></li>
                         <li><a class="dropdown-item" href="userContent.php">Uploaded Contents</a></li>
                         <li><a class="dropdown-item" href="userLike.php">Likes</a></li>
@@ -70,7 +75,7 @@
                 <button class="child-btn open-sans-text" id="fab-gallery-btn"
                     onclick="location.href='createPost.php'">Gallery</button>
             </div>
-            
+
             <script>
                 const fabMainBtn = document.getElementById('fab-main-btn');
                 const fabRecipeBtn = document.getElementById('fab-recipe-btn');
