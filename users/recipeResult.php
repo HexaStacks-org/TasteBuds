@@ -31,27 +31,31 @@ include("../shared/processes/recipeResultQuery.php")
                 while ($recipesRow = mysqli_fetch_assoc($resultRecipes)) {
                     ?>
                     <div class="col-md-6 mt-5 mb-4">
-                        <div class="card mx-5">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="../shared/assets/image/content-image/<?php echo $recipesRow['imageURL'] ?>" class="img-fluid recipe-img"/>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <p class="card-primary-category">
-                                            <?php echo $recipesRow['primaryCategoryName']; ?>
-                                        </p>
-                                        <p class="card-sub-category">
-                                            <?php echo $recipesRow['subcategoryName']; ?>
-                                        </p>
-                                        <h5 class="card-title pt-1"><?php echo $recipesRow['recipeTitle']; ?></h5>
-                                        <p class="card-text">
-                                            <?php echo substr($recipesRow['description'], 0, 150) . '...'; ?>
-                                        </p>
+                        <a href="recipeOverview.php?recipeID=<?php echo $recipesRow['recipeID']; ?>"
+                            style="text-decoration: none; color: inherit;">
+                            <div class="card mx-5">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="../shared/assets/image/content-image/<?php echo $recipesRow['imageURL'] ?>"
+                                            class="img-fluid recipe-img" />
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <p class="card-primary-category align-items-center justify-content-center">
+                                                <?php echo $recipesRow['primaryCategoryName']; ?>
+                                            </p>
+                                            <p class="card-sub-category align-items-center justify-content-center">
+                                                <?php echo $recipesRow['subcategoryName']; ?>
+                                            </p>
+                                            <h5 class="card-title pt-1"><?php echo $recipesRow['recipeTitle']; ?></h5>
+                                            <p class="card-text">
+                                                <?php echo substr($recipesRow['description'], 0, 150) . '...'; ?>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <?php
                 }

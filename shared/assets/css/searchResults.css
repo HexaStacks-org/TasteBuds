@@ -14,6 +14,12 @@
     margin-bottom: 1rem;
 }
 
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
 .recipe-img .img-fluid {
     object-fit: cover;
     height: 100%;
