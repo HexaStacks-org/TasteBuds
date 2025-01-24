@@ -1,5 +1,5 @@
 <?php
-include("../shared/processes/session.php");
+include("connect.php");
 
 session_start(); // Start the session
 date_default_timezone_set('Asia/Manila');
@@ -76,9 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rammetto+One&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../shared/assets/css/style.css" />
-    <link rel="stylesheet" href="../shared/assets/css/createRecipe.css" />
-    <link rel="icon" type="image" href="../shared/assets/image/TasteBuds_Icon.png">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/createRecipe.css">
+    <link rel="icon" type="image" href="../../../shared/assets/image/TasteBuds_Icon.png">
 </head>
 
 <body>
@@ -89,11 +89,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="recipe-form mx-3 my-3 px-5">
                         <div class="row">
                             <div class="col d-flex justify-content-start">
-                                <img src="../shared/assets/image/Logo Combination 1.png"
+                                <img src="../../../shared/assets/image/Logo Combination 1.png"
                                     class="logo d-inline-block align-text-top" />
                             </div>
                             <div class="con-back col d-flex align-items-center">
-                                <a href="index.php" id="back-btn" class="btn back-btn">BACK</a>
+                                <a href="../../adminEditContent.php" id="back-btn" class="btn back-btn">BACK</a>
                             </div>
                         </div>
                         <h1 class="px-5">Create a Recipe</h1>
@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div class="col-md-6 d-none d-md-block">
                     <div class="mockup-container">
-                        <img src="../shared/assets/image/mockup-pic.png" alt="mockup" class="mockup-image">
+                        <img src="../../../shared/assets/image/mockup-pic.png" alt="mockup" class="mockup-image">
                     </div>
                 </div>
             </div>

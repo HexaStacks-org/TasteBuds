@@ -1,4 +1,5 @@
 <?php
+include("../shared/processes/session.php");
 include("../shared/processes/recipeResultQuery.php")
     ?>
 

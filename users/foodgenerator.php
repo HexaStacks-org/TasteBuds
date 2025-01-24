@@ -1,6 +1,6 @@
 <?php
 include("../shared/components/navbar.php");
-include("../connect.php");
+include("../shared/processes/session.php");
 ?>
 
 <!DOCTYPE html>

@@ -25,8 +25,8 @@
 </div>
 
 <script>
-    const sideBarBtns = ["Dashboard", "Users", "Management", "Insights & analytics", "Reports", "Post"];
-    const hrefs = ["index.php", "users.php", "management.php", "insightsAnalytics.php", "reports.php", "adminCreatePost.php"];
+    const sideBarBtns = ["Dashboard", "Users", "Management", "Insights & analytics", "Reports", "Post", "Edit Content"];
+    const hrefs = ["index.php", "users.php", "management.php", "insightsAnalytics.php", "reports.php", "adminCreatePost.php", "adminEditContent.php"];
 
     const getCurrentPage = (url) => url.split("/").pop();
 

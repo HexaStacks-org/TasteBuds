@@ -1,5 +1,5 @@
 <?php
-include("../connect.php");
+include("../shared/processes/session.php");
 date_default_timezone_set('Asia/Manila');
 
 $sortRecipeOption = isset($_GET['sort']) ? $_GET['sort'] : 'createdAt';

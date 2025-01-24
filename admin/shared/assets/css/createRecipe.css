@@ -1,0 +1,238 @@
+/* global variable */
+:root {
+    --fs-header: 47.78px;
+    --fs-h2: 39.91px;
+    --fs-h3: 33.18px;
+    --fs-h4: 27.65px;
+    --fs-h5: 23.04px;
+    --fs-h6: 19.2px;
+    --fs-paragraph: 16px;
+    --fs-small: 13.33px;
+
+    --fc-primary-orange: #F1950C;
+    --fc-dark-orange: #D4830B;
+    --fc-mid-orange: #FCD59A;
+    --fc-light-orange: #FFEBCD;
+    --fc-black: #222222;
+
+    --clr-primary: #F1950C;
+    --clr-secondary: #D34746;
+    --clr-action: #328032;
+
+    --clr-dark-orange: #D4830B;
+    --clr-mid-orange: #FCD59A;
+    --clr-light-orange: #FFEBCD;
+    --clr-black: #222222;
+
+    --ff-title: "Rammetto One", serif;
+    --ff-text: "Open Sans", serif;
+}
+
+.rammetto-one {
+    font-family: "Rammetto One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.open-sans-text {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+body {
+    background-color: #fff8EE;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.logo {
+    width: 460px auto;
+    height: 120px;
+}
+
+.con-back {
+    justify-content: end;
+}
+
+.back-btn {
+    color: #fff8EE;
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    font-weight: bold;
+    background-color: var(--clr-secondary);
+    border-radius: 24px;
+    padding: 8px 20px;
+    width: auto;
+    height: 40px auto;
+}
+
+.back-btn:hover {
+    background-color: var(--clr-secondary);
+    color: #fff8EE;
+}
+
+.recipe-form {
+    border-radius: 10px;
+}
+
+.recipe-form h1 {
+    font-size: var(--fs-header);
+    font-family: var(--ff-text);
+    font-weight: bolder;
+    margin-top: 16px;
+}
+
+.recipe-description {
+    font-family: var(--ff-text);
+    font-size: var(--fs-h6);
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-family: var(--ff-text);
+    font-weight: bold;
+    font-size: var(--fs-h6);
+}
+
+.form-control {
+    background-color: transparent;
+    border-radius: 40px;
+    border: 4px solid var(--clr-primary);
+    margin-bottom: 16px;
+    padding-left: 16px;
+    width: 80%;
+}
+
+.form-control:focus {
+    background-color: transparent;
+    border: 4px solid var(--clr-primary);
+}
+
+.form-check-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 16px;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+}
+
+.form-check-input {
+    border-radius: 8px;
+    border: 3px solid var(--clr-primary);
+}
+
+.form-check-input:focus {
+    background-color: var(--clr-primary);
+}
+
+.form-check-input:checked {
+    background-color: var(--clr-primary);
+    border: 3px solid var(--clr-primary);
+}
+
+.form-check-label {
+    font-family: var(--ff-text);
+    font-size: var(--fs-paragraph);
+    font-weight: 600;
+}
+
+.form-category {
+    font-family: var(--ff-text);
+    font-size: var(--fs-h6);
+    font-weight: bolder;
+    margin-bottom: 8px;
+}
+
+.mockup-container {
+    overflow: hidden;
+}
+
+.mockup-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.btn-create {
+    background-color: var(--clr-primary);
+    font-family: var(--ff-text);
+    font-size: var(--fs-h6);
+    color: #fff8EE;
+    width: 350px;
+    height: 48px;
+    border-radius: 40px;
+    font-weight: bolder;
+}
+
+.d-flex.justify-content-center {
+    display: flex;
+    align-items: center;
+    /* Vertically aligns the button */
+    justify-content: center;
+    /* Horizontally aligns the button */
+    height: 100%;
+    /* Ensures it takes up the full placeholder space */
+}
+
+s .btn-create:hover {
+    background-color: var(--clr-primary);
+    color: #fff8EE;
+}
+
+.form-label::placeholder {
+    color: var(--fc-black);
+    font-family: var(--ff-text);
+    font-size: var(--fs-h4);
+}
+
+.mockup-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    overflow: hidden;
+}
+
+.mockup-image {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        width: auto;
+        height: 80px;
+        padding-top: 16px;
+    }
+
+    .con-back {
+        justify-content: start;
+        padding-top: 16px;
+    }
+
+    .back-btn {
+        width: auto;
+        font-size: 14px;
+    }
+
+    .mockup-image {
+        display: none;
+    }
+
+    .form-control,
+    .form-select,
+    .btn-primary {
+        width: 100%;
+    }
+
+    .recipe-form {
+        padding: 0 !important;
+    }
+}

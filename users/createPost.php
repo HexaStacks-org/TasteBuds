@@ -1,3 +1,5 @@
+<?php include("../shared/processes/session.php"); ?>
+
 <!doctype html>
 <html lang="en">
 
