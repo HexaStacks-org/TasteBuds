@@ -41,7 +41,6 @@
         "wdth" 100;
 }
 
-
 .navbar-brand.logo {
     display: flex;
     align-items: center;
@@ -68,7 +67,6 @@
     color: var(--fc-light-orange);
     text-align: center;
     border-radius: 40px;
-    margin-left: 452px;
     width: 120px;
     height: 40px;
 }
