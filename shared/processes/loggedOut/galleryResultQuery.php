@@ -24,13 +24,14 @@ if (isset($_GET['orderBy'])) {
 }
 
 $query = "
-        SELECT galleryposts.*, 
-            users.*, 
-            images.*, 
-            primaryfoodcategories.*,
-            foodSubcategories.*, 
-            (SELECT COUNT(likeID) FROM likes WHERE likes.postID = galleryposts.postID) AS likesCount,
-            (SELECT COUNT(bookmarkID) FROM bookmarks WHERE bookmarks.postID = galleryposts.postID) AS bookmarksCount
+        SELECT galleryposts.postID, 
+               galleryposts.*, 
+               users.*, 
+               images.*, 
+               primaryfoodcategories.*,
+               foodSubcategories.*, 
+               (SELECT COUNT(likeID) FROM likes WHERE likes.postID = galleryposts.postID) AS likesCount,
+               (SELECT COUNT(bookmarkID) FROM bookmarks WHERE bookmarks.postID = galleryposts.postID) AS bookmarksCount
      FROM galleryposts
      LEFT JOIN users ON users.userID = galleryposts.userID
      LEFT JOIN images ON images.postID = galleryposts.postID
@@ -49,6 +50,8 @@ if ($primaryCategory != '') {
 if ($secondaryCategory != '') {
     $query .= " AND subcategoryName = '$secondaryCategory'";
 }
+
+$query .= " GROUP BY galleryposts.postID";
 
 if ($orderBy != '') {
     switch ($orderBy) {
