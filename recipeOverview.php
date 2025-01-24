@@ -12,7 +12,9 @@ $queryOverviewRecipe = "
            users.firstName, users.lastName,
            images.imageURL,
            primaryfoodcategories.primaryCategoryName,
-           foodSubcategories.subcategoryName
+           foodSubcategories.subcategoryName, 
+           (SELECT COUNT(likeID) FROM likes WHERE likes.recipeID = recipes.recipeID) AS likesCount,
+          (SELECT COUNT(bookmarkID) FROM bookmarks WHERE bookmarks.recipeID = recipes.recipeID) AS bookmarksCount
     FROM recipes
     LEFT JOIN users ON users.userID = recipes.userID
     LEFT JOIN images ON images.recipeID = recipes.recipeID
@@ -67,6 +69,12 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
               </button>
             </div>
           </div>
+
+          <div class="count col mt-3 mb-2 mx-0">
+            <span>Likes Count: <?php echo htmlspecialchars($recipeOverview['likesCount']); ?></span>
+            <span>Bookmarks Count: <?php echo htmlspecialchars($recipeOverview['bookmarksCount']); ?></span>
+          </div>
+
           <div class="tab-container">
             <div class="tab-links">
               <button class="tablink" onclick="openTab(event, 'Description')">Description</button>
@@ -93,7 +101,19 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
       }
     } else {
       ?>
-    <p>No recipes found.</p>
+
+    <body style="margin: 0; background-color:rgb(254, 212, 145);"> <!-- Light Orange Background -->
+
+      <div class="container-fluid" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+        <img src="shared/assets/image/no-results-found.png" class="img-fluid"
+          style="max-width: 100%; max-height: 100vh; object-fit: contain;">
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    </body>
+
     <?php
     }
     ?>

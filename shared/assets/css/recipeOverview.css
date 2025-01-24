@@ -56,6 +56,16 @@
     font-weight: bold;
   }
   
+  .count {
+    display: flex; 
+    gap: 2rem;
+  }
+  
+  .count span {
+    font-family: var(--ff-text); 
+    font-size: var(--fs-paragraph); 
+  }
+  
   .edit {
     font-family: var(--ff-text);
     font-size: var(--fs-paragraph) !important;
