@@ -1,5 +1,5 @@
 <?php
-include("../connect.php");
+include("../shared/processes/session.php");
 
 // INDIVIDUAL LIST OF BOOKMARKS PER USER
 // Query for User Bookmarked Records (RECIPES)

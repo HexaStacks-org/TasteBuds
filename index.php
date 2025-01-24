@@ -1,18 +1,5 @@
 <?php
 include("connect.php");
-session_start();
-
-$userID = $_SESSION['userID'];
-
-if (!empty($_SESSION['userID'])) {
-} else {
-    header("Location: login.php");
-}
-
-if (isset($_GET['id'])) {
-    $requestedUserID = $_GET['id'];
-    $firstName = $_GET['firstName'];
-}
 
 // Query for Top 5 Recipes
 $queryTopRecipes = "

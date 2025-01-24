@@ -38,6 +38,13 @@
                         Search</a>
                 </button>
             </div>
+            <div class="btn-nav d-flex justify-content-end align-items-end">
+                <a href="login.php">
+                    <button class="btn btn-login" type="button">
+                        Login
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 </nav>
