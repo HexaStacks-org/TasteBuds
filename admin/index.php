@@ -15,6 +15,7 @@ include("shared/process/session.php");
   include("shared/components/fontEmbed.php");
   ?>
   <link rel="stylesheet" href="shared/assets/css/admin.css" />
+  <link rel="icon" type="image" href="../shared/assets/image/TasteBuds_Icon.png">
 </head>
 
 <body>
