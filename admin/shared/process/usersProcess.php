@@ -1,6 +1,5 @@
 <?php
 include("shared/components/connect.php");
-
 // Fetch non-restricted and restricted users
 $getFullNameQuery = "SELECT * FROM users WHERE isRestricted = 'no'";
 $getFullNameResult = executeQuery($getFullNameQuery);
@@ -73,7 +72,8 @@ mysqli_close($conn);
                     <td style="background-color:pink"><?php echo $userRow["registeredAt"] ?></td>
                     <td style="background-color:pink">
                       <!-- Restrict button -->
-                      <a href="users.php?userID=<?php echo $userRow['userID']; ?>&action=restrict" class="btn image">Restrict</a>
+                      <a href="users.php?userID=<?php echo $userRow['userID']; ?>&action=restrict"
+                        class="btn image">Restrict</a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -105,7 +105,8 @@ mysqli_close($conn);
                     <td style="background-color:pink"><?php echo $userRestrictedRow["registeredAt"] ?></td>
                     <td style="background-color:pink">
                       <!-- Unrestrict button -->
-                      <a href="users.php?userID=<?php echo $userRestrictedRow['userID']; ?>&action=unrestrict" class="btn image">Unrestrict</a>
+                      <a href="users.php?userID=<?php echo $userRestrictedRow['userID']; ?>&action=unrestrict"
+                        class="btn image">Unrestrict</a>
                     </td>
                   </tr>
                 <?php } ?>
