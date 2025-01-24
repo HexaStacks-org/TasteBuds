@@ -17,6 +17,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="shared/assets/css/style.css">
+    <link rel="icon" type="image" href="shared/assets/image/TasteBuds_Icon.png">
     <style>
       body {
         margin: 0;

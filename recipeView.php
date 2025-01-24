@@ -52,6 +52,7 @@ $resultRecipes = executeQuery($queryRecipes);
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="icon" type="image" href="shared/assets/image/TasteBuds_Icon.png">
 </head>
 
 <body>

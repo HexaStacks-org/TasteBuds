@@ -36,6 +36,7 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="../shared/assets/css/recipeOverview.css" />
   <link rel="stylesheet" href="../shared/assets/css/style.css" />
+  <link rel="icon" type="image" href="../shared/assets/image/TasteBuds_Icon.png">
 </head>
 
 <body>
