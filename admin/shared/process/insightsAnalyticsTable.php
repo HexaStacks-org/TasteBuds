@@ -1,6 +1,4 @@
 <?php
-include("shared/components/connect.php");
-
 // LIKE & BOOKMARK OF GALLERY
 $galleryQuery = "SELECT galleryposts.*, users.*, images.*, primaryfoodcategories.*, foodSubcategories.*, 
 (SELECT COUNT(likeID) FROM likes WHERE likes.postID = galleryposts.postID) AS likesCount, 
@@ -37,10 +35,6 @@ if ($sort != '') {
     if ($order != '') {
         $galleryQuery = $galleryQuery . " $order";
     }
-}
-
-if (isset($_GET['btnReset'])) {
-    header('Location: insightsAnalytics copy.php');
 }
 
 $galleryResult = executeQuery($galleryQuery);
@@ -88,10 +82,6 @@ if ($sort != '') {
     if ($order != '') {
         $recipeQuery = $recipeQuery . " $order";
     }
-}
-
-if (isset($_GET['btnReset'])) {
-    header('Location: insightsAnalytics.php');
 }
 
 $recipeResult = executeQuery($recipeQuery);
@@ -195,7 +185,6 @@ $subcategoryResults = executeQuery($subcategoryQuery);
                         </div>
                         <div class="text-center">
                             <button class="btn btn-primary">Submit</button>
-                            <button class="btn btn-danger" name="btnReset">Reset</button>
                         </div>
                     </div>
                 </form>

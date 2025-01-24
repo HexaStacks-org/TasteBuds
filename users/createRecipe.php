@@ -32,7 +32,7 @@
                         </div>
                         <h1 class="px-5">Create a Recipe</h1>
                         <p class="recipe-description px-5">Share your new favorite and must-try recipe!</p>
-                        <form action="../shared/processes/create-recipe.php" method="POST" enctype="multipart/form-data">
+                        <form action="../shared/processes/createRecipeQuery.php" method="POST" enctype="multipart/form-data">
                             <div class="mb-3 mx-5">
                                 <label for="title" class="form-label">Title</label>
                                 <input type="text" class="form-control" id="title" name="title" placeholder="Enter title of the dish" required>
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioPrimary" id="flexRadioDefault4" value="4">
-                                        <label class="form-check-label" for="flexRadioDefault4">Snacks</label>
+                                        <label class="form-check-label" for="flexRadioDefault4">Snack</label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="flexRadioPrimary" id="flexRadioDefault5" value="5">
