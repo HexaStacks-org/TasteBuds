@@ -90,6 +90,7 @@ $resultRecipes = executeQuery($queryRecipes);
             <div class="card recipe-card" style="padding: 20px 10px; height: 100%; overflow: hidden;">
               <img src="shared/assets/image/content-image/<?php echo $recipesRow['imageURL']; ?>"
                 class="recipe-card-img-top" alt="Recipe Image" style="max-height: 400px; object-fit: cover; width: 100%;" />
+
               <div class="card-body">
                 <a href="recipeOverview.php?recipeID=<?php echo $recipesRow['recipeID']; ?>" class="card-body no-underline">
                   <h5 class="card-title category-title"><?php echo $recipesRow['primaryCategoryName']; ?></h5>
@@ -99,18 +100,15 @@ $resultRecipes = executeQuery($queryRecipes);
                       ? substr($recipesRow['description'], 0, 150) . '...'
                       : $recipesRow['description']; ?>
                   </p>
-                </a>
-                <div class="container">
-                  <div class="button-col-6">
-                    <button class="custom-like-btn"><i class="bi bi-hand-thumbs-up-fill"
-                        style="color: var(--clr-light-orange)"></i></button>
-                    <button class="custom-bookmark-btn"><i class="bi bi-bookmark-fill"
-                        style="color: var(--clr-light-orange)"></i></button>
-                    <button class="custom-report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">
-                      <i class="bi bi-flag-fill" style="color: var(--clr-light-orange)"></i>
-                    </button>
+
+                  <div class="container-count">
+                  <div class="count col mt-3 mb-2 mx-0">
+                    <span>Likes Count: <?php echo htmlspecialchars($recipesRow['likesCount']); ?></span>
+                    <span>Bookmarks Count: <?php echo htmlspecialchars($recipesRow['bookmarksCount']); ?></span>
                   </div>
                 </div>
+
+                </a>
               </div>
             </div>
           </div>
