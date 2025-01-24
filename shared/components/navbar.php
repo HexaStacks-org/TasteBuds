@@ -17,6 +17,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.php">
+                        <p class="nav-txt-clr">Home</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="foodListings.php">
                         <p class="nav-txt-clr">Food Listings</p>
                     </a>
@@ -70,7 +75,7 @@
                 <button class="child-btn open-sans-text" id="fab-gallery-btn"
                     onclick="location.href='createPost.php'">Gallery</button>
             </div>
-            
+
             <script>
                 const fabMainBtn = document.getElementById('fab-main-btn');
                 const fabRecipeBtn = document.getElementById('fab-recipe-btn');
