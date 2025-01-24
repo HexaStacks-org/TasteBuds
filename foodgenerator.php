@@ -1,5 +1,5 @@
-<?php 
-include ("shared/components/notLoggedInNavbar.php");
+<?php
+include("shared/components/notLoggedInNavbar.php");
 include("connect.php");
 ?>
 
@@ -13,6 +13,7 @@ include("connect.php");
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="icon" type="image" href="shared/assets/image/TasteBuds_Icon.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rammetto+One&display=swap"
@@ -42,7 +43,8 @@ include("connect.php");
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%; /* Makes the background cover the entire card */
+      height: 100%;
+      /* Makes the background cover the entire card */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -103,10 +105,10 @@ include("connect.php");
             // Update the image in the existing random-generator-card
             const randomImage = document.getElementById('randomImage');
             const recipeTitle = document.getElementById('recipeTitle');
-            
+
             randomImage.src = `shared/assets/image/content-image/${data.recipe.imageURL}`;
             randomImage.alt = data.recipe.recipeTitle;
-            
+
             // Set the title text that will appear on hover
             recipeTitle.textContent = data.recipe.recipeTitle;
           } else {

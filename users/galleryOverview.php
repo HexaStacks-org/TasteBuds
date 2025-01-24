@@ -84,6 +84,7 @@ if (isset($_GET['postID'])) {
     <link rel="stylesheet" href="../shared/assets/css/gallery.css" />
     <link rel="stylesheet" href="../shared/assets/css/navbar.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="icon" type="image" href="../shared/assets/image/TasteBuds_Icon.png">
 </head>
 
 <body>

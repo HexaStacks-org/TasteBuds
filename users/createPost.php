@@ -15,6 +15,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../shared/assets/css/style.css" />
     <link rel="stylesheet" href="../shared/assets/css/createRecipe.css" />
+    <link rel="icon" type="image" href="../shared/assets/image/TasteBuds_Icon.png">
 </head>
 
 <body>
