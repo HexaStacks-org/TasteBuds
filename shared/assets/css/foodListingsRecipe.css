@@ -156,6 +156,7 @@ body {
   margin-top: -15px;
 }
 
+
 .content-bg {
   background-color: var(--clr-secondary);
 }
@@ -190,6 +191,18 @@ body {
   font-size: var(--fs-paragraph);
   font-weight: bold;
   white-space: nowrap;
+}
+
+.count {
+  display: flex; 
+  gap: 2rem;
+}
+
+.count span {
+  font-family: var(--ff-text); 
+  font-size: var(--fs-paragraph); 
+  margin-left: 10px;
+
 }
 
 /*ANG NAGAMIT LANG NITO AY (RECIPE-VIEW)*/
