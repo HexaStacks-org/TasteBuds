@@ -1,32 +1,44 @@
 <?php
 include("../connect.php");
+session_start();
 
-// INDIVIDUAL LIST OF LIKES PER USER
-// USER - Query for User Liked Records (RECIPES)
-// Change the likes.userID = 14 value using SESSION
+if (isset($_SESSION['userID'])) {
+    $userID = $_SESSION['userID'];
 
-$queryUserLikesRcIndividual = "
-SELECT likes.*, users.userID AS userLikerID, users.firstName, users.lastName, recipes.*
-FROM likes
-LEFT JOIN users ON users.userID = likes.userID 
-LEFT JOIN recipes ON recipes.recipeID = likes.recipeID
-WHERE likes.recipeID >= 1 AND likes.userID = 14;
-";
+    // SQL query to get user information (first name, last name)
+    $queryUserIndividual = "
+    SELECT DISTINCT users.userID, users.firstName, users.lastName
+    FROM users
+    WHERE users.userID = $userID;
+    ";
 
-$resultUserLikesRcIndividual = executeQuery($queryUserLikesRcIndividual);
+    $resultUserIndividual = executeQuery($queryUserIndividual);
+    $user = mysqli_fetch_assoc($resultUserIndividual);
 
-// USER - Query for User Liked Records (GALLERY POSTS)
-// Change the likes.userID = 9 value using SESSION
+    // INDIVIDUAL LIST OF LIKES PER USER
+    // Query for User Liked Records (RECIPES)
+    $queryUserLikesRcIndividual = "
+    SELECT likes.*, users.userID AS userLikerID, users.firstName, users.lastName, recipes.*
+    FROM likes
+    LEFT JOIN users ON users.userID = likes.userID 
+    LEFT JOIN recipes ON recipes.recipeID = likes.recipeID
+    WHERE likes.recipeID >= 1 AND likes.userID = $userID;
+    ";
 
-$queryUserLikesGpIndividual = "
-SELECT likes.*, users.userID AS userLikerID, users.firstName, users.lastName, galleryposts.*
-FROM likes
-LEFT JOIN users ON users.userID = likes.userID 
-LEFT JOIN galleryposts ON galleryposts.postID = likes.postID
-WHERE likes.postID >= 1 AND likes.userID = 9;
-";
+    $resultUserLikesRcIndividual = executeQuery($queryUserLikesRcIndividual);
 
-$resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
+    // Query for User Liked Records (GALLERY POSTS)
+    $queryUserLikesGpIndividual = "
+    SELECT likes.*, users.userID AS userLikerID, users.firstName, users.lastName, galleryposts.*
+    FROM likes
+    LEFT JOIN users ON users.userID = likes.userID 
+    LEFT JOIN galleryposts ON galleryposts.postID = likes.postID
+    WHERE likes.postID >= 1 AND likes.userID = $userID;
+    ";
+
+    $resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,8 +65,11 @@ $resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
     <div class="profile-page">
         <header class="profile-header">
             <img src="../shared/assets/image/Logo.png" alt="TasteBuds Logo">
-            <h1>User Profile</h1>
+            <h1>
+                <?php echo htmlspecialchars($user['firstName'] . ' ' . $user['lastName']); ?>
+            </h1>
         </header>
+
         <!-- Liked Content Section -->
         <section class="content-section">
             <h2>Liked Content</h2>
@@ -73,12 +88,12 @@ $resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
                                         style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
                                         <?php echo "<i>" . $userLikesRowIndividualRc['likedAt'] . "</i> | " . $userLikesRowIndividualRc['recipeTitle']; ?>
                                     </span>
-
-
                                 </a>
                             </div>
                             <?php
                         }
+                    } else {
+                        echo "<p>No liked recipes found.</p>";
                     }
                     ?>
                 </div>
@@ -90,8 +105,7 @@ $resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
                         while ($userLikesRowIndividualGp = mysqli_fetch_assoc($resultUserLikesGpIndividual)) {
                             ?>
                             <div class="item-list mb-3" id="liked-gallery">
-                                <!-- Change the href "postOverview" to Gallery Post View with postID -->
-                                <a href="postOverview.php?postID=<?php echo $userLikesRowIndividualGp['postID']; ?>"
+                                <a href="galleryOverview.php?postID=<?php echo $userLikesRowIndividualGp['postID']; ?>"
                                     class="item">
                                     <span
                                         style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
@@ -101,18 +115,19 @@ $resultUserLikesGpIndividual = executeQuery($queryUserLikesGpIndividual);
                             </div>
                             <?php
                         }
+                    } else {
+                        echo "<p>No liked gallery posts found.</p>";
                     }
                     ?>
                 </div>
 
             </div>
         </section>
-
-        </main>
     </div>
+
     <?php include '../shared/components/footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>
+

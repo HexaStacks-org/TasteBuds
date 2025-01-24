@@ -1,33 +1,43 @@
 <?php
 include("../connect.php");
+session_start();
 
-// INDIVIDUAL LIST OF BOOKMARKS PER USER
-// Query for User Bookmarked Records (RECIPES)
-// Change the bookmarks.userID = 7 value using SESSION
+if (isset($_SESSION['userID'])) {
+    $userID = $_SESSION['userID'];
 
-$queryUserBookmarksRcIndividual = "
-SELECT bookmarks.*, users.userID AS userBookmarkerID, users.firstName, users.lastName, recipes.*
-FROM bookmarks
-LEFT JOIN users ON users.userID = bookmarks.userID 
-LEFT JOIN recipes ON recipes.recipeID = bookmarks.recipeID
-WHERE bookmarks.recipeID >= 1 AND bookmarks.userID = 7;
-";
+    // SQL query to get user information (first name, last name)
+    $queryUserIndividual = "
+    SELECT firstName, lastName 
+    FROM users 
+    WHERE userID = $userID;
+    ";
 
-$resultUserBookmarksRcIndividual = executeQuery($queryUserBookmarksRcIndividual);
+    $resultUserIndividual = executeQuery($queryUserIndividual);
+    $user = mysqli_fetch_assoc($resultUserIndividual);
 
-// Query for User Bookmarked Records (GALLERY POSTS)
-// Change the bookmarks.userID = 7 value using SESSION
+    // INDIVIDUAL LIST OF BOOKMARKS PER USER
+    // Query for User Bookmarked Records (RECIPES)
+    $queryUserBookmarksRcIndividual = "
+    SELECT bookmarks.*, users.userID AS userBookmarkerID, recipes.*
+    FROM bookmarks
+    LEFT JOIN users ON users.userID = bookmarks.userID 
+    LEFT JOIN recipes ON recipes.recipeID = bookmarks.recipeID
+    WHERE bookmarks.recipeID >= 1 AND bookmarks.userID = $userID;
+    ";
 
-$queryUserBookmarksGpIndividual = "
-SELECT bookmarks.*, users.userID AS userBookmarkerID, users.firstName, users.lastName, galleryposts.*
-FROM bookmarks
-LEFT JOIN users ON users.userID = bookmarks.userID 
-LEFT JOIN galleryposts ON galleryposts.postID = bookmarks.postID
-WHERE bookmarks.postID >= 1 AND bookmarks.userID = 7;
-";
+    $resultUserBookmarksRcIndividual = executeQuery($queryUserBookmarksRcIndividual);
 
-$resultUserBookmarksGpIndividual = executeQuery($queryUserBookmarksGpIndividual);
+    // Query for User Bookmarked Records (GALLERY POSTS)
+    $queryUserBookmarksGpIndividual = "
+    SELECT bookmarks.*, users.userID AS userBookmarkerID, galleryposts.*
+    FROM bookmarks
+    LEFT JOIN users ON users.userID = bookmarks.userID 
+    LEFT JOIN galleryposts ON galleryposts.postID = bookmarks.postID
+    WHERE bookmarks.postID >= 1 AND bookmarks.userID = $userID;
+    ";
 
+    $resultUserBookmarksGpIndividual = executeQuery($queryUserBookmarksGpIndividual);
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,8 +64,17 @@ $resultUserBookmarksGpIndividual = executeQuery($queryUserBookmarksGpIndividual)
     <div class="profile-page">
         <header class="profile-header">
             <img src="../shared/assets/image/Logo.png" alt="TasteBuds Logo">
-            <h1>User Profile</h1>
+            <h1>
+                <?php 
+                if ($user) {
+                    echo htmlspecialchars($user['firstName'] . ' ' . $user['lastName']);
+                } else {
+                    echo "User Profile";
+                }
+                ?>
+            </h1>
         </header>
+
         <main>
             <!-- Bookmarked Content Section -->
             <section class="content-section">
@@ -65,7 +84,7 @@ $resultUserBookmarksGpIndividual = executeQuery($queryUserBookmarksGpIndividual)
                     <div class="category">
                         <h3>Recipes</h3>
                         <?php
-                        if (mysqli_num_rows($resultUserBookmarksRcIndividual) > 0) {
+                        if (isset($resultUserBookmarksRcIndividual) && mysqli_num_rows($resultUserBookmarksRcIndividual) > 0) {
                             while ($userBookmarksRcIndividualRow = mysqli_fetch_assoc($resultUserBookmarksRcIndividual)) {
                                 ?>
                                 <div class="item-list mb-3" id="bookmarked-recipes">
@@ -79,6 +98,8 @@ $resultUserBookmarksGpIndividual = executeQuery($queryUserBookmarksGpIndividual)
                                 </div>
                                 <?php
                             }
+                        } else {
+                            echo "<p>No bookmarked recipes found.</p>";
                         }
                         ?>
                     </div>
@@ -86,12 +107,11 @@ $resultUserBookmarksGpIndividual = executeQuery($queryUserBookmarksGpIndividual)
                     <div class="category">
                         <h3>Gallery</h3>
                         <?php
-                        if (mysqli_num_rows($resultUserBookmarksGpIndividual) > 0) {
+                        if (isset($resultUserBookmarksGpIndividual) && mysqli_num_rows($resultUserBookmarksGpIndividual) > 0) {
                             while ($userBookmarksGpIndividualRow = mysqli_fetch_assoc($resultUserBookmarksGpIndividual)) {
                                 ?>
                                 <div class="item-list mb-3" id="bookmarked-gallery">
-                                    <!-- Change the href "postOverview" to Gallery Post View with postID -->
-                                    <a href="postOverview.php?postID=<?php echo $userBookmarksGpIndividualRow['postID']; ?>"
+                                    <a href="galleryOverview.php?postID=<?php echo $userBookmarksGpIndividualRow['postID']; ?>"
                                         class="item">
                                         <span
                                             style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
@@ -101,6 +121,8 @@ $resultUserBookmarksGpIndividual = executeQuery($queryUserBookmarksGpIndividual)
                                 </div>
                                 <?php
                             }
+                        } else {
+                            echo "<p>No bookmarked gallery posts found.</p>";
                         }
                         ?>
                     </div>
@@ -111,9 +133,7 @@ $resultUserBookmarksGpIndividual = executeQuery($queryUserBookmarksGpIndividual)
     </div>
 
     <?php include '../shared/components/footer.php'; ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
