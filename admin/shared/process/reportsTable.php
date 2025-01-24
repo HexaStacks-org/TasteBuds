@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+include("shared/components/connect.php");
 
 $queryGalleryReports = "SELECT * FROM reports LEFT JOIN reasons ON reasons.reasonID = reports.reasonID LEFT JOIN users ON users.userID = reports.userID WHERE reports.postID IS NOT NULL";
 $resultGalleryReports = executeQuery($queryGalleryReports);

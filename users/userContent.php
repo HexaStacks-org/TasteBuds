@@ -90,16 +90,17 @@ if (isset($_POST['btnDeleteRecipe'])) {
 
     <div class="profile-page">
         <header class="profile-header">
-            <img src="../shared/assets/image/Logo.png" alt="TasteBuds Logo">
+            <img src="../shared/assets/image/userLogo.png" alt="TasteBuds Logo">
             <?php
             if (mysqli_num_rows($resultUserIndividual) > 0) {
                 while ($rowUserIndividual = mysqli_fetch_assoc($resultUserIndividual)) {
-                    // Display the user's full name
-                    echo '<h1>' . $rowUserIndividual['firstName'] . ' ' . $rowUserIndividual['lastName'] . '</h1>';
+                    // Display the user's full name in uppercase
+                    echo '<h1>' . strtoupper($rowUserIndividual['firstName']) . ' ' . strtoupper($rowUserIndividual['lastName']) . '</h1>';
                 }
             }
             ?>
         </header>
+
         <main>
             <!-- Uploaded Content Section -->
             <section class="content-section">
@@ -176,12 +177,12 @@ if (isset($_POST['btnDeleteRecipe'])) {
                                                 style="text-decoration: none; color: inherit;"></a>
                                             <!-- <a href="galleryOverview.php?id=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
                                                 style="text-decoration: none; color: inherit;"> -->
-                                                <!-- <a href="postOverview.php?postID=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
+                                            <!-- <a href="postOverview.php?postID=<?php echo $rowUserUpContentGpIndividual['postID']; ?>"
                                                 style="text-decoration: none; color: inherit;"> -->
-                                                <span
-                                                    style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
-                                                    <?php echo "<i>" . $rowUserUpContentGpIndividual['createdAt'] . "</i> | " . $rowUserUpContentGpIndividual['caption']; ?>
-                                                </span>
+                                            <span
+                                                style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; max-width: 80%;">
+                                                <?php echo "<i>" . $rowUserUpContentGpIndividual['createdAt'] . "</i> | " . $rowUserUpContentGpIndividual['caption']; ?>
+                                            </span>
                                             </a>
                                         </div>
 
