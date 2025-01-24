@@ -39,17 +39,17 @@ include("../shared/processes/galleryResultQuery.php")
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body ps-5">
-                                        <p class="card-primary-category d-flex align-items-center justify-content-center">
+                                        <p class="card-primary-category">
                                             <?php echo $postsRow['primaryCategoryName']; ?>
                                         </p>
-                                        <p class="card-sub-category d-flex align-items-center justify-content-center">
+                                        <p class="card-sub-category">
                                             <?php echo $postsRow['subcategoryName']; ?>
                                         </p>
                                         <p class="card-text" style="font-weight: 700">
                                             <?php echo substr($postsRow['caption'], 0, 150) . '...'; ?>
                                         </p>
                                     </div>
-                                    <div class="d-flex justify-content-between mb-2 ps-5 w-100">
+                                    <div class="d-flex justify-content-between mt-5 mb-2 ps-5 w-100">
                                         <div>
                                             <button class="btn btn-like"><i class="bi bi-hand-thumbs-up-fill"
                                                     style="color: var(--clr-light-orange)"></i></button>

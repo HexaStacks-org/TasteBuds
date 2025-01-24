@@ -38,10 +38,10 @@ include("../shared/processes/recipeResultQuery.php")
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <p class="card-primary-category d-flex align-items-center justify-content-center">
+                                        <p class="card-primary-category">
                                             <?php echo $recipesRow['primaryCategoryName']; ?>
                                         </p>
-                                        <p class="card-sub-category d-flex align-items-center justify-content-center">
+                                        <p class="card-sub-category">
                                             <?php echo $recipesRow['subcategoryName']; ?>
                                         </p>
                                         <h5 class="card-title pt-1"><?php echo $recipesRow['recipeTitle']; ?></h5>
