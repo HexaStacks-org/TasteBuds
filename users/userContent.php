@@ -65,6 +65,7 @@ if (isset($_POST['btnDeleteRecipe'])) {
         exit;
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -225,30 +226,7 @@ if (isset($_POST['btnDeleteRecipe'])) {
         </main>
     </div>
 
-    <!-- Modal for Deleting Gallery -->
-    <div class="modal fade" id="deleteGalleryModal" tabindex="-1" aria-labelledby="deleteGalleryModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteGalleryModalLabel">Delete Gallery Post</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete this gallery post?</p>
-                </div>
-                <div class="modal-footer">
-                    <form method="POST">
-                        <input type="hidden" name="galleryID" id="galleryID">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" name="btnDeleteGallery" class="btn btn-danger">Delete</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal for Deleting Recipe -->
+    <!-- Modal for deleting recipe -->
     <div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -258,13 +236,37 @@ if (isset($_POST['btnDeleteRecipe'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete this recipe?</p>
+                    Are you sure you want to delete this recipe?
                 </div>
                 <div class="modal-footer">
-                    <form method="POST">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <form method="POST" action="">
                         <input type="hidden" name="recipeID" id="recipeID">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" name="btnDeleteRecipe" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal for deleting gallery post -->
+    <div class="modal fade" id="deleteGalleryModal" tabindex="-1" aria-labelledby="deleteGalleryModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteGalleryModalLabel">Delete Gallery Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this gallery post?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <form method="POST" action="">
+                        <input type="hidden" name="galleryID" id="galleryID">
+                        <button type="submit" name="btnDeleteGallery" class="btn btn-danger">Delete</button>
                     </form>
                 </div>
             </div>
@@ -274,7 +276,7 @@ if (isset($_POST['btnDeleteRecipe'])) {
     <?php include '../shared/components/footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="shared/assets/js/userContent.js"></script>
+    <script src="../shared/assets/js/userContent.js"></script>
 </body>
 
 </html>
