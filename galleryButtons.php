@@ -6,10 +6,10 @@ date_default_timezone_set('Asia/Manila');
 
 $userID = $_SESSION['userID'];
 // Update the function to accept only one argument (postID)
-function buildLikeButton($postID, $userID)
+function buildLikeButton($postID)
 {
   // Check if the user has already liked the post
-  $queryLikePost = "SELECT * FROM likes WHERE postID = {$postID} AND userID = {$userID}";
+  $queryLikePost = "SELECT * FROM likes WHERE postID = {$postID}";
   $resultLikePost = executeQuery($queryLikePost);
 
   $likedClass = mysqli_num_rows($resultLikePost) > 0 ? "liked" : "";
@@ -26,10 +26,10 @@ function buildLikeButton($postID, $userID)
 
 
 // Bookmark Button functionality
-function buildBookmarkButton($postID, $userID)
+function buildBookmarkButton($postID)
 {
   // Check if the user has already bookmarked the post
-  $queryBookmarkPost = "SELECT * FROM bookmarks WHERE postID = {$postID} AND userID = {$userID}";
+  $queryBookmarkPost = "SELECT * FROM bookmarks WHERE postID = {$postID}";
   $resultBookmarkPost = executeQuery($queryBookmarkPost);
 
   $bookmarkedClass = mysqli_num_rows($resultBookmarkPost) > 0 ? "bookmarked" : "";
@@ -48,16 +48,16 @@ if (isset($_POST['likeAction'])) {
   $postID = $_POST['likeAction'];
 
   // Check if the like already exists
-  $checkLikeQuery = "SELECT * FROM likes WHERE postID = {$postID} AND userID = {$userID}";
+  $checkLikeQuery = "SELECT * FROM likes WHERE postID = {$postID}";
   $checkLikeResult = executeQuery($checkLikeQuery);
 
   if (mysqli_num_rows($checkLikeResult) > 0) {
     // Remove like
-    $deleteLikeQuery = "DELETE FROM likes WHERE postID = {$postID} AND userID = {$userID}";
+    $deleteLikeQuery = "DELETE FROM likes WHERE postID = {$postID}";
     executeQuery($deleteLikeQuery);
   } else {
     // Add like
-    $insertLikeQuery = "INSERT INTO likes (postID, userID) VALUES ({$postID}, {$userID})";
+    $insertLikeQuery = "INSERT INTO likes (postID, userID) VALUES ({$postID})";
     executeQuery($insertLikeQuery);
   }
 }
@@ -66,16 +66,16 @@ if (isset($_POST['bookmarkAction'])) {
   $postID = $_POST['bookmarkAction'];
 
   // Check if the bookmark already exists
-  $checkBookmarkQuery = "SELECT * FROM bookmarks WHERE postID = {$postID} AND userID = {$userID}";
+  $checkBookmarkQuery = "SELECT * FROM bookmarks WHERE postID = {$postID}";
   $checkBookmarkResult = executeQuery($checkBookmarkQuery);
 
   if (mysqli_num_rows($checkBookmarkResult) > 0) {
     // Remove bookmark
-    $deleteBookmarkQuery = "DELETE FROM bookmarks WHERE postID = {$postID} AND userID = {$userID}";
+    $deleteBookmarkQuery = "DELETE FROM bookmarks WHERE postID = {$postID}";
     executeQuery($deleteBookmarkQuery);
   } else {
     // Add bookmark
-    $insertBookmarkQuery = "INSERT INTO bookmarks (postID, userID) VALUES ({$postID}, {$userID})";
+    $insertBookmarkQuery = "INSERT INTO bookmarks (postID, userID) VALUES ({$postID})";
     executeQuery($insertBookmarkQuery);
   }
 }

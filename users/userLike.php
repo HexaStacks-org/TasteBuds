@@ -66,8 +66,9 @@ if (isset($_SESSION['userID'])) {
         <header class="profile-header">
             <img src="../shared/assets/image/Logo.png" alt="TasteBuds Logo">
             <h1>
-                <?php echo htmlspecialchars($user['firstName'] . ' ' . $user['lastName']); ?>
+                <?php echo htmlspecialchars(strtoupper($user['firstName']) . ' ' . strtoupper($user['lastName'])); ?>
             </h1>
+
         </header>
 
         <!-- Liked Content Section -->
@@ -130,4 +131,3 @@ if (isset($_SESSION['userID'])) {
 </body>
 
 </html>
-

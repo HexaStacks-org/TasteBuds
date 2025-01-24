@@ -14,7 +14,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.php">
@@ -44,7 +44,7 @@
                         Search</a>
                 </button>
 
-                <div class="btn-group user-dropdown d-flex justify-content-end">
+                <div class="btn-group user-dropdown justify-content-end">
                     <button class="btn user-btn" type="button" id="userButton">
                         <p>User</p>
                     </button>
@@ -134,7 +134,7 @@
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioPrimary" id="flexRadioDefault4">
-                            <label class="form-check-label" for="flexRadioDefault4">Snacks</label>
+                            <label class="form-check-label" for="flexRadioDefault4">Snack</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioPrimary" id="flexRadioDefault5">

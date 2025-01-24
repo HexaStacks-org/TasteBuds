@@ -81,8 +81,6 @@ class GalleryPost
             </div>  
         ";
 
-        $userID = $_SESSION['userID'];
-
         $cardContent = "
             <div class='col-12 d-flex align-items-center justify-content-center mt-5 mb-5'>
                 <div class='card shadow'>
@@ -101,8 +99,8 @@ class GalleryPost
                     </div>
                     <div class='d-flex justify-content-between w-100'>
                         <div class='btn-lbsr d-flex mt-3 mb-5'>
-                            " . buildLikeButton($this->postID, $userID) . "
-                            " . buildBookmarkButton($this->postID, $userID) . "
+                            " . buildLikeButton($this->postID) . "
+                            " . buildBookmarkButton($this->postID) . "
                         </div>
                         <button class='btn btn-report report-btn d-flex mt-3 mx-5' data-bs-toggle='modal' data-bs-target='#reportModal'>
                             <i class='bi bi-flag' style='color: var(--clr-light-orange)'></i>

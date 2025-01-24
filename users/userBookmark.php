@@ -65,14 +65,15 @@ if (isset($_SESSION['userID'])) {
         <header class="profile-header">
             <img src="../shared/assets/image/Logo.png" alt="TasteBuds Logo">
             <h1>
-                <?php 
+                <?php
                 if ($user) {
-                    echo htmlspecialchars($user['firstName'] . ' ' . $user['lastName']);
+                    echo htmlspecialchars(strtoupper($user['firstName']) . ' ' . strtoupper($user['lastName']));
                 } else {
                     echo "User Profile";
                 }
                 ?>
             </h1>
+
         </header>
 
         <main>
