@@ -32,8 +32,8 @@
 
             <!-- Generator -->
             <div class="col-12 col-md-3 my-5 pt-3 footer-column d-flex flex-column align-items-md-end">
-                <a href="aboutUs.php">About Us</a>
-                <a href="aboutUs.php">Meet The Team</a>
+                <a href="aboutUs.php#about">About Us</a>
+                <a href="aboutUs.php#team">Meet The Team</a>
                 <a href="mailto:tastebuds2025@gmail.com">Contact</a>
             </div>
 
