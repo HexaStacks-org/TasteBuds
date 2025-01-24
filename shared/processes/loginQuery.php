@@ -28,7 +28,7 @@ if (isset($_POST['btnLogin'])) {
             $error = "";
 
             if ($user['role'] == "admin") {
-                header("Location: admin/dashboard.php");
+                header("Location: admin/index.php");
             } else {
                 header("Location: users/index.php");
             }
@@ -55,7 +55,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
             $_SESSION['role'] = $user['role'];
 
             if ($user['role'] == "admin") {
-                header("Location: admin/dashboard.php");
+                header("Location: admin/index.php");
             } else {
                 header("Location: users/index.php");
             }
