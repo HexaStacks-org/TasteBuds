@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2025 at 08:05 AM
+-- Generation Time: Jan 22, 2025 at 01:14 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -270,7 +270,8 @@ INSERT INTO `galleryposts` (`postID`, `caption`, `userID`, `isApproved`, `create
 (51, 'Beef Burger Steak, pa-apuyin mo na ating streak', 7, 'yes', '2025-01-14 13:47:23', NULL, 3, 4),
 (52, 'Smokey and juicy barbeque', 15, 'yes', '2025-01-14 17:11:23', NULL, 2, 2),
 (53, 'Matamis na saging, bumalik ka na sa akin', 5, 'yes', '2025-01-14 17:47:23', NULL, 5, 7),
-(54, 'Pininyahang manok, sa puso mo ay kumakatok', 4, 'yes', '2025-01-14 19:27:23', NULL, 2, 3);
+(54, 'Pininyahang manok, sa puso mo ay kumakatok', 4, 'no', '2025-01-14 19:27:23', NULL, 2, 3),
+(55, 'misooo soupp', 41, 'no', '2025-01-20 12:54:25', '2025-01-21 22:57:37', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -419,7 +420,8 @@ INSERT INTO `images` (`imageID`, `imageURL`, `recipeID`, `postID`) VALUES
 (127, 'img-gp75.png', NULL, 53),
 (128, 'img-rc53.png', 53, NULL),
 (129, 'img-gp76.png', NULL, 54),
-(130, 'img-rc54.png', 54, NULL);
+(130, 'img-rc54.png', 54, NULL),
+(131, 'img-gp77.png', NULL, 55);
 
 -- --------------------------------------------------------
 
@@ -645,7 +647,7 @@ INSERT INTO `recipes` (`recipeID`, `recipeTitle`, `description`, `ingredients`, 
 (2, 'Ginataang tulingan', 'This comforting dish strikes a perfect balance between savory and creamy, making it a must-try for those seeking authentic Filipino flavors.', '1 kg tulingan\r\n1 onion (chopped)\r\n3 cloves garlic (minced)\r\n2 medium tomatoes (chopped)\r\n1 can coconut milk\r\n1 thumb-sized ginger (sliced)\r\n1 long green chili (optional)\r\n1 cup water\r\nSalt and pepper to taste\r\n', '1. Thoroughly clean the fish under running water. Make a slit on both sides of each fish and generously rub salt over them. Let the fish sit for 10 to 15 minutes to absorb the salt.  \r\n2. In a cooking pot, layer the pork fat, kamias, fish, and ginger. Pour water into the pot, ensuring the ingredients are submerged. Cover the pot and bring it to a boil. Lower the heat to medium and cook for 40 minutes.  \r\n3. Add coconut milk to the pot, along with garlic, onion, and chili. Cover and continue to cook on low to medium heat for another 40 minutes, allowing the flavors to meld together.  \r\n4. Add the eggplant slices to the pot and cook for an additional 5 to 7 minutes, or until the eggplant becomes tender. Season the dish with patis and ground black pepper to taste.  \r\n5. Carefully transfer the cooked dish to a serving plate.  \r\n6. Serve warm and enjoy the hearty flavors of this traditional dish!\r\n', 1, 'yes', '2024-12-30 12:20:34', NULL, 2, 5),
 (3, 'Pizza\r\n\r\n', 'Pizza is a dough base topped with tomato sauce, cheese, and various toppings, baked to perfection.', 'Pizza dough\r\nTomato sauce\r\nMozzarella cheese\r\nPepperoni, vegetables, or other toppings of choice\r\nOlive oil\r\nSalt and pepper\r\n\r\n', '1. Preheat the oven to 475°F (245°C).\r\n2. Roll out the pizza dough on a floured surface.\r\n3. Spread tomato sauce over the dough, then sprinkle with mozzarella cheese.\r\n4. Add your choice of toppings.\r\n5. Bake for 10–15 minutes or until the crust is golden and the cheese is melted.\r\n\r\n', 1, 'yes', '2024-12-30 14:30:04', NULL, 4, 7),
 (4, 'Creamy mushroom chicken', 'Tender chicken simmered in a rich, creamy mushroom sauce, perfect for any occasion.', '4 chicken thighs or breasts\r\n2 cups mushrooms (sliced)\r\n1 cup heavy cream or all-purpose cream\r\n1/2 cup chicken broth\r\n1 onion (chopped)\r\n3 cloves garlic (minced)\r\n2 tablespoons butter or oil\r\n1 tablespoon flour (optional, for thickening)\r\nSalt, pepper, and parsley (for garnish)\r\n', '1. Season chicken with salt and pepper. Sear in butter or oil until golden brown on both sides. Remove and set aside.\r\n2. Saute garlic, onion, and mushrooms until soft and fragrant.\r\n3. Add flour (if using) and mix well. Pour in chicken broth and cream, stirring until smooth.\r\n4. Return the chicken to the pan and simmer for 10–15 minutes until fully cooked and the sauce thickens.\r\n5. Garnish with parsley and serve hot with rice, mashed potatoes, or pasta.\r\n\r\n', 1, 'yes', '2024-12-31 09:30:04', NULL, 3, 3),
-(5, 'Chocolate Ice cream', 'whennnn\r\n', '2 cups heavy cream\r\n1 cup whole milk\r\n3/4 cup sugar\r\n1/2 cup unsweetened cocoa powder\r\n1 teaspoon vanilla extract\r\n1/2 cup chopped chocolate (optional)\r\n\r\n', '1. In a bowl, mix cocoa powder and sugar.\r\n2. In a saucepan, heat milk and cream until warm, then whisk in the cocoa mixture until smooth.\r\n3. Remove from heat and stir in vanilla extract. Let it cool completely.\r\n4. Pour the mixture into an ice cream maker and churn according to manufacturer’s instructions.\r\n5. Once thickened, mix in chopped chocolate (optional) and freeze for a few hours before serving.\r\n\r\n', 1, 'yes', '2024-12-31 12:33:33', '2025-01-20 12:34:00', 5, 7),
+(5, 'Chocolate Ice cream', 'A creamy and frozen dessert made with rich chocolate flavor.\r\n', '2 cups heavy cream\r\n1 cup whole milk\r\n3/4 cup sugar\r\n1/2 cup unsweetened cocoa powder\r\n1 teaspoon vanilla extract\r\n1/2 cup chopped chocolate (optional)\r\n\r\n', '1. In a bowl, mix cocoa powder and sugar.\r\n2. In a saucepan, heat milk and cream until warm, then whisk in the cocoa mixture until smooth.\r\n3. Remove from heat and stir in vanilla extract. Let it cool completely.\r\n4. Pour the mixture into an ice cream maker and churn according to manufacturer’s instructions.\r\n5. Once thickened, mix in chopped chocolate (optional) and freeze for a few hours before serving.\r\n\r\n', 1, 'yes', '2024-12-31 12:33:33', NULL, 5, 7),
 (6, 'Breakfast burrito\r\n', 'A hearty and satisfying breakfast wrap filled with scrambled eggs, sausage, cheese, and veggies. It\'s the perfect grab-and-go meal.\r\n\r\n', '2 large eggs\r\n2 breakfast sausages, crumbled\r\n1/4 cup shredded cheese\r\n1/4 cup diced tomatoes\r\n1/4 cup diced bell peppers\r\n1 large flour tortilla\r\nSalt and pepper to taste\r\n', '1. Scramble the eggs in a pan, seasoning with salt and pepper.\r\n2. Cook the crumbled sausages in a separate pan.\r\n3. Add the bell peppers and tomatoes to the eggs and cook until tender.\r\n4. Lay the scrambled mixture onto a tortilla, top with cheese, and fold the sides over.\r\n5. Roll up the burrito and serve.\r\n\r\n\r\n\r\n', 1, 'yes', '2024-12-31 15:38:44', NULL, 1, 2),
 (7, 'Laing', 'Laing is a dish made with gabi leaves, coconut milk, and chili, delivering a rich, creamy, and spicy flavor.\r\n\r\n', '2 cups dried taro leaves (gabi)\r\n2 cups coconut milk\r\n1 cup coconut cream (optional for richer flavor)\r\n1 onion (chopped)\r\n3 cloves garlic (minced)\r\n1 thumb-sized ginger (sliced)\r\n2–3 red chilies (sliced, optional)\r\n1 tablespoon vegan bagoong (shrimp paste alternative) or soy sauce\r\nSalt and pepper to taste.\r\n', '1. Saute garlic, onion, and ginger in a pot. Add vegan bagoong or soy sauce and stir.\r\n2. Pour in coconut milk and bring to a gentle boil.\r\n3. Add the dried gabi leaves, ensuring they are fully soaked in the coconut milk. Simmer on low heat without stirring to avoid itchiness.\r\n4. Once the taro leaves are tender, add coconut cream for a richer texture and sliced chilies for spice. Simmer until the oil separates.\r\n5. Adjust salt and pepper to taste. Serve with steamed rice for a satisfying meal.\r\n\r\n', 5, 'yes', '2025-01-03 15:41:07', NULL, 3, 1),
 (8, 'Spaghetti\r\n\r\n', 'Spaghetti is a pasta dish served with tomato sauce, meatballs, or other toppings.\r\n\r\n', '200g spaghetti\r\n1 cup tomato sauce\r\n2 cloves garlic (minced)\r\n1/2 onion (chopped)\r\nOlive oil\r\nSalt and pepper\r\nParmesan cheese (optional)\r\n', '1. Cook the spaghetti according to the package instructions.\r\n2. Saute garlic and onion in olive oil until soft.\r\n3. Add tomato sauce, salt, and pepper. Simmer for 10 minutes.\r\n4. Serve the spaghetti with sauce and sprinkle with Parmesan cheese.\r\n', 9, 'yes', '2025-01-04 09:43:36', NULL, 4, 7),
@@ -690,7 +692,7 @@ INSERT INTO `recipes` (`recipeID`, `recipeTitle`, `description`, `ingredients`, 
 (47, 'Bangus sisig', 'Bangus sisig is a dish made with milkfish (bangus), onions, and spices, perfect as a main dish or appetizer, and an easy to prepare type of sisig.', '1 large bangus (milkfish), cleaned and deboned\r\n1 onion (chopped)\r\n3 cloves garlic (minced)\r\n2 tablespoons soy sauce\r\n1 tablespoon calamansi juice (or lemon juice)\r\n1 chili (optional, chopped)\r\nMayonnaise (optional, for creaminess)\r\nSalt, pepper, and cooking oil', '1. Fry or grill the bangus until cooked, then flake the flesh, removing the bones and skin.\r\n2. Sauté the onion, garlic, and chili in oil. Combine the flakes bangus and soy sauce.\r\n3. Mix in the calamansi juice and mayonnaise (optional). Cook until thoroughly mixed.\r\n4. Transfer to a heated plate and serve hot.', 28, 'yes', '2025-01-14 09:44:12', NULL, 2, 5),
 (48, 'Coconut macaron', 'A chewy coconut treat with a crisp edge, often served as a dessert or snack.', '2 cups shredded coconut\r\n1/2 cup sugar\r\n2 egg whites\r\n1 teaspoon vanilla extract', '1. Preheat the oven to 350°F (175°C).\r\n2. Beat egg whites until stiff peaks form, then fold in sugar, coconut, and vanilla extract.\r\n3. Drop spoonfuls of the mixture onto a baking sheet.\r\n4. Bake for 15–20 minutes or until golden brown.', 22, 'yes', '2025-01-14 10:04:12', NULL, 5, 7),
 (49, 'Chicken katsu', 'Chicken katsu is a  crispy and juicy Japanese-style fried chicken cutlet, perfect with tonkatsu sauce and rice.', '2 lbs boneless chicken breasts\r\n1 cup Good Life Breadcrumbs\r\n¾ cup buttermilk\r\n3 ounces curry sauce mix\r\n1 potato cubed\r\n1 carrot cubed\r\n1 onion wedged\r\n2 ¼ cups water\r\n½ teaspoon salt\r\n½ teaspoon ground black pepper\r\n1 cup cooking oil', '1. Butterfly the chicken breasts, pound them to an even thickness, and season with salt and pepper.\r\n2. Dredge each piece in flour, dip in beaten eggs, and coat with panko breadcrumbs.\r\n3. Heat oil in a pan and fry the chicken over medium heat until golden brown and fully cooked.\r\n4. Cut into strips and serve with rice, shredded cabbage, and tonkatsu sauce.', 9, 'yes', '2025-01-14 11:58:29', NULL, 3, 3),
-(50, 'Lechong kawali', 'Lechong kawali is a crispy and juicy deep-fried pork belly', '1 kg pork belly\r\n1 tablespoon salt\r\n1 teaspoon peppercorns\r\n3 cloves garlic (crushed)\r\n2 bay leaves\r\nWater (for boiling)\r\nCooking oil (for frying)', '1. Boil pork belly with salt, peppercorns, garlic, and bay leaves until tender. Remove and let it cool.\r\n2. Pat the pork dry with paper towels and refrigerate for at least an hour to remove moisture.\r\n3. Deep fry the pork belly until golden brown and crispy.\r\n4. Chop into pieces and serve with lechon sauce or spiced vinegar.', 37, 'yes', '2025-01-14 13:08:29', NULL, 2, 6),
+(50, 'Lechong kawali', 'Lechong kawali is a crispy and juicy deep-fried pork belly', '1 kg pork belly\r\n1 tablespoon salt\r\n1 teaspoon peppercorns\r\n3 cloves garlic (crushed)\r\n2 bay leaves\r\nWater (for boiling)\r\nCooking oil (for frying)', '1. Boil pork belly with salt, peppercorns, garlic, and bay leaves until tender. Remove and let it cool.\r\n2. Pat the pork dry with paper towels and refrigerate for at least an hour to remove moisture.\r\n3. Deep fry the pork belly until golden brown and crispy.\r\n4. Chop into pieces and serve with lechon sauce or spiced vinegar.', 37, 'no', '2025-01-14 13:08:29', NULL, 2, 6),
 (51, 'Beef burger steak', 'Filipino-inspired dish made of beef patties cooked in a savory gravy, typically served with rice.', '1 lb ground beef\r\n1 onion, sliced\r\n2 tbsp soy sauce\r\n1 tbsp Worcestershire sauce\r\n1 cup beef broth\r\n2 tbsp flour (for thickening)', '1. Form the ground beef into patties and cook them in a pan until browned.\r\n2. Remove the patties and set aside. Sauté onions in the same pan.\r\n3. Add soy sauce, Worcestershire sauce, and beef broth to the pan, and bring to a simmer.\r\n4. Add the patties back to the pan and cook in the gravy until heated through.\r\n5. Thicken the gravy with flour if desired and serve with rice.\r\n', 24, 'yes', '2025-01-14 15:12:41', NULL, 1, 4),
 (52, 'Chocolate cake', 'A moist and rich cake made with chocolate, perfect for celebrations.', '1 1/2 cups all-purpose flour\r\n1 cup cocoa powder\r\n1 cup sugar\r\n1 teaspoon baking powder\r\n1/2 teaspoon baking soda\r\n1/2 teaspoon salt\r\n2 eggs\r\n1 cup milk\r\n1/2 cup vegetable oil\r\n1 teaspoon vanilla extract', '1. Preheat the oven to 350°F (175°C).\r\n2. Mix dry ingredients in a bowl and wet ingredients in another.\r\n3. Combine both mixtures and stir until smooth.\r\n4. Pour into a greased baking pan and bake for 30–35 minutes.\r\n5. Let it cool before frosting.', 21, 'yes', '2025-01-14 16:12:41', NULL, 5, 7),
 (53, 'Grilled tuna belly', 'A deliciously smoky and tender grilled tuna belly, marinated with savory and tangy flavors, perfect for a quick and satisfying meal.', '4 lbs. Tuna belly\r\n1 cup soy sauce\r\n2 tablespoons sugar\r\n4 pieces calamansi\r\n¼ teaspoon ground black pepper', '1. Prepare the marinade by combine soy sauce, calamansi, ground black pepper, and sugar in a bowl. Stir until well blended.\r\n2. Place the tuna in a Ziploc bag. Pour the soy sauce marinade.Let the air out of the bag. Seal. Marinate inside the fridge for at least 3 hours.\r\n3. Heat-up the grill. Arrange the tuna belly on the grate of the grill. Brush a generous amount marinade mixture on the tuna. Grill for 3 to 5 minutes.\r\n4. Turn the tuna belly over and grill the opposite side. Baste the top and sides. Continue to grill for another 5 minutes. Continue performing the process until the tuna is completely cooked.\r\n5. Serve with a dipping sauce composed of soy sauce, calamansi, and chili pepper. Share and enjoy!', 33, 'yes', '2025-01-14 18:16:44', NULL, 3, 5),
@@ -721,7 +723,8 @@ INSERT INTO `reports` (`reportID`, `userID`, `recipeID`, `postID`, `reasonID`, `
 (1, 16, 32, NULL, 4, NULL, '2025-01-20 01:19:16', 'pending'),
 (2, 23, NULL, 40, 6, 'Offensive Language or Imagery', '2025-01-20 01:22:18', 'pending'),
 (3, 31, 36, NULL, 6, 'Misleading Claims', '2025-01-20 01:22:18', 'pending'),
-(4, 4, NULL, 42, 2, NULL, '2025-01-20 01:22:18', 'pending');
+(4, 4, NULL, 42, 2, NULL, '2025-01-20 01:22:18', 'pending'),
+(5, 39, NULL, 55, 2, NULL, '2025-01-21 22:57:37', 'resolved');
 
 -- --------------------------------------------------------
 
@@ -760,14 +763,14 @@ INSERT INTO `users` (`userID`, `firstName`, `lastName`, `email`, `password`, `ro
 (13, 'Anna', 'Cruz', 'annacruz@pup.edu.ph', 'CruzAnna11', 'user', '2025-01-03 10:04:57', 'no'),
 (14, 'Ryan', 'Mendoza', 'ryanmendoza@pup.edu.ph', 'RyanMenzo9', 'user', '2025-01-03 11:20:17', 'no'),
 (15, 'Isabel', 'Gonzales', 'isabelg@gmail.com', 'IsaGon123', 'user', '2025-01-03 13:34:50', 'no'),
-(16, 'Daniel', 'Ramos', 'danramos@outlook.com', 'DanRamos101', 'user', '2025-01-03 15:04:27', 'no'),
+(16, 'Daniel', 'Ramos', 'danramos@outlook.com', 'DanRamos101', 'user', '2025-01-03 15:04:27', 'yes'),
 (17, 'Angela', 'Villanueva', 'angievillanueva@gmail.com', 'AngelaV20', 'user', '2025-01-03 19:21:17', 'no'),
 (18, 'Patrick', 'Santiago', 'psantiago@gmail.com', 'PatricioSan23', 'user', '2025-01-04 08:44:11', 'no'),
 (19, 'Joanna', 'Cruz', 'joannacruz@pup.edu.ph', 'CruzJoanna2025', 'user', '2025-01-04 09:30:00', 'no'),
 (20, 'Kevin', 'Tan', 'kevintan@gmail.com', 'KevTan08', 'user', '2025-01-04 11:44:37', 'no'),
 (21, 'Patricia', 'Diaz', 'patriciadiaz@yahoo.com', 'DiazPat123', 'user', '2025-01-04 12:24:17', 'no'),
 (22, 'Joshua', 'Garcia', 'jgarcia@outlook.com', 'GarciaJosh1111', 'user', '2025-01-04 15:05:27', 'no'),
-(23, 'Chloe', 'Moreno', 'chloem@pup.edu.ph', 'MorenoCloe2', 'user', '2025-01-04 18:22:02', 'no'),
+(23, 'Chloe', 'Moreno', 'chloem@pup.edu.ph', 'MorenoCloe2', 'user', '2025-01-04 18:22:02', 'yes'),
 (24, 'Martin', 'Flores', 'martin.flores@gmail.com', 'Flo321Martin', 'user', '2025-01-04 18:30:11', 'no'),
 (25, 'Bianca', 'Suarez', 'biancad@gmail.com', 'leonBianca9', 'user', '2025-01-05 10:41:15', 'no'),
 (26, 'Jerome', 'Castillo', 'jeromec@outlook.com', 'CastJer01', 'user', '2025-01-05 13:03:07', 'no'),
@@ -784,7 +787,8 @@ INSERT INTO `users` (`userID`, `firstName`, `lastName`, `email`, `password`, `ro
 (37, 'Ethan', 'Cruz', 'ethancruz@gmail.com', 'CruzeEthan123', 'user', '2025-01-07 11:22:14', 'no'),
 (38, 'Olivia', 'Manalo', 'oliviam@yahoo.com', 'ManaloOivia22', 'user', '2025-01-07 13:30:21', 'no'),
 (39, 'Vincent', 'Chua', 'vincentchua@outlook.com', 'ChhuaVince22', 'user', '2025-01-07 15:30:48', 'no'),
-(40, 'Ella', 'Zenaida', 'zenyella@yahoo.com', 'ZenElla134', 'user', '2025-01-07 18:19:02', 'no');
+(40, 'Ella', 'Zenaida', 'zenyella@yahoo.com', 'ZenElla134', 'user', '2025-01-07 18:19:02', 'no'),
+(41, 'Ian', 'Quona', 'ianquonaplz111@gmail.com', 'quonaIanNaSiya', 'user', '2025-01-20 09:40:27', 'yes');
 
 --
 -- Indexes for dumped tables
@@ -870,13 +874,13 @@ ALTER TABLE `foodsubcategories`
 -- AUTO_INCREMENT for table `galleryposts`
 --
 ALTER TABLE `galleryposts`
-  MODIFY `postID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `postID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `imageID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `imageID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT for table `likes`
@@ -906,13 +910,13 @@ ALTER TABLE `recipes`
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `reportID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `reportID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `userID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
