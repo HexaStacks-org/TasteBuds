@@ -83,6 +83,7 @@ if (isset($_POST['btnDeleteRecipe'])) {
     <link rel="stylesheet" href="../shared/assets/css/activityLog.css">
     <link rel="stylesheet" href="../shared/assets/css/navbar.css" />
     <link rel="stylesheet" href="../shared/assets/css/footer.css">
+    <link rel="icon" type="image" href="../shared/assets/image/TasteBuds_Icon.png">
 </head>
 
 <body>

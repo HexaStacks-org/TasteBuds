@@ -80,6 +80,7 @@ $subcategoryResults = executeQuery($subcategoryQuery);
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="stylesheet" href="shared/assets/css/foodListingsRecipe.css" />
   <link rel="stylesheet" href="shared/assets/css/style.css">
+  <link rel="icon" type="image" href="shared/assets/image/TasteBuds_Icon.png">
 </head>
 
 <body>
