@@ -2,9 +2,8 @@
 html,body{
     margin: 0px;
     overflow-x: hidden;
-    background-color: var(--clr-white);
+    background-color: rgb(247, 236, 222);
 }
-
 
 .random-generator-container{
     display: flex;

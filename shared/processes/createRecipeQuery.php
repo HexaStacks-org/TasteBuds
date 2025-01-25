@@ -1,6 +1,6 @@
 <?php
-include("../../connect.php");
-session_start(); // Start the session to access user ID
+include("connect.php");  
+session_start();
 
 // Check if user is logged in
 if (!isset($_SESSION['userID'])) {
@@ -88,7 +88,7 @@ if (isset($_POST['btnSubmit'])) {
     }
 
     // Redirect after success
-    header("Location: ../../recipeView.php");
+    header("Location: ../../users/recipeView.php");
     exit();
 }
 
@@ -99,20 +99,4 @@ $fetchGalleryQuery = "
     LEFT JOIN images i ON g.postID = i.postID
     WHERE g.userID = '{$_SESSION['userID']}'
 ";
-
-$result = mysqli_query($conn, $fetchGalleryQuery);
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<p>" . htmlspecialchars($row['caption'], ENT_QUOTES, 'UTF-8') . "</p>";
-        if ($row['imageURL']) {
-            echo "<img src='../../shared/assets/image/content-image/" . htmlspecialchars($row['imageURL'], ENT_QUOTES, 'UTF-8') . "' alt='Recipe Image' style='max-width: 100%; height: auto;'><br>";
-        }
-
-        // Display "Yes" for isApproved
-        echo "<p>Approved: " . ($row['isApproved'] === 'Yes' ? "Yes" : "No") . "</p>";
-        echo "<hr>";
-    }
-} else {
-    echo "No posts found.<br>";
-}
 ?>
