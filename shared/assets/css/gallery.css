@@ -1,5 +1,6 @@
 .card-row {
-    padding-top: 80px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .card {
@@ -61,12 +62,22 @@
     white-space: nowrap;
   }
 
-
 .caption p {
     font-family: var(--ff-text);
     font-size: var(--fs-h6);
     color: var(--fc-black);
     font-weight: bolder;
+}
+
+.count {
+    display: flex; 
+    gap: 2rem;
+}
+
+.count span {
+    font-family: var(--ff-text); 
+    font-size: var(--fs-paragraph); 
+    margin-left: 10px;
 }
 
 .back-btn,

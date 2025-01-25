@@ -91,7 +91,9 @@ class GalleryPost
                     </div>
                     <div class='datetime d-flex justify-content-between align-items-center mb-3'>{$this->createdAt}</div>
                     <div class='img-fluid img-post'>
-                        {$imageContent}
+                        <a href='galleryOverview.php?postID={$this->postID}' style='text-decoration: none; color: inherit;'>
+                                {$imageContent}
+                        </a>
                     </div>
                     <div class='container mx-3 tags d-flex'>
                         {$tagsContent}
@@ -99,6 +101,12 @@ class GalleryPost
                     <div class='caption mx-5 my-2'>
                         <p>{$this->caption}</p>
                     </div>
+
+                    <div class='count col my-2 mx-5'>
+                        <span>Likes Count: {$this->likeCount}</span>
+                        <span>Bookmarks Count: {$this->bookmarkCount}</span>
+                    </div>
+                    
                     <div class='d-flex justify-content-between w-100'>
                         <div class='btn-lbsr d-flex mt-3 mb-5'>
                             " . buildLikeButton($this->postID, $userID) . "
