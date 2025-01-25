@@ -21,10 +21,9 @@
       <li class="li"><a href="reports.php" class="text">Reports</a></li>
     </ul>
     <div class="off-btn">
-      <a href="" class="off-logout">
+      <a href="../login.php" class="off-logout">
         Log Out
       </a>
     </div>
   </div>
 </div>
-
