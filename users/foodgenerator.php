@@ -1,5 +1,4 @@
 <?php
-include("../shared/components/navbar.php");
 include("../shared/processes/session.php");
 ?>
 
@@ -66,7 +65,7 @@ include("../shared/processes/session.php");
 
 <body>
 
-  <!-- navbar here (height: 80px)-->
+  <?php include("../shared/components/navbar.php"); ?>
 
   <div class="random-generator-container">
     <div class="row">
@@ -84,7 +83,8 @@ include("../shared/processes/session.php");
     <div class="row">
       <div class="col-12">
         <div class="random-generator-card">
-          <img id="randomImage" class="random-generator-img" src="../shared/assets/image/test-pic.png" alt="Random Food" />
+          <img id="randomImage" class="random-generator-img" src="../shared/assets/image/test-pic.png"
+            alt="Random Food" />
           <div id="recipeTitle" class="recipe-title"></div>
         </div>
       </div>
