@@ -84,8 +84,8 @@ img {
 .sidebar-inner {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  height: 100vh;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .sidebar-btn-holder {
@@ -113,9 +113,8 @@ img {
 
 .container.logout-holder {
   display: flex;
-  flex-direction: row;
-  margin: auto;
-  height: 100%;
+  justify-content: center;
+  margin-top: auto;
 }
 
 .btn-logout {
@@ -192,16 +191,17 @@ img {
 
 .card.subheader {
   font-family: var(--ff-text);
+  font-size: var(--fs-h6);
   font-weight: bold;
   margin: 0 auto;
   width: fit-content;
   padding: 16px;
   text-align: center;
-  background-color: var(--clr-light-orange);
-  border-radius: 32px;
+  background-color: transparent;
+  border:none;
 }
 
-.card {
+.card:not(.subheader) {
   margin: 24px;
   border-radius: 40px;
   box-shadow: 1px 8px 12px 0px rgba(110, 48, 48, 0.44);
@@ -323,10 +323,10 @@ img {
 
 .badge {
   font-family: var(--ff-text);
-  font-size: var(--fs-paragraph);
-  background-color: var(--clr-light-orange);
+  font-size: var(--fs-h6);
+  background-color: transparent;
   color: #000000;
-  border-radius: 40px;
+  border: none;
   max-height: 100%;
   height: auto;
   max-width: 100%;
@@ -607,3 +607,16 @@ img {
 .form-card {
   background-color: aqua;
 }
+
+/* //create recipe */
+
+/* end of create recipe */
+
+/* edit content */
+
+/* end of edit content */
+
+
+/* form post */
+
+/* end of form post */
