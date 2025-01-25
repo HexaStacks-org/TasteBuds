@@ -1,6 +1,6 @@
 <?php
 include("../../connect.php");
-session_start(); // Start the session to access user ID
+session_start();
 
 // Check if user is logged in
 if (!isset($_SESSION['userID'])) {
@@ -72,17 +72,5 @@ $query = "
     FROM galleryposts
     LEFT JOIN images ON galleryposts.postID = images.postID
 ";
-$result = $conn->query($query);
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "Caption: " . htmlspecialchars($row['caption'], ENT_QUOTES, 'UTF-8') . "<br>";
-        if ($row['imageURL']) {
-            echo "<img src='../../shared/assets/image/content-image/" . htmlspecialchars($row['imageURL'], ENT_QUOTES, 'UTF-8') . "' alt='Image' style='max-width: 100%; height: auto;'><br>";
-        }
-        echo "Approved: " . ($row['isApproved'] === 'Yes' ? "Yes" : "No") . "<br><hr>";
-    }
-} else {
-    echo "No posts found.";
-}
+$result = executeQuery($query);
 ?>
