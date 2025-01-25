@@ -1,6 +1,5 @@
 <?php
 include("../shared/processes/session.php");
-session_start();
 date_default_timezone_set('Asia/Manila');
 
 

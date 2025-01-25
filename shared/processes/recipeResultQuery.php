@@ -1,5 +1,4 @@
 <?php
-include("../connect.php");
 
 $searchText = "";
 $primaryCategory = "";
@@ -52,10 +51,10 @@ if ($secondaryCategory != '') {
 
 if ($orderBy != '') {
     switch ($orderBy) {
-        case 'A-Z':
+        case 'alphaAsc':
             $query .= " ORDER BY recipeTitle ASC";
             break;
-        case 'Z-A':
+        case 'alphaDesc':
             $query .= " ORDER BY recipeTitle DESC";
             break;
         case 'likes':
@@ -63,6 +62,12 @@ if ($orderBy != '') {
             break;
         case 'bookmarks':
             $query .= " ORDER BY bookmarksCount DESC";
+            break;
+        case 'creation':
+            $query .= " ORDER BY recipes.creationDate DESC";
+            break;
+        case 'update':
+            $query .= " ORDER BY recipes.updateDate DESC";
             break;
     }
 }

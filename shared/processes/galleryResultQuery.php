@@ -1,5 +1,4 @@
 <?php
-include("../connect.php");
 
 $searchText = "";
 $primaryCategory = "";
@@ -55,17 +54,23 @@ $query .= " GROUP BY galleryposts.postID";
 
 if ($orderBy != '') {
     switch ($orderBy) {
-        case 'A-Z':
-            $query .= " ORDER BY Caption ASC";
+        case 'alphaAsc':
+            $query .= " ORDER BY caption ASC";
             break;
-        case 'Z-A':
-            $query .= " ORDER BY Caption DESC";
+        case 'alphaDesc':
+            $query .= " ORDER BY caption DESC";
             break;
         case 'likes':
             $query .= " ORDER BY likesCount DESC";
             break;
         case 'bookmarks':
             $query .= " ORDER BY bookmarksCount DESC";
+            break;
+        case 'creation':
+            $query .= " ORDER BY recipes.creationDate DESC";
+            break;
+        case 'update':
+            $query .= " ORDER BY recipes.updateDate DESC";
             break;
     }
 }
