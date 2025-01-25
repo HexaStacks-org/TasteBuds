@@ -1,5 +1,5 @@
 <?php
-include("../../connect.php");
+include("connect.php"); 
 session_start();
 
 // Check if user is logged in
@@ -62,7 +62,7 @@ if (isset($_POST['postSubmit'])) {
     }
 
     // Redirect after success
-    header("Location: ../../gallery.php");
+    header("Location: ../../users/gallery.php");
     exit();
 }
 
@@ -72,5 +72,5 @@ $query = "
     FROM galleryposts
     LEFT JOIN images ON galleryposts.postID = images.postID
 ";
-$result = executeQuery($query);
+$result = $conn->query($query);
 ?>
