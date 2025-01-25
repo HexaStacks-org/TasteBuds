@@ -56,8 +56,8 @@ if (isset($_GET['approveID'])) {
         mysqli_stmt_bind_param($stmt, 'i', $postID); // 'i' means the variable is an integer
         if (mysqli_stmt_execute($stmt)) {
             // Redirect to refresh the page and reflect the changes
-            header("Location: management.php");
-            exit(); // Ensure that no further code is executed after redirect
+            echo "<script>window.location.href = 'management.php';</script>";
+            exit();// Ensure that no further code is executed after redirect
         } else {
             echo "Error approving post.";
         }
