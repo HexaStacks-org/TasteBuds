@@ -1,4 +1,6 @@
-<?php include("../shared/processes/session.php"); ?>
+<?php 
+include("../shared/processes/createPostQuery.php"); 
+?>
 
 <!doctype html>
 <html lang="en">

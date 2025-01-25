@@ -1,5 +1,5 @@
 <?php 
-include("../shared/processes/session.php"); 
+include("../shared/processes/createRecipeQuery.php"); 
 ?>
 
 <!doctype html>

@@ -28,6 +28,7 @@ $queryRecipes = "
     LEFT JOIN images ON images.recipeID = recipes.recipeID
     LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = recipes.primaryCategoryID
     LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = recipes.subcategoryID
+    GROUP BY recipes.recipeID
     ORDER BY $sortRecipeOption DESC
     ";
 
@@ -52,6 +53,7 @@ $resultRecipes = executeQuery($queryRecipes);
 </head>
 
 <body>
+  <?php include("../shared/components/navbar.php"); ?>
   <div class="container">
     <div class="row">
       <div class="col">
