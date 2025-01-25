@@ -6,68 +6,45 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="reportForm">
+                <form id="reportForm" method="post">
                     <p class="mb-3">Please select the reason for reporting this content:</p>
-
-                    <!-- Radio Options -->
                     <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="reportReason" id="spam" value="Spam"
-                            required>
+                        <input class="form-check-input" type="radio" name="reportReason" id="spam" value="1" required>
                         <label class="form-check-label" for="spam">Spam</label>
                     </div>
                     <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="reportReason" id="wrongInfo"
-                            value="Wrong Information">
+                        <input class="form-check-input" type="radio" name="reportReason" id="wrongInfo" value="2">
                         <label class="form-check-label" for="wrongInfo">Wrong Information</label>
                     </div>
                     <div class="form-check mb-2">
                         <input class="form-check-input" type="radio" name="reportReason" id="inappropriateContent"
-                            value="Inappropriate Content">
+                            value="3">
                         <label class="form-check-label" for="inappropriateContent">Inappropriate Content</label>
                     </div>
                     <div class="form-check mb-2">
                         <input class="form-check-input" type="radio" name="reportReason" id="copyrightInfringement"
-                            value="Copyright Infringement">
+                            value="4">
                         <label class="form-check-label" for="copyrightInfringement">Copyright Infringement</label>
                     </div>
                     <div class="form-check mb-2">
-                        <input class="form-check-input" type="radio" name="reportReason" id="harassment"
-                            value="Harassment or Abuse">
+                        <input class="form-check-input" type="radio" name="reportReason" id="harassment" value="5">
                         <label class="form-check-label" for="harassment">Harassment or Abuse</label>
                     </div>
                     <div class="form-check mb-3">
-                        <input class="form-check-input" type="radio" name="reportReason" id="others" value="Others">
+                        <input class="form-check-input" type="radio" name="reportReason" id="others" value="6">
                         <label class="form-check-label" for="others">Others</label>
                     </div>
-
-                    <!-- Textarea for 'Others' option -->
                     <div class="form-group" id="othersTextArea" style="display: none;">
                         <label for="otherReasonDetails" class="form-label">Please specify:</label>
-                        <textarea class="form-control" id="otherReasonDetails" rows="3"
+                        <textarea class="form-control" name="otherReasonDetails" id="otherReasonDetails" rows="3"
                             placeholder="Enter details..."></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger" id="submitReport">Submit Report</button>
+                <button type="submit" form="reportForm" class="btn btn-danger">Submit Report</button>
             </div>
         </div>
     </div>
 </div>
-
-<!-- JavaScript to toggle the textarea visibility -->
-<script>
-    const radioButtons = document.querySelectorAll('input[name="reportReason"]');
-    const othersTextArea = document.getElementById('othersTextArea');
-
-    radioButtons.forEach(button => {
-        button.addEventListener('change', function () {
-            if (this.value === 'Others' && this.checked) {
-                othersTextArea.style.display = 'block';
-            } else {
-                othersTextArea.style.display = 'none';
-            }
-        });
-    });
-</script>

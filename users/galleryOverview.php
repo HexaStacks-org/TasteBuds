@@ -1,6 +1,8 @@
 <?php
 include("../shared/processes/session.php");
 include("classes.php");
+include('../shared/components/reportModal.php');
+
 
 // Initialize gallery posts array
 $galleryPosts = [];
@@ -68,6 +70,7 @@ if (isset($_GET['postID'])) {
         }
     }
 }
+
 ?>
 
 <!doctype html>
@@ -95,7 +98,7 @@ if (isset($_GET['postID'])) {
             // Display the single gallery post
             if (!empty($galleryPosts)) {
                 // Only one post, so just display it
-                echo $galleryPosts[0]->buildGalleryCard();  // Assuming the GalleryPost class has a method `buildGalleryCard()`
+                echo $galleryPosts[0]->buildGalleryOverviewCard();  // Assuming the GalleryPost class has a method `buildGalleryCard()`
             } else {
                 // No gallery posts found, display a message
                 echo '
@@ -109,6 +112,17 @@ if (isset($_GET['postID'])) {
             ?>
         </div>
     </div>
+
+    <script>
+    // Toggle textarea visibility for 'Others' option
+    const radioButtons = document.querySelectorAll('input[name="reportReason"]');
+    const othersTextArea = document.getElementById('othersTextArea');
+    radioButtons.forEach(button => {
+      button.addEventListener('change', function () {
+        othersTextArea.style.display = this.value === '6' ? 'block' : 'none';
+      });
+    });
+  </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
