@@ -97,6 +97,12 @@ class GalleryPost
             <div class='caption mx-5 my-2'>
                 <p>{$this->caption}</p>
             </div>
+
+            <div class='count col my-2 mx-5'>
+                <span>Likes Count: {$this->likeCount}</span>
+                <span>Bookmarks Count: {$this->bookmarkCount}</span>
+            </div>
+
             <div class='container mt-3 mb-5'>
                 <div class='row btn-holder d-flex flex-row justify-content-between'>
                     <div class='col'>
