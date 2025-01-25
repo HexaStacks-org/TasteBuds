@@ -35,7 +35,7 @@ $query = "
         LEFT JOIN images ON images.recipeID = recipes.recipeID
         LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = recipes.primaryCategoryID
         LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = recipes.subcategoryID
-        WHERE galleryposts.isApproved = 'yes'";
+        WHERE recipes.isApproved = 'yes'";
 
 if ($searchText != '') {
     $query .= " AND (recipeTitle LIKE '$searchText%')";

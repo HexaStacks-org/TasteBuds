@@ -38,8 +38,7 @@ if (isset($_POST['btnUpdate'])) {
         // If either password field is filled, validate the passwords
         if ($newPassword === $confirmNewPassword) {
             // Hash the new password
-            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-            $updateUserQuery .= ", password = '$hashedPassword'";
+            $updateUserQuery .= ", password = '$newPassword'";
         } else {
             $errorMessage = "Passwords do not match!";
         }
@@ -95,10 +94,12 @@ if (isset($_POST['btnUpdate'])) {
                     id="lastName" name="lastName" required placeholder="Enter your new last name">
 
                 <label for="newPassword" class="form-label">New Password (optional)</label>
-                <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Enter your new password">
+                <input type="password" class="form-control" id="newPassword" name="newPassword"
+                    placeholder="Enter your new password">
 
                 <label for="confirmNewPassword" class="form-label">Confirm New Password (optional)</label>
-                <input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm your new password">
+                <input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword"
+                    placeholder="Confirm your new password">
 
                 <button type="submit" name="btnUpdate" class="btn-update">UPDATE</button>
             </form>
