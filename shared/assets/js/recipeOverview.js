@@ -24,3 +24,13 @@ function openTab(evt, tabName) {
     }
   });
   
+// Get all buttons
+const buttons = document.querySelectorAll('.btn-like, .btn-bookmark, .btn-report');
+
+// Add click event listener to each button
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+    loginModal.show();
+  });
+});

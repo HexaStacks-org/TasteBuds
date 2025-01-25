@@ -63,12 +63,13 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
           </div>
           <div class="row buttons">
             <div class="button-col-6">
-              <button class="btn-like"><i class="bi bi-hand-thumbs-up-fill"
-                  style="color: var(--clr-light-orange)"></i></button>
-              <button class="btn-bookmark"><i class="bi bi-bookmark-fill"
-                  style="color: var(--clr-light-orange)"></i></button>
-              <button class="btn-report" data-bs-toggle="modal" data-bs-target="#reportModal"
-                data-recipe-id="<?php echo htmlspecialchars($recipeOverview['recipeID']); ?>">
+              <button class="btn-like">
+                <i class="bi bi-hand-thumbs-up-fill" style="color: var(--clr-light-orange)"></i>
+              </button>
+              <button class="btn-bookmark">
+                <i class="bi bi-bookmark-fill" style="color: var(--clr-light-orange)"></i>
+              </button>
+              <button class="btn-report">
                 <i class="bi bi-flag-fill" style="color: var(--clr-light-orange)"></i>
               </button>
             </div>
@@ -118,7 +119,31 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
     ?>
 
   </div>
-  <?php include("shared/components/reportModal.php"); ?>
+  <div class="modal" id="loginModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="loginModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 shadow-lg">
+        <div class="modal-header border-bottom-0">
+          <h5 class="modal-title" id="loginModalLabel">Log In Required</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="lead text-muted">You need to log in to perform this action.</p>
+          <p>Don't have an account yet? You can easily create one and enjoy more features!</p>
+        </div>
+        <div class="modal-footer border-top-0 d-flex justify-content-center">
+          <!-- Go to Login Button -->
+          <a href="login.php" class="btn btn-primary btn-lg px-4 rounded-pill">
+            Login
+          </a>
+          <!-- Close Button -->
+          <button type="button" class="btn btn-secondary btn-lg px-4 rounded-pill" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   </div>

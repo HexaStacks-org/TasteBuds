@@ -8,14 +8,14 @@ $recipeID = isset($_GET['recipeID']) ? (int) $_GET['recipeID'] : 0;
 
 // Query to fetch the recipe details for the given recipeID
 $queryOverviewRecipe = "
-    SELECT recipes.recipeID, recipes.recipeTitle, recipes.description, recipes.ingredients, recipes.steps,
+    SELECT recipes.recipeID, recipes.userID, recipes.recipeTitle, recipes.description, recipes.ingredients, recipes.steps,
            recipes.isApproved, recipes.createdAt, recipes.updatedAt,
            users.firstName, users.lastName,
            images.imageURL,
            primaryfoodcategories.primaryCategoryName,
            foodSubcategories.subcategoryName, 
            (SELECT COUNT(likeID) FROM likes WHERE likes.recipeID = recipes.recipeID) AS likesCount,
-          (SELECT COUNT(bookmarkID) FROM bookmarks WHERE bookmarks.recipeID = recipes.recipeID) AS bookmarksCount
+           (SELECT COUNT(bookmarkID) FROM bookmarks WHERE bookmarks.recipeID = recipes.recipeID) AS bookmarksCount
     FROM recipes
     LEFT JOIN users ON users.userID = recipes.userID
     LEFT JOIN images ON images.recipeID = recipes.recipeID
@@ -26,6 +26,39 @@ $queryOverviewRecipe = "
 
 $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
 
+// Handle report submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reportReason'])) {
+  $userID = $_SESSION['userID']; // Get the userID from the session
+  $reportReason = $_POST['reportReason'];
+  $inputOtherReason = isset($_POST['otherReasonDetails']) ? trim($_POST['otherReasonDetails']) : null;
+
+  // Insert the report into the database
+  $reasonQuery = "
+        INSERT INTO reports (userID, recipeID, reasonID, otherReason) 
+        VALUES ('$userID', '$recipeID', '$reportReason', " . ($inputOtherReason ? "'$inputOtherReason'" : "NULL") . ")
+    ";
+  executeQuery($reasonQuery);
+
+  // Redirect or show success message
+  echo "<script>alert('Your report has been submitted.'); window.location.href = window.location.href;</script>";
+}
+
+// Handle report submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reportReason'])) {
+  $userID = $_SESSION['userID']; // Get the userID from the session
+  $reportReason = $_POST['reportReason'];
+  $inputOtherReason = isset($_POST['otherReasonDetails']) ? trim($_POST['otherReasonDetails']) : null;
+
+  // Insert the report into the database
+  $reasonQuery = "
+      INSERT INTO reports (userID, recipeID, reasonID, otherReason) 
+      VALUES ('$userID', '$recipeID', '$reportReason', " . ($inputOtherReason ? "'$inputOtherReason'" : "NULL") . ")
+  ";
+  executeQuery($reasonQuery);
+
+  // Redirect or show success message
+  echo "<script>alert('Your report has been submitted.'); window.location.href = window.location.href;</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,6 +114,11 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
                   <i class="bi bi-bookmark-fill" style="color: var(--clr-light-orange)"></i>
                 </button>
               </form>
+              <button class="btn-report" data-bs-toggle="modal" data-bs-target="#reportModal"
+                data-recipe-id="<?php echo htmlspecialchars($recipeOverview['recipeID']); ?>"
+                data-user-id="<?php echo htmlspecialchars($recipeOverview['userID']); ?>">
+                <i class="bi bi-flag-fill" style="color: var(--clr-light-orange)"></i>
+              </button>
             </div>
           </div>
 
@@ -130,16 +168,67 @@ $resultOverviewRecipe = executeQuery($queryOverviewRecipe);
 
 
   </div>
-  <?php include("../shared/components/reportModal.php"); ?>
 
-
+  <!-- Report Modal -->
+  <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="reportModalLabel">Report Content</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="reportForm" method="post">
+            <p class="mb-3">Please select the reason for reporting this content:</p>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="radio" name="reportReason" id="spam" value="1" required>
+              <label class="form-check-label" for="spam">Spam</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="radio" name="reportReason" id="wrongInfo" value="2">
+              <label class="form-check-label" for="wrongInfo">Wrong Information</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="radio" name="reportReason" id="inappropriateContent" value="3">
+              <label class="form-check-label" for="inappropriateContent">Inappropriate Content</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="radio" name="reportReason" id="copyrightInfringement" value="4">
+              <label class="form-check-label" for="copyrightInfringement">Copyright Infringement</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="radio" name="reportReason" id="harassment" value="5">
+              <label class="form-check-label" for="harassment">Harassment or Abuse</label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="radio" name="reportReason" id="others" value="6">
+              <label class="form-check-label" for="others">Others</label>
+            </div>
+            <div class="form-group" id="othersTextArea" style="display: none;">
+              <label for="otherReasonDetails" class="form-label">Please specify:</label>
+              <textarea class="form-control" name="otherReasonDetails" id="otherReasonDetails" rows="3"
+                placeholder="Enter details..."></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" form="reportForm" class="btn btn-danger">Submit Report</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script src="../shared/assets/js/recipeOverview.js"></script>
-
-  <?php include '../shared/components/footer.php'; ?>
-
-
+  <script>
+    // Toggle textarea visibility for 'Others' option
+    const radioButtons = document.querySelectorAll('input[name="reportReason"]');
+    const othersTextArea = document.getElementById('othersTextArea');
+    radioButtons.forEach(button => {
+      button.addEventListener('change', function () {
+        othersTextArea.style.display = this.value === '6' ? 'block' : 'none';
+      });
+    });
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
