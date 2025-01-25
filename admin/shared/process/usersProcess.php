@@ -27,7 +27,7 @@ if (isset($_GET['userID'])) {
       mysqli_stmt_bind_param($stmt, 'i', $userID);
       if (mysqli_stmt_execute($stmt)) {
         // Redirect after successful update
-        header("Location: users.php");
+        echo "<script>window.location.href = 'users.php';</script>";
         exit();
       } else {
         echo "Error updating user.";

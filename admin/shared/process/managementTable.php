@@ -17,20 +17,31 @@ LEFT JOIN primaryfoodcategories ON primaryfoodcategories.primaryCategoryID = rec
 LEFT JOIN foodSubcategories ON foodSubcategories.subcategoryID = recipes.subcategoryID WHERE recipes.isApproved = 'no'";
 $moderationRecipeResult = executeQuery($moderationRecipe);
 
-$managementGallery = "SELECT *
+$managementGallery = "SELECT galleryposts.*, users.firstName, users.lastName, 
+primaryfoodcategories.primaryCategoryName, foodsubcategories.subcategoryName, 
+MIN(images.imageURL) AS imageURL
 FROM galleryposts
 LEFT JOIN users ON galleryposts.userID = users.userID
 LEFT JOIN images ON galleryposts.postID = images.postID
 LEFT JOIN primaryfoodcategories ON galleryposts.primaryCategoryID = primaryfoodcategories.primaryCategoryID
-LEFT JOIN foodsubcategories ON galleryposts.subcategoryID = foodsubcategories.subcategoryID  WHERE galleryposts.isApproved = 'yes';";
+LEFT JOIN foodsubcategories ON galleryposts.subcategoryID = foodsubcategories.subcategoryID
+WHERE galleryposts.isApproved = 'yes'
+GROUP BY galleryposts.postID;";
 $managementGalleryResult = executeQuery($managementGallery);
 
-$managementRecipe = "SELECT *
+$managementRecipe = "SELECT recipes.*, 
+       users.firstName, 
+       users.lastName, 
+       primaryfoodcategories.primaryCategoryName, 
+       foodsubcategories.subcategoryName, 
+       MIN(images.imageURL) AS imageURL
 FROM recipes
 LEFT JOIN users ON recipes.userID = users.userID
 LEFT JOIN images ON recipes.recipeID = images.recipeID
 LEFT JOIN primaryfoodcategories ON recipes.primaryCategoryID = primaryfoodcategories.primaryCategoryID
-LEFT JOIN foodsubcategories ON recipes.subcategoryID = foodsubcategories.subcategoryID  WHERE recipes.isApproved = 'yes';";
+LEFT JOIN foodsubcategories ON recipes.subcategoryID = foodsubcategories.subcategoryID
+WHERE recipes.isApproved = 'yes'
+GROUP BY recipes.recipeID;";
 $managementRecipeResult = executeQuery($managementRecipe);
 
 // Check if a POST needs to be approved or deleted
@@ -66,7 +77,7 @@ if (isset($_GET['deleteID'])) {
         mysqli_stmt_bind_param($stmt, 'i', $postID); // 'i' means the variable is an integer
         if (mysqli_stmt_execute($stmt)) {
             // Redirect to refresh the page after the post is deleted
-            header("Location: management.php");
+            echo "<script>window.location.href = 'management.php';</script>";
             exit(); // Ensure no further code is executed after redirect
         } else {
             echo "Error deleting post.";
@@ -87,7 +98,7 @@ if (isset($_GET['approveRecipeID'])) {
         mysqli_stmt_bind_param($stmt, 'i', $recipeID); // 'i' means the variable is an integer
         if (mysqli_stmt_execute($stmt)) {
             // Redirect to refresh the page and reflect the changes
-            header("Location: management.php");
+            echo "<script>window.location.href = 'management.php';</script>";
             exit(); // Ensure that no further code is executed after redirect
         } else {
             echo "Error approving post.";
@@ -108,8 +119,8 @@ if (isset($_GET['deleteRecipeID'])) {
         mysqli_stmt_bind_param($stmt, 'i', $recipeID); // 'i' means the variable is an integer
         if (mysqli_stmt_execute($stmt)) {
             // Redirect to refresh the page after the post is deleted
-            header("Location: management.php");
-            exit(); // Ensure no further code is executed after redirect
+            echo "<script>window.location.href = 'management.php';</script>";
+            exit();// Ensure no further code is executed after redirect
         } else {
             echo "Error deleting post.";
         }
@@ -132,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['postID']) && isset($_P
 
         if (mysqli_stmt_execute($stmt)) {
             // Redirect back to the page after successful update
-            header("Location: management.php");
+            echo "<script>window.location.href = 'management.php';</script>";
             exit(); // Ensure that no further code is executed after the redirect
         } else {
             echo "Error updating category.";
@@ -158,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['postID']) && isset($_P
 
         if (mysqli_stmt_execute($stmt)) {
             // Redirect back to the page after successful update
-            header("Location: management.php");
+            echo "<script>window.location.href = 'management.php';</script>";
             exit(); // Ensure that no further code is executed after the redirect
         } else {
             echo "Error updating category.";
@@ -181,7 +192,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
         mysqli_stmt_bind_param($stmt, 'ii', $primaryCategoryID, $recipeID);
         if (mysqli_stmt_execute($stmt)) {
             // Redirect after successful update
-            header("Location: management.php");
+            echo "<script>window.location.href = 'management.php';</script>";
             exit();
         } else {
             echo "Error updating primary category.";
@@ -202,7 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
         mysqli_stmt_bind_param($stmt, 'ii', $subcategoryID, $recipeID);
         if (mysqli_stmt_execute($stmt)) {
             // Redirect after successful update
-            header("Location: management.php");
+            echo "<script>window.location.href = 'management.php';</script>";
             exit();
         } else {
             echo "Error updating subcategory.";
@@ -236,7 +247,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                     <?php
                     if (mysqli_num_rows($moderationGalleryResult) > 0) {
                         while ($moderationGalleryRow = mysqli_fetch_assoc($moderationGalleryResult)) {
-                    ?>
+                            ?>
                             <tr>
                                 <td style="background-color:pink">
                                     <?php echo $moderationGalleryRow["firstName"] . " " . $moderationGalleryRow['lastName'] ?>
@@ -259,8 +270,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body text-center">
-                                                    <img
-                                                        src="<?php echo !empty($moderationGalleryRow['imageURL']) ? htmlspecialchars($moderationGalleryRow['imageURL']) : 'default-placeholder.jpg'; ?>"
+                                                    <img src="<?php echo !empty($moderationGalleryRow['imageURL']) ? htmlspecialchars($moderationGalleryRow['imageURL']) : 'default-placeholder.jpg'; ?>"
                                                         class="img-fluid rounded">
                                                 </div>
                                             </div>
@@ -275,13 +285,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                                 </td>
                                 <td style="background-color:pink">
                                     <!-- Approve button with link to trigger approval -->
-                                    <a href="management.php?approveID=<?php echo $moderationGalleryRow['postID']; ?>" class="btn label">Approve</a>
+                                    <a href="management.php?approveID=<?php echo $moderationGalleryRow['postID']; ?>"
+                                        class="btn label">Approve</a>
 
                                     <!-- Delete button with link to trigger deletion -->
-                                    <a href="management.php?deleteID=<?php echo $moderationGalleryRow['postID']; ?>" class="btn label" onclick="return confirm('Are you sure you want to delete this post?');">Delete</a>
+                                    <a href="management.php?deleteID=<?php echo $moderationGalleryRow['postID']; ?>"
+                                        class="btn label"
+                                        onclick="return confirm('Are you sure you want to delete this post?');">Delete</a>
                                 </td>
                             </tr>
-                    <?php
+                            <?php
                         }
                     } ?>
                 </tbody>
@@ -314,7 +327,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                     <?php
                     if (mysqli_num_rows($moderationRecipeResult) > 0) {
                         while ($moderationRecipeRow = mysqli_fetch_assoc($moderationRecipeResult)) {
-                    ?>
+                            ?>
                             <tr>
                                 <td style="background-color:pink">
                                     <?php echo $moderationRecipeRow["recipeID"] ? $moderationRecipeRow["recipeID"] : 'NULL' ?>
@@ -340,8 +353,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body text-center">
-                                                    <img
-                                                        src="<?php echo !empty($moderationRecipeRow['imageURL']) ? htmlspecialchars($moderationRecipeRow['imageURL']) : 'default-placeholder.jpg'; ?>"
+                                                    <img src="<?php echo !empty($moderationRecipeRow['imageURL']) ? htmlspecialchars($moderationRecipeRow['imageURL']) : 'default-placeholder.jpg'; ?>"
                                                         class="img-fluid rounded" alt="Recipe Image">
                                                 </div>
                                             </div>
@@ -359,13 +371,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                                 </td>
                                 <td style="background-color:pink">
                                     <!-- Approve button with link to trigger approval -->
-                                    <a href="management.php?approveRecipeID=<?php echo $moderationRecipeRow['recipeID']; ?>" class="btn label">Approve</a>
+                                    <a href="management.php?approveRecipeID=<?php echo $moderationRecipeRow['recipeID']; ?>"
+                                        class="btn label">Approve</a>
 
                                     <!-- Delete button with link to trigger deletion -->
-                                    <a href="management.php?deleteRecipeID=<?php echo $moderationRecipeRow['recipeID']; ?>" class="btn label" onclick="return confirm('Are you sure you want to delete this post?');">Delete</a>
+                                    <a href="management.php?deleteRecipeID=<?php echo $moderationRecipeRow['recipeID']; ?>"
+                                        class="btn label"
+                                        onclick="return confirm('Are you sure you want to delete this post?');">Delete</a>
                                 </td>
                             </tr>
-                    <?php
+                            <?php
                         }
                     } ?>
                 </tbody>
@@ -397,7 +412,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                     <?php
                     if (mysqli_num_rows($managementGalleryResult) > 0) {
                         while ($managementGalleryRow = mysqli_fetch_assoc($managementGalleryResult)) {
-                    ?>
+                            ?>
                             <tr>
                                 <td style="background-color:pink">
                                     <?php echo $managementGalleryRow["postID"] ? $managementGalleryRow["postID"] : 'NULL' ?>
@@ -423,8 +438,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body text-center">
-                                                    <img
-                                                        src="<?php echo !empty($managementGalleryRow['imageURL']) ? htmlspecialchars($managementGalleryRow['imageURL']) : 'default-placeholder.jpg'; ?>"
+                                                    <img src="<?php echo !empty($managementGalleryRow['imageURL']) ? htmlspecialchars($managementGalleryRow['imageURL']) : 'default-placeholder.jpg'; ?>"
                                                         class="img-fluid rounded" alt="Recipe Image">
                                                 </div>
                                             </div>
@@ -443,42 +457,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                                 <td style="background-color:pink">
                                     <!-- Form to update the primary category for Gallery -->
                                     <form action="management.php" method="POST">
-                                        <input type="hidden" name="postID" value="<?php echo $managementGalleryRow['postID']; ?>">
-                                        <button class="btn action dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <input type="hidden" name="postID"
+                                            value="<?php echo $managementGalleryRow['postID']; ?>">
+                                        <button class="btn action dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
                                             Prim Category
                                         </button>
                                         <ul class="dropdown-menu gallery">
-                                            <li><a class="dropdown-item gallery" data-category-gallery="1" data-target-gallery="primaryCategory">Breakfast</a></li>
-                                            <li><a class="dropdown-item gallery" data-category-gallery="2" data-target-gallery="primaryCategory">Lunch</a></li>
-                                            <li><a class="dropdown-item gallery" data-category-gallery="3" data-target-gallery="primaryCategory">Dinner</a></li>
-                                            <li><a class="dropdown-item gallery" data-category-gallery="4" data-target-gallery="primaryCategory">Dessert</a></li>
-                                            <li><a class="dropdown-item gallery" data-category-gallery="5" data-target-gallery="primaryCategory">Snack</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="1"
+                                                    data-target-gallery="primaryCategory">Breakfast</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="2"
+                                                    data-target-gallery="primaryCategory">Lunch</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="3"
+                                                    data-target-gallery="primaryCategory">Dinner</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="4"
+                                                    data-target-gallery="primaryCategory">Dessert</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="5"
+                                                    data-target-gallery="primaryCategory">Snack</a></li>
                                         </ul>
-                                        <input type="hidden" name="primaryCategoryID" class="primaryCategory" value="<?php echo $managementGalleryRow['primaryCategoryID']; ?>">
+                                        <input type="hidden" name="primaryCategoryID" class="primaryCategory"
+                                            value="<?php echo $managementGalleryRow['primaryCategoryID']; ?>">
                                         <button type="submit" class="btn action">Update Category</button>
                                     </form>
 
                                     <!-- Form to update the sub-category for Gallery -->
                                     <form action="management.php" method="POST">
-                                        <input type="hidden" name="postID" value="<?php echo $managementGalleryRow['postID']; ?>">
-                                        <button class="btn action dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <input type="hidden" name="postID"
+                                            value="<?php echo $managementGalleryRow['postID']; ?>">
+                                        <button class="btn action dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
                                             Sub Category
                                         </button>
                                         <ul class="dropdown-menu gallery">
-                                            <li><a class="dropdown-item gallery" data-category-gallery="1" data-target-gallery="subcategory">Vegan</a></li>
-                                            <li><a class="dropdown-item gallery" data-category-gallery="2" data-target-gallery="subcategory">Pork</a></li>
-                                            <li><a class="dropdown-item gallery" data-category-gallery="3" data-target-gallery="subcategory">Chicken</a></li>
-                                            <li><a class="dropdown-item gallery" data-category-gallery="4" data-target-gallery="subcategory">Beef</a></li>
-                                            <li><a class="dropdown-item gallery" data-category-gallery="5" data-target-gallery="subcategory">Seafood</a></li>
-                                            <li><a class="dropdown-item gallery" data-category-gallery="6" data-target-gallery="subcategory">Others</a></li>
-                                            <li><a class="dropdown-item gallery" data-category-gallery="7" data-target-gallery="subcategory">None</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="1"
+                                                    data-target-gallery="subcategory">Vegan</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="2"
+                                                    data-target-gallery="subcategory">Pork</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="3"
+                                                    data-target-gallery="subcategory">Chicken</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="4"
+                                                    data-target-gallery="subcategory">Beef</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="5"
+                                                    data-target-gallery="subcategory">Seafood</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="6"
+                                                    data-target-gallery="subcategory">Others</a></li>
+                                            <li><a class="dropdown-item gallery" data-category-gallery="7"
+                                                    data-target-gallery="subcategory">None</a></li>
                                         </ul>
-                                        <input type="hidden" name="subcategoryID" class="subcategory" value="<?php echo $managementGalleryRow['subcategoryID']; ?>">
+                                        <input type="hidden" name="subcategoryID" class="subcategory"
+                                            value="<?php echo $managementGalleryRow['subcategoryID']; ?>">
                                         <button type="submit" class="btn action">Update Category</button>
                                     </form>
                                 </td>
                             </tr>
-                    <?php
+                            <?php
                         }
                     } ?>
                 </tbody>
@@ -510,7 +542,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                     <?php
                     if (mysqli_num_rows($managementRecipeResult) > 0) {
                         while ($managementRecipeRow = mysqli_fetch_assoc($managementRecipeResult)) {
-                    ?>
+                            ?>
                             <tr>
                                 <td style="background-color:pink">
                                     <?php echo $managementRecipeRow["recipeID"] ? $managementRecipeRow["recipeID"] : 'NULL' ?>
@@ -536,8 +568,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body text-center">
-                                                    <img
-                                                        src="<?php echo !empty($managementRecipeRow['imageURL']) ? htmlspecialchars($managementRecipeRow['imageURL']) : 'default-placeholder.jpg'; ?>"
+                                                    <img src="<?php echo !empty($managementRecipeRow['imageURL']) ? htmlspecialchars($managementRecipeRow['imageURL']) : 'default-placeholder.jpg'; ?>"
                                                         class="img-fluid rounded" alt="Recipe Image">
                                                 </div>
                                             </div>
@@ -556,44 +587,76 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
                                 <td style="background-color:pink">
                                     <!-- Form to update the primary category -->
                                     <form action="management.php" method="POST">
-                                        <input type="hidden" name="recipeID" value="<?php echo $managementRecipeRow['recipeID']; ?>">
+                                        <input type="hidden" name="recipeID"
+                                            value="<?php echo $managementRecipeRow['recipeID']; ?>">
                                         <!-- Primary Category Dropdown -->
-                                        <button class="btn action dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button class="btn action dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
                                             Prim Category
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" data-category="1" data-target="#primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Breakfast</a></li>
-                                            <li><a class="dropdown-item" data-category="2" data-target="#primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Lunch</a></li>
-                                            <li><a class="dropdown-item" data-category="3" data-target="#primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Dinner</a></li>
-                                            <li><a class="dropdown-item" data-category="4" data-target="#primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Dessert</a></li>
-                                            <li><a class="dropdown-item" data-category="5" data-target="#primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Snack</a></li>
+                                            <li><a class="dropdown-item" data-category="1"
+                                                    data-target="#primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Breakfast</a>
+                                            </li>
+                                            <li><a class="dropdown-item" data-category="2"
+                                                    data-target="#primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Lunch</a>
+                                            </li>
+                                            <li><a class="dropdown-item" data-category="3"
+                                                    data-target="#primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Dinner</a>
+                                            </li>
+                                            <li><a class="dropdown-item" data-category="4"
+                                                    data-target="#primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Dessert</a>
+                                            </li>
+                                            <li><a class="dropdown-item" data-category="5"
+                                                    data-target="#primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Snack</a>
+                                            </li>
                                         </ul>
-                                        <input type="hidden" name="primaryCategoryID" id="primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>" value="<?php echo $managementRecipeRow['primaryCategoryID']; ?>">
+                                        <input type="hidden" name="primaryCategoryID"
+                                            id="primaryCategoryID<?php echo $managementRecipeRow['recipeID']; ?>"
+                                            value="<?php echo $managementRecipeRow['primaryCategoryID']; ?>">
                                         <button type="submit" class="btn action">Update Category</button>
                                     </form>
 
                                     <!-- Form to update the sub-category -->
                                     <form action="management.php" method="POST">
-                                        <input type="hidden" name="recipeID" value="<?php echo $managementRecipeRow['recipeID']; ?>">
+                                        <input type="hidden" name="recipeID"
+                                            value="<?php echo $managementRecipeRow['recipeID']; ?>">
                                         <!-- Sub Category Dropdown -->
-                                        <button class="btn action dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button class="btn action dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
                                             Sub Category
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" data-category="1" data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Vegan</a></li>
-                                            <li><a class="dropdown-item" data-category="2" data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Pork</a></li>
-                                            <li><a class="dropdown-item" data-category="3" data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Chicken</a></li>
-                                            <li><a class="dropdown-item" data-category="4" data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Beef</a></li>
-                                            <li><a class="dropdown-item" data-category="5" data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Seafood</a></li>
-                                            <li><a class="dropdown-item" data-category="6" data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Others</a></li>
-                                            <li><a class="dropdown-item" data-category="7" data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">None</a></li>
+                                            <li><a class="dropdown-item" data-category="1"
+                                                    data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Vegan</a>
+                                            </li>
+                                            <li><a class="dropdown-item" data-category="2"
+                                                    data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Pork</a>
+                                            </li>
+                                            <li><a class="dropdown-item" data-category="3"
+                                                    data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Chicken</a>
+                                            </li>
+                                            <li><a class="dropdown-item" data-category="4"
+                                                    data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Beef</a>
+                                            </li>
+                                            <li><a class="dropdown-item" data-category="5"
+                                                    data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Seafood</a>
+                                            </li>
+                                            <li><a class="dropdown-item" data-category="6"
+                                                    data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">Others</a>
+                                            </li>
+                                            <li><a class="dropdown-item" data-category="7"
+                                                    data-target="#subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>">None</a>
+                                            </li>
                                         </ul>
-                                        <input type="hidden" name="subcategoryID" id="subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>" value="<?php echo $managementRecipeRow['subcategoryID']; ?>">
+                                        <input type="hidden" name="subcategoryID"
+                                            id="subcategoryID<?php echo $managementRecipeRow['recipeID']; ?>"
+                                            value="<?php echo $managementRecipeRow['subcategoryID']; ?>">
                                         <button type="submit" class="btn action">Update Category</button>
                                     </form>
                                 </td>
                             </tr>
-                    <?php
+                            <?php
                         }
                     } ?>
                 </tbody>
@@ -605,7 +668,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
 <script>
     // JavaScript for Primary Category (Gallery and Recipe)
     document.querySelectorAll('.dropdown-menu .dropdown-item').forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             const categoryID = this.getAttribute('data-category'); // Get category ID from clicked item
             const targetID = this.getAttribute('data-target'); // Get the target ID for the hidden input
             const targetInput = document.querySelector(targetID); // Find the hidden input using its unique ID
@@ -616,7 +679,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recipeID']) && isset($
     });
 
     document.querySelectorAll('.dropdown-menu.gallery .dropdown-item.gallery').forEach(item => {
-        item.addEventListener('click', function(event) {
+        item.addEventListener('click', function (event) {
             event.preventDefault(); // Prevent default behavior
 
             const categoryID = this.getAttribute('data-category-gallery'); // Get category ID
