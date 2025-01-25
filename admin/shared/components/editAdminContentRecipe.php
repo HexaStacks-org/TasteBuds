@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($updateRecipeResult) {
         // Redirect to the updated recipe page after successful update
-        header("Location: recipeOverview.php?recipeID=$recipeID");
+        header("Location: ../../adminEditContent.php");
         exit; // Ensure the script stops executing after the redirect
     } else {
         echo "<div class='alert alert-danger'>Error updating recipe. Please try again.</div>";

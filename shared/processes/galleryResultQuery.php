@@ -39,7 +39,7 @@ $query = "
     WHERE galleryposts.isApproved = 'yes'";
 
 if ($searchText != '') {
-    $query .= " AND (caption LIKE '$searchText%')";
+    $query .= " AND (caption LIKE '%$searchText%')";
 }
 
 if ($primaryCategory != '') {
