@@ -78,4 +78,20 @@ if (isset($_POST['bookmarkAction'])) {
         executeQuery($insertBookmarkQuery);
     }
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reportReason'])) {
+  $userID = $_SESSION['userID']; // Get the userID from the session
+  $reportReason = $_POST['reportReason'];
+  $inputOtherReason = isset($_POST['otherReasonDetails']) ? trim($_POST['otherReasonDetails']) : null;
+
+  // Insert the report into the database
+  $reasonQuery = "
+      INSERT INTO reports (userID, postID, reasonID, otherReason) 
+      VALUES ('$userID', '$postID', '$reportReason', " . ($inputOtherReason ? "'$inputOtherReason'" : "NULL") . ")
+  ";
+  executeQuery($reasonQuery);
+
+  // Redirect or show success message
+  echo "<script>alert('Your report has been submitted.'); window.location.href = window.location.href;</script>";
+}
 ?>
