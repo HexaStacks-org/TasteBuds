@@ -66,7 +66,7 @@ include("shared/process/session.php");
                                             required>
                                     </div>
 
-                                    <div class="categories mx-5 align-items-center">
+                                    <div class="col-sm-6 categories mx-5 align-items-center">
                                         <p class="form-category">Primary Category</p>
                                         <div class="form-check-container mx-5">
                                             <div class="form-check">
@@ -98,7 +98,7 @@ include("shared/process/session.php");
                                         </div>
 
                                         <p class="form-category mt-3">Sub Category</p>
-                                        <div class="form-check-container mx-5">
+                                        <div class="col-sm-6 form-check-container mx-5">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="flexRadioSecondary"
                                                     id="flexRadioDefault6" value="1">
@@ -265,9 +265,9 @@ include("shared/process/session.php");
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+    </div>
     </div>
     <script src="../shared/assets/js/createPost.js"></script>
     <script src="../shared/assets/js/createRecipe.js"></script>

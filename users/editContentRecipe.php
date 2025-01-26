@@ -1,7 +1,6 @@
 <?php
 include("../shared/processes/session.php");
 
-session_start(); // Start the session
 date_default_timezone_set('Asia/Manila');
 
 // Check if the user is logged in

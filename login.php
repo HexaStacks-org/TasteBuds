@@ -50,14 +50,6 @@ include("shared/processes/loginQuery.php");
                         <input type="password" class="form-control" placeholder="**********" id="password"
                             name="password" required>
                     </div>
-                    <div class="mb-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="keepSignedIn">
-                            <label class="form-check-label" for="keepSignedIn">
-                                Keep me signed in
-                            </label>
-                        </div>
-                    </div>
                     <button type="submit" class="btn btn-login px-5" name="btnLogin">
                         <p>LOGIN</p>
                     </button>

@@ -38,7 +38,7 @@ $query = "
         WHERE recipes.isApproved = 'yes'";
 
 if ($searchText != '') {
-    $query .= " AND (recipeTitle LIKE '$searchText%')";
+    $query .= " AND (recipeTitle LIKE '%$searchText%')";
 }
 
 if ($primaryCategory != '') {

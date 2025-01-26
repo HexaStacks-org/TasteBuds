@@ -16,7 +16,7 @@ if (isset($_POST['btnLogin'])) {
     $email = str_replace('\'', '', $email);
     $password = str_replace('\'', '', $password);
 
-    $loginQuery = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $loginQuery = "SELECT * FROM users WHERE email = '$email' AND password = '$password' AND isRestricted = 'no'";
     $loginResult = executeQuery($loginQuery);
 
     if (mysqli_num_rows($loginResult) > 0) {
@@ -44,7 +44,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     $email = str_replace('\'', '', $email);
     $password = str_replace('\'', '', $password);
 
-    $loginQuery = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $loginQuery = "SELECT * FROM users WHERE email = '$email' AND password = '$password' AND isRestricted = 'no'";
     $loginResult = executeQuery($loginQuery);
 
     if (mysqli_num_rows($loginResult) > 0) {
@@ -66,9 +66,11 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
 
 if (isset($_POST['keepSignedIn'])) {
     setcookie('email', $email, time() + (30 * 24 * 60 * 60), "/");  // 30 days
-    setcookie('password', $password, time() + (30 * 24 * 60 * 60), "/");  // 30 days
+    setcookie('password', $password, time() + (30 * 24 * 60 * 60), "/");
+    setcookie('userID', $user, time() + (30 * 24 * 60 * 60), "/");
 } else {
     setcookie('email', '', time() - 3600, "/");
     setcookie('password', '', time() - 3600, "/");
+    setcookie('userID', '', time() - 3600, "/");
 }
 ?>

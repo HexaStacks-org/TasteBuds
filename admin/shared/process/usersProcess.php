@@ -1,10 +1,10 @@
 <?php
 include("shared/components/connect.php");
 // Fetch non-restricted and restricted users
-$getFullNameQuery = "SELECT * FROM users WHERE isRestricted = 'no'";
+$getFullNameQuery = "SELECT * FROM users WHERE isRestricted = 'no' AND role = 'user'";
 $getFullNameResult = executeQuery($getFullNameQuery);
 
-$userRestricted = "SELECT * FROM users WHERE isRestricted = 'yes'";
+$userRestricted = "SELECT * FROM users WHERE isRestricted = 'yes' AND role = 'user'";
 $userRestrictedResult = executeQuery($userRestricted);
 
 // Handle Restrict and Unrestrict actions

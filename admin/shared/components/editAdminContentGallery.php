@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         executeQuery($updateQuery);
 
         // Redirect to the post details page after successful update
-        header("Location: galleryOverview.php?postID=$postID");
+        header("Location: ../../adminEditContent.php");
         exit;
     }
 }

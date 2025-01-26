@@ -1,6 +1,11 @@
 <?php
 include("connect.php");
 
+if (isset($_COOKIE['userID'])) {
+    header("Location: users/index.php");
+    exit;
+}
+
 // Query for Top 5 Recipes
 $queryTopRecipes = "
 SELECT recipes.*, 
